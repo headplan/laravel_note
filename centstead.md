@@ -28,10 +28,6 @@ Centstead 盒子提供了两个版本:
 1. 先锋版 virtualbox\_avant.box ,预制 php 7.0 mysql 5.7
 2. 通用版 virtualbox\_usual.box ,预制 php 5.6 mysql 5.6
 
-
-
-
-
 盒子下载百度网盘:[https:\/\/pan.baidu.com\/s\/1c15ybAS](https://pan.baidu.com/s/1c15ybAS)
 
 **添加盒子**
@@ -44,17 +40,9 @@ vagrant box add .\/avant.box --name=jason-chang\/centstead-avant
 
 vagrant box add .\/usual.box --name=jason-chang\/centstead-usual
 
-
-
-
-
 **通过 GitHub 克隆 Centstead**
 
 git clone https:\/\/github.com\/jason-chang\/centstead.git centstead
-
-
-
-
 
 **初始化配置文件**
 
@@ -68,10 +56,6 @@ git clone https:\/\/github.com\/jason-chang\/centstead.git centstead
 
 **after.sh** - vagrant provision 完成后的钩子文件,可以用来执行自定义虚拟环境操作
 
-
-
-
-
 **注意:**
 
 执行init脚本过程中需要安装部分vagrant插件,安装可能会应为GFW被墙,可以打开蓝灯试试.
@@ -81,4 +65,6 @@ git clone https:\/\/github.com\/jason-chang\/centstead.git centstead
 set http\_proxy=[http:\/\/127.0.0.1:1080\/](http://127.0.0.1:1080/)
 
 端口以蓝灯为准
+
+
 
