@@ -88,5 +88,5 @@ box: jason-chang/centstead-usual
 
 **配置共享文件夹**
 
-
+ · map:主机文件目录
 
