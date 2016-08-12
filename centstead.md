@@ -86,5 +86,7 @@ box: jason-chang/centstead-usual
 #version: ">=0"
 ```
 
+**配置共享文件夹**
+
 
 
