@@ -88,5 +88,14 @@ box: jason-chang/centstead-usual
 
 **配置共享文件夹**
 
- · map:主机文件目录
+* map:主机文件目录
+
+* to:映射到虚拟机的目录
+
+* type:同步类型
+
+  * 默认为空表示使用shareFolder
+  * nfs\(推荐\)表示使用nfs同步\(nfs:网络文件系统\) 
+
+
 
