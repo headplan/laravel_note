@@ -107,5 +107,47 @@ folders:
 
 **Nginx网站配置**
 
+* conf:项目最终保存成的配置文件
 
+* servers:项目包含的域名servers
+
+* map:支持的域名server name 多个域名可以空格分隔
+
+* to:指向的项目根入口目录
+
+* type:站点类型,支持的配置值
+
+  * 不设置\/default\(普通php站index.php为入口\)
+  * static\(静态文件站\)
+  * proxy\(反向代理站\)
+  * laravel\(项目网站\)
+  * thinkphp\(thinkphp网站\)
+  * symfony\(symfony2网站\)
+
+* port:http监听端口
+
+* ssl:https监听端口
+* aliases:所有在 centstead 中配置的站点 centstead 将智能的加入主机的 hosts 文件中,这样当 vagrant 启动完成的时候后,可以直接浏览配置的域名了.
+
+  * centstead 默认取 map 值加入 hosts 文件，但是由于 hosts 文件并不是非常强大, 类似 `.demo.app的泛解析域名将不能支持,aliases就是为此提供的自定义接口, 如果配置存在aliases则抓取aliases加入hosts` 文件
+
+
+```
+sites:
+    - conf: demo.app
+      servers:
+       - map: static.demo.app
+         to: /home/vagrant/Projects/Demo/static
+         type: static
+
+       - map: "demo.app *.demo.app"
+         to: /home/vagrant/Projects/Demo 
+         aliases: "demo.app a.demo.app u.demo.app www.demo.app" 
+         # port: 80 
+         # ssl: 443
+```
+
+默认情况每个站点都可以通过HTTP:8000和HTTPS:44300访问
+
+现在就可以vagrant up启动盒子了,已经启动过的环境执行vagrant provision应用新的站点配置,相当于修改了配置之后执行使配置生效.
 
