@@ -1,3 +1,18 @@
-# My Awesome Book
+# Laravel Note
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+记录Laravel的所有.
+
+一些国内的社区:
+
+[https:\/\/phphub.org\/](https://phphub.org/)
+
+[http:\/\/laravel-china.org\/](http://laravel-china.org/)
+
+[http:\/\/www.golaravel.com\/](http://www.golaravel.com/)
+
+[http:\/\/laravelacademy.org\/](http://laravelacademy.org/)
+
+官网:
+
+[https:\/\/laravel.com\/](https://laravel.com/)
+
