@@ -98,4 +98,14 @@ box: jason-chang/centstead-usual
   * nfs\(推荐\)表示使用nfs同步\(nfs:网络文件系统\) 
 
 
+```
+folders:
+ - map: ~/Projects
+ to: /home/vagrant/Projects
+ type: nfs
+```
+
+**Nginx网站配置**
+
+
 
