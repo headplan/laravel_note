@@ -66,5 +66,26 @@ set http\_proxy=[http:\/\/127.0.0.1:1080\/](http://127.0.0.1:1080/)
 
 端口以蓝灯为准
 
-的
+## **配置Vagrant Box**
+
+**基础配置**
+
+* ip - 虚拟机ip
+* memory:虚拟机内存
+* cpus:虚拟机cpu核心数
+* provider:虚拟机容器,现在使用的是virtualbox
+* box:基础盒子名称
+* version:基础盒子版本,此项默认关闭\/注释,离线安装盒子的用户请开启
+
+ip: "192.168.10.10"
+
+memory: 2048
+
+cpus: 1
+
+provider: virtualbox
+
+box: jason-chang\/centstead-usual
+
+\#version: "&gt;=0"
 
