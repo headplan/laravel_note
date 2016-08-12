@@ -77,15 +77,14 @@ set http\_proxy=[http:\/\/127.0.0.1:1080\/](http://127.0.0.1:1080/)
 * box:基础盒子名称
 * version:基础盒子版本,此项默认关闭\/注释,离线安装盒子的用户请开启
 
+```
 ip: "192.168.10.10"
-
 memory: 2048
-
 cpus: 1
-
 provider: virtualbox
+box: jason-chang/centstead-usual
+#version: ">=0"
+```
 
-box: jason-chang\/centstead-usual
 
-\#version: "&gt;=0"
 
