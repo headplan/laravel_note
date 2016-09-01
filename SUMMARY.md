@@ -10,7 +10,9 @@
     * [Centstead](centstead.md)
     * [Laravel Valet](laravel-valet.md)
 * [系统安装](安装.md)
-* 核心概念
+* [核心概念](核心概念.md)
+    * 服务容器
+    * 服务提供者
 * [基本功能](基本功能.md)
     * [路由](路由.md)
     * 中间件
