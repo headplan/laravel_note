@@ -11,8 +11,8 @@
     * [Laravel Valet](laravel-valet.md)
 * [系统安装](安装.md)
 * [核心概念](核心概念.md)
-    * 服务容器
-    * 服务提供者
+    * [服务容器](服务容器.md)
+    * [服务提供者](服务提供者.md)
     * 门面\(Facades\)
     * 契约\(Contracts\)
 * [基本功能](基本功能.md)
