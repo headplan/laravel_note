@@ -34,6 +34,7 @@ Laravel没有Models目录,因为models容易造成歧义,有的人认为模型�
 
   * logs目录 - 目录包含应用的日志文件.
 
+
 * Tests目录:包含自动化测试,其中已经提供了一个开箱即用的PHPUnit示例.每一个测试类都要以 Test 开头,可以通过 `phpunit` 或 `php vendor/bin/phpunit` 命令来运行测试.
 
 * Vendor目录:包含了Composer依赖.
@@ -43,5 +44,7 @@ Laravel没有Models目录,因为models容易造成歧义,有的人认为模型�
 
 应用的核心代码位于app目录下,默认位于命名空间App下,并且被PSR-4自动加载.
 
-app目录下包含多个子目录,其中Console和Http目录提供了进入应用核心的API,HTTP协议和CLI是和应用进行交互的两种机制,但实际上并不包含应用逻辑,换句话说,它们只是两个向应用发布命令的方式.
+app目录下包含多个子目录,其中Console和Http目录提供了进入应用核心的API,HTTP协议和CLI是和应用进行交互的两种机制,但实际上并不包含应用逻辑,换句话说,它们只是两个向应用发布命令的方式.Console包含了所有的Artisan命令,Http目录包含了控制器,中间件和请求等.
+
+其他目录将会在你通过Artisan命令make生成相应类的时候生成到`app`目录下.
 
