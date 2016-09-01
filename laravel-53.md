@@ -24,9 +24,16 @@ Laravel没有Models目录,因为models容易造成歧义,有的人认为模型�
   * api.php - 文件包含的路由应用了api中间件组,具备频率限制功能,这些路由是无状态的,所以请求通过这些路由进入应用需要通过token进行认证并且不能访问Session状态.
   * console.php - 文件用于定义所有基于闭包的控制台命令,每个闭包都被绑定到一个控制台命令并且允许与命令行IO方法进行交互,尽管这个文件并不定义HTTP路由,但是它定义了基于控制台的应用入口\(路由\).
 
-* Storage目录
+* Storage目录:包含了编译过的Blade模板,基于文件的session,文件缓存,以及其它由框架生成的文件.
+
+  * app目录 - 用于存放应用要使用的文件.
+    * public目录 - 用于存储用户生成的文件,比如可以被公开访问的用户头像.要达到被访问的目的,需要在`public`目录下生成一个软连接 `storage` 指向这个目录.可以通过 `php artisan storage:link` 命令生成这个软链接.
+
+  * framework目录 - 用于存放框架生成的文件和缓存.
+  * logs目录 - 目录包含应用的日志文件.
 
 * Tests目录:包含自动化测试,其中已经提供了一个开箱即用的PHPUnit示例.每一个测试类都要以 Test 开头,可以通过 `phpunit` 或 `php vendor/bin/phpunit` 命令来运行测试.
+
 * Vendor目录:包含了Composer依赖.
 
 ### App目录说明
