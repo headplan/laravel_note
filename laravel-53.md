@@ -17,8 +17,8 @@ Laravel没有Models目录,因为models容易造成歧义,有的人认为模型�
 * Config目录:包含了应用所有的配置文件.
 * Database目录:包含了数据迁移及填充文件,如果喜欢的话还可以将其作为SQLite数据库存放目录.
 * Public目录:包含了入口文件index.php和前端资源文件\(图片,JavaScript,CSS等\).
-* Resources目录:
-* Routes目录
+* Resources目录:包含了视图文件及原生资源文件\(LESS,SASS,CoffeeScript\),以及本地化文件.
+* Routes目录:
 * Storage目录
 * Tests目录
 * Vendor目录
