@@ -12,18 +12,16 @@ Laravel没有Models目录,因为models容易造成歧义,有的人认为模型�
 
 ### 根目录
 
-* App目录
-* Bootstrap目录
-* Config目录
-* Database目录
-* Public目录
-* Resources目录
+* App目录:包含了应用的核心代码,另外编写应用的绝大部分代码都会放在这里.
+* Bootstrap目录:包含了少许文件,用于框架的启动和自动载入配置,还有一个cache文件夹用于包含框架为提升性能所生成的文件,如路由和服务缓存文件.
+* Config目录:包含了应用所有的配置文件.
+* Database目录:包含了数据迁移及填充文件,如果喜欢的话还可以将其作为SQLite数据库存放目录.
+* Public目录:包含了入口文件index.php和前端资源文件\(图片,JavaScript,CSS等\).
+* Resources目录:
 * Routes目录
 * Storage目录
 * Tests目录
 * Vendor目录
 
 ### App目录说明
-
-
 
