@@ -10,6 +10,7 @@
     * [Centstead](centstead.md)
     * [Laravel Valet](laravel-valet.md)
 * [系统安装](安装.md)
+* 核心概念
 * [基本功能](基本功能.md)
     * [路由](路由.md)
     * 中间件
