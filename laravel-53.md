@@ -19,11 +19,13 @@ Laravel没有Models目录,因为models容易造成歧义,有的人认为模型�
 * Public目录:包含了入口文件index.php和前端资源文件\(图片,JavaScript,CSS等\).
 * Resources目录:包含了视图文件及原生资源文件\(LESS,SASS,CoffeeScript\),以及本地化文件.
 * Routes目录:包含了应用的所有路由定义.默认提供了三个路由文件.
-  * web.php
-  * api.php
-  * console.php
+
+  * web.php - 文件包含的路由都会应用web中间件组,具备Session,CSRF防护以及Cookie加密功能,如果应用无需提供无状态的,RESTful风格的API,所有路由都会定义在web.php文件.
+  * api.php - 文件包含的路由应用了api中间件组,具备频率限制功能,这些路由是无状态的,所以请求通过这些路由进入应用需要通过token进行认证并且不能访问Session状态.
+  * console.php - 文件用于定义所有基于闭包的控制台命令,每个闭包都被绑定到一个控制台命令并且允许与命令行IO方法进行交互,尽管这个文件并不定义HTTP路由,但是它定义了基于控制台的应用入口\(路由\).
 
 * Storage目录
+
 * Tests目录:包含自动化测试,其中已经提供了一个开箱即用的PHPUnit示例.每一个测试类都要以 Test 开头,可以通过 `phpunit` 或 `php vendor/bin/phpunit` 命令来运行测试.
 * Vendor目录:包含了Composer依赖.
 
