@@ -13,8 +13,8 @@
 * [核心概念](核心概念.md)
     * [服务容器](服务容器.md)
     * [服务提供者](服务提供者.md)
-    * 门面\(Facades\)
-    * 契约\(Contracts\)
+    * [门面\(Facades\)](门面facades.md)
+    * [契约\(Contracts\)](契约contracts.md)
 * [基本功能](基本功能.md)
     * [路由](路由.md)
     * 中间件
