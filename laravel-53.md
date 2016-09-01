@@ -36,9 +36,9 @@ Laravel没有Models目录,因为models容易造成歧义,有的人认为模型�
 
 
 
-* Tests目录:包含自动化测试,其中已经提供了一个开箱即用的PHPUnit示例.每一个测试类都要以 Test 开头,可以通过 `phpunit` 或 `php vendor/bin/phpunit` 命令来运行测试.
+* **Tests目录**:包含自动化测试,其中已经提供了一个开箱即用的PHPUnit示例.每一个测试类都要以 Test 开头,可以通过 `phpunit` 或 `php vendor/bin/phpunit` 命令来运行测试.
 
-* Vendor目录:包含了Composer依赖.
+* **Vendor目录**:包含了Composer依赖.
 
 
 ### App目录说明
