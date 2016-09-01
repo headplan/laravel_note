@@ -27,14 +27,21 @@ Laravel没有Models目录,因为models容易造成歧义,有的人认为模型�
 * Storage目录:包含了编译过的Blade模板,基于文件的session,文件缓存,以及其它由框架生成的文件.
 
   * app目录 - 用于存放应用要使用的文件.
+
     * public目录 - 用于存储用户生成的文件,比如可以被公开访问的用户头像.要达到被访问的目的,需要在`public`目录下生成一个软连接 `storage` 指向这个目录.可以通过 `php artisan storage:link` 命令生成这个软链接.
 
   * framework目录 - 用于存放框架生成的文件和缓存.
+
   * logs目录 - 目录包含应用的日志文件.
 
 * Tests目录:包含自动化测试,其中已经提供了一个开箱即用的PHPUnit示例.每一个测试类都要以 Test 开头,可以通过 `phpunit` 或 `php vendor/bin/phpunit` 命令来运行测试.
 
 * Vendor目录:包含了Composer依赖.
 
+
 ### App目录说明
+
+应用的核心代码位于app目录下,默认位于命名空间App下,并且被PSR-4自动加载.
+
+app目录下包含多个子目录,其中Console和Http目录提供了进入应用核心的API,HTTP协议和CLI是和应用进行交互的两种机制,但实际上并不包含应用逻辑,换句话说,它们只是两个向应用发布命令的方式.
 
