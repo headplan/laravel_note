@@ -58,6 +58,7 @@ app目录下包含多个子目录,其中Console和Http目录提供了进入应�
   * **Jobs目录** - 可以通过执行 `make:job` 命令生成,`Jobs`目录用于存放队列任务,应用中的任务可以被队列化,也可以在当前请求生命周期内同步执行.同步执行的任务有时也被看作命令,因为它们实现了命令模式.
   * **Listeners目录** - 可以通过执行 `event:generate` 和 `make:listener` 命令创建.`Listeners`目录包含处理事件的类\(事件监听器\),事件监听器接收一个事件并提供对该事件发生后的响应逻辑.例如,`UserRegistered`事件可以被`SendWelcomeEmail`监听器处理.
   * **Mail目录** - 可以通过执行 `make:mail` 命令生成,`Mail`目录包含邮件发送类,邮件对象允许你在一个地方封装构建邮件所需的所有业务逻辑,然后使用 `Mail::send` 方法发送邮件.
-  * 
+
+  * **Notifications目录** - 可以通过执行 `make:notification` 命令创建,`Notifications` 目录包含应用发送的所有通知,比如事件发生通知.Laravel的通知功能将通知发送和通知驱动解耦,你可以通过邮件,也可以通过Slack、短信或者数据库发送通知.
 
 
