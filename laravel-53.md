@@ -17,7 +17,13 @@ Laravel没有Models目录,因为models容易造成歧义,有的人认为模型�
 * Config目录
 * Database目录
 * Public目录
-* Re
+* Resources目录
+* Routes目录
+* Storage目录
+* Tests目录
+* Vendor目录
+
+### App目录说明
 
 
 
