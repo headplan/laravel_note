@@ -23,7 +23,7 @@
         * [控制器](控制器.md)
         * [请求](请求.md)
         * 响应
-        * Session
+        * [Session](session.md)
         * 验证
     * 视图
     * [Blade模板引擎](blade模板.md)
