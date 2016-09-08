@@ -24,7 +24,7 @@
         * [请求](请求.md)
         * 响应
         * [Session](session.md)
-        * 验证
+        * [验证](验证.md)
     * 视图
     * [Blade模板引擎](blade模板.md)
 * [教程](教程.md)
