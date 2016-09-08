@@ -21,5 +21,38 @@ Laravel 自动为每一个被应用管理的有效用户会话生成一个CSRF�
 
 通常需要将这种类型的路由放到文件 routes\/web.php 里,中间件组 web 之外.此外,也可以在 `VerifyCsrfToken` 中间件中将要排除的 URL 添加到 `$except` 属性数组:
 
+```
+<?php
+namespace App\Http\Middleware;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
+class VerifyCsrfToken extends BaseVerifier
+{
+    // 从CSRF验证中排除的URL
+    protected $except = [
+        'stripe/*',
+    ];
+}
+```
 
+### X-CSRF-Token
+
+除了将CSRF令牌作为POST参数进行验证外,还可以通过设置`X-CSRF-Token`请求头来实现验证,`VerifyCsrfToken`中间件会检查`X-CSRF-TOKEN`请求头,首先创建一个meta标签将令牌保存到该meta标签:
+
+```
+<meta name="csrf-token" content="{{ csrf_token() }}">
+```
+
+然后在js库\(如jQuery\)中添加该令牌到所有请求头,这为基于AJAX的应用提供了简单,方便的方式来避免CSRF攻击:
+
+```
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+```
+
+### X-XSRF-Token
+
+Laravel还会将CSRF令牌保存到名为`XSRF-TOKEN`的Cookie中,可以使用该Cookie值来设置`X-XSRF-TOKEN`请求头.一些JS框架,比如Angular,会自动进行设置,基本不需要手动设置.
 
