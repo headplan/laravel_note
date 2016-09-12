@@ -16,3 +16,9 @@
 
 [https:\/\/laravel.com\/](https://laravel.com/)
 
+视频:
+
+https:\/\/laravist.com\/
+
+https:\/\/laracasts.com\/
+
