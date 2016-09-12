@@ -26,7 +26,6 @@
         * [Session](session.md)
         * [验证](验证.md)
     * [视图&模板](视图.md)
-        * [视图](视图.md)
         * [Blade模板](blade模板.md)
         * [本地化](本地化.md)
 * [教程](教程.md)
