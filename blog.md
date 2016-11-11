@@ -55,6 +55,12 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 > 
 > --prefer-dist - 强制使用压缩包安装而不是克隆源码
 
+或者直接下载zip压缩包或者github下载.
+
+**初始化laravel**
+
+配置nginx指定目录到public
+
 基础
 
 开发
