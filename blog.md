@@ -61,6 +61,10 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 
 配置nginx指定目录到项目目录,指定默认访问文件为server.php
 
+或者指定目录到public,前提是:
+
+> 独立服务器,有修改入口文件目录权限或者子目录绑定域名的情况下
+
 配置rewrite\(apache直接使用public下的.htaccess\)
 
 > location \/ { try\_files **$uri** **$uri**\/ \/index.php?**$query\_string**; }
@@ -73,6 +77,8 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 
 > 如果使用压缩包解压安装,需要重新生成key,运行下面的命令:
 > php artisan key:generate
+
+参考文档与起步
 
 基础
 
