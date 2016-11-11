@@ -1,12 +1,36 @@
 # Blog开发流程记录
 
-安装
+### 安装
+
+**安装composer**
+
+> **根据官方命令安装Comoser**
+> 
+> php -r "copy\('https:\/\/getcomposer.org\/installer', 'composer-setup.php'\);"
+> 
+> php -r "if \(hash\_file\('SHA384', 'composer-setup.php'\) === 'e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae'\) { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink\('composer-setup.php'\); } echo PHP\_EOL;"
+> 
+> php composer-setup.php
+> 
+> php -r "unlink\('composer-setup.php'\);"
+> 
+> 最新的安装方式可以在 [https:\/\/getcomposer.org\/download\/](https://getcomposer.org/download/) 查看
+> 
+> 安装之前需要配置为了兼容Composer的php.ini
+> 
+> vim \/etc\/php.d\/15-xdebug.ini \# 注释掉扩展
+> 
+> vim \/etc\/php.ini \# 去掉两个禁用的函数
+> 
+> proc\_open,proc\_get\_status
+> 
+> \# 设置全局通用
+> 
+> mv composer.phar \/usr\/bin\/composer
 
 基础
 
 开发
 
 部署,备份,维护
-
-
 
