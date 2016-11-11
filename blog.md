@@ -61,6 +61,13 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 
 配置nginx指定目录到public
 
+检查php.ini文件下列扩展是否开启
+
+* php\_openssl
+* php\_mbstring
+* php\_pdo\_mysql
+
+
 基础
 
 开发
