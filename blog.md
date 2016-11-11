@@ -78,7 +78,9 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 > 如果使用压缩包解压安装,需要重新生成key,运行下面的命令:
 > php artisan key:generate
 
-参考文档与起步
+参考文档准备:http:\/\/laravelacademy.org\/laravel-docs-5\_2
+
+
 
 基础
 
