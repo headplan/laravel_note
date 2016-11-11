@@ -28,13 +28,15 @@
 > 
 > mv composer.phar \/usr\/bin\/composer
 
+**安装laravel**
+
 项目安装查看文档前面的"系统安装"里的内容,这里要注意的是:
 
 > composer create-project laravel\/laravel blog "5.2.\*" --prefer-dist
 > 
 > blog "5.2.\*" - 指定安装的文件夹和版本
 > 
-> --prefer-dist - 指定强制使用压缩包安装而不是克隆源码
+> --prefer-dist - 强制使用压缩包安装而不是克隆源码
 
 基础
 
