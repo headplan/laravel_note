@@ -28,6 +28,23 @@
 > 
 > mv composer.phar \/usr\/bin\/composer
 
+配置中国全量镜像
+
+```
+composer config -g repo.packagist composer https://packagist.phpcomposer.com "全局"
+```
+
+```
+composer config repo.packagist composer https://packagist.phpcomposer.com "单个项目"
+在composer.json中加入
+"repositories": {
+    "packagist": {
+        "type": "composer",
+        "url": "https://packagist.phpcomposer.com"
+    }
+}
+```
+
 **安装laravel**
 
 项目安装查看文档前面的"系统安装"里的内容,这里要注意的是:
