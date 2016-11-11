@@ -61,9 +61,9 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 
 配置nginx指定目录到项目目录,指定默认访问文件为server.php
 
-配置rewrite
+配置rewrite\(apache直接使用public下的.htaccess\)
 
-
+> location \/ { try\_files **$uri** **$uri**\/ \/index.php?**$query\_string**; }
 
 检查php.ini文件下列扩展是否开启
 
