@@ -59,7 +59,11 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 
 **初始化laravel**
 
-配置nginx指定目录到public
+配置nginx指定目录到项目目录,指定默认访问文件为server.php
+
+配置rewrite
+
+
 
 检查php.ini文件下列扩展是否开启
 
@@ -67,6 +71,8 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 * php\_mbstring
 * php\_pdo\_mysql
 
+> 如果使用压缩包解压安装,需要重新生成key,运行下面的命令:
+> php artisan key:generate
 
 基础
 
