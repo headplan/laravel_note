@@ -45,7 +45,7 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 }
 ```
 
-**安装laravel**
+**安装laravel\(5.2.\*版本\)**
 
 项目安装查看文档前面的"系统安装"里的内容,这里要注意的是:
 
