@@ -82,9 +82,7 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 
 > http:\/\/laravelacademy.org\/laravel-docs-5\_2
 
-**目录结构**
-
-
+**目录结构\(编辑器暂用PhpStorm\)**
 
 基础
 
