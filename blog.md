@@ -84,6 +84,8 @@ composer config repo.packagist composer https://packagist.phpcomposer.com "单�
 
 **目录结构\(编辑器暂用PhpStorm\)**
 
+查看目录结构记录文件
+
 基础
 
 开发
