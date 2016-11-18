@@ -2,23 +2,23 @@
 
 ```
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
-    "type": "project",
+    "name": "laravel/laravel", // 项目名称
+    "description": "The Laravel Framework.", // 描述
+    "keywords": ["framework", "laravel"], // 关键词
+    "license": "MIT", // 许可协议
+    "type": "project", // 类型
     "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "php": ">=5.5.9", // PHP版本
+        "laravel/framework": "5.2.*" // 框架版本
     },
-    "require-dev": {
+    "require-dev": { // 依赖包
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*"
     },
-    "autoload": {
+    "autoload": { // 自动加载
         "classmap": [
             "database"
         ],
@@ -26,12 +26,12 @@
             "App\\": "app/"
         }
     },
-    "autoload-dev": {
+    "autoload-dev": { // 自动加载
         "classmap": [
             "tests/TestCase.php"
         ]
     },
-    "scripts": {
+    "scripts": { // 执行脚本
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
         ],
@@ -47,9 +47,10 @@
             "php artisan optimize"
         ]
     },
-    "config": {
-        "preferred-install": "dist"
+    "config": { // 配置项
+        "preferred-install": "dist" // 优先安装压缩版
     }
+    "repositories": // 可以配置composer镜像
 }
 ```
 
