@@ -50,4 +50,8 @@ Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
 > 注意:Laravel在其中的post,put,delete,patch等请求中需要提交CsrfToken才可以,为了测试这些请求,可以先把
 > 
 > app\/Http\/Kernel.php文件中的31行\App\Http\Middleware\VerifyCsrfToken::class,注释掉.
+> 
+> 注意:路由参数不能包含 `-` 字符，需要的话可以使用 `_` 替代.\(虽然测试时直接return值是可以的\)
+
+
 
