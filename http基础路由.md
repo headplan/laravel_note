@@ -45,13 +45,17 @@ Route::get('/attr/{attr}', function ($id) {
 Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
     return 'post:' . $postId . ',comment:' . $commentId;
 });
+# 路由可选参数
+Route::get('/name/{name?}', function ($name = '小明') {
+    return 'Name:' . $name;
+});
 ```
 
-> 注意:Laravel在其中的post,put,delete,patch等请求中需要提交CsrfToken才可以,为了测试这些请求,可以先把
+> **注意**:Laravel在其中的post,put,delete,patch等请求中需要提交CsrfToken才可以,为了测试这些请求,可以先把
 > 
 > app\/Http\/Kernel.php文件中的31行\App\Http\Middleware\VerifyCsrfToken::class,注释掉.
 > 
-> 注意:路由参数不能包含 `-` 字符，需要的话可以使用 `_` 替代.\(虽然测试时直接return值是可以的\)
-
-
+> **注意**:路由参数不能包含 `-` 字符，需要的话可以使用 `_` 替代.\(虽然测试时直接return值是可以的\)
+> 
+> **注意**:可选参数只能是最后一个参数
 
