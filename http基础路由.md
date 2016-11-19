@@ -45,7 +45,6 @@ Route::get('/attr/{attr}', function ($id) {
 Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
     return 'post:' . $postId . ',comment:' . $commentId;
 });
-
 ```
 
 > 注意:Laravel在其中的post,put,delete,patch等请求中需要提交CsrfToken才可以,为了测试这些请求,可以先把
