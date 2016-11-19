@@ -33,14 +33,14 @@
     },
     "scripts": { // 执行脚本
         "post-root-package-install": [
-            "php -r \"copy('.env.example', '.env');\""
+            "php -r \"copy('.env.example', '.env');\"" // 复制.env.example文件
         ],
         "post-create-project-cmd": [
-            "php artisan key:generate"
+            "php artisan key:generate" // 生成随机key值
         ],
         "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
+            "Illuminate\\Foundation\\ComposerScripts::postInstall", // 安装
+            "php artisan optimize" // 清除安装过程的缓存或垃圾文件
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
