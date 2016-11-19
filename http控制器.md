@@ -58,3 +58,9 @@ class HomeController extends Controller
 }
 ```
 
+注册路由添加命名空间
+
+```
+Route::get('/Admin', 'Admin\HomeController@index');
+```
+
