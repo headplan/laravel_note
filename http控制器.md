@@ -36,14 +36,14 @@ Route::get('/', 'IndexController@index');
 
 控制器创建在`Controllers\Admin`文件夹下`HomeControllers.php`
 
-命名空间需要添加
+命名空间需要添加,文件夹命名空间,使用控制器基类
 
 ```
 <?php
-
+# 指定命名空间
 namespace App\Http\Controllers\Admin;
-
-use App\Http\Controllers\;
+# 使用控制器基类
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
