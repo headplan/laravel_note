@@ -63,8 +63,12 @@ php artisan route:list
 ```
 Route::resource('/res', 'PhotoController@index');
 # 第三个参数
+# 使用的资源路由
 Route::resource('/res', 'PhotoController@index', ['only' => ['index', 'show']]);
-
+# 排除的资源路由
+Route::resource('/res', 'PhotoController@index', ['except' => ['index', 'show']]);
+# 命名资源路由
+Route::resource('photo', 'PhotoController', ['names' => ['create' => 'photo.build']]);
 ```
 
 还可以直接使用命令,生成资源控制器
