@@ -71,6 +71,8 @@ Route::resource('/res', 'PhotoController@index', ['except' => ['index', 'show']]
 Route::resource('photo', 'PhotoController', ['names' => ['create' => 'photo.build']]);
 ```
 
+> **注意**:如果需要补充资源控制器,路由需要在资源路由之前定义.
+
 还可以直接使用命令,生成资源控制器
 
 ```
