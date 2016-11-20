@@ -50,3 +50,26 @@ Route::group(['domain' => '{account}.blog.app'], function () {
 });
 ```
 
+### 命令行查看路由
+
+```
+php artisan route:list
+```
+
+### 资源路由
+
+一条设置生成7个路由
+
+```
+Route::resource('/res', 'PhotoController@index');
+# 第三个参数
+Route::resource('/res', 'PhotoController@index', ['only' => ['index', 'show']]);
+
+```
+
+还可以直接使用命令,生成资源控制器
+
+```
+php artisan make:controller PhotoController --resource
+```
+
