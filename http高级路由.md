@@ -24,6 +24,7 @@ Route::get('Admin/artlist', 'Admin\HomeController@artlist')->name('artlist');
 * namespace - 命名空间
 * prefix - 路由前缀
 * domain - 子域名路由
+* as - 分组也可以使用路由命名
 
 前面使用文件夹的控制器路由例子:
 
