@@ -6,3 +6,7 @@
 return view('view');
 ```
 
+> 上一小结中使用了redirect\(\)重定向函数,其也需要return返回,否则无效.
+
+
+
