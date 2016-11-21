@@ -25,3 +25,31 @@ Route::get('value', function () {
 })->middleware(['web', 'auth']);
 ```
 
+**注册中间件**
+
+编辑kernel.php文件,其中有三个私有属性,分别定义了全局,应用,自定义组三部分路由中间件.
+
+```
+'session.login' => \App\Http\Middleware\Sessionlogin::class
+```
+
+生成中间件,编辑中间件文件
+
+```
+php artisan make:middleware Sessionlogin
+```
+
+```
+public function handle($request, Closure $next){
+    echo '[我是中间件]';
+    if (!session('key')) {
+        redirect('Admin/login');
+    }
+    return $next($request);
+}
+```
+
+编辑route.php路由文件,添加中间件
+
+
+
