@@ -43,7 +43,7 @@ php artisan make:middleware Sessionlogin
 public function handle($request, Closure $next){
     echo '[我是中间件]';
     if (!session('key')) {
-        redirect('Admin/login');
+        return redirect('Admin/login');
     }
     return $next($request);
 }
@@ -51,5 +51,16 @@ public function handle($request, Closure $next){
 
 编辑route.php路由文件,添加中间件
 
-
+```
+Route::get('Admin/login', 'Admin\HomeController@login');
+Route::group(['prefix' => 'Admin', 'namespace' => 'Admin', 'middleware' => 'session.login'], function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('show', [
+        'as' => 'show',
+        'uses' => 'HomeController@show'
+    ]);
+    Route::get('artlist', 'HomeController@artlist')->name('artlist');
+    Route::get('logout', 'HomeController@logout');
+});
+```
 
