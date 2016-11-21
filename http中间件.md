@@ -64,3 +64,35 @@ Route::group(['prefix' => 'Admin', 'namespace' => 'Admin', 'middleware' => 'sess
 });
 ```
 
+控制器简单写一下
+
+```
+class HomeController extends Controller
+{
+    public function index()
+    {
+        echo '后台首页';
+    }
+    public function login()
+    {
+        session(['key' => '设置session成功']);
+        echo session('key');
+        return view('welcome');
+    }
+    public function logout()
+    {
+        session(['key' => null]);
+        echo '清空session数据,退出登录';
+    }
+    public function show()
+    {
+        echo session('key');
+        echo '控制路由命名:' . route('show');
+    }
+    public function artlist()
+    {
+        echo 'name方法控制器路由命名:' . route('artlist');
+    }
+}
+```
+
