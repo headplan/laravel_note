@@ -26,3 +26,16 @@ $data = [
 return view('myview', $data);
 ```
 
+更好的传参方式,compact\(\)函数:
+
+```
+$data = [
+    'val' => '[我是视图]',
+    'name' => '第二个参数'
+];
+$title = '我是另一个参数';
+return view('myview', compact('data', 'title'));
+```
+
+
+
