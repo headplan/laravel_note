@@ -15,6 +15,14 @@ The current UNIX timestamp is {{ time() }}.
 The current UNIX timestamp is @{{ time() }}.
 ```
 
+如果像上面一样排除`htmlentities`函数的处理,比如输出`<script>`标签,会直接被过滤掉,可以使用下面的方式原生输出
+
+```
+{!! $title !!}
+# 假设控制器传过来的变量是html代码
+$title = '<script>document.write("我是HTML")</script>';
+```
+
 不确定该变量是否被设置,可以给其一个默认值,通常可以使用PHP原生的三元运算,Blade模板引擎提供了`or`的方式
 
 ```
@@ -27,4 +35,8 @@ The current UNIX timestamp is @{{ time() }}.
 > 变量:0,'0','',false,null,都不显示.
 > 
 > empty:0,'0','',false,null,都是空.
+> 
+> 变量和empty本质上没有区别,`if($var)`如果变量不存在会警告,`if(!empty($var))`不会警告.
+> 
+> 如果应用在\_\_get之类的魔术方法上,empty一定会判断为空.
 
