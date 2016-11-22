@@ -11,7 +11,7 @@ The current UNIX timestamp is {{ time() }}.
 
 屏蔽掉`{{}}`解析方式,可以在前面添加`@`符号\(一些JS框架也会用到花括号,例如AngularJS\)
 
-\`\`\`
-
-\`\`\`
+```
+The current UNIX timestamp is @{{ time() }}.
+```
 
