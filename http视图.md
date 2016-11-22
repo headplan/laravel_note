@@ -26,7 +26,7 @@ $data = [
 return view('myview', $data);
 ```
 
-更好的传参方式,compact\(\)函数:
+更好的传参方式,compact\(\)函数,这是一个PHP内置函数:
 
 ```
 $data = [
@@ -36,6 +36,4 @@ $data = [
 $title = '我是另一个参数';
 return view('myview', compact('data', 'title'));
 ```
-
-
 
