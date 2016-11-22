@@ -22,5 +22,9 @@ The current UNIX timestamp is @{{ time() }}.
 {{ $name or 'Default' }}
 ```
 
-
+> isset:0,'0','',都显示,null不显示.
+> 
+> 变量:0,'0','',null,都不显示.
+> 
+> empty:0,'0','',null,都是空.
 
