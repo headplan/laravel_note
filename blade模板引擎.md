@@ -98,3 +98,15 @@ forelse循环,如果循环中没有数据,显示指定内容
 </p>
 ```
 
+while循环
+
+```
+@while (true)
+    <p>I'm looping forever.</p>
+@endwhile
+```
+
+### 模板继承与布局
+
+的
+
