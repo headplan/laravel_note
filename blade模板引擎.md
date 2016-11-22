@@ -9,7 +9,7 @@ The current UNIX timestamp is {{ time() }}.
 
 > 注意:Blade的`{{}}`语句已经经过PHP的`htmlentities`函数处理以避免XSS攻击.
 
-屏蔽掉`{{}}`解析方式,可以在前面添加`@`符号\(一些JS框架也会用到花括号,例如AngularJS\)
+屏蔽掉`{{}}`解析方式,可以在前面添加`@`符号\(一些JS框架也会用到花括号,例如AngularJS\).
 
 ```
 The current UNIX timestamp is @{{ time() }}.
