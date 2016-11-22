@@ -15,3 +15,12 @@ The current UNIX timestamp is {{ time() }}.
 The current UNIX timestamp is @{{ time() }}.
 ```
 
+不确定该变量是否被设置,可以给其一个默认值,通常可以使用PHP原生的三元运算,Blade模板引擎提供了`or`的方式
+
+```
+{{ isset($name) ? $name : 'Default' }}
+{{ $name or 'Default' }}
+```
+
+
+
