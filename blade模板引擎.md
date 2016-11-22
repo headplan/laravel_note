@@ -1,5 +1,7 @@
 # Blade模板引擎
 
+Blade 视图文件使用`.blade.php`文件扩展并存放在`resources/views`目录下.并解释成原生PHP缓存在下面的目录下`storage/framework/views/`
+
 ### 变量输出
 
 通过两个花括号包裹变量来显示传递到视图的数据,还可以输出任何 PHP 函数,实际上可以将任何 PHP 代码放到 Blade 模板语句中.
