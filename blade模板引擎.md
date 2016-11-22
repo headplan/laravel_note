@@ -40,5 +40,53 @@ $title = '<script>document.write("我是HTML")</script>';
 
 ### 流程控制
 
+**if语句**
+
+可以使用 `@if` , `@elseif` , `@else` 和 `@endif` 来构造 if 语句,这些指令函数和 PHP 的相同:
+
+```
+<p>
+    @if ($data['score'] < 60 )
+        没及格
+    @elseif ($data['score'] > 70)
+        我很优秀
+    @else
+        我及格了
+    @endif
+</p>
+```
+
+为了方便,Blade还提供了`@unless`指令,是除非的意思
+
+```
+@unless ($data['score'] > 60)
+    不及格
+@endunless
+```
+
+**循环语句**
+
+for循环
+
+```
+<p>
+    @for ($i = 0; $i <= $data['num']; $i++)
+        {{ $i }}
+    @endfor
+</p>
+```
+
+foreach循环
+
+```
+<p>
+    @foreach ($data as $k => $v)
+        {{ $k }}{{ $v }}
+    @endforeach
+</p>
+```
+
+
+
 
 
