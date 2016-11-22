@@ -86,5 +86,15 @@ foreach循环
 </p>
 ```
 
+forelse循环,如果循环中没有数据,显示指定内容
 
+```
+<p>
+    @forelse ($data as $k => $v)
+        {{ $k }}{{ $v }}
+        @empty
+        没有数据
+    @endforelse
+</p>
+```
 
