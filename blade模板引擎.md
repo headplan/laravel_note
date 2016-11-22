@@ -24,7 +24,7 @@ The current UNIX timestamp is @{{ time() }}.
 
 > isset:0,'0','',都显示,null不显示.
 > 
-> 变量:0,'0','',null,都不显示.
+> 变量:0,'0','',false,null,都不显示.
 > 
-> empty:0,'0','',null,都是空.
+> empty:0,'0','',false,null,都是空.
 
