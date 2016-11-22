@@ -1,5 +1,7 @@
 # Blade模板引擎
 
+### 变量输出
+
 通过两个花括号包裹变量来显示传递到视图的数据,还可以输出任何 PHP 函数,实际上可以将任何 PHP 代码放到 Blade 模板语句中.
 
 ```
@@ -31,12 +33,12 @@ $title = '<script>document.write("我是HTML")</script>';
 ```
 
 > isset:0,'0','',都显示,null,false不显示.
-> 
 > 变量:0,'0','',false,null,都不显示.
-> 
 > empty:0,'0','',false,null,都是空.
-> 
 > 变量和empty本质上没有区别,`if($var)`如果变量不存在会警告,`if(!empty($var))`不会警告.
-> 
 > 如果应用在\_\_get之类的魔术方法上,empty一定会判断为空.
+
+### 流程控制
+
+
 
