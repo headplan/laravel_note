@@ -110,5 +110,15 @@ while循环
 
 ### 模板继承与布局
 
-的
+**包含子视图**
+
+common是文件夹名,在resources\/views\/common下
+
+```
+@include('common.header', ['title' => '我是首页'])
+<div class="middle">我是中间</div>
+@include('common.footer')
+```
+
+
 
