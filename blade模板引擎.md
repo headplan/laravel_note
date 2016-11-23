@@ -118,10 +118,9 @@ Web应用的页面布局基本相同,所以可以定义一个布局页面,将布
 
 * @yield\('content'\) - 指定layout模板模型中改变的部分
 * @extends\('layout.master'\) - 继承模板模型
-* @section\(\)
-* @show\(\)
-* @endsection
-* @parent\(\)
+* @section\(\)和@endsection - 定义模板模型中yield\('content'\)的部分,开始和结束,中间写内容html内容
+* @show
+* @parent
 
 **包含子视图**
 
