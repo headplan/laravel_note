@@ -134,7 +134,15 @@ Web应用的页面布局基本相同,所以可以定义一个布局页面,将布
 </body>
 
 # 子视图
-
+@extends('layout.master')
+@section('new')
+我是新的
+@endsection
+@section('middle')
+<div class="middle">
+我是中间部分@parent
+</div>
+@endsection
 ```
 
 **包含子视图**
