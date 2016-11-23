@@ -120,7 +120,7 @@ Web应用的页面布局基本相同,所以可以定义一个布局页面,将布
 * @extends\('layout.master'\) - 继承模板模型
 * @section\(\)
 * @show\(\)
-* @endsection\(\)
+* @endsection
 * @parent\(\)
 
 **包含子视图**
