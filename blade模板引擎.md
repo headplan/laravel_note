@@ -110,6 +110,19 @@ while循环
 
 ### 模板继承与布局
 
+**定义布局**
+
+Web应用的页面布局基本相同,所以可以定义一个布局页面,将布局定义为一个单独的blade页面
+
+相关指令:
+
+* @yield\(\)
+* @section\(\)
+* @show\(\)
+* @endsection\(\)
+* @parent\(\)
+* @extends\(\)
+
 **包含子视图**
 
 common是文件夹名,在resources\/views\/common下,@include\(\)第二个参数可以向子视图中传递参数
@@ -121,6 +134,12 @@ common是文件夹名,在resources\/views\/common下,@include\(\)第二个参数
 ```
 
 > 在blade视图中使用类似\_\_DIR\_\_和\_\_FILE\_\_常量,会指向缓存路径storage\/framework\/views
+
+**循环引入多个局部视图**
+
+使用blade的@each指令,其有4个参数:
+
+
 
 **注释**
 
