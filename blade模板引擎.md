@@ -195,5 +195,5 @@ Blade::directive('datetime', function($expression) {
 });
 ```
 
-
+> 这里使用with{$expression}是为了使用with这个函数,返回给定的对象\/值,允许方法链.{}花括号的原因是直接加括号会变成两个括号,具体问题在5.3解决了,5.3可以直接写变量传入然后使用方法链
 
