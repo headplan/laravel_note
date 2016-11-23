@@ -116,12 +116,12 @@ Web应用的页面布局基本相同,所以可以定义一个布局页面,将布
 
 相关指令:
 
-* @yield\(\)
+* @yield\('content'\) - 指定layout模板模型中改变的部分
+* @extends\('layout.master'\) - 继承模板模型
 * @section\(\)
 * @show\(\)
 * @endsection\(\)
 * @parent\(\)
-* @extends\(\)
 
 **包含子视图**
 
@@ -138,8 +138,6 @@ common是文件夹名,在resources\/views\/common下,@include\(\)第二个参数
 **循环引入多个局部视图**
 
 使用blade的@each指令,其有4个参数:
-
-
 
 **注释**
 
