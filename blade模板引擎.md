@@ -122,3 +122,15 @@ common是文件夹名,在resources\/views\/common下,@include\(\)第二个参数
 
 > 在blade视图中使用类似\_\_DIR\_\_和\_\_FILE\_\_常量,会指向缓存路径storage\/framework\/views
 
+**注释**
+
+```
+{{-- 我是blade注释 --}}
+```
+
+在blade中使用注释,不会渲染到HTML中,因为缓存文件渲染成了php注释.
+
+```
+<?php /* 我是blade注释 */ ?>
+```
+
