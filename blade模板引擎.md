@@ -173,3 +173,27 @@ common是文件夹名,在resources\/views\/common下,@include\(\)第二个参数
 <?php /* 我是blade注释 */ ?>
 ```
 
+### 服务器注入
+
+`@inject`指令可以用于从服务容器中获取服务,传递给`@inject`的第一个参数是服务将要被放置到的变量名,第二个参数是要解析的服务类名或接口名
+
+```
+@inject('metrics', 'App\Services\MetricsService')
+
+<div>
+    Monthly Revenue: {{ $metrics->monthlyRevenue() }}.
+</div>
+```
+
+### 扩展blade
+
+自定义blade指令,在App\Providers\AppServiceProvider中的boot方法里使用`directive`创建新的指令
+
+```
+Blade::directive('datetime', function($expression) {
+    return "<?php echo with{$expression}->format('m/d/Y H:i'); ?>";
+});
+```
+
+
+
