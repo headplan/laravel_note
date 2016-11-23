@@ -112,7 +112,7 @@ while循环
 
 **包含子视图**
 
-common是文件夹名,在resources\/views\/common下
+common是文件夹名,在resources\/views\/common下,@include\(\)第二个参数可以向子视图中传递参数
 
 ```
 @include('common.header', ['title' => '我是首页'])
@@ -120,5 +120,5 @@ common是文件夹名,在resources\/views\/common下
 @include('common.footer')
 ```
 
-
+> 在blade视图中使用类似\_\_DIR\_\_和\_\_FILE\_\_常量,会指向缓存路径storage\/framework\/views
 
