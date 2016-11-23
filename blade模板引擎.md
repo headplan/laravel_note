@@ -122,6 +122,18 @@ Web应用的页面布局基本相同,所以可以定义一个布局页面,将布
 * @parent - 继承layout模板模型中@section\('content'\)和@show之间的默认内容,定义在@section\('content'\)和@endsection之间,类似php中的继承父类内容\(出现的位置可以随便\).@parent是追加而非覆盖
 * @extends\('layout.master'\) - 继承模板模型
 
+```
+# 模板模型
+<body>
+<div class="header">我是头部</div>
+@yield('new')
+@section('middle')
+    我是默认的内容
+    @show
+<div class="footer">我是底部</div>
+</body>
+```
+
 **包含子视图**
 
 common是文件夹名,在resources\/views\/common下,@include\(\)第二个参数可以向子视图中传递参数
