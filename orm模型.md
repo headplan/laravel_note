@@ -12,5 +12,14 @@ php artisan make:model Dbs
 namespace App\Http\Model;
 ```
 
-a
+模型中有几个常用的基本定义
+
+```
+class Dbs extends Model
+{
+    protected $table = 'user'; # 定义表名
+    protected $primaryKey = 'userid'; # 定义主键名
+    public $timestamps = false; # 定义排除时间记录字段
+}
+```
 
