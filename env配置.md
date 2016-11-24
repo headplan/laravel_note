@@ -45,5 +45,18 @@ Homestead.json
 .env
 ```
 
-上面这些文件和文件件都已经忽略提交
+上面这些文件和文件件都已经忽略提交.所以可以将一些重要配置信息写入.env文件,不进行提交.其他配置都写入到config目录下的配置文件中,这里引入了env函数,函数有两个参数,第一个参数是引入.env中常量的配置项,如果.env文件中没有配置,则使用第二个参数为默认值.
+
+例子,将config文件夹中database.php里的mysql配置项中的表前缀项,写到.env文件中,配置文件中使用env获取.env中的参数
+
+```
+# .env文件添加
+DB_PREFIX=blog_
+# database.php文件修改成
+'prefix' => env('DB_PREFIX', ''),
+```
+
+要获取config文件夹下的配置项,可以使用config函数
+
+
 
