@@ -23,3 +23,25 @@ class Dbs extends Model
 }
 ```
 
+在控制器中使用,需要先引入模型
+
+```
+use App\Http\Model\Dbs;
+```
+
+下面是简单的查找与更新
+
+```
+public function index()
+{
+//        $users = Dbs::where('userid',1)->get();
+//        dd($users);
+        $users = Dbs::find(1);
+        $users->username = '小爽';
+        $users->update();
+        dd($users);
+}
+```
+
+ORM模型还有很多内容,具体查看手册和项目中实际应用.
+
