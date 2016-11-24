@@ -7,6 +7,7 @@ APP_DEBUG=true # 调试模式开启
 APP_KEY=base64:Igs1BdzHI9XIV1clE1+aELqlvccO7sIGuX55++c6ghU= # 敏感信息加密的秘钥,例如session等.
 APP_URL=http://localhost # 项目URL地址
 
+# 数据库配置
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
