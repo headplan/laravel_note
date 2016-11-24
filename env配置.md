@@ -56,7 +56,11 @@ DB_PREFIX=blog_
 'prefix' => env('DB_PREFIX', ''),
 ```
 
-要获取config文件夹下的配置项,可以使用config函数
+要获取config文件夹下的配置项,可以使用config函数,使用文件名.key值获取.
 
+```
+$c = config('database.connections.mysql.charset');
+```
 
+上面的例子就是获取配置文件中的utf8值.
 
