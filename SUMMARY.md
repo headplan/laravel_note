@@ -56,4 +56,5 @@
         * [HTTP视图](http视图.md)
         * [Blade模板引擎](blade模板引擎.md)
         * [.env配置](env配置.md)
+        * [数据库基本操作](数据库基本操作.md)
 
