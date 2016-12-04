@@ -18,6 +18,8 @@ Route::any('admin/login', 'Admin\LoginController@login');
 ```
 # Input::all() - 获取所有post提交
 # back()->with() - 返回页面并返回信息,信息会写入session中
+# 这里要添加use Illuminate\Support\Facades\Input;
+# 还可以把自定义的验证码类添加进去,写在初始化中use App\Helpers\code\Code;
 $_code = $this->code->get();
 if ($input = Input::all()) {
     if (strtoupper($input['code']) != $_code) {
@@ -31,6 +33,8 @@ if ($input = Input::all()) {
 > 这里有一个坑,新版本的5.2.9以后在路由中默认添加了web中间件,此时在group中再次添加web中间件,session会获取不到
 > 
 > 这里可以使用php artisan route:list查看一下,就知道了.
+> 
+> 默认的laravel session是存储在storage\/framework\/sessions中的.
 
 将验证码信息返回到页面
 
@@ -39,6 +43,4 @@ if ($input = Input::all()) {
 <p style="color:red">{{ session('msg') }}</p>
 @endif
 ```
-
-
 
