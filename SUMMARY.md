@@ -68,4 +68,5 @@
             * [中间件设置与注销](中间件设置与注销.md)
             * [修改密码及Validation验证](修改密码及validation验证.md)
             * [文章分类](创建分类表.md)
+    * [AuthPlan](authplan.md)
 
