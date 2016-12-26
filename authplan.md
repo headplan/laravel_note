@@ -26,3 +26,11 @@ laracasts/flash - 消息展示
 
 mews/captcha - 验证码
 
+
+
+
+
+http://laravelacademy.org/post/153.html
+
+http://www.tuicool.com/articles/vyIRBbB
+
