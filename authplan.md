@@ -8,11 +8,15 @@
 
 bican/roles
 
-**日志**
+**错误日志**
 
-arcanedev/log-viewer
+arcanedev/log-viewer - 日志分析
 
-Seldaek/monolog
+Seldaek/monolog - 日志记录
+
+**工具**
+
+barryvdh/laravel-debugbar - 调试工具
 
 **样式**
 
