@@ -71,6 +71,6 @@
     * [AuthPlan](authplan.md)
 * [代码片段](代码片段.md)
     * [路由文件最佳分割方式](路由文件最佳分割方式.md)
-    * [Laravel资源记录](laravel资源记录.md)
-        * [Repository层支持](repository层支持.md)
+* [Laravel资源](laravel资源记录.md)
+    * [Repository层支持](repository层支持.md)
 
