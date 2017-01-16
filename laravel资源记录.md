@@ -4,7 +4,11 @@
 
 [http://laravelacademy.org/post/153.html](http://laravelacademy.org/post/153.html)
 
+> https://github.com/nonfu/awesome-laravel
+
 [http://www.tuicool.com/articles/vyIRBbB](http://www.tuicool.com/articles/vyIRBbB)
+
+> https://github.com/summerblue/laravel-package-top-100
 
 ### 扩展包选择
 
