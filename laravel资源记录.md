@@ -26,7 +26,7 @@ artesaos/defender - [https://github.com/artesaos/defender](https://github.com/ar
 
 zizaco/entrust - [https://github.com/Zizaco/entrust](https://github.com/Zizaco/entrust) : RBAC
 
-tymondesigns/jwt-auth - https://github.com/tymondesigns/jwt-auth : 认证
+tymon/jwt-auth - [https://github.com/tymondesigns/jwt-auth](https://github.com/tymondesigns/jwt-auth) : 认证
 
 **错误日志**
 
@@ -37,6 +37,8 @@ Seldaek/monolog - 日志记录
 **工具**
 
 barryvdh/laravel-debugbar - 调试工具
+
+laracasts/generators - 命令行工具
 
 **样式**
 
