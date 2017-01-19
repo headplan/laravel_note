@@ -4,17 +4,23 @@
 
 [http://laravelacademy.org/post/153.html](http://laravelacademy.org/post/153.html)
 
-> https://github.com/nonfu/awesome-laravel
+> [https://github.com/nonfu/awesome-laravel](https://github.com/nonfu/awesome-laravel)
 
 [http://www.tuicool.com/articles/vyIRBbB](http://www.tuicool.com/articles/vyIRBbB)
 
-> https://github.com/summerblue/laravel-package-top-100
+> [https://github.com/summerblue/laravel-package-top-100](https://github.com/summerblue/laravel-package-top-100)
+
+##### 官方资源
+
+http://packalyst.com/
 
 ### 扩展包选择
 
 **权限认证**
 
-bican/roles
+bican/roles - https://github.com/romanbican/roles
+
+
 
 **错误日志**
 
