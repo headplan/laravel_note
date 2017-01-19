@@ -24,6 +24,10 @@ bican/roles - [https://github.com/romanbican/roles](https://github.com/romanbica
 
 artesaos/defender - [https://github.com/artesaos/defender](https://github.com/artesaos/defender) : RBAC
 
+zizaco/entrust - https://github.com/Zizaco/entrust : RBAC
+
+
+
 **错误日志**
 
 arcanedev/log-viewer - 日志分析
