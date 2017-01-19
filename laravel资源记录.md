@@ -12,15 +12,15 @@
 
 ##### 官方资源
 
-http://packalyst.com/
+[http://packalyst.com/](http://packalyst.com/)
 
 ### 扩展包选择
 
 **权限认证**
 
-bican/roles - https://github.com/romanbican/roles
+bican/roles - [https://github.com/romanbican/roles](https://github.com/romanbican/roles)
 
-
+artesaos/defender - https://github.com/artesaos/defender
 
 **错误日志**
 
