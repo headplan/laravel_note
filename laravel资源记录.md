@@ -16,7 +16,7 @@
 
 ### 扩展包选择
 
-**权限认证**
+##### 认证授权
 
 Gate - Laravel 5.1.11添加的类 : ACL
 
@@ -24,9 +24,9 @@ bican/roles - [https://github.com/romanbican/roles](https://github.com/romanbica
 
 artesaos/defender - [https://github.com/artesaos/defender](https://github.com/artesaos/defender) : RBAC
 
-zizaco/entrust - https://github.com/Zizaco/entrust : RBAC
+zizaco/entrust - [https://github.com/Zizaco/entrust](https://github.com/Zizaco/entrust) : RBAC
 
-
+tymondesigns/jwt-auth - https://github.com/tymondesigns/jwt-auth : 认证
 
 **错误日志**
 
