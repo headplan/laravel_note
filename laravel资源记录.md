@@ -18,9 +18,11 @@
 
 **权限认证**
 
+Gate - Laravel 5.1.11开始的添加的ACL类
+
 bican/roles - [https://github.com/romanbican/roles](https://github.com/romanbican/roles)
 
-artesaos/defender - https://github.com/artesaos/defender
+artesaos/defender - [https://github.com/artesaos/defender](https://github.com/artesaos/defender)
 
 **错误日志**
 
