@@ -22,6 +22,8 @@ Gate - Laravel 5.1.11添加的自带类 : ACL
 
 bican/roles - [https://github.com/romanbican/roles](https://github.com/romanbican/roles)
 
+* geniusts/roles - https://github.com/GeniusTS/roles : forked from [romanbican/roles](https://github.com/romanbican/roles)
+
 artesaos/defender - [https://github.com/artesaos/defender](https://github.com/artesaos/defender) : RBAC
 
 zizaco/entrust - [https://github.com/Zizaco/entrust](https://github.com/Zizaco/entrust) : RBAC
