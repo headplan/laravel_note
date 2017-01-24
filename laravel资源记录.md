@@ -18,7 +18,7 @@
 
 ##### 认证授权
 
-Gate - Laravel 5.1.11添加的类 : ACL
+Gate - Laravel 5.1.11添加的自带类 : ACL
 
 bican/roles - [https://github.com/romanbican/roles](https://github.com/romanbican/roles)
 
