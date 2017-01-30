@@ -74,4 +74,5 @@
 * [Laravel资源](laravel资源记录.md)
   * [Repository层支持](repository层支持.md)
 * [框架解析](框架解析.md)
+  * [组件化开发与Composer使用](框架解析/组件化开发与Composer使用.md)
 
