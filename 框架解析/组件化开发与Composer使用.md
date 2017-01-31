@@ -23,12 +23,12 @@ Composer需要PHP5.3支持,建议安装PHP5.4以上.这里Composer的安装步�
 
 ```
 {
-    "name": "headplan/codebase",
-    "require": {
-        "monolog/monolog": "1.*"
+    "name": "headplan/codebase", # 自定义的名字
+    "require": {                 # 需要的资源包
+        "monolog/monolog": "1.*" # 资源包名字和版本约束号
     }
 }
 ```
 
-
+然后执行composer install命令安装即可
 
