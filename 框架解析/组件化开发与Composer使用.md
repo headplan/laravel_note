@@ -15,7 +15,20 @@
 
 Composer需要PHP5.3支持,建议安装PHP5.4以上.这里Composer的安装步骤暂时略过.
 
-在完成Composer工具的安装后,就可以通过组件化的方式创建项目了.
+### 创建项目
+
+在完成Composer工具的安装后,就可以通过组件化的方式创建项目了.Composer官方提供了组件资源库packagist\(packagist.org\),可以搜索自己想要的资源包.
+
+创建composer.json文件
+
+```
+{
+    "name": "headplan/codebase",
+    "require": {
+        "monolog/monolog": "1.*"
+    }
+}
+```
 
 
 
