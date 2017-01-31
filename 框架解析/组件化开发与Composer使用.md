@@ -6,7 +6,16 @@
 
 不用修改框架中的其他部分代码就能保证各模块间协调工作,这就是规范和接口的威力.
 
+不同的编程语言都有自己的组件化管理工具.
 
+* PHP - Composer
+* Ruby - gem
+* Java - maven
+* Python - pip
+
+Composer需要PHP5.3支持,建议安装PHP5.4以上.这里Composer的安装步骤暂时略过.
+
+在完成Composer工具的安装后,就可以通过组件化的方式创建项目了.
 
 
 
