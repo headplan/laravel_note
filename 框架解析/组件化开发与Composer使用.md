@@ -91,6 +91,10 @@ Composer提供了四种自动加载规范
 * composer require - 添加新的依赖包到composer.json文件中并执行更新
 * composer search - 在当前项目中搜索依赖包
 * composer show - 列举所有可用的资源包
+* composer validate - 检测composer.json文件是否有效
+* composer self-update - 将composer工具更新到最新版本
+* composer create-project - 基于composer创建一个新的项目
+* composer dump-autoload - 在添加新的类和目录映射时更新autoloader
 
 
 
