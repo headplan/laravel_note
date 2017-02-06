@@ -86,7 +86,11 @@ Composer提供了四种自动加载规范
 
 * composer list - 获取帮助信息
 * composer init - 以交互方式填写composer.json文件信息
-* composer install - 
+* composer install - 从当前目录读取composer.json文件,处理依赖关系,并安装到vendor目录下
+* composer update - 获取依赖的最新版本,升级composer.lock文件
+* composer require - 添加新的依赖包到composer.json文件中并执行更新
+* composer search - 在当前项目中搜索依赖包
+* composer show - 列举所有可用的资源包
 
 
 
