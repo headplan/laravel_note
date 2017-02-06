@@ -52,5 +52,35 @@ $myLog = new \Monolog\Logger('YuAn');
 var_dump($myLog);
 ```
 
+Composer提供了四种自动加载规范
+
+* PSR-0
+* PSR-4
+* classmap
+* files
+
+四种规范形式上定义了一个命名空间到实际文件的映射关系.在composer.json中可以直接添加autoload字段实现命名空间到目录的映射,例如
+
+```
+{
+    "autoload": {
+        "psr-4": {"App\\": "app/"},
+        "psr-0": {"Bpp\\": "bpp/"},
+        "classmap": ["database"],
+        "files": [
+            "src/app/helpers.php",
+            "src/bpp/helpers.php"
+        ]
+    }
+}
+```
+
+四种规范的解释
+
+* 在psr-4规范下,创建app/User.php文件,该文件需要包含App\User类,实例化\App\User\(\)类时,自动加载app/User.php文件
+* 在psr-0规范下,创建bpp/Bpp/User.php文件,该文件需要包含Bpp\User类,才符合自动加载规则,比psr-4多了Bpp一层目录
+* 对于classmap会扫描指定目录中所有的.php和.inc文件,并加载到vendor/composer/autoload\_classmap.php文件中,这是一个类和文件映射关系的数组,这里的自动加载可以不符合上面的规则.
+* 通过files规范加载一些每次执行时都需要载入的文件,一般函数库文件都会使用这种载入方式.
+
 
 
