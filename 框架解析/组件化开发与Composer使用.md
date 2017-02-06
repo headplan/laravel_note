@@ -82,5 +82,11 @@ Composer提供了四种自动加载规范
 * 对于classmap会扫描指定目录中所有的.php和.inc文件,并加载到vendor/composer/autoload\_classmap.php文件中,这是一个类和文件映射关系的数组,这里的自动加载可以不符合上面的规则.
 * 通过files规范加载一些每次执行时都需要载入的文件,一般函数库文件都会使用这种载入方式.
 
+#### Composer命令行
+
+* composer list - 获取帮助信息
+* composer init - 以交互方式填写composer.json文件信息
+* composer install - 
+
 
 
