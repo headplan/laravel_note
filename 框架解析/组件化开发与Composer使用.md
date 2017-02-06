@@ -96,5 +96,7 @@ Composer提供了四种自动加载规范
 * composer create-project - 基于composer创建一个新的项目
 * composer dump-autoload - 在添加新的类和目录映射时更新autoloader
 
+### 手动构建Laravel框架
+
 
 
