@@ -30,5 +30,27 @@ Composer需要PHP5.3支持,建议安装PHP5.4以上.这里Composer的安装步�
 }
 ```
 
-然后执行composer install命令安装即可
+然后执行composer install命令安装即可.
+
+Composer会检查json文件中的组件名称及版本,然后创建并下载到vendor文件夹中\(vendor/monolog/monolog\).完成下载后创建composer.lock文件锁,记录当前项目的依赖组件和确切的版本号,这点对于分布式开发非常有用,不同的开发人员只需要上传composer.lock文件到版本库,其他人通过lock文件就可以下载相同的组件,实现程序的版本统一.
+
+#### 自动加载
+
+Composer不仅可以下载组件,同时还搭配了自动加载功能,在项目中引入
+
+```
+require 'vendor/autoload.php';
+```
+
+即可以直接使用下载的组件类.
+
+```
+<?php
+require 'vendor/autoload.php';
+
+$myLog = new \Monolog\Logger('YuAn');
+var_dump($myLog);
+```
+
+
 
