@@ -106,5 +106,32 @@ Composer提供了四种自动加载规范
 * 模型组件添加
 * 师徒组件添加
 
+##### 项目初始化
+
+```
+# 查看虚拟机状态,启动,登录
+vagrant status
+vagrant up
+vagrant ssh
+# 创建虚拟机
+service vhost add complan complan.app
+# 绑定域名
+sudo vim /etc/hosts
+
+# Git初始化
+git init
+# 创建Composer.json文件
+touch composer.json
+{
+    "require": {
+    }
+}
+
+# 初始化ComPlan
+composer update
+git add ./
+git commit -m "ComPlan init"
+```
+
 
 
