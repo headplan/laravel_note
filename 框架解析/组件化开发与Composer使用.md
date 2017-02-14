@@ -127,7 +127,7 @@ touch composer.json
     }
 }
 
-# 初始化ComPlan
+# 初始化ComPla,生成自动加载文件
 composer update
 git add ./
 git commit -m "ComPlan init"
