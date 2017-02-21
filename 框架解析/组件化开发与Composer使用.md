@@ -189,5 +189,51 @@ $response = $app['router']->dispatch($request);
 $response->send();
 ```
 
+##### 添加控制器模块
+
+添加控制器可以更好的处理路由来的请求.其实在添加路由组件时已经添加了基本的控制器类`illuminate\routing\Controller`类,可以作为基类以扩展控制器功能.
+
+在app目录下创建controllers目录,并设置composer.json的自动加载配置
+
+```
+mkdir controllers
+# 配置自动加载
+{
+    "name": "headplan/codebase",
+    "require": {
+        "illuminate/routing": "5.4.*",
+        "illuminate/events": "*",
+        "monolog/monolog": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
+# 命令行更新自动加载文件
+composer dump-autoload
+```
+
+在routes.php创建路由规则
+
+```
+$app['router']->get('/hi', 'App\Controllers\HiController@index');
+```
+
+创建控制器类
+
+```
+<?php
+namespace App\Controllers;
+class HiController
+{
+    public function index()
+    {
+        return '<h1>控制器创建成功</h1>';
+    }
+}
+```
+
 
 
