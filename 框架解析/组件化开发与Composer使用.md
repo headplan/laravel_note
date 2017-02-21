@@ -135,5 +135,57 @@ git commit -m "ComPlan init"
 
 ##### 路由组件添加
 
+搜索路由包
+
+https://packagist.org/packages/illuminate/routing
+
+下面的依赖有很多,会自动安装
+
+```
+{
+    "require": {
+        "illuminate/routing": "*",
+        "illuminate/events": "*"
+    }
+}
+```
+
+然后执行`composer update`命令.要成功运行路由,就需要上面两个组件.
+
+先创建三个文件夹
+
+```
+mkdir app
+mkdir http
+mkdir public
+
+# 在http文件夹中创建routes.php文件,写入路由规则
+<?php
+$app['router']->get('/', function(){
+    return '<h1>路由成功</h1>';
+});
+
+# 在入口文件写入加载注册组件
+```
+
+路由过程
+
+```
+<?php
+# 调用自动加载文件
+require __DIR__ . '/vendor/autoload.php';
+# 实例化服务容器.注册事件和路由服务器提供者
+$app = new Illuminate\Container\Container;
+with(new Illuminate\Routing\RoutingServiceProvider($app))->register();
+with(new Illuminate\Events\EventServiceProvider($app))->register();
+# 加载路由
+require __DIR__ . '/http/routes.php';
+# 实例化请求并分发处理请求
+$request = Illuminate\Http\Request::createFromGlobals();
+$response = $app['router']->dispatch($request);
+# 返回请求响应
+$response->send();
+```
+
 
 
