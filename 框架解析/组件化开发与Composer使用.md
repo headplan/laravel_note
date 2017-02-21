@@ -139,6 +139,8 @@ git commit -m "ComPlan init"
 
 [https://packagist.org/packages/illuminate/routing](https://packagist.org/packages/illuminate/routing)
 
+https://packagist.org/packages/illuminate/events
+
 下面的依赖有很多,会自动安装
 
 ```
@@ -234,6 +236,10 @@ class HiController
     }
 }
 ```
+
+##### 添加模型组件
+
+
 
 
 
