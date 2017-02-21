@@ -239,15 +239,84 @@ class HiController
 
 ##### 添加模型组件
 
-database包
+database组件
 
-https://packagist.org/packages/illuminate/database
+[https://packagist.org/packages/illuminate/database](https://packagist.org/packages/illuminate/database)
 
 编辑`composer.json`文件
 
 ```
+{
+    "name": "headplan/codebase",
+    "require": {
+        "illuminate/routing": "5.4.*",
+        "illuminate/events": "*",
+        "illuminate/database": "*",
+        "monolog/monolog": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
+# 更新
+composer update
+```
+
+database组件提供了两种数据库操作方式,一种是查询构造器方式,一种是Eloquent ORM方式.这里暂时用ORM方式操作数据库.
+
+通过ORM操作数据库的方式主要分5步
+
+* 创建数据库
+* 添加数据库配置
+* 启动ORM模块
+* 创建model类
+* 通过model类操作数据库
+
+创建数据库
+
+    CREATE TABLE `students` (
+      `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+      `name` varchar(30) DEFAULT NULL,
+      `age` int(10) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8
+
+添加数据库配置
 
 ```
+# 创建配置文件的文件夹
+mkdir config
+# 编辑配置文件
+<?php
+return [
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'mypro',
+    'username'  => 'root',
+    'password'  => 'root',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_general_ci',
+    'prefix'    => ''
+];
+```
+
+启动ORM模块
+
+```
+# 编辑入口文件
+# 添加数据库管理类
+use Illuminate\Database\Capsule\Manager;
+# 启动Eloquent ORM模块并配置
+$manager = new Manager();
+# 引入数据库相关配置
+$manager->addConnection(require __DIR__ . '/config/database.php');
+# 启动数据库模块
+$manager->bootEloquent();
+```
+
+
 
 
 
