@@ -221,7 +221,7 @@ composer dump-autoload
 $app['router']->get('/hi', 'App\Controllers\HiController@index');
 ```
 
-创建控制器类
+创建控制器模块
 
 ```
 <?php
