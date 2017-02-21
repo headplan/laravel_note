@@ -137,7 +137,7 @@ git commit -m "ComPlan init"
 
 搜索路由包
 
-https://packagist.org/packages/illuminate/routing
+[https://packagist.org/packages/illuminate/routing](https://packagist.org/packages/illuminate/routing)
 
 下面的依赖有很多,会自动安装
 
@@ -158,14 +158,16 @@ https://packagist.org/packages/illuminate/routing
 mkdir app
 mkdir http
 mkdir public
+```
 
-# 在http文件夹中创建routes.php文件,写入路由规则
+创建路由规则
+
+```
 <?php
+# 在http文件夹中创建routes.php文件,写入路由规则
 $app['router']->get('/', function(){
     return '<h1>路由成功</h1>';
 });
-
-# 在入口文件写入加载注册组件
 ```
 
 路由过程
