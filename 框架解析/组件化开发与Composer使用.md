@@ -359,5 +359,35 @@ class HiController
 
 #### 添加视图组件
 
+view组件
+
+https://packagist.org/packages/illuminate/view
+
+```
+{
+    "name": "headplan/codebase",
+    "require": {
+        "illuminate/routing": "5.4.*",
+        "illuminate/events": "*",
+        "illuminate/database": "*",
+        "illuminate/view": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
+```
+
+然后毅然是composer update更新.
+
+* 添加视图模板文件和编译文件的存储路径
+* 对视图进行相关配置和服务注册
+* 使用视图文件
+* 创建视图模板文件
+
+
+
 
 
