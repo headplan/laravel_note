@@ -425,9 +425,9 @@ $manager->bootEloquent();
 // 启动视图模块
 $app->instance('config', new Fluent);
 # 编译文件路径
-$app->['config']['view.compiled'] = __DIR__ . '/views/fra/';
+$app['config']['view.compiled'] = __DIR__ . '/views/fra/';
 # 模板文件路径
-$app->['config']['view.paths'] = [__DIR__ . '/views/res/'];
+$app['config']['view.paths'] = [__DIR__ . '/views/res/'];
 with(new Illuminate\View\ViewServiceProvider($app))->register();
 with(new Illuminate\Filesystem\FilesystemSericeProvider($app))->register();
 
