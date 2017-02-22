@@ -397,7 +397,42 @@ mkdir views/res
 mkdir views/far
 ```
 
+对视图进行相关配置和服务注册
 
+```php
+# 修改入口文件
+<?php
+use Illuminate\Database\Capsule\Manager;
+use Illuminate\Support\Fluent;
+require __DIR__ . '/vendor/autoload.php';
+
+$app = new Illuminate\Container\Container;
+Illuminate\Container\Container::setInstance($app);
+with(new Illuminate\Routing\RoutingServiceProvider($app))->register();
+with(new Illuminate\Events\EventServiceProvider($app))->register();
+
+// 启动Eloquent ORM模块
+$manager = new Manager();
+$manager->addConnection(require __DIR__ . '/config/database.php');
+$manager->bootEloquent();
+
+// 启动视图模块
+$app->instance('config', new Fluent);
+# 编译文件路径
+$app->['config']['view.compiled'] = __DIR__ . '/views/fra/';
+# 模板文件路径
+$app->['config']['view.paths'] = [__DIR__ . '/views/res/'];
+with(new Illuminate\View\ViewServiceProvider($app))->register();
+with(new Illuminate\Filesystem\FilesystemSericeProvider($app))->register();
+
+// 加载路由
+require __DIR__ . '/http/routes.php';
+
+$request = Illuminate\Http\Request::createFromGlobals();
+$response = $app['router']->dispatch($request);
+
+$response->send();
+```
 
 
 
