@@ -282,6 +282,8 @@ database组件提供了两种数据库操作方式,一种是查询构造器方�
       `age` int(10) DEFAULT NULL,
       PRIMARY KEY (`id`)
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8
+    # 添加一条数据
+    insert into `mypro`.`students` ( `id`, `name`, `age`) values ( '1', '小小', '21')
 
 添加数据库配置
 
@@ -332,8 +334,27 @@ class Student extends Model
 操作数据库
 
 ```
-# 编辑控制器文件
+# 添加一条新路由
+$app['router']->get('/data', 'App\Controllers\HiController@data');
+# 修改控制器,在控制器中调用刚刚创建的模型类
+# 根据路由创建新的方法
+<?php
+namespace App\Controllers;
+use App\Models\Student;
+class HiController
+{
+    public function index()
+    {
+        return '<h1>控制器创建成功</h1>';
+    }
 
+    public function data()
+    {
+        $student = Student::first();
+        $data = $student->getAttributes();
+        return $data;
+    }
+}
 ```
 
 
