@@ -387,7 +387,7 @@ view组件
 * 使用视图文件
 * 创建视图模板文件
 
-添加视图模板文件和编译文件的存储路径
+**添加视图模板文件和编译文件的存储路径**
 
 ```
 mkdir views
@@ -397,7 +397,7 @@ mkdir views/res
 mkdir views/far
 ```
 
-对视图进行相关配置和服务注册
+**对视图进行相关配置和服务注册**
 
 通过容器中的setInstance\(\)静态方法将服务容器实例添加为静态属性,这样就可以在任何位置获取服务容器的实例.
 
@@ -438,6 +438,44 @@ $request = Illuminate\Http\Request::createFromGlobals();
 $response = $app['router']->dispatch($request);
 
 $response->send();
+```
+
+**使用视图组件**
+
+通过服务器容器的getInstance\(\)静态方法获取服务容器实例,然后通过服务容器获取view服务的实例对象,即视图创建工厂类Illuminate\View\Factory实例.接着是使用make\(\)方法创建视图实例对象,其中的参数是视图文件的名称.最后是通过with\(\)方法添加数据.
+
+```php
+<?php
+namespace App\Controllers;
+use App\Models\Student;
+use Illuminate\Container\Container;
+class HiController
+{
+    public function index()
+    {
+        return '<h1>控制器创建成功</h1>';
+    }
+
+    public function data()
+    {
+        $student = Student::first();
+        $data = $student->getAttributes();
+        $app = Container::getInstance();
+        $factory = $app->make('view');
+        return $factory->make('data')->with('data', $data);
+    }
+}
+```
+
+**创建视图模板文件**
+
+```
+# 创建视图文件
+touch res/data.blade.php
+<h1>在视图中显示内容:</h1>
+<p>ID:{{ $data['id'] }}</p>
+<p>姓名:{{ $data['name'] }}</p>
+<p>年龄:{{ $data['age'] }}</p>
 ```
 
 
