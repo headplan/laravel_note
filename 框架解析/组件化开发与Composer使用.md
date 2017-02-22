@@ -106,7 +106,7 @@ Composer提供了四种自动加载规范
 * 模型组件添加
 * 师徒组件添加
 
-##### 项目初始化
+#### 项目初始化
 
 ```
 # 查看虚拟机状态,启动,登录
@@ -133,7 +133,7 @@ git add ./
 git commit -m "ComPlan init"
 ```
 
-##### 路由组件添加
+#### 路由组件添加
 
 搜索路由包
 
@@ -191,7 +191,7 @@ $response = $app['router']->dispatch($request);
 $response->send();
 ```
 
-##### 添加控制器模块
+#### 添加控制器模块
 
 添加控制器可以更好的处理路由来的请求.其实在添加路由组件时已经添加了基本的控制器类`illuminate\routing\Controller`类,可以作为基类以扩展控制器功能.
 
@@ -237,7 +237,7 @@ class HiController
 }
 ```
 
-##### 添加模型组件
+#### 添加模型组件
 
 database组件
 
@@ -356,6 +356,8 @@ class HiController
     }
 }
 ```
+
+#### 添加视图组件
 
 
 
