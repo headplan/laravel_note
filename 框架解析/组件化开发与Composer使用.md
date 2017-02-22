@@ -292,7 +292,7 @@ mkdir config
 <?php
 return [
     'driver'    => 'mysql',
-    'host'      => 'localhost',
+    'host'      => '127.0.0.1',
     'database'  => 'mypro',
     'username'  => 'root',
     'password'  => 'root',
@@ -316,7 +316,25 @@ $manager->addConnection(require __DIR__ . '/config/database.php');
 $manager->bootEloquent();
 ```
 
+创建模型类
 
+```
+<?php
+namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
+
+class Student extends Model
+{
+    public $timestamps = false;
+}
+```
+
+操作数据库
+
+```
+# 编辑控制器文件
+
+```
 
 
 
