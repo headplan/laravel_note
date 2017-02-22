@@ -478,5 +478,5 @@ touch res/data.blade.php
 <p>年龄:{{ $data['age'] }}</p>
 ```
 
-
+访问路径/data就会出现上面的模板和数据内容,并生成缓存文件到views/fra目录中.
 
