@@ -399,6 +399,12 @@ mkdir views/far
 
 对视图进行相关配置和服务注册
 
+通过容器中的setInstance\(\)静态方法将服务容器实例添加为静态属性,这样就可以在任何位置获取服务容器的实例.
+
+视图模块配置通过服务容器实例instance\(\)方法将服务名称config和Illuminate\Support\Fluent类的实例进行绑定,用于存储视图模块的配置信息.
+
+然后服务注册,注册视图模块及其依赖的文件模块.
+
 ```php
 # 修改入口文件
 <?php
@@ -433,8 +439,6 @@ $response = $app['router']->dispatch($request);
 
 $response->send();
 ```
-
-
 
 
 
