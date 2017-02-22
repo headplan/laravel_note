@@ -361,7 +361,7 @@ class HiController
 
 view组件
 
-https://packagist.org/packages/illuminate/view
+[https://packagist.org/packages/illuminate/view](https://packagist.org/packages/illuminate/view)
 
 ```
 {
@@ -386,6 +386,18 @@ https://packagist.org/packages/illuminate/view
 * 对视图进行相关配置和服务注册
 * 使用视图文件
 * 创建视图模板文件
+
+添加视图模板文件和编译文件的存储路径
+
+```
+mkdir views
+# 视图文件
+mkdir views/res
+# 编译文件
+mkdir views/far
+```
+
+
 
 
 
