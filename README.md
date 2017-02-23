@@ -20,3 +20,5 @@
 
 [https://laracasts.com/](https://laracasts.com/)
 
+https://tutsplus.com/
+
