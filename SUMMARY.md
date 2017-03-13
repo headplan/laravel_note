@@ -78,4 +78,5 @@
 * [框架展开及延伸](框架展开及延伸.md)
   * [Laravel用到的面向对象](框架展开及延伸/Laravel用到的面向对象.md)
   * [Composer完整使用流程](框架展开及延伸/Composer完整使用流程.md)
+  * [Laravel5.1基础内容](框架展开及延伸/Laravel5.1基础内容.md)
 
