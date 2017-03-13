@@ -250,7 +250,7 @@ composer search monolog
 # 仅以名称匹配
 composer search --only-name monolog
 
-# 在搜索到我们需要的相关包自后,但不确定其确切用途,还可以配合使用show展示详细信息
+# 在搜索到我们需要的相关包自后,但不确定其确切用途,还可以配合使用show展示详细信息(当然需要首先下载这个包)
 
 # 列出所有已经安装的包
 composer show
