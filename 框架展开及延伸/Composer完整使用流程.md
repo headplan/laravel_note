@@ -78,5 +78,55 @@ composer search monolog
 composer search --only-name monolog
 ```
 
+列出项目目前安装的包信息
+
+```
+# 列出所有已经安装的包
+composer show
+# 可以通过通配符进行筛选
+composer show monolog/*
+# 显示具体某个包的信息
+composer show monolog/monolog
+```
+
+**版本约束**
+
+确定的版本号
+
+```
+{
+    "require": {
+        "monolog/monolog": "1.19"
+    }
+}
+# 或者
+composer require monolog/monolog:1.19
+composer require monolog/monolog=1.19
+composer require monolog/monolog 1.19
+```
+
+指定版本号范围
+
+```
+操作符包括： > ， >= ， < ， <= ， != 
+使用空格或逗号表示逻辑与,使用||表示逻辑或(与的优先级大于或)
+
+```
+
+> 连字符"-"类似于逻辑与,区别在于连字符右边的版本约束不是确定版本号时,会自动匹配通配符版本1.2会变成1.2.\*
+
+通配符匹配最大版本
+
+`1.0.*`相当于`>=1.0 <1.1`
+
+**下一个重要版本操作符**
+
+~号和^号
+
+```
+~ 操作符的用法： ~1.2 相当于 >=1.2 <2.0.0 ，而 ~1.2.3 相当于 >=1.2.3 <1.3.0
+^ 操作符的用法： ^1.2.3 相当于 >=1.2.3 <2.0.0 (表示了当前版本到下一版本之间),再例如 ^0.3 会被当作 >=0.3.0 <0.4.0 对待
+```
+
 
 
