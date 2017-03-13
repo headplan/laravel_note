@@ -44,13 +44,13 @@ Route::get('/about', function() {
 
 ##### 创建控制器
 
-```
+```php
 php artisan make:controller SitesController
 ```
 
 命令行创建控制器非常方便,然后编辑路由,再在控制器的index方法中返回一个模版文件
 
-```
+```php
 Route::get('/about', 'SitesController@index');
 # 然后编辑控制器
 return view('sites.about');
