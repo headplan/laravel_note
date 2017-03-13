@@ -118,5 +118,28 @@ public function about()
 
 > 这里结尾可以使用@endsection或@stop都可以
 
+在blade模版中if判断和foreach循环的使用
+
+```
+@extends('layout')
+@section('content')
+<h1>Contact Page</h1>
+@if(count($name) > 0)
+    <ul>
+        @foreach($name as $n)
+            <li>{{ $n }}</li>
+        @endforeach
+    </ul>
+@elseif(count($name) < 2)
+    elseif
+@else
+    else
+@endif
+@stop
+@section('footer')
+    <script>alert('contact page');</script>
+@stop
+```
+
 
 
