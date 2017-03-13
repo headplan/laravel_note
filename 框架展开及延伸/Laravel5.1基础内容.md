@@ -46,6 +46,8 @@ Route::get('/about', function() {
 
 ```php
 php artisan make:controller SitesController
+# 如果需要创建无预定义方法的控制器,可以传入plain参数
+php artisan make:controller TestController --plain
 ```
 
 命令行创建控制器非常方便,然后编辑路由,再在控制器的index方法中返回一个模版文件
@@ -57,6 +59,15 @@ return view('sites.about');
 ```
 
 #### 向视图传递变量
+
+模版中接参数的方式
+
+```
+<h2>Hello: <?= $name;?></h2>
+<h2>Hello: <?php echo $name;?></h2>
+<h2>Hello: {{ $name }}</h2>
+<h2>Hello: {!! $name !!}</h2>
+```
 
 
 
