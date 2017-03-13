@@ -32,6 +32,7 @@ Route::get('/about', function() {
 
 # view('welcome')函数加载试图文件
 # 视图存储路径 : /resources/views/welcome.blade.php
+# blade是Laravel内置的模版引擎
 ```
 
 
