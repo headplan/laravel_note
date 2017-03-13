@@ -87,6 +87,37 @@ public function about()
 # 可以使用compact()函数组合变量为数组传递
 ```
 
+#### Blade模板引擎
+
+创建公共部分layout.blade.php
+
+```
+<html>
+<head>
+    <title>标题</title>
+</head>
+<body>
+<h1>我是公共模版</h1>
+    @yield('content');
+</body>
+</html>
+```
+
+之后就可以在其他模版中@extends继承这个layout模版,然后使用@section插入具体内容到@yield中
+
+```
+@extends('layout')
+@section('content')
+<h1>我是一个模版</h1>
+<h2>hello: <?= $name;?></h2>
+<h2>hello: <?php echo $name;?></h2>
+<h2>hello: {{ $name }}</h2>
+<h2>hello: {!! $name !!}</h2>
+@stop
+```
+
+> 这里结尾可以使用@endsection或@stop都可以
+
 
 
 
