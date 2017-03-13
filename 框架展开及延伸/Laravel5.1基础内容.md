@@ -33,6 +33,11 @@ Route::get('/about', function() {
 # view('welcome')函数加载试图文件
 # 视图存储路径 : /resources/views/welcome.blade.php
 # blade是Laravel内置的模版引擎
+# 模版分路径书写方式可以使用/或者.
+Route::get('/about', function() {
+    return view('sites.about');
+});
+# 然后再在视图文件存储路径创建文件即可.
 ```
 
 
