@@ -299,7 +299,7 @@ composer update --no-dev
 
 #### Composer运行shell命令
 
-在执行composer insatll或者composer update命令时可以添加一些shell脚本命令,json文件中以script为标识
+在执行composer insatll或者composer update命令时可以添加一些shell脚本命令,composer.json文件中以scripts为标识
 
 ```
 # 例如在运行install命令之后,执行shell命令
@@ -310,15 +310,13 @@ composer update --no-dev
     "require-dev": {
         "monolog/monolog": "*"
     },
-    "script": {
+    "scripts": {
         "post-install-cmd": "echo \"Hello Wrold\""
     }
 }
 ```
 
 > TODO - 其他参数配置可以查看[https://getcomposer.org/doc/articles/scripts.md](https://getcomposer.org/doc/articles/scripts.md官方文档) 官方文档
-
-
 
 
 
