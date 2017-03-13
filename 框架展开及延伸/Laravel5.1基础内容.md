@@ -29,6 +29,9 @@ php artisan serve
 Route::get('/about', function() {
     return 'Hello World';
 });
+
+# view('welcome')函数加载试图文件
+# 视图存储路径 : /resources/views/welcome.blade.php
 ```
 
 
