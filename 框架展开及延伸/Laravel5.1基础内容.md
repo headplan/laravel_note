@@ -56,5 +56,7 @@ Route::get('/about', 'SitesController@index');
 return view('sites.about');
 ```
 
+#### 向视图传递变量
+
 
 
