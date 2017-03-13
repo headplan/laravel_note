@@ -40,5 +40,21 @@ Route::get('/about', function() {
 # 然后再在视图文件存储路径创建文件即可.
 ```
 
+通常路由会链接控制器接受并返回数据.
+
+##### 创建控制器
+
+```
+php artisan make:controller SitesController
+```
+
+命令行创建控制器非常方便,然后编辑路由,再在控制器的index方法中返回一个模版文件
+
+```
+Route::get('/about', 'SitesController@index');
+# 然后编辑控制器
+return view('sites.about');
+```
+
 
 
