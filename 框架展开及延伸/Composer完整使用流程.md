@@ -160,7 +160,19 @@ composer require monolog/monolog 1.19
 }
 ```
 
+> 语义化版本约束 : http://semver.org/lang/zh-CN/
 
+#### 理解install和update
 
+这两个命令关联了两个文件:composer.json和composer.lock文件.
 
+composer.json中描述了需要安装的依赖包
+
+composer.lock中描述了包运行的确定依赖包版本
+
+执行composer install会首先根据composer.lock中确定的包的版本安装依赖,之后再去check另一个composer.json文件.
+
+也就是说在composer.lock文件存在的情况下,install不会因为composer.json中声明的包依赖版本的变更而改变.
+
+执行composer update刚好相反,该命令会根据composer.json文件中的包以来版本,更新composer.lock中的确定版本,再去安装更新后的包依赖.
 
