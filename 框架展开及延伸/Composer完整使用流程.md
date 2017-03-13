@@ -258,6 +258,24 @@ composer show
 composer show monolog/*
 # 显示具体某个包的信息
 composer show monolog/monolog
+# 如果没后安装过这个包,可以添加参数查看其信息
+composer show monolog/monolog -all
+```
+
+#### 使用Composer创建项目
+
+常用的创建命令
+
+```
+composer create-project laravel/laravel
+```
+
+这样就可以快速的创建Laravel项目了,使用`php artisan serve`查看一下效果.
+
+这个命令还可以添加一些参数
+
+```
+composer create-project slim/slim 文件夹名称 
 ```
 
 
