@@ -66,6 +66,7 @@ return view('sites.about');
 <h2>Hello: <?= $name;?></h2>
 <h2>Hello: <?php echo $name;?></h2>
 <h2>Hello: {{ $name }}</h2>
+# 下面的写法为不转意变量内容的方式,变量中的html会被加载
 <h2>Hello: {!! $name !!}</h2>
 ```
 
