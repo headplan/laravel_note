@@ -70,7 +70,7 @@ composer update monolog/monolog symfony/*
 composer remove monolog/monolog
 ```
 
-进行包的搜索,可以在[https://packagist.org/ 中查找需要的包,也可以使用命令行搜索](https://packagist.org/中查找需要的包,也可以使用命令行搜索)
+进行包的搜索,可以在[https://packagist.org/ ](https://packagist.org/中查找需要的包,也可以使用命令行搜索)中查找需要的包,也可以使用命令行搜索
 
 ```
 composer search monolog
