@@ -70,5 +70,24 @@ return view('sites.about');
 <h2>Hello: {!! $name !!}</h2>
 ```
 
+控制器中传递变量的方式
+
+```
+public function about()
+{
+    $name = [];
+    $name['first'] = '小';
+    $name['last'] = '明';
+    $other_name = '小红';
+    return view('sites.about',compact('name','other_name'))->with($name);
+}
+# with()可以传递一个变量,起别名,可以传递一个数组,以键为别名
+# view()第二个参数可以传递一个数组,键为别名
+# 传递数组,键为别名.传递变量,自定义别名
+# 可以使用compact()函数组合变量为数组传递
+```
+
+
+
 
 
