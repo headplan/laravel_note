@@ -98,7 +98,7 @@ public function about()
 </head>
 <body>
 <h1>我是公共模版</h1>
-    @yield('content');
+    @yield('content')
 </body>
 </html>
 ```
@@ -117,8 +117,6 @@ public function about()
 ```
 
 > 这里结尾可以使用@endsection或@stop都可以
-
-
 
 
 
