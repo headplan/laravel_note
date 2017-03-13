@@ -275,8 +275,50 @@ composer create-project laravel/laravel
 这个命令还可以添加一些参数
 
 ```
-composer create-project slim/slim 文件夹名称 
+composer create-project slim/slim 文件夹名称 版本号
 ```
+
+#### require-dev的使用方法和它的原理
+
+这个配置选项的目的是为了方便在开发环境中使用一些类似debug的工具包等工具进行的配置.
+
+它是不影响项目正常运行的,在生产环境中可以忽略安装.
+
+```
+{
+    "require": {
+        "mustache/mustache": "2.0.0"
+    },
+    "require-dev": {
+    }
+}
+# 忽略require-dev的配置
+composer install --no-dev
+composer update --no-dev
+```
+
+#### Composer运行shell命令
+
+在执行composer insatll或者composer update命令时可以添加一些shell脚本命令,json文件中以script为标识
+
+```
+# 例如在运行install命令之后,执行shell命令
+{
+    "require": {
+        "mustache/mustache": "2.0.0"
+    },
+    "require-dev": {
+        "monolog/monolog": "*"
+    },
+    "script": {
+        "post-install-cmd": "echo \"Hello Wrold\""
+    }
+}
+```
+
+> TODO - 其他参数配置可以查看https://getcomposer.org/doc/articles/scripts.md官方文档
+
+
 
 
 
