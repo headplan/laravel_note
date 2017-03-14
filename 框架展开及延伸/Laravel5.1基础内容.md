@@ -151,5 +151,9 @@ public function about()
 
 > 其实.env这个文件是放在.gitignore中的
 
+#### 数据库版本控制Migration
+
+
+
 
 
