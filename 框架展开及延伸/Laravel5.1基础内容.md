@@ -149,9 +149,7 @@ public function about()
 
 这样多此一举的写法,是为了更好的版本管理和团队开发.
 
-> 其实.env这个文件是放在.gitignore中的
-
-
+> 其实.env这个文件是放在.gitignore中的
 
 
 
