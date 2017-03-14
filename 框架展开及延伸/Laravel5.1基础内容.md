@@ -259,5 +259,41 @@ php artisan tinker
 # 这里用到了一个时间类Carbon\Carbon
 ```
 
+刚刚插入那条数据为
+
+```
+>>> $article->toArray();
+=> [
+     "title" => "My first title",
+     "content" => "lalala",
+     "publish_at" => Carbon\Carbon {#681
+       +"date": "2017-03-14 12:09:39.000000",
+       +"timezone_type": 3,
+       +"timezone": "UTC",
+     },
+     "updated_at" => "2017-03-14 12:11:08",
+     "created_at" => "2017-03-14 12:11:08",
+     "id" => 1,
+   ]
+```
+
+查询刚刚插入的那条数据
+
+```
+>>> $data = App\Article::find(1); # 传入id
+=> App\Article {#696
+     id: 1,
+     title: "My first title",
+     content: "lalala222",
+     publish_at: "2017-03-14 12:09:39",
+     created_at: "2017-03-14 12:11:08",
+     updated_at: "2017-03-14 12:11:08",
+   }
+>>> $data->title = 'Update Title'; # 更新这条数据的title
+=> "Update Title"
+>>> $data->save();
+=> true
+```
+
 
 
