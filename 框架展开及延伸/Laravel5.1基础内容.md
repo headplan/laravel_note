@@ -167,7 +167,27 @@ php artisan migrate:rollback
 
 ```
 php artisan make:migration create_article_table --create=article(这个参数写表的名字)
+php artisan migrate status
 ```
+
+执行最后一条命令之后,可以看到已经创建了migration文件,但标注的是N,说明还没有创建表结构,编辑这个文件
+
+```
+public function up()
+{
+    Schema::create('aritcles', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('title');
+        $table->text('content');
+        $table->timestamp('publish_at');
+        $table->timestamps();
+    });
+}
+```
+
+然后执行命令`php artisan migrate`
+
+
 
 
 
