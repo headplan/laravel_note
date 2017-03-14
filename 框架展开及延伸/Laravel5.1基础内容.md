@@ -219,7 +219,7 @@ composer require doctrine/dbal
 
 #### Eloquent应用
 
-创建模型
+**创建模型**
 
 ```
 php artisan make:model Article
@@ -228,6 +228,8 @@ php artisan make:model Article
 框架约定表名articles的模型名为Article.文件路径为app/Article.php.
 
 进入Psysh命令行操作
+
+**插入一条数据**
 
 ```
 php artisan tinker
@@ -259,7 +261,7 @@ php artisan tinker
 # 这里用到了一个时间类Carbon\Carbon
 ```
 
-刚刚插入那条数据为
+**刚刚插入那条数据为**
 
 ```
 >>> $article->toArray();
@@ -277,7 +279,7 @@ php artisan tinker
    ]
 ```
 
-查询刚刚插入的那条数据
+**查询刚刚插入的那条数据**
 
 ```
 >>> $data = App\Article::find(1); # 传入id
@@ -295,7 +297,7 @@ php artisan tinker
 => true
 ```
 
-使用where条件查询
+**使用where条件查询**
 
 ```
 # where()参数直接写字段,条件,内容.使用get();返回Collection,使用first();返回第一条数据对象
@@ -321,6 +323,41 @@ php artisan tinker
      created_at: "2017-03-14 12:11:08",
      updated_at: "2017-03-14 12:18:40",
    }
+```
+
+**设置fillable属性后,插入和更新数据**
+
+使用create\(\)方法,在插入数据之前,需要先设置fillable的可填充字段
+
+```
+class Article extends Model
+{
+    protected $fillable = ['title','content','publish_at'];
+}
+```
+
+```
+>>> $arr = [
+... 'title' => 'Second Title',
+... 'content' => 'Second Content',
+... 'publish_at' => Carbon\Carbon::now()];
+=> [
+     "title" => "Second Title",
+     "content" => "Second Content",
+     "publish_at" => Carbon\Carbon {#695
+       +"date": "2017-03-14 12:50:43.000000",
+       +"timezone_type": 3,
+       +"timezone": "UTC",
+     },
+   ]
+>>> $sec_data = App\Article::create($arr);
+```
+
+设置了fillable属性后,更新数据也变得简单了
+
+```
+>>> $sec_data->update(['title'=>'Change Title']);
+=> true
 ```
 
 
