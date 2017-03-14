@@ -217,5 +217,13 @@ composer require doctrine/dbal
 
 > TODO:这部分需要再多看些资料,才能用到实际应用中
 
+#### Eloquent应用
 
+创建模型
+
+```
+php artisan make:model Article
+```
+
+框架约定表名articles的模型名为Article.文件路径为app/Article.php
 
