@@ -185,9 +185,5 @@ public function up()
 }
 ```
 
-然后执行命令`php artisan migrate`
-
-
-
-
+然后执行命令`php artisan migrate`创建表,现在可以看到表结构了
 
