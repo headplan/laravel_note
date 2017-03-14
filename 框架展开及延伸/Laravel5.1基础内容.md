@@ -153,6 +153,16 @@ public function about()
 
 #### 数据库版本控制Migration
 
+在路径中/database/migrations中存放了创建数据库的"配置文件",执行下面的命令,即可在数据库中创建表.
+
+```
+php artisan migrate
+# 衍生出的还有相应的回滚命令
+php artisan migrate:rollback
+```
+
+执行命令后所有的表结构都删除了,当然数据也会被删除.
+
 
 
 
