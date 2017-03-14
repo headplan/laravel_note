@@ -225,5 +225,39 @@ composer require doctrine/dbal
 php artisan make:model Article
 ```
 
-框架约定表名articles的模型名为Article.文件路径为app/Article.php
+框架约定表名articles的模型名为Article.文件路径为app/Article.php.
+
+进入Psysh命令行操作
+
+```
+php artisan tinker
+>>> $article = new App\Article;
+=> App\Article {#679}
+>>> $article->title = 'My first title';
+=> "My first title"
+>>> $article->content = 'lalala';
+=> "lalala"
+>>> $article->publish_at = Carbon\Carbon::now();
+=> Carbon\Carbon {#681
+     +"date": "2017-03-14 12:09:39.000000",
+     +"timezone_type": 3,
+     +"timezone": "UTC",
+   }
+>>> $article;
+=> App\Article {#679
+     title: "My first title",
+     content: "lalala",
+     publish_at: Carbon\Carbon {#681
+       +"date": "2017-03-14 12:09:39.000000",
+       +"timezone_type": 3,
+       +"timezone": "UTC",
+     },
+   }
+>>> $article->save();
+=> true
+# 插入数据库完成,其中id为主键自增,create_at和update_at为框架自动插入的时间
+# 这里用到了一个时间类Carbon\Carbon
+```
+
+
 
