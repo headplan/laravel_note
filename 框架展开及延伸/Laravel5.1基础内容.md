@@ -209,5 +209,15 @@ public function down()
 
 执行命令,就可以添加这个字段了.
 
+如果需要修改一个column字段的名字,需要引入一个包,这样就可以使用renameColumn了.
+
+```
+composer require doctrine/dbal
+```
+
+> TODO:这部分需要再多看些资料
+
+
+
 
 
