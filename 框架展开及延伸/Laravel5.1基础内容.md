@@ -185,5 +185,29 @@ public function up()
 }
 ```
 
-然后执行命令`php artisan migrate`创建表,现在可以看到表结构了
+然后执行命令`php artisan migrate`创建表,现在可以看到表结构了.
+
+如果还需要向这个表中添加新的字段,需要再创建一个migration文件
+
+```
+php artisan make:migration add_intro_column_aritcles --table=aritcles(这个参数写明要添加字段的表)
+# 编辑migration文件
+public function up()
+{
+    Schema::table('articles', function (Blueprint $table) {
+        $table->string('intro');
+    });
+}
+
+public function down()
+{
+    Schema::table('articles', function (Blueprint $table) {
+        $table->dropColumn('intro');
+    });
+}
+```
+
+执行命令,就可以添加这个字段了.
+
+
 
