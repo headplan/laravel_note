@@ -295,5 +295,33 @@ php artisan tinker
 => true
 ```
 
+使用where条件查询
+
+```
+# where()参数直接写字段,条件,内容.使用get();返回Collection,使用first();返回第一条数据对象
+>>> $data_where = App\Article::where('content','like','la%')->get();
+=> Illuminate\Database\Eloquent\Collection {#707
+     all: [
+       App\Article {#708
+         id: 1,
+         title: "Update Title",
+         content: "lalala222",
+         publish_at: "2017-03-14 12:09:39",
+         created_at: "2017-03-14 12:11:08",
+         updated_at: "2017-03-14 12:18:40",
+       },
+     ],
+   }
+>>> $data_where = App\Article::where('content','like','la%')->first();
+=> App\Article {#701
+     id: 1,
+     title: "Update Title",
+     content: "lalala222",
+     publish_at: "2017-03-14 12:09:39",
+     created_at: "2017-03-14 12:11:08",
+     updated_at: "2017-03-14 12:18:40",
+   }
+```
+
 
 
