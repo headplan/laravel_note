@@ -215,9 +215,7 @@ public function down()
 composer require doctrine/dbal
 ```
 
-> TODO:这部分需要再多看些资料
-
-
+> TODO:这部分需要再多看些资料,才能用到实际应用中
 
 
 
