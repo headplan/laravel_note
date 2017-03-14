@@ -161,9 +161,13 @@ php artisan migrate
 php artisan migrate:rollback
 ```
 
-执行命令后所有的表结构都删除了,当然数据也会被删除.
+执行命令后所有的表结构都删除了,当然数据也会被删除.这样就可以方便的去修改字段名字了.
 
+下面就是创建自己的migration了,依然使用命令行创建
 
+```
+php artisan make:migration create_article_table --create=article(这个参数写表的名字)
+```
 
 
 
