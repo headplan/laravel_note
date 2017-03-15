@@ -360,7 +360,7 @@ class Article extends Model
 => true
 ```
 
-#### 简单的展示页面
+#### 简单的展示列表及详情页面
 
 **注册路由**
 
