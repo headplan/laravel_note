@@ -27,8 +27,11 @@ config/app.php
 下的服务提供者中引入刚刚的类
 Illuminate\Html\HtmlServiceProvider::class,
 在快捷方式中指定门面类
-'Form' => Illuminate\Html\FormBuilder::class,
+'Form' => Illuminate\Html\FormFacade::class,
+之后就可以使用了
 ```
+
+
 
 
 
