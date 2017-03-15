@@ -6,9 +6,14 @@
 
 ```
 Route::get('/articles/create','ArticlesController@create');
+Route::post('articles/store', ''ArticlesController@store);
 ```
 
 **编辑控制器**
+
+```
+
+```
 
 **创建视图**
 
@@ -30,8 +35,6 @@ Illuminate\Html\HtmlServiceProvider::class,
 'Form' => Illuminate\Html\FormFacade::class,
 之后就可以使用了
 ```
-
-
 
 
 
