@@ -20,5 +20,15 @@ composer require illuminate/html
 
 > Laravel 5.4 已经更名为laravelcollective/html
 
+引入之后需要简单配置
+
+```
+config/app.php
+下的服务提供者中引入刚刚的类
+Illuminate\Html\HtmlServiceProvider::class,
+在快捷方式中指定门面类
+'Form' => Illuminate\Html\FormBuilder::class,
+```
+
 
 
