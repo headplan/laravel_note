@@ -10,7 +10,13 @@ Route::get('/articles/create','ArticlesController@create');
 
 **编辑控制器**
 
+**创建视图**
 
+这里引入illuminate/html这个包
+
+```
+composer require illuminate/html
+```
 
 
 
