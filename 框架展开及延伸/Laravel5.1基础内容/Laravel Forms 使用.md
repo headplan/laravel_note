@@ -36,5 +36,25 @@ Illuminate\Html\HtmlServiceProvider::class,
 之后就可以使用了
 ```
 
+创建视图
+
+```
+@extends('layout')
+@section('content')
+    <h1>添加新文章</h1>
+    {!! Form::open(['url' => '/articles']) !!}
+        <div class="form-group">
+            {!! Form::label('title', '标题:') !!}
+            {!! Form::text('title', '这是一个标题', ['class' => 'form-control']) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('content', '内容:') !!}
+            {!! Form::textarea('content', '这是内容', ['class' => 'form-control']) !!}
+        </div>
+        {!! Form::submit('发表内容', ['class' => 'btn btn-primary form-control']) !!}
+    {!! Form::close() !!}
+@endsection
+```
+
 
 
