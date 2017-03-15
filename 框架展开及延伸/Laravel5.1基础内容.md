@@ -442,6 +442,24 @@ public function show($id)
 }
 ```
 
+**创建视图层**
+
+```
+# 创建文件articles/show.blade.php
+@extends('layout')
+@section('content')
+    <h1>{{ $article->title }}</h1>
+    <hr>
+    <article>
+        <div class="body">
+            {{ $article->content }}
+        </div>
+    </article>
+@endsection
+```
+
+**视图层URL的几种书写方式**
+
 
 
 
