@@ -360,5 +360,21 @@ class Article extends Model
 => true
 ```
 
+#### 简单的展示页面
+
+**注册路由**
+
+```
+Route::get('/articles', 'ArticlesController@index');
+```
+
+**创建控制器**
+
+```
+php artisan make:controller ArticlesController --plain
+```
+
+
+
 
 
