@@ -80,4 +80,5 @@
   * [Composer完整使用流程](框架展开及延伸/Composer完整使用流程.md)
   * [Laravel5.1基础内容](框架展开及延伸/Laravel5.1基础内容.md)
     * [简单的展示列表及详情页面](框架展开及延伸/Laravel5.1基础内容/简单的展示列表及详情页面.md)
+    * [Laravel Forms 使用](框架展开及延伸/Laravel5.1基础内容/Laravel Forms 使用.md)
 
