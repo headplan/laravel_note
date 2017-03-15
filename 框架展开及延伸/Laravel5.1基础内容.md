@@ -360,7 +360,5 @@ class Article extends Model
 => true
 ```
 
-#### 
-
 
 
