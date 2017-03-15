@@ -362,6 +362,8 @@ class Article extends Model
 
 #### 简单的展示列表及详情页面
 
+\[ **列表 **\]
+
 **注册路由**
 
 ```
@@ -414,6 +416,18 @@ class ArticlesController extends Controller
     @endforeach
 @endsection
 ```
+
+\[ **详情** \]
+
+**注册路由**
+
+```
+Route::get('/articles/{id}','ArticlesController@show');
+```
+
+**编辑方法**
+
+
 
 
 
