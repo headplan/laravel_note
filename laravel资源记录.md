@@ -52,7 +52,5 @@ mews/captcha - 验证码
 
 **页面**
 
-
-
-
+laravelcollective/html\(5.4之前叫illuminate/html\) - 在blade中生成html标签
 
