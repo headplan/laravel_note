@@ -427,6 +427,21 @@ Route::get('/articles/{id}','ArticlesController@show');
 
 **编辑方法**
 
+```
+public function show($id)
+{
+    $article = Article::find($id);
+    # 这里可以使用简单的判断在$id查不到时做什么
+    if (is_null($article)) {
+        abort(404);
+    }
+    # 或者直接使用框架的方法,找不到直接Fail掉
+    $article = Article::findOrFail($id);
+
+    return view('articles.show', compact('article'));
+}
+```
+
 
 
 
