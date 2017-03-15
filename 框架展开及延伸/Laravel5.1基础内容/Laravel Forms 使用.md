@@ -11,8 +11,43 @@ Route::post('/articles', 'ArticlesController@store');
 
 **编辑控制器**
 
-```
+```php
+public function index()
+{
+    $articles = Article::all();
+    $articles = Article::oldest()->get();
+    # 常用这种方式
+    $articles = Article::latest()->get();
 
+    return view('articles.index',compact('articles'));
+}
+
+public function show($id)
+{
+    $article = Article::findOrFail($id);
+    if (is_null($article)) {
+        abort(404,'错误');
+    }
+
+    return view('articles.show', compact('article'));
+}
+
+public function create()
+{
+    return view('articles.create');
+}
+
+public function store(Request $request)
+{
+    $title = $request->get('title');
+    # 接收POST数据
+    $post = $request->all();
+    $post['publish_at'] = Carbon::now();
+    # 数据入库 , Create方法默认过滤掉了token
+    Article::create($post);
+    # 重定向URI
+    return redirect('/articles');
+}
 ```
 
 **创建视图**
@@ -56,5 +91,5 @@ Illuminate\Html\HtmlServiceProvider::class,
 @endsection
 ```
 
-
+这部分内容结束之后,就是对表单的验证了,避免一些空提交或其他不想要的数据的提交.
 
