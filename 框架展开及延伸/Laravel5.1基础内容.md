@@ -374,7 +374,46 @@ Route::get('/articles', 'ArticlesController@index');
 php artisan make:controller ArticlesController --plain
 ```
 
+**编辑控制器**
 
+```
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use App\Article;
+
+class ArticlesController extends Controller
+{
+    public function index()
+    {
+        $articles = Article::all();
+
+        return view('articles.index',compact('articles'));
+    }
+}
+```
+
+**创建视图层**
+
+```
+# 创建文件articles/index.blade.php
+@extends('layout')
+@section('content')
+    <h1>Articles</h1>
+    <hr>
+    @foreach($articles as $article)
+        <h2>{{ $article->title }}</h2>
+        <article>
+            {{ $article->content }}
+        </article>
+    @endforeach
+@endsection
+```
 
 
 
