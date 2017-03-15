@@ -18,5 +18,7 @@ Route::get('/articles/create','ArticlesController@create');
 composer require illuminate/html
 ```
 
+> Laravel 5.4 已经更名为laravelcollective/html
+
 
 
