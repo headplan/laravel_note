@@ -6,7 +6,7 @@
 
 ```
 Route::get('/articles/create','ArticlesController@create');
-Route::post('articles/store', ''ArticlesController@store);
+Route::post('/articles', 'ArticlesController@store');
 ```
 
 **编辑控制器**
