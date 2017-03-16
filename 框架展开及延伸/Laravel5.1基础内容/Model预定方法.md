@@ -24,7 +24,10 @@ Article::create($post);
 
 ```
 # 创建Model中的条件方法
-
+public function scopePublishAt($query)
+{
+    $query->where('publish_at', '<=', Carbon::now());
+}
 
 # 在控制器中使用
 $articles = Article::latest()->publishat()->get();
