@@ -81,4 +81,5 @@
   * [Laravel5.1基础内容](框架展开及延伸/Laravel5.1基础内容.md)
     * [简单的展示列表及详情页面](框架展开及延伸/Laravel5.1基础内容/简单的展示列表及详情页面.md)
     * [Laravel Forms 使用](框架展开及延伸/Laravel5.1基础内容/Laravel Forms 使用.md)
+    * [Model预定方法](框架展开及延伸/Laravel5.1基础内容/Model预定方法.md)
 
