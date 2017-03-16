@@ -2,7 +2,7 @@
 
 这里介绍两种方式,使Model更加丰富,同时使控制器更加简洁明了.
 
-set{字段名}Attribute , 字段入库前的处理
+**set{字段名}Attribute , 字段入库前的处理**
 
 ```
 # 编辑Model
@@ -18,6 +18,16 @@ public function setPublishAtAttribute($date)
 # 控制器直接提交所有数据
 $post = $request->all();
 Article::create($post);
+```
+
+**拆分where条件为独立方法,约定scope{方法名}**
+
+```
+# 创建Model中的条件方法
+
+
+# 在控制器中使用
+$articles = Article::latest()->publishat()->get();
 ```
 
 
