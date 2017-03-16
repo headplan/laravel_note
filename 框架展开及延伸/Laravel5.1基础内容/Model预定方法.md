@@ -33,5 +33,17 @@ public function scopePublishAt($query)
 $articles = Article::latest()->publishat()->get();
 ```
 
+**Carbon对象简单介绍**
+
+```
+# 系统创建的时间都是Carbon对象,好处是可以直接获取改变里面的东西
+$article->created_at->year;
+# 显示一天前,十分钟前等...
+$article->created_at->diffForHumans());
+
+# 要使一个自定义字段以Carbon对象展示,在Model中定义个属性即可
+protected $dates = ['publish_at'];
+```
+
 
 
