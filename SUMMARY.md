@@ -87,5 +87,5 @@
   * [Laravel5.2新特性](框架展开及延伸/Laravel5.2新特性.md)
   * [Laravel5.3新特性](框架展开及延伸/Laravel5.3新特性.md)
   * [Laravel5.4新特性](框架展开及延伸/Laravel5.4新特性.md)
-  * [Laravel其他特性](框架展开及延伸/laravelqi-ta-te-xing.md)
+  * [Laravel其他特性](框架展开及延伸/Laravel其他特性.md)
 
