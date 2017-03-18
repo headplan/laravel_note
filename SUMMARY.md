@@ -84,4 +84,5 @@
     * [Model预定方法](框架展开及延伸/Laravel5.1基础内容/Model预定方法.md)
     * [表单验证](框架展开及延伸/Laravel5.1基础内容/表单验证.md)
     * [表单模型绑定](框架展开及延伸/Laravel5.1基础内容/表单模型绑定.md)
+  * [Laravel5.2新特性](框架展开及延伸/laravel52xin-te-xing.md)
 
