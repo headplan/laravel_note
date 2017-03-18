@@ -85,4 +85,5 @@
     * [表单验证](框架展开及延伸/Laravel5.1基础内容/表单验证.md)
     * [表单模型绑定](框架展开及延伸/Laravel5.1基础内容/表单模型绑定.md)
   * [Laravel5.2新特性](框架展开及延伸/Laravel5.2新特性.md)
+  * [Laravel5.3新特性](框架展开及延伸/laravel53xin-te-xing.md)
 
