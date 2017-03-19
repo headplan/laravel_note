@@ -38,6 +38,8 @@ Seldaek/monolog - 日志记录
 
 **工具**
 
+laravel/installer - 安装器
+
 barryvdh/laravel-debugbar - 调试工具
 
 laracasts/generators - 命令行工具
