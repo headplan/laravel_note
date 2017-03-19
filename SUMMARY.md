@@ -9,6 +9,7 @@
   * [Homestead](homestead.md)
   * [Centstead](centstead.md)
   * [Laravel Valet](laravel-valet.md)
+  * [LaraDock](laradock.md)
 * [系统安装](安装.md)
 * [核心概念](核心概念.md)
   * [服务容器](服务容器.md)
