@@ -44,6 +44,8 @@ barryvdh/laravel-debugbar - 调试工具
 
 laracasts/generators - 命令行工具
 
+hirak/prestissimo - composer安装加速插件
+
 **样式**
 
 hieu-le/active - 导航栏选中
