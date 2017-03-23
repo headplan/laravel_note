@@ -157,7 +157,7 @@ docker-compose exec --user=laradock workspace bash
 
 从Docker镜像安装Laravel
 
-进入Workspace容器安装Laravel镜像
+**进入Workspace容器安装Laravel镜像**
 
 > 1.进入Workspace容器
 >
@@ -182,9 +182,19 @@ docker-compose exec --user=laradock workspace bash
 
 现在就可以进入映射目录, 直接编辑文件了.
 
+**进入Workspace容器运行命令**
 
+查看运行的容器
 
+```
+docker-compose ps
+```
 
+进入Workspace容器
+
+```
+docker-compose exec --user=laradock workspace bash
+```
 
 
 
