@@ -44,7 +44,7 @@ barryvdh/laravel-debugbar - 调试工具
 
 laracasts/generators - 命令行工具
 
-hirak/prestissimo - composer安装加速插件
+hirak/prestissimo - 平行安装功能的composer插件
 
 **样式**
 
