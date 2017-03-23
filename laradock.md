@@ -247,5 +247,17 @@ hirak/prestissimo": "^0.3"
 docker-compose build workspace
 ```
 
+**安装Node + NVM**
+
+编辑docker-compose.yml文件.
+
+在Workspace容器找到INSTALL\_NODE选项设为true
+
+重建容器
+
+```
+docker-compose build workspace
+```
+
 
 
