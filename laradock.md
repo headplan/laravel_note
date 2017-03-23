@@ -204,5 +204,22 @@ composer
 phpunit
 ```
 
+**使用自定义域名**
+
+编辑/etc/hosts文件
+
+```
+127.0.0.1 laratisan.dev
+```
+
+配置Nginx
+
+```
+# 配置文件在目录下
+laradock/nginx/sites
+# 添加
+server_name laratisan;
+```
+
 
 
