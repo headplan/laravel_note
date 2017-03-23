@@ -261,7 +261,23 @@ docker-compose build workspace
 
 ### 常见问题与升级
 
+**问题**
 
+看到空白页,而不是Laravel的欢迎页面.
+
+在Laravel根目录给权限即可
+
+```
+sudo chmod -R 777 storage bootstrap/cache
+```
+
+看到 “Welcome to nginx” 而不是 Laravel 应用
+
+> 在浏览器使用http://127.0.0.1替换http://localhost.
+
+看到包含address already in use的错误
+
+> 确保你想运行的服务端口\(80, 3306, etc.\)不是已经被其他程序使用, 例如apache/httpd服务或其他安装的开发工具
 
 **升级**
 
