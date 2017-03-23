@@ -209,7 +209,7 @@ phpunit
 编辑/etc/hosts文件
 
 ```
-127.0.0.1 laratisan.dev
+127.0.0.1 lartisan.dev
 ```
 
 配置Nginx
@@ -217,8 +217,10 @@ phpunit
 ```
 # 配置文件在目录下
 laradock/nginx/sites
+# 也可以进入nginx容器中修改
+docker-compose exec nginx bash
 # 添加
-server_name laratisan;
+server_name lartisan;
 ```
 
 
