@@ -23,7 +23,7 @@ docker-compose up -d nginx mysql redis beanstalkd
 
 可以选择自己的容器组合
 
-nginx, hhvm, php-fpm, mysql, redis, postgres, mariadb, neo4j, 
+nginx, hhvm, php-fpm, mysql, redis, postgres, mariadb, neo4j,
 
 mongo, apache2, caddy, memcached, beanstalkd, beanstalkd-console, workspace等.
 
@@ -37,6 +37,90 @@ docker-compose exec —user=laradock workspace bash
 ```
 
 编辑`laradock`目录下的`docker-compose.yml`文件修改目录映射.
+
+---
+
+**Docker常用命令**
+
+1.列出正在运行的容器
+
+```
+docker ps
+```
+
+你也可以使用以下命令列出某项目的容器：
+
+```
+docker-compose ps
+```
+
+2.启动容器
+
+```
+docker-compose up -d {容器名称}
+```
+
+3.关闭所有容器
+
+```
+docker-compose stop
+```
+
+关闭某个容器：
+
+```
+docker-compose stop {容器名称}
+```
+
+4.删除所用容器
+
+```
+docker-compose down
+```
+
+> 使用该命令要小心, 因为它会删除数据容器.
+
+5.进入容器
+
+首先使用`docker ps`查看正在运行的容器，然后进入其中某个容器：
+
+```
+docker-compose exec {container-name} bash
+```
+
+例如, 进入MySQL容器
+
+```
+docker-compose exec mysql bash
+```
+
+要退出容器, 执行`exit`即可.
+
+6.编辑容器默认配置
+
+编辑docker-compose.yml文件.
+
+例如,修改MySQL数据库名称
+
+```
+environment:
+    MYSQL_DATABASE: laradock
+```
+
+修改Redis端口号
+
+```
+ports:
+    - "1111:6379"
+```
+
+7.编辑Docker镜像
+
+修改dockerfile文件,例如MySQL位于mysql/Dockerfile
+
+重新构建容器`docker-compose build mysql`, 或运行`docker-compose build`构建所有容器
+
+
 
 
 
