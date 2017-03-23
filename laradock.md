@@ -223,5 +223,30 @@ docker-compose exec nginx bash
 server_name lartisan;
 ```
 
+**开启全局Composer命令**
+
+为启用全局Composer Install在容器构建中允许安装composer的依赖, 编辑docker-compose.yml文件
+
+```
+# 修改配置文件为true
+COMPOSER_GLOBAL_INSTALL=${WORKSPACE_COMPOSER_GLOBAL_INSTALL}
+```
+
+然后添加依赖关系到workspace/composer.json文件中
+
+比如添加**Prestissimo**到平行安装功能的composer插件
+
+```
+hirak/prestissimo": "^0.3"
+```
+
+重建Workspace容器即可
+
+```
+docker-compose build workspace
+```
+
+
+
 
 
