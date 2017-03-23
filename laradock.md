@@ -230,6 +230,7 @@ server_name lartisan;
 ```
 # 修改配置文件为true
 COMPOSER_GLOBAL_INSTALL=${WORKSPACE_COMPOSER_GLOBAL_INSTALL}
+# 这个有问题
 ```
 
 然后添加依赖关系到workspace/composer.json文件中
