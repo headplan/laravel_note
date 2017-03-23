@@ -196,5 +196,13 @@ docker-compose ps
 docker-compose exec --user=laradock workspace bash
 ```
 
+现在就可以执行常用的命令了
+
+```
+php artisan
+composer
+phpunit
+```
+
 
 
