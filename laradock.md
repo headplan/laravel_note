@@ -155,7 +155,34 @@ docker-compose exec --user=laradock workspace bash
 
 **\[Laravel\]**
 
+从Docker镜像安装Laravel
+
 进入Workspace容器安装Laravel镜像
+
+> 1.进入Workspace容器
+>
+> ```
+> docker-compose exec workspace bash
+> ```
+>
+> 2.安装Laravel
+>
+> ```
+> composer create-project laravel/laravel my-cool-app "5.2.*"
+> ```
+>
+> 3.编辑docker-compose.yml映射新的应用目录
+>
+> ```
+> application:
+>         build: ./application
+>         volumes:
+>             - ../my-cool-app/:/var/www
+> ```
+
+现在就可以进入映射目录, 直接编辑文件了.
+
+
 
 
 
