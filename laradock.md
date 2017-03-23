@@ -273,7 +273,7 @@ sudo chmod -R 777 storage bootstrap/cache
 
 看到 “Welcome to nginx” 而不是 Laravel 应用
 
-> 在浏览器使用http://127.0.0.1替换http://localhost.
+> 在浏览器使用[http://127.0.0.1](http://127.0.0.1替换http://localhost)替换[http://localhost](http://127.0.0.1替换http://localhost)
 
 看到包含address already in use的错误
 
