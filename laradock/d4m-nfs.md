@@ -29,7 +29,7 @@ git clone https://github.com/IFSight/d4m-nfs ~/d4m-nfs
 ```
 
 > 脚本运行后程序开始初始化最后终端会展示以下内容
-
+>
 > ```
 > ....
 > Please note:
@@ -71,5 +71,11 @@ screen -r d4m
 192.168.65.1:/private /private nfs nolock,local_lock=all 0 0
 ```
 
-回到`laradock`目录下将你的容器跑起来
+回到`laradock`目录下将容器跑起来
+
+```
+docker-compose up -d nginx redis mysql
+```
+
+
 
