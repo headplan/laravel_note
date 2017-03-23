@@ -153,6 +153,10 @@ docker-compose exec --user=laradock workspace bash
 
 > 可以从docker-compose.yml文件修改PUID\(User id\)和PGID\(group id\)值.
 
+**\[Laravel\]**
+
+进入Workspace容器安装Laravel镜像
+
 
 
 
