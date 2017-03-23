@@ -21,6 +21,12 @@ git clone https://github.com/Laradock/laradock.git
 docker-compose up -d nginx mysql redis beanstalkd
 ```
 
+如果已经有一个Laravel项目,可以克隆到项目根目录
+
+```
+git submodule add https://github.com/laradock/laradock.git
+```
+
 可以选择自己的容器组合
 
 nginx, hhvm, php-fpm, mysql, redis, postgres, mariadb, neo4j,
@@ -122,7 +128,7 @@ ports:
 
 8.查看日志文件
 
-查看容器的日志, 可以运行命令: 
+查看容器的日志, 可以运行命令:
 
 ```
 docker logs {container-name}
