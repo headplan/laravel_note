@@ -126,6 +126,12 @@ ports:
 
 重新构建容器`docker-compose build mysql`, 或运行`docker-compose build`构建所有容器
 
+```
+docker-compose build {container-name}
+# 重构容器,不使用缓存
+docker-compose build --no-cache {container-name}
+```
+
 8.查看日志文件
 
 查看容器的日志, 可以运行命令:
@@ -133,6 +139,21 @@ ports:
 ```
 docker logs {container-name}
 ```
+
+---
+
+Workspace容器可以执行像Artisan, Composer, PHPUnit, Gulp等命令.
+
+```
+# 进入容器
+docker-compose exec workspace bash
+# 使用特定账户进入容器
+docker-compose exec --user=laradock workspace bash
+```
+
+> 可以从docker-compose.yml文件修改PUID\(User id\)和PGID\(group id\)值.
+
+
 
 
 
