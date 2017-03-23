@@ -120,7 +120,13 @@ ports:
 
 重新构建容器`docker-compose build mysql`, 或运行`docker-compose build`构建所有容器
 
+8.查看日志文件
 
+查看容器的日志, 可以运行命令: 
+
+```
+docker logs {container-name}
+```
 
 
 
