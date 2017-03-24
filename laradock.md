@@ -303,5 +303,11 @@ docker-compose up -d nginx mysql
 >
 > docker-compose build --no-cache
 
+### MySQL, Redis等配置
+
+**MySQL**
+
+配置端口号
+
 
 
