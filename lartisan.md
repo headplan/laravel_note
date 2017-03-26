@@ -20,5 +20,13 @@ php artisan make:migration create_users_table --create=lartisan_users
 --path         # Migration文件创建路径
 ```
 
+**设计表之后使用命令创建表**
+
+```
+php artisan migrate
+```
+
+
+
 
 
