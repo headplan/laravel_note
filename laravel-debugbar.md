@@ -30,5 +30,11 @@ composer require barryvdh/laravel-debugbar
 php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
 ```
 
+打开`config/debugbar.php`, 将`enabled`的值设置为
 
+```
+'enabled' => env('APP_DEBUG', false),
+```
+
+修改完以后, Debugbar 分析器的启动状态将由`.env`文件中`APP_DEBUG`值决定.
 
