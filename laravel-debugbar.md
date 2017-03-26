@@ -24,5 +24,11 @@ composer require barryvdh/laravel-debugbar
 ]
 ```
 
+运行以下命令生成此扩展包的配置文件`config/debugbar.php`
+
+```
+php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
+```
+
 
 
