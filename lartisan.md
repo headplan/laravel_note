@@ -26,6 +26,8 @@ php artisan make:migration create_users_table --create=lartisan_users
 php artisan migrate
 ```
 
+### 路由规划
+
 
 
 
