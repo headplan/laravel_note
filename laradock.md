@@ -12,6 +12,8 @@ sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
 
 除了这些,还有其他影响速度的,类似composer源,NPM等等,可根据情况修改.
 
+> 注意:项目中的IP地址直接写,mysql,redis等,例如`DB_HOST=mysql`
+
 ---
 
 ```
@@ -308,6 +310,4 @@ docker-compose up -d nginx mysql
 **MySQL**
 
 配置端口号
-
-
 
