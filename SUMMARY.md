@@ -29,21 +29,22 @@
     * [Session](session.md)
     * [验证](验证.md)
   * [前端](视图模板.md)
-    * [视图](视图.md)
-    * [Blade模板](blade模板.md)
-    * [本地化](本地化.md)
+    * [Blade模板](视图.md)
+    * [本地化](blade模板.md)
+    * [前端脚手架](本地化.md)
+    * [编译前端资源](bian-yi-qian-duan-zi-yuan.md)
   * 安全
   * 常用功能
-* [数据库](数据库.md)
-  * [数据库起步](数据库起步.md)
-  * [查询构建器](查询构建器.md)
-  * [分页](分页.md)
-  * 迁移
-  * 填充数据
-  * Redis
-* [Eloquent ORM](eloquent-orm.md)
-  * [ORM起步](起步.md)
-  * [关联关系](关联关系.md)
+  * [数据库](数据库.md)
+    * [数据库起步](数据库起步.md)
+    * [查询构建器](查询构建器.md)
+    * [分页](分页.md)
+    * 迁移
+    * 填充数据
+    * Redis
+  * [Eloquent ORM](eloquent-orm.md)
+    * [ORM起步](起步.md)
+    * [关联关系](关联关系.md)
 * [项目开发](项目开发.md)
   * [Blog](blog.md)
     * [目录结构](目录结构.md)
