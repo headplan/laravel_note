@@ -1,5 +1,18 @@
 # CSRF保护
 
+### 知识点整理
+
+```
+1.简介:避免跨站请求伪造
+    {{ csrf_field() }}表单生成token
+2.从 CSRF 保护中排除指定 URL
+    class VerifyCsrfToken
+3.X-CSRF-Token
+令牌发送方式<meta name="csrf-token" content="{{ csrf_token() }}">
+4.X-XSRF-Token
+令牌在XSRF-TOKEN的Cookie中
+```
+
 跨站请求伪造是一种通过伪装授权用户的请求来利用授信网站的恶意漏洞.
 
 Laravel 自动为每一个被应用管理的有效用户会话生成一个CSRF“令牌”,该令牌用于验证授权用户和发起请求者是否是同一个人.
