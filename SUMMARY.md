@@ -78,6 +78,7 @@
   * [Laravel-ide-helper](laravel-ide-helper.md)
 * [框架解析](框架解析.md)
   * [组件化开发与Composer使用](框架解析/组件化开发与Composer使用.md)
+  * [Laravel框架中的设计模式](框架解析/laravelkuang-jia-zhong-de-she-ji-mo-shi.md)
 * [框架展开及延伸](框架展开及延伸.md)
   * [Laravel用到的面向对象](框架展开及延伸/Laravel用到的面向对象.md)
   * [Composer完整使用流程](框架展开及延伸/Composer完整使用流程.md)
