@@ -26,6 +26,7 @@
     * [控制器](控制器.md)
     * [请求](请求.md)
     * [响应](xiang-ying.md)
+    * [视图](shi-tu.md)
     * [Session](session.md)
     * [验证](验证.md)
   * [前端](视图模板.md)
