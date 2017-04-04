@@ -22,7 +22,42 @@ password 字段长度至少有60位,默认字串255
 remember_token 字段可以为空的、字符串类型的,字段长度为100,用于在登录时存储被应用维护的“记住我”的Session令牌
 
 2.快速入门
+预置的认证控制器
+App\Http\Controllers\Auth下
+RegisterController:新用户注册
+LoginController:用户登录认证
+ForgotPasswordController:重置密码邮件链接
+ResetPasswordController:包含重置密码逻辑
+每个控制器都使用 trait 来引入它们需要的方法
 
+路由
+php artisan make:auth自动生成,还会生成个HomeController
+
+视图
+resources/views/auth目录下,自动生成
+
+认证
+控制器默认已经包含了注册及登录逻辑(通过trait)
+    自定义路径:protected $redirectTo = '/';下面三个控制器中都有这个属性,认证成功跳转的路径
+        LoginController,RegisterController,ResetPasswordController
+        也可以定义个redirectTo方法完成逻辑后跳转,优先级大于属性.
+    自定义用户名:
+
+获取认证用户
+
+路由保护
+
+登录失败次数限制
+
+3.手动认证用户
+
+4.基于HTTP的基本认证
+
+5.添加自定义的Guard
+
+6.添加自定义用户提供者
+
+7.事件
 ```
 
 
