@@ -34,7 +34,13 @@
     * [本地化](blade模板.md)
     * [前端脚手架](本地化.md)
     * [编译前端资源](bian-yi-qian-duan-zi-yuan.md)
-  * 安全
+  * [安全](an-quan.md)
+    * [认证](an-quan/ren-zheng.md)
+    * API认证\(Passport\)
+    * 授权
+    * 加密
+    * 哈希\(Hashing\)
+    * 重置密码
   * 常用功能
   * [数据库](数据库.md)
     * [数据库起步](数据库起步.md)

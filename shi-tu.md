@@ -29,7 +29,7 @@
     可以使用视图Composer将逻辑组织到一个单独的地方.
     首先要在服务提供者中注册视图Composer.
     使用辅助函数 view 来访问 Illuminate\Contracts\View\Factory 的底层实现
-    
+
 <?php
 
 namespace App\Providers;
