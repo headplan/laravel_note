@@ -42,6 +42,11 @@ resources/views/auth目录下,自动生成
         LoginController,RegisterController,ResetPasswordController
         也可以定义个redirectTo方法完成逻辑后跳转,优先级大于属性.
     自定义用户名:
+        在LoginController中定义username()方法
+        public function username()
+        {
+            return 'username';
+        }
 
 获取认证用户
 
