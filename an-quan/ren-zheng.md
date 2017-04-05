@@ -56,7 +56,9 @@ resources/views/auth目录下,自动生成
         {
             return Auth::guard('guard-name');
         }
-
+    自定义验证/存储:
+        RegisterController 的 validator 方法包含了新用户注册的验证规则
+        RegisterController 的 create 方法负责使用 Eloquent ORM 在数据库中创建新的 App\User 记录
 获取认证用户
 
 路由保护
