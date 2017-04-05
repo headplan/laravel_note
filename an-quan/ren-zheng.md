@@ -47,6 +47,15 @@ resources/views/auth目录下,自动生成
         {
             return 'username';
         }
+    自定义Guard:
+        自定义用于实现用户注册登录的“guard”.
+        在LoginController,RegisterController和ResetPasswordController中定义guard方法,该方法返回一个实例
+        use Illuminate\Support\Facades\Auth;
+
+        protected function guard()
+        {
+            return Auth::guard('guard-name');
+        }
 
 获取认证用户
 
