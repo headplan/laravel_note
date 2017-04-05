@@ -60,10 +60,28 @@ resources/views/auth目录下,自动生成
         RegisterController 的 validator 方法包含了新用户注册的验证规则
         RegisterController 的 create 方法负责使用 Eloquent ORM 在数据库中创建新的 App\User 记录
 获取认证用户
-
+    Auth 门面获取
+    $user = Auth::user();
+    $id = Auth::id();
+    Request $request获取
+    $request->user();
+    Auth::check();判断是否认证通过
 路由保护
+    路由中间件可用于只允许通过认证的用户访问给定路由,kernel中已注册.
+    Route::get('profile', function() {
+        // 只有认证用户可以进入...
+    })->middleware('auth');
+    即可.
+    在构造函数中注入也可
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    指定一个Guard
+        指定的 guard 对应配置文件 auth.php 中 guards 数组的某个键
 
 登录失败次数限制
+    使用了 Laravel 内置的 LoginController 类
+    可以使用 Illuminate\Foundation\Auth\ThrottlesLogins trait 来限制用户登录失败次数
 
 3.手动认证用户
 
