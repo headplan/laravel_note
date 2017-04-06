@@ -114,6 +114,28 @@ class HomeController extends Controller
 # RegisterController 用于处理新用户注册
 # ForgotPasswordController 用于处理重置密码邮件链接
 # ResetPasswordController 包含重置密码逻辑
+
+# 但是看这4个控制器基本上没写什么逻辑,原因是代码逻辑都写在use的trait里了
+# 还有一个共同特点就是,这四个控制器都引入了guest中间件
+# 这个中间件是在App\Http\Middleware下的
+public function handle($request, Closure $next, $guard = null)
+{
+    if (Auth::guard($guard)->check()) {
+        return redirect('/home');
+    }
+
+    return $next($request);
+}
+# 这个中间件根据guard来check用户是否通过认证,认证通过则跳到/home页
+# 这4个控制器中分别包含着不同的trait
+# LoginController
+    ->AuthenticatesUsers:登录逻辑
+        ->RedirectsUsers:跳转逻辑
+        ->ThrottlesLogins:登录失败次数限制
+# RegisterController
+    ->RegistersUsers:注册逻辑
+        ->RedirectsUsers:跳转逻辑
+# 
 ```
 
 
