@@ -135,7 +135,11 @@ public function handle($request, Closure $next, $guard = null)
 # RegisterController
     ->RegistersUsers:注册逻辑
         ->RedirectsUsers:跳转逻辑
-# 
+# ResetPasswordController:重置密码
+    ->ResetsPasswords:充值密码逻辑
+    ->RedirectsUsers:跳转逻辑
+# ForgotPasswordController:重置密码邮件
+    ->SendsPasswordResetEmails:发送重置密码邮件逻辑
 ```
 
 
