@@ -1,6 +1,6 @@
 # 认证授权代码解析
 
-执行完命令生成的路由
+执行完命令生成的路由routes/web.php
 
 ```
 # php artisan make:auth
@@ -23,6 +23,25 @@ public function auth()
     $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 }
+```
+
+生成的配置文件config/auth.php
+
+```
+# 这里guard的概念可以理解为就是一个角色,现在又web和api两种角色
+# 其中的driver的值是session,意思就是表示这个认证要怎么去保存用户状态
+# 很明显,web的是session,api的是token
+'guards' => [
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'users',
+    ],
+
+    'api' => [
+        'driver' => 'token',
+        'provider' => 'users',
+    ],
+],
 ```
 
 
