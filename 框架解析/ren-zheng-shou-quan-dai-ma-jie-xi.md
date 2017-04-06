@@ -254,5 +254,19 @@ redirect\(\)-&gt;intended\('dashboard'\);重定向redirect后的intended方法�
 
 **记住用户逻辑**
 
-直接使用
+直接使用Auth::attempt,第二个参数给true就记住了,表里还得有个remember\_token字段.
+
+Auth::viaRemember\(\)看看是否使用记住我Cookie进行认证.
+
+### 其他认证方式
+
+调用`Auth`门面的`login`方法并传入用户实例.
+
+```
+Auth::login($user, true); // 用过用户实例
+Auth::guard('admin')->login($user); // 加了guard
+Auth::loginUsingId(1, true);// 通过主键
+```
+
+
 
