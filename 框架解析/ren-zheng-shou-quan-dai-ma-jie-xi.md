@@ -36,7 +36,41 @@ public function auth()
 }
 ```
 
-生成的配置文件config/auth.php
+生成了HomeController.php控制器
+
+```
+<?php
+# 注入了auth中间件,代表没有通过认证的用户无法访问这个路由控制器
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('home');
+    }
+}
+```
+
+配置文件config/auth.php
 
 ```
 # 这里guard的概念可以理解为就是一个角色,现在又web和api两种角色
