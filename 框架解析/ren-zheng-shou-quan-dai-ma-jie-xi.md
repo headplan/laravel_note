@@ -31,6 +31,8 @@ public function auth()
 # 这里guard的概念可以理解为就是一个角色,现在又web和api两种角色
 # 其中的driver的值是session,意思就是表示这个认证要怎么去保存用户状态
 # 很明显,web的是session,api的是token
+# 还有一个provider的值都是users,这里的配置调用的就是下面的providers数组
+# provider就是告诉Laravel你的用户信息保存在哪一张表里面,driver就是告诉了要使用那种方式来操作数据库
 'guards' => [
     'web' => [
         'driver' => 'session',
@@ -41,6 +43,21 @@ public function auth()
         'driver' => 'token',
         'provider' => 'users',
     ],
+],
+
+# 这里的第一个users里driver指明了驱动方式是eloquent,第二个注释的是database
+# model指的是user.php模型
+# 第二种直接指明了table表示users
+'providers' => [
+    'users' => [
+        'driver' => 'eloquent',
+        'model' => App\User::class,
+    ],
+
+    // 'users' => [
+    //     'driver' => 'database',
+    //     'table' => 'users',
+    // ],
 ],
 ```
 
