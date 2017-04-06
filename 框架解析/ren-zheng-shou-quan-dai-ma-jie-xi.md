@@ -142,5 +142,101 @@ public function handle($request, Closure $next, $guard = null)
     ->SendsPasswordResetEmails:发送重置密码邮件逻辑
 ```
 
+### 认证
+
+手册中的认证就是对trait的一些覆盖方式.
+
+**自定义路径**
+
+其实包含了RedirectsUsers的Trait都可以自定义路径,控制器中都包含$redirectTo属性,也可以定义一个redirectTo方法,优先级较高
+
+**自定义用户名**
+
+这里就是覆盖Login认证中的逻辑,默认是email认证.
+
+```
+public function username()
+{
+    return 'username';
+}
+```
+
+**自定义Guard**
+
+前面已经定义了配置文件config/auth.php中定义的guard,如果需要自定义,要在注册,登录,找回密码中覆盖guard函数.
+
+```
+protected function guard()
+{
+    return Auth::guard('guard-name');
+}
+```
+
+**自定义验证/存储**
+
+这里直接修改注册的控制器即可.
+
+### 获取认证用户
+
+这里有两种方式,一种是通过Auth门面,一种是通过注入的Request对象访问
+
+```
+$user = Auth::user();
+$request->user();
+```
+
+Auth门面还可以直接check用户是否认证Auth::check\(\),但一般情况会通过中间件直接路由保护
+
+```
+# 路由保护的两种方式
+Route::get('profile', function() {
+    // 只有认证用户可以进入...
+})->middleware('auth');
+public function __construct(){
+    $this->middleware('auth');
+}
+```
+
+使用了路由中间件之后,还需要指定guard来实现认证的.这里写的就是配置文件
+
+```
+$this->middleware('auth:api')
+```
+
+登录逻辑中还包含了一个登录失败次数限制的trait,在`Illuminate\Foundation\Auth\ThrottlesLogins`中.
+
+以上的都是覆盖框架自带的方法去实现逻辑.其实完全可以自定义手动去认证用户,手动认证就不会显得这么乱了.
+
+### 手动认证用户 {#toc_9}
+
+手动认证,这里就是完全不使用框架自带的控制器,而是去自己自定义控制器,去写登录认证逻辑.
+
+当然,还是需要调用Auth门面来完成认证.
+
+```
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
+
+class LoginController extends Controller
+{
+    /**
+     * 处理认证尝试.
+     *
+     * @return Response
+     * @translator laravelacademy.org
+     */
+    public function authenticate()
+    {
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            // 认证通过...
+            return redirect()->intended('dashboard');
+        }
+    }
+}
+```
+
 
 
