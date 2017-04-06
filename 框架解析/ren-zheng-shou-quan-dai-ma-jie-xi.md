@@ -238,5 +238,21 @@ class LoginController extends Controller
 }
 ```
 
+Auth::attempt方法第一个参数,就是check接收数据认证一下,通过返回true
 
+redirect\(\)-&gt;intended\('dashboard'\);重定向redirect后的intended方法是返回没认证时候访问的页面.
+
+要验证的内容可以是多样的,比如还可以验证active,username等字段
+
+**访问指定 Guard 实例**
+
+使用Auth::guard\('admin'\)-&gt;attempt\($credentials\)指定配置文件中guard的键,
+
+这种机制允许你在同一个应用中对不同的认证模型或用户表实现完全独立的用户认证.
+
+**退出**直接Auth::logout\(\);即可.
+
+**记住用户逻辑**
+
+直接使用
 
