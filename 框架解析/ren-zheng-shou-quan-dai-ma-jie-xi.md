@@ -1,5 +1,16 @@
 # 认证授权代码解析
 
+执行php artisan make:auth命令之后的变动
+
+```
+# 路由发生变化 routes/web.php
+# 生成了控制器 app/Http/Controllers/HomeController.php
+# 生成了下列视图
+resources/views/auth/
+resources/views/home.blade.php
+resources/views/layouts/
+```
+
 执行完命令生成的路由routes/web.php
 
 ```
