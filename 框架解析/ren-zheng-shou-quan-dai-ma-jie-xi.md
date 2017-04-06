@@ -106,5 +106,15 @@ class HomeController extends Controller
 ],
 ```
 
+**理解了上面的一些基本概念,再去看看手册上的认证相关的内容**
+
+```
+# 四个基本控制器,代表了4个基本的功能
+# LoginController 用于处理用户登录认证
+# RegisterController 用于处理新用户注册
+# ForgotPasswordController 用于处理重置密码邮件链接
+# ResetPasswordController 包含重置密码逻辑
+```
+
 
 
