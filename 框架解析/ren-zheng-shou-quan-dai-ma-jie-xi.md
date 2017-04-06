@@ -260,7 +260,7 @@ Auth::viaRemember\(\)看看是否使用记住我Cookie进行认证.
 
 ### 其他认证方式
 
-调用`Auth`门面的`login`方法并传入用户实例.
+调用`Auth`门面的`login`方法并传入用户实例.这个实例,就是user模型得继承Authenticatable
 
 ```
 Auth::login($user, true); // 用过用户实例
