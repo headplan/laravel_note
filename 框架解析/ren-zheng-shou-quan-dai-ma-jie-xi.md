@@ -266,7 +266,93 @@ Auth::viaRemember\(\)看看是否使用记住我Cookie进行认证.
 Auth::login($user, true); // 用过用户实例
 Auth::guard('admin')->login($user); // 加了guard
 Auth::loginUsingId(1, true);// 通过主键
+Auth::once(); // 一次性认证用户,不存储任何Session和Cookie.
 ```
+
+#### 基于HTTP的认证
+
+不设置页面设置登录,在路由中加上 auth.basic 中间件.
+
+```
+Route::get('profile', function() {
+    // 只有认证用户可以进入...
+})->middleware('auth.basic');
+```
+
+#### 无状态的 HTTP 基本认证 {#toc_13}
+
+定义一个调用`onceBasic`方法的中间件
+
+```
+<?php
+
+namespace Illuminate\Auth\Middleware;
+
+use Illuminate\Support\Facades\Auth;
+
+class AuthenticateOnceWithBasicAuth
+{
+    /**
+     * 处理输入请求.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     * @translator laravelacademy.org
+     */
+    public function handle($request, $next)
+    {
+        return Auth::onceBasic() ?: $next($request);
+    }
+
+}
+```
+
+路由中使用即可
+
+```
+Route::get('api/user', function() {
+    // 只有认证用户可以进入...
+})->middleware('auth.basic.once');
+```
+
+### 添加自定义的Guard
+
+配置文件中的guards的driver已经有了session和token,现在要再添加一种Guard方式.
+
+我们可以在AuthServiceProvider服务提供者中添加
+
+```
+    public function boot()
+    {
+        $this->registerPolicies();
+
+        Auth::extend('jwt', function($app, $name, array $config) {
+            // 返回一个Illuminate\Contracts\Auth\Guard实例...
+            return new JwtGuard(Auth::createUserProvider($config['provider']));
+        }); 
+    }
+```
+
+### 添加自定义用户提供者 {#toc_15}
+
+和上面的添加自定义Guard一样.
+
+```
+    public function boot()
+    {
+        $this->registerPolicies();
+
+        Auth::provider('riak', function($app, array $config) {
+            // 返回一个Illuminate\Contracts\Auth\UserProvider实例...
+            return new RiakUserProvider($app->make('riak.connection'));
+        });
+    }
+```
+
+现在就使用providers中的users的drive是riak的方式.
+
+
 
 
 
