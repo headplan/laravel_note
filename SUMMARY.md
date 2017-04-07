@@ -101,4 +101,6 @@
   * [Laravel5.3新特性](框架展开及延伸/Laravel5.3新特性.md)
   * [Laravel5.4新特性](框架展开及延伸/Laravel5.4新特性.md)
   * [Laravel其他特性](框架展开及延伸/Laravel其他特性.md)
+* [补充及扩展](bu-chong-ji-kuo-zhan.md)
+  * [Team笔记\(really\)](laravel_sharing.md)
 
