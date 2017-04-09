@@ -61,7 +61,7 @@
     * [分页](分页.md)
     * 迁移
     * 填充数据
-    * Redis
+    * [Redis](redis.md)
   * [Eloquent ORM](eloquent-orm.md)
     * [ORM起步](起步.md)
     * [关联关系](关联关系.md)
