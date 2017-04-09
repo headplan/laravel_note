@@ -4,10 +4,11 @@
 
 ```
 composer create-project laravel/laravel ./ "5.4.*"
-
 "barryvdh/laravel-debugbar": "~2.3",
 "barryvdh/laravel-ide-helper": "~2.3"
 # 过滤生成的文件
+# 认证&修改相关文件
+php artisan make:auth
 ```
 
 ### 设计表
