@@ -39,7 +39,7 @@
     * API认证\(Passport\)
     * [授权](an-quan/shou-quan.md)
     * [加密](an-quan/jia-mi.md)
-    * 哈希\(Hashing\)
+    * [哈希\(Hashing\)](an-quan/ha-5e0c28-hashing.md)
     * 重置密码
   * 常用功能
   * [数据库](数据库.md)
