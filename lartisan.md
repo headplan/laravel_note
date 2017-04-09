@@ -3,6 +3,8 @@
 ### 安装扩展包
 
 ```
+composer create-project laravel/laravel ./ "5.4.*"
+
 "barryvdh/laravel-debugbar": "~2.3",
 "barryvdh/laravel-ide-helper": "~2.3"
 # 过滤生成的文件
@@ -27,8 +29,6 @@ php artisan migrate
 ```
 
 ### 路由规划
-
-
 
 
 
