@@ -60,7 +60,7 @@
     * [查询构建器](查询构建器.md)
     * [分页](分页.md)
     * 迁移
-    * 填充数据
+    * [填充数据](tian-chong-shu-ju.md)
     * [Redis](redis.md)
   * [Eloquent ORM](eloquent-orm.md)
     * [ORM起步](起步.md)
