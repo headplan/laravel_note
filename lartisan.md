@@ -6,6 +6,7 @@
 composer create-project laravel/laravel ./ "5.4.*"
 "barryvdh/laravel-debugbar": "~2.3",
 "barryvdh/laravel-ide-helper": "~2.3"
+composer require 'summerblue/generator' --dev
 # 过滤生成的文件
 # 认证&修改相关文件
 php artisan make:auth
