@@ -56,7 +56,7 @@
     * [队列](chang-yong-gong-neng/dui-lie.md)
     * [调度任务](chang-yong-gong-neng/diao-du-ren-wu.md)
   * [数据库](数据库.md)
-    * [数据库起步](数据库起步.md)
+    * [快速入门](数据库起步.md)
     * [查询构建器](查询构建器.md)
     * [分页](分页.md)
     * 迁移
