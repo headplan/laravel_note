@@ -38,7 +38,7 @@
     * [认证](an-quan/ren-zheng.md)
     * API认证\(Passport\)
     * [授权](an-quan/shou-quan.md)
-    * 加密
+    * [加密](an-quan/jia-mi.md)
     * 哈希\(Hashing\)
     * 重置密码
   * 常用功能
