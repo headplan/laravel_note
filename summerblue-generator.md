@@ -2,6 +2,8 @@
 
 [https://github.com/summerblue/generator](https://github.com/summerblue/generator)
 
+> 一条命令把一个模块需要的基本都生成了.
+
 ```
 # 功能列表
     # 生成数据库迁移;
