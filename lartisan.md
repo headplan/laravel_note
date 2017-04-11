@@ -17,13 +17,13 @@ composer require 'summerblue/generator' --dev
 'name' => 'Lartisan',
 'timezone' => 'PRC',
 # 配置上面三个包(Laravel_Basic已经更新)
-
+php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider" // 生成配置
+php artisan ide-helper:generate // 生成代码对应文档
+php artisan make:scaffold Projects --schema="name:string:index,description:text:nullable,subscriber_count:integer:unsigned,default(0)" // 需要时再使用
 # 重新生成key
 php artisan key:generate
 # 生成认证
 php artisan make:auth
-# 
-# 过滤生成的文件
 =====git commit
 ```
 
