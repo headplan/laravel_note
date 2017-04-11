@@ -3,13 +3,23 @@
 ### 安装扩展包
 
 ```
+# 基于Laravel_Basic创建
 composer create-project laravel/laravel ./ "5.4.*"
-"barryvdh/laravel-debugbar": "~2.3",
-"barryvdh/laravel-ide-helper": "~2.3"
+# 包含下面3个包
+composer require 'barryvdh/laravel-debugbar' --dev
+composer require 'barryvdh/laravel-ide-helper' --dev
 composer require 'summerblue/generator' --dev
-# 过滤生成的文件
-# 认证&修改相关文件
+=====git commit
+# 修改composer.json
+# 配置上面三个包(Laravel_Basic已经更新)
+
+# 重新生成key
+php artisan key:generate
+# 生成认证
 php artisan make:auth
+# 
+# 过滤生成的文件
+=====git commit
 ```
 
 ### 设计表
