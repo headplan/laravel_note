@@ -10,7 +10,12 @@ composer require 'barryvdh/laravel-debugbar' --dev
 composer require 'barryvdh/laravel-ide-helper' --dev
 composer require 'summerblue/generator' --dev
 =====git commit
-# 修改composer.json
+# 修改composer.json和基本配置
+"name": "headplan/lartisan",
+"description": "Lartisan.",
+"keywords": ["lartisan", "headplan"],
+'name' => 'Lartisan',
+'timezone' => 'PRC',
 # 配置上面三个包(Laravel_Basic已经更新)
 
 # 重新生成key
