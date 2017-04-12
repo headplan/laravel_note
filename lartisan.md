@@ -25,6 +25,8 @@ php artisan key:generate
 # 生成认证
 php artisan make:auth
 =====git commit
+# 引入权限管理包
+composer require 'Zizaco/Entrust'
 ```
 
 ### 设计表
