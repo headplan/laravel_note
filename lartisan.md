@@ -64,6 +64,10 @@ $this->call(***TableSeeder::class);
 php artisan migrate:reset
 php artisan migrate --seed
 =====git commit:前后台分离基本配置
+# 修改Dashboard模型类,现在和User一样
+# 后台用户认证路由及控制器
+php artisan make:controller Dashboard/LoginController 
+php artisan make:controller Dashboard/DashboardController
 ```
 
 ### 设计表
