@@ -60,6 +60,10 @@ factory('App\Models\Admin',3)->create([
 ]);
 # 在DatabaseSeeder.php中call上
 $this->call(***TableSeeder::class);
+# 生成
+php artisan migrate:reset
+php artisan migrate --seed
+=====git commit:前后台分离基本配置
 ```
 
 ### 设计表
