@@ -18,7 +18,7 @@ php artisan vendor:publish
 
 # 配置用户表名
 ## Entrust会利用config/auth.php里面的值,去决定使用那个Model和用户表名.
-## 编辑配置entrust.php可以进一步自定义表名和命名空间.
+## 编辑配置entrust.php可以进一步自定义表名和命名空间(其他权限的).
 'providers' => [
     'users' => [
         'driver' => 'eloquent',
@@ -32,7 +32,8 @@ php artisan vendor:publish
 'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
 'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
 
-#
+# 生成Migration
+php artisan entrust:migration
 ```
 
 
