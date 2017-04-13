@@ -29,6 +29,8 @@ php artisan make:auth
 composer require 'Zizaco/Entrust'
 配置Entrust包
 配置数据库表前缀
+=====git commit
+
 ```
 
 ### 设计表
