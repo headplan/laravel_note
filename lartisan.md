@@ -30,6 +30,10 @@ composer require 'Zizaco/Entrust'
 配置Entrust包
 配置数据库表前缀
 =====git commit
+# 配置前后台分离
+config/auth.php
+# 创建后台用户模型,参数-m自动创建迁移文件
+php artisan make:model Models/Dashbord -m
 
 ```
 
