@@ -32,9 +32,34 @@ composer require 'Zizaco/Entrust'
 =====git commit
 # 配置前后台分离
 config/auth.php
-# 创建后台用户模型,参数-m自动创建迁移文件
+# 创建后台用户模型,参数-m自动创建迁移文件,迁移文件和users刚生成的一样
 php artisan make:model Models/Dashbord -m
-
+Schema::create('dashboards', function (Blueprint $table) {
+    $table->increments('id');
+    $table->string('name');
+    $table->string('email')->unique();
+    $table->string('password');
+    $table->rememberToken();
+    $table->timestamps();
+});
+# 创建给Dashbord填充数据的Seeder
+php artisan make:seeder DashboardsTableSeeder
+# 编辑工厂ModelFactory.php文件
+$factory->define(App\Models\Dashboard::class, function (Faker\Generator $faker) {
+    static $password;
+    return [
+        'name' => $faker->name,
+        'email' => $faker->safeEmail,
+        'password' => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10),
+    ];
+});
+# 在***TableSeeder.php中填充数据
+factory('App\Models\Admin',3)->create([
+    'password' => bcrypt('123456')
+]);
+# 在DatabaseSeeder.php中call上
+$this->call(***TableSeeder::class);
 ```
 
 ### 设计表
