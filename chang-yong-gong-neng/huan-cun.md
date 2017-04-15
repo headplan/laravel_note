@@ -28,10 +28,20 @@
 
 2.缓存的使用
     # 获取一个缓存实例
+        Illuminate\Contracts\Cache\Factory - 为应用程序定义了访问所有缓存驱动的机制
+        Illuminate\Contracts\Cache\Repository - 用cache配置信息文件指定你的应用程序默认缓存驱动的实现
+        也可以使用Cache facade访问缓存实例
+        Cache::get('key');
+        ## 访问多个缓存仓库
+        Cache::store('file')->get('foo');
+        Cache::store('redis')->put('bar', 'baz', 10);
         
     # 从缓存中获取项目
+    
     # 存放项目到缓存中
+    
     # 删除缓存中的项目
+    
     # Cache帮助函数
 
 3.缓存标签
