@@ -100,8 +100,62 @@
     Cache::tags('authors')->flush(); // 只删除一个标记的缓存
 
 4.增加自定义的缓存驱动
+    # 写驱动
+    参考Illuminate\Cache\MemcachedStore
+    # 注册
+    Cache::extend的调用会在最新的Laravel应用程序默认的App\Providers\AppServiceProvider的boot方法中完成
+    或者可以创建自己的服务提供者来放置这些扩展,然后在config/app.php中注册即可.然后在config/cache.php中配置即可.
+    <?php
 
+    namespace App\Providers;
+    
+    use App\Extensions\MongoStore;
+    use Illuminate\Support\Facades\Cache;
+    use Illuminate\Support\ServiceProvider;
+    
+    class CacheServiceProvider extends ServiceProvider
+    {
+        /**
+         * Perform post-registration booting of services.
+         *
+         * @return void
+         */
+        public function boot()
+        {
+            Cache::extend('mongo', function ($app) {
+                return Cache::repository(new MongoStore);
+            });
+        }
+    
+        /**
+         * Register bindings in the container.
+         *
+         * @return void
+         */
+        public function register()
+        {
+            //
+        }
+    }
 5.缓存事件
+在EventServiceProvider中监听.
+protected $listen = [
+    'Illuminate\Cache\Events\CacheHit' => [
+        'App\Listeners\LogCacheHit',
+    ],
+
+    'Illuminate\Cache\Events\CacheMissed' => [
+        'App\Listeners\LogCacheMissed',
+    ],
+
+    'Illuminate\Cache\Events\KeyForgotten' => [
+        'App\Listeners\LogKeyForgotten',
+    ],
+
+    'Illuminate\Cache\Events\KeyWritten' => [
+        'App\Listeners\LogKeyWritten',
+    ],
+];
 ```
 
 
