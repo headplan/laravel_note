@@ -46,42 +46,43 @@
         $value = Cache::get('key', function () {
             return DB::table(...)->get();
         });
-        
+
         ## 确认项目是否存在
         if (Cache::has('key')) {)
-        
+
         ## 递增与递减值
         Cache::increment('key');
         Cache::increment('key', $amount);
         Cache::decrement('key');
         Cache::decrement('key', $amount);
-        
+
         ## 获取和更新
         例如,从缓存中取出所有用户,或者当用户不存在时,从数据库中将这些用户取出并放入缓存中
         $value = Cache::remember('users', $minutes, function () {
             return DB::table('users')->get();
         });
-        
+
         ## 获取和删除
         从缓存中获取一个缓存项然后删除它.缓存不存在返回null
         $value = Cache::pull('key');
-        
+
     # 存放项目到缓存中
         $expiresAt = Carbon::now()->addMinutes(10);
         Cache::put('key', 'value', $expiresAt);
-        
+
         ## 写入目前不存在的项目
             add方法只会把暂时不存在于缓存中的缓存项放入缓存
             Cache::add('key', 'value', $minutes);
-            
+
         ## 永久写入项目
         forever方法可以用来将缓存项永久存入缓存中
         forget方法手动删除
         Cache::forever('key', 'value');
         注:Memcached驱动缓存达到大小限制,永久的也会被删除      
 
-
     # 删除缓存中的项目
+        Cache::forget('key');
+        Cache::flush(); // 清空所有缓存,注意共享缓存也会被清空
 
     # Cache帮助函数
 
