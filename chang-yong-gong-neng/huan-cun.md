@@ -85,8 +85,19 @@
         Cache::flush(); // 清空所有缓存,注意共享缓存也会被清空
 
     # Cache帮助函数
+        $value = cache('key');
+        cache(['key' => 'value'], $minutes);
+        cache(['key' => 'value'], Carbon::now()->addSeconds(10));
 
 3.缓存标签
+    缓存标签并不支持使用file或dababase的缓存驱动
+    # 写入被标记的缓存项
+    Cache::tags(['people', 'artists'])->put('John', $john, $minutes);
+    # 访问被标记的缓存项
+    $john = Cache::tags(['people', 'artists'])->get('John');
+    # 移除被标记的缓存项
+    Cache::tags(['people', 'authors'])->flush(); // 两个标记都删除
+    Cache::tags('authors')->flush(); // 只删除一个标记的缓存
 
 4.增加自定义的缓存驱动
 
