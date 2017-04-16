@@ -94,6 +94,7 @@
   * [Laravel\_Basic](laravelbasic.md)
 * [代码片段](代码片段.md)
   * [路由文件最佳分割方式](路由文件最佳分割方式.md)
+  * [Laravel的Auth重写](laravelde-auth-zhong-xie.md)
 * [Laravel资源](laravel资源记录.md)
   * [Repository层支持](repository层支持.md)
   * [Laravel-debugbar](laravel-debugbar.md)
