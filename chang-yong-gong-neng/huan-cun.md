@@ -108,11 +108,11 @@
     <?php
 
     namespace App\Providers;
-    
+
     use App\Extensions\MongoStore;
     use Illuminate\Support\Facades\Cache;
     use Illuminate\Support\ServiceProvider;
-    
+
     class CacheServiceProvider extends ServiceProvider
     {
         /**
@@ -126,7 +126,7 @@
                 return Cache::repository(new MongoStore);
             });
         }
-    
+
         /**
          * Register bindings in the container.
          *
