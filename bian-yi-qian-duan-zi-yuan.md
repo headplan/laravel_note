@@ -176,11 +176,11 @@ mix.scripts([
 ], 'public/js/all.js');
 ```
 
-还可以使用mix.bable\(\)方法代替他 , 目的是为了把所有 ES2015 的代码转换为原生 JavaScript . 文件会经过 Babel 编译 . 
+还可以使用mix.bable\(\)方法代替他 , 目的是为了把所有 ES2015 的代码转换为原生 JavaScript . 文件会经过 Babel 编译 .
 
 **自定义Webpack配置**
 
-Laravel Mix 默认引用了一个预先配置的`webpack.config.js`文件 , 以便尽快启动和运行 . 如果自定义配置 , 有两种方式 : 
+Laravel Mix 默认引用了一个预先配置的`webpack.config.js`文件 , 以便尽快启动和运行 . 如果自定义配置 , 有两种方式 :
 
 **合并**
 
@@ -212,7 +212,7 @@ cp node_modules/laravel-mix/setup/webpack.config.js ./
 
 #### 复制文件与目录
 
-`copy`方法可以复制文件与目录至新位置 . 当`node_modules`目录中的特定资源需要复制到`public`文件夹时会很有用 . 
+`copy`方法可以复制文件与目录至新位置 . 当`node_modules`目录中的特定资源需要复制到`public`文件夹时会很有用 .
 
 ```
 mix.copy('node_modules/foo/bar.css', 'public/css/bar.css');
@@ -220,7 +220,7 @@ mix.copy('node_modules/foo/bar.css', 'public/css/bar.css');
 
 #### 版本与缓存清楚
 
-许多的开发者会在它们编译后的资源文件中加上时间戳或是唯一的 token , 强迫浏览器加载全新的资源文件以取代提供的旧版本代码副本 . 可以使用 version 方法让 Mix 处理它们 . 
+许多的开发者会在它们编译后的资源文件中加上时间戳或是唯一的 token , 强迫浏览器加载全新的资源文件以取代提供的旧版本代码副本 . 可以使用 version 方法让 Mix 处理它们 .
 
 `version`方法为你的文件名称加上唯一的哈希值 , 以防止文件被缓存
 
@@ -229,7 +229,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .version();
 ```
 
-在模板中引入 , 可以使用辅助函数 : 
+在模板中引入 , 可以使用辅助函数 :
 
 ```
 <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
@@ -260,7 +260,15 @@ mix.browserSync({
 });
 ```
 
-接着 , 使用`npm run watch`命令来开启 Webpack 的开发服务器 . 现在 , 当你修改一个脚本或者 PHP 文件 , 看着浏览器立即刷新出来的页面来反馈你的改变 . 
+接着 , 使用`npm run watch`命令来开启 Webpack 的开发服务器 . 现在 , 当你修改一个脚本或者 PHP 文件 , 看着浏览器立即刷新出来的页面来反馈你的改变 .
+
+#### 通知
+
+在有效的情况下 , Mix 会自动为每个捆绑显示操作系统通知 , 这可以给你一个及时的反馈 : 编译成功还是失败 . 不过 , 某些场景下你可能希望禁止这些通知 , 一个例子就是在生成环境服务器触发Mix . 通知可以通过`disableNotifications`方法被停用 : 
+
+```
+mix.disableNotifications();
+```
 
 
 
