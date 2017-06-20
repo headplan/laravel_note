@@ -2,7 +2,7 @@
 
 #### Laravel Mix
 
-Laravel Mix 提供了简洁流畅的 API , 让你能够为你的 Laravel 应用定义 Webpack 的编译任务 . Mix 支持许多常见的 CSS 与 JavaScript 预处理器 , 通过简单的方法管理资源 . 
+Laravel Mix 提供了简洁流畅的 API , 让你能够为你的 Laravel 应用定义 Webpack 的编译任务 . Mix 支持许多常见的 CSS 与 JavaScript 预处理器 , 通过简单的方法管理资源 .
 
 **安装**
 
@@ -47,7 +47,7 @@ mix.less('resources/assets/less/app.less', 'public/css');
 # 多次调用 less 方法可以编译多个文件
 mix.less('resources/assets/less/app.less', 'public/css')
    .less('resources/assets/less/admin.less', 'public/css');
-   
+
 # 自定义编译后的 CSS 文件名,传递完整路径即可
 mix.less('resources/assets/less/app.less', 'public/stylesheets/styles.css');
 
@@ -129,7 +129,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 mix.js('resources/assets/js/app.js', 'public/js');
 ```
 
-上面的一行代码支持 : 
+上面的一行代码支持 :
 
 * ECMAScript 2015 语法
 * Modules
@@ -138,14 +138,14 @@ mix.js('resources/assets/js/app.js', 'public/js');
 
 **Vendor Extraction\(提取依赖\)**
 
-打算频繁更新应用程序的 JavaScript , 应该考虑将所有的依赖库提取到单独文件中 . 这样 , 对应用程序代码的更改不会影响 vendor.js 文件的缓存 . 
+打算频繁更新应用程序的 JavaScript , 应该考虑将所有的依赖库提取到单独文件中 . 这样 , 对应用程序代码的更改不会影响 vendor.js 文件的缓存 .
 
 ```
 mix.js('resources/assets/js/app.js', 'public/js')
    .extract(['vue'])
 ```
 
-`extract`方法接受你希望提取到`vendor.js`文件中的所有的依赖库或模块的数组 . 
+`extract`方法接受你希望提取到`vendor.js`文件中的所有的依赖库或模块的数组 .
 
 现在Mix将生成三个文件 , 加载时注意顺序
 
@@ -154,6 +154,113 @@ mix.js('resources/assets/js/app.js', 'public/js')
 <script src="/js/vendor.js"></script> 依赖库
 <script src="/js/app.js"></script> 应用代码
 ```
+
+**React**
+
+Mix 可以自动安装 Babel 插件来支持 React . 你只需要替换你的`mix.js()`变成`mix.react()`即可
+
+```
+mix.react('resources/assets/js/app.jsx', 'public/js');
+```
+
+在背后 , React 会自动下载 , 并且自动下载适当的`babel-preset-react`Babel 插件
+
+**原生JS**
+
+类似使用`mix.styles()`来组合多个样式表一样 , 你也可以使用`scripts()`方法来合并并且压缩多个 JavaScript 文件
+
+```
+mix.scripts([
+    'public/js/admin.js',
+    'public/js/dashboard.js'
+], 'public/js/all.js');
+```
+
+还可以使用mix.bable\(\)方法代替他 , 目的是为了把所有 ES2015 的代码转换为原生 JavaScript . 文件会经过 Babel 编译 . 
+
+**自定义Webpack配置**
+
+Laravel Mix 默认引用了一个预先配置的`webpack.config.js`文件 , 以便尽快启动和运行 . 如果自定义配置 , 有两种方式 : 
+
+**合并**
+
+Mix 提供了一个有用的`webpackConfig`方法 , 从而允许你合并任意简短的 Webpack 配置覆盖 , 就是直接用这个方法引入webpack配置
+
+```
+mix.webpackConfig({
+    resolve: {
+        modules: [
+            path.resolve(__dirname, 'vendor/laravel/spark/resources/assets/js')
+        ]
+    }
+});
+```
+
+**引用自己的配置**
+
+第二个选择是拷贝Mix的`webpack.config.js`到自己的项目根目录
+
+```
+cp node_modules/laravel-mix/setup/webpack.config.js ./
+```
+
+接下来 , 需要更新`package.json`中的 NPM 脚本 , 以确保它们不再直接引用 Mix 的配置文件 . 只需从命令中移除
+
+`--config="node_modules/laravel-mix/setup/webpack.config.js"`
+
+即可 . 完成之后 , 需要按照需要编辑自己的配置文件
+
+#### 复制文件与目录
+
+`copy`方法可以复制文件与目录至新位置 . 当`node_modules`目录中的特定资源需要复制到`public`文件夹时会很有用 . 
+
+```
+mix.copy('node_modules/foo/bar.css', 'public/css/bar.css');
+```
+
+#### 版本与缓存清楚
+
+许多的开发者会在它们编译后的资源文件中加上时间戳或是唯一的 token , 强迫浏览器加载全新的资源文件以取代提供的旧版本代码副本 . 可以使用 version 方法让 Mix 处理它们 . 
+
+`version`方法为你的文件名称加上唯一的哈希值 , 以防止文件被缓存
+
+```
+mix.js('resources/assets/js/app.js', 'public/js')
+   .version();
+```
+
+在模板中引入 , 可以使用辅助函数 : 
+
+```
+<link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+```
+
+在开发中通常是不需要版本化 , 你可能希望仅在运行`npm run production`的时候进行版本化
+
+```
+mix.js('resources/assets/js/app.js', 'public/js');
+
+if (mix.config.inProduction) {
+    mix.version();
+}
+```
+
+#### Browsersync自动加载刷新
+
+BrowserSync可以监控你的文件变化 , 并且无需手动刷新就可以把你的变化注入到浏览器中 . 可以通过调用mix.browserSync\(\)方法来启用这个功能支持
+
+```
+mix.browserSync('my-domain.dev');
+
+// 或者...
+
+// https://browsersync.io/docs/options
+mix.browserSync({
+    proxy: 'my-domain.dev'
+});
+```
+
+接着 , 使用`npm run watch`命令来开启 Webpack 的开发服务器 . 现在 , 当你修改一个脚本或者 PHP 文件 , 看着浏览器立即刷新出来的页面来反馈你的改变 . 
 
 
 
