@@ -2,9 +2,9 @@
 
 ### 安装扩展包
 
-```
+```markdown
 # 基于Laravel_Basic创建
-composer create-project laravel/laravel ./ "5.4.*"
+composer create-project laravel/laravel ./ "5.4.*" --prefer-dist(强制使用压缩包,而不是克隆源代码)
 # 包含下面3个包
 composer require 'barryvdh/laravel-debugbar' --dev
 composer require 'barryvdh/laravel-ide-helper' --dev
