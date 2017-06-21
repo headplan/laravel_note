@@ -90,7 +90,6 @@
       * [文章分类](创建分类表.md)
   * [AuthPlan](authplan.md)
   * [Lartisan](lartisan.md)
-  * [Learning\_Laravel\_Auth](learninglaravel-auth.md)
   * [Laravel\_Basic](laravelbasic.md)
 * [代码片段](代码片段.md)
   * [路由文件最佳分割方式](路由文件最佳分割方式.md)
