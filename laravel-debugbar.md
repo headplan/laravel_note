@@ -36,5 +36,11 @@ php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
 'enabled' => env('APP_DEBUG', false),
 ```
 
-修改完以后, Debugbar 分析器的启动状态将由`.env`文件中`APP_DEBUG`值决定.
+修改完以后, Debugbar 分析器的启动状态将由`.env`文件中`APP_DEBUG`值决定.或者直接默认即可
+
+```
+'enabled' => env('DEBUGBAR_ENABLED', null),
+```
+
+
 
