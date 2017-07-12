@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [版本变更](版本变更.md)
+* [版本更新](版本变更.md)
   * [Laravel 5.3](laravel-53.md)
   * [Laravel 5.2](laravel.md)
   * Laravel 5.1
