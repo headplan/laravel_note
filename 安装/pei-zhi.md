@@ -30,7 +30,6 @@ Laravel 使用 Vance Lucas 开发的 PHP 库[DotEnv](https://github.com/vlucas/p
 
 ```
 $environment = App::environment();
-
 ```
 
 你也可以向`environment`方法中传递参数来判断当前环境是否匹配给定值，如果需要的话你甚至可以传递多个值。如果当前环境与给定值匹配，该方法返回`true`：
@@ -43,7 +42,6 @@ if (App::environment('local')) {
 if (App::environment('local', 'staging')) {
     // The environment is either local OR staging...
 }
-
 ```
 
 #### 访问配置值
@@ -60,9 +58,13 @@ $value = config('app.timezone');
 config(['app.timezone' => 'America/Chicago']);
 ```
 
-  
-  
+#### 配置缓存
 
+为了给应用加速，你可以使用 Artisan 命令`config:cache`将所有配置文件的配置缓存到单个文件里，这将会将所有配置选项合并到单个文件从而可以被框架快速加载。
+
+应用一旦上线，就要运行一次`php artisan config:cache`，但是在本地开发时，没必要经常运行该命令，因为配置值经常需要改变。
+
+> 如果在部署过程中执行`config:cache`命令，确保只在配置文件中调用了`env`方法。
 
 
 
