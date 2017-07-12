@@ -66,5 +66,37 @@ config(['app.timezone' => 'America/Chicago']);
 
 > 如果在部署过程中执行`config:cache`命令，确保只在配置文件中调用了`env`方法。
 
+#### 维护模式
 
+当你的应用处于维护模式时，所有对应用的请求都会返回同一个自定义视图。这一机制在对应用进行升级或者维护时，使得“关闭”站点变得轻而易举。对维护模式的判断代码位于应用默认的中间件栈中，如果应用处于维护模式，则状态码为`503`的`MaintenanceModeException`将会被抛出。
+
+要开启维护模式，只需执行 Artisan 命令`down`即可：
+
+```
+php artisan down
+```
+
+还可以提供`message`和`retry`选项给`down`命令。`message`的值用于显示和记录自定义消息，而`retry`的值用于设置HTTP请求头的`Retry-After`：
+
+```
+php artisan down --message="Upgrading Database" --retry=60
+```
+
+要关闭维护模式，对应的 Artisan 命令是`up`：
+
+```
+php artisan up
+```
+
+**维护模式响应模板**
+
+默认的维护模式响应视图模板是`resources/views/errors/503.blade.php`，如果需要的话你可以修改这个视图文件。
+
+**维护模式 & 队列**
+
+当你的站点处于维护模式中时，所有的[队列任务](https://laravel.com/docs/5.4/queues)都不会执行；当应用退出维护模式这些任务才会被继续正常处理。
+
+**维护模式的替代方案**
+
+由于维护模式命令的执行需要几秒时间，你可以考虑使用[Envoyer](https://envoyer.io/)实现 0 秒下线作为替代方案。
 
