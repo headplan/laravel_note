@@ -11,6 +11,7 @@
   * [起步](安装.md)
     * [配置](安装/pei-zhi.md)
     * [目录结构](安装/mu-lu-jie-gou.md)
+    * [一次请求的生命周期](安装/yi-ci-qing-qiu-de-sheng-ming-zhou-qi.md)
 * [环境搭建](chapter1.md)
   * [Homestead](homestead.md)
   * [Centstead](centstead.md)
