@@ -34,29 +34,40 @@ Thanks,<br>
 
 > 你可以将所有Markdown邮件组件导出到自己的应用中进行自定义。要导出这些组件，可以使用Artisan命令`vendor:publish`来发布标签为`laravel-mail`的资源
 
-### Laravel Dusk {#toc_1}
+#### Laravel Dusk
 
-### Laravel Mix {#toc_2}
+> Laravel Dusk为我们提供了优雅的、易于使用的浏览器自动化测试API。默认情况下，Dusk不需要在机器上安装JDK或Selenium，取而代之的，Dusk使用一种独立的[ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/home)安装方式。不过，你也可以使用其它兼容Selenium驱动的方式进行安装。
+>
+> 由于Dusk在操作过程中使用了真实的浏览器，所以可以很轻松地对那些重度使用JavaScript的应用进行测试和交互 .
 
-### Blade组件&插槽 {#toc_3}
+#### Laravel Mix
 
-### 广播中的模型绑定 {#toc_4}
+> Laravel Mix是Laravel Elixir的精神继承者，完全基于Webpack而不是Gulp。Laravel Mix为使用通用CSS和JavaScript预处理器定义Laravel应用的Webpack构建步骤提供了流式API。通过简单的方法链，你可以定义流式资源管道，例如：
+>
+> ```
+> mix.js('resources/assets/js/app.js', 'public/js')
+>    .sass('resources/assets/sass/app.scss', 'public/css');
+> ```
 
-### 集合高阶消息传递 {#toc_5}
+#### Blade组件&插槽
 
-### 基于对象的Eloquent事件 {#toc_6}
+#### 广播中的模型绑定
 
-### 任务级的重试&超时 {#toc_7}
+#### 集合高阶消息传递
 
-### 请求清理中间件 {#toc_8}
+#### 基于对象的Eloquent事件
 
-### “实时”门面 {#toc_9}
+#### 任务级的重试&超时
 
-### 自定义透视表模型 {#toc_10}
+#### 请求清理中间件
 
-### 优化Redis集群支持 {#toc_11}
+#### “实时”门面
 
-### 迁移默认字符换长度 {#toc_12}
+#### 自定义透视表模型
+
+#### 优化Redis集群支持
+
+#### 迁移默认字符换长度
 
 
 
