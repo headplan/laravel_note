@@ -6,6 +6,7 @@
   * [Laravel 5.2](laravel.md)
   * Laravel 5.1
   * [版本升级](ban-ben-sheng-ji.md)
+  * [贡献指南](gong-xian-zhi-nan.md)
 * [起步](安装.md)
 * [环境搭建](chapter1.md)
   * [Homestead](homestead.md)
