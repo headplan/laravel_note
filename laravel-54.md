@@ -51,7 +51,7 @@ Thanks,<br>
 
 #### Blade组件&插槽
 
-Blade组件和插槽为section和layout提供了类似的好处，不过，有些人可能会觉得组件和插槽的构思模型更容易理解 . 这和Vue中的组件概念类似 . 
+Blade组件和插槽为section和layout提供了类似的好处，不过，有些人可能会觉得组件和插槽的构思模型更容易理解 . 这和Vue中的组件概念类似 .
 
 #### 广播中的模型绑定
 
@@ -67,11 +67,101 @@ Broadcast::channel('order.{order}', function ($user, Order $order) {
 
 #### 集合高阶消息传递
 
+集合现在支持“高阶消息传递”，从而精简对集合的操作，目前支持高阶消息传递的集合方法有：`contains`、`each`、`every`、`filter`、`first`、`map`、`partition`、`reject`、`sortBy`、`sortByDesc`和`sum`。
+
+每一个高阶消息传递都可以通过集合实例上的动态属性进行访问，例如，我们使用`each`在集合中的每个对象上调用某个方法：
+
+```
+$users = User::where('votes', '>', 500)->get(); 
+$users->each->markAsVip();
+```
+
+类似的，我们还可以通过`sum`在用户集合中聚合所有投票数：
+
+```
+$users = User::where('group', 'Development')->get();
+return $users->sum->votes;
+```
+
 #### 基于对象的Eloquent事件
+
+Eloquent事件处理器现在可以被映射到事件对象上，这为我们处理Eloquent事件并让其变得易于测试提供了一种直观的方式。开始之前，我们现先在Eloquent模型类中定义一个`events`属性数组，在这个数组中我们定义了模型生命周期的某些点与对应事件类的映射关系：
+
+```
+<?php
+
+namespace App;
+
+use App\Events\UserSaved;
+use App\Events\UserDeleted;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $events = [
+        'saved' => UserSaved::class,
+        'deleted' => UserDeleted::class,
+    ];
+}
+```
 
 #### 任务级的重试&超时
 
+5.4版本之前，队列任务的“重试”和“超时”设置只能在全局的队列配置中指定，在Laravel 5.4中，可以在、通过在任务类中为每一个任务配置独立的“重试”次数和“超时”时间：
+
+```
+<?php
+
+namespace App\Jobs;
+
+class ProcessPodcast implements ShouldQueue
+{
+    /**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */
+    public $tries = 5;
+
+    /**
+     * The number of seconds the job can run before timing out.
+     *
+     * @var int
+     */
+    public $timeout = 120;
+}
+```
+
 #### 请求清理中间件
+
+Laravel 5.4在默认中间件堆栈中引入了两个新的中间件：`TrimStrings`和`ConvertEmptyStringsToNull`：
+
+```
+/**
+ * The application's global HTTP middleware stack.
+ *
+ * These middleware are run during every request to your application.
+ *
+ * @var array
+ */
+protected $middleware = [
+    \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+    \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+    \App\Http\Middleware\TrimStrings::class,
+    \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+];
+
+```
+
+这两个中间件的作用分别是去除请求输入值首尾两端的空格、将空字符串转化为`null`。这可以帮助我们在每次对应用进行请求的时候对输入值进行归一，而不必在每个路由、每个控制器中重复调用`trim`方法。
 
 #### “实时”门面
 
