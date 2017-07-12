@@ -10,6 +10,7 @@
   * [贡献指南](gong-xian-zhi-nan.md)
   * [起步](安装.md)
     * [配置](安装/pei-zhi.md)
+    * [目录结构](安装/mu-lu-jie-gou.md)
 * [环境搭建](chapter1.md)
   * [Homestead](homestead.md)
   * [Centstead](centstead.md)
