@@ -16,9 +16,11 @@
 
 [https://laravel.com/](https://laravel.com/)
 
+https://laravel.com/api/5.4/
+
 视频:
 
 [https://laracasts.com/](https://laracasts.com/)
 
-https://tutsplus.com/
+[https://tutsplus.com/](https://tutsplus.com/)
 
