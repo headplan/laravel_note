@@ -52,6 +52,10 @@ Laravel 应用默认的目录结构试图为不管是大型应用还是小型应
 
 `tests`目录包含自动化测试，其中已经提供了一个开箱即用的PHPUnit示例；每一个测试类都要以`Test`开头，你可以通过`phpunit`或`php vendor/bin/phpunit`命令来运行测试。
 
+**Vendor目录**
+
+vendor目录包含所有Composer依赖 . 
+
 ### App目录 {#toc_2}
 
 应用的核心代码位于`app`目录下，默认情况下，该目录位于命名空间`App`下， 并且被 Composer 通过[PSR-4自动载入标准](http://www.php-fig.org/psr/psr-4/)自动加载。
