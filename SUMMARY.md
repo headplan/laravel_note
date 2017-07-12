@@ -6,6 +6,7 @@
   * [Laravel 5.2](laravel.md)
   * Laravel 5.1
   * [版本升级](ban-ben-sheng-ji.md)
+* [起步](安装.md)
 * [环境搭建](chapter1.md)
   * [Homestead](homestead.md)
   * [Centstead](centstead.md)
@@ -13,7 +14,6 @@
   * [LaraDock](laradock.md)
     * [D4m-nfs](laradock/d4m-nfs.md)
     * [env配置说明](laradock/envpei-zhi-shuo-ming.md)
-* [系统安装](安装.md)
 * [核心概念](核心概念.md)
   * [服务容器](服务容器.md)
   * [服务提供者](服务提供者.md)
