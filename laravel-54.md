@@ -51,7 +51,19 @@ Thanks,<br>
 
 #### Blade组件&插槽
 
+Blade组件和插槽为section和layout提供了类似的好处，不过，有些人可能会觉得组件和插槽的构思模型更容易理解 . 这和Vue中的组件概念类似 . 
+
 #### 广播中的模型绑定
+
+和HTTP路由一样，频道路由现在也可以显式或隐式进行模型绑定，例如，我们可以通过请求一个实际的`Order`模型实例来取代之前获取字符串或数字订单ID：
+
+```
+use App\Order;
+
+Broadcast::channel('order.{order}', function ($user, Order $order) {
+    return $user->id === $order->user_id;
+});
+```
 
 #### 集合高阶消息传递
 
