@@ -23,6 +23,7 @@
     * [Laravel](laradock/docker-sync/laravel.md)
     * [生产环境](laradock/sheng-chan-huan-jing.md)
     * [其他杂项](laradock/qi-ta-za-xiang.md)
+    * [MySQL](laradock/mysql.md)
 * [核心概念](核心概念.md)
   * [服务容器](服务容器.md)
   * [服务提供者](服务提供者.md)
