@@ -43,5 +43,21 @@ composer update
 phpunit
 ```
 
+### 运行Laravel的队列
+
+先添加php-worker容器 , 就像添加PHP-FPM容器一样 . 
+
+可以配置docker-compose.yml文件 : 
+
+```
+php-worker:
+  build:
+    context: ./php-fpm
+    dockerfile: Dockerfile-70 # or Dockerfile-56, choose your PHP-FPM container setting
+  volumes_from:
+    - applications
+  command: php artisan queue:work
+```
+
 
 
