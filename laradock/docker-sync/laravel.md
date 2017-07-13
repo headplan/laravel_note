@@ -130,7 +130,7 @@ docker-compose build workspace php-fpm
         ]
     ],
 
-	// ...
+    // ...
 
 ],
 # 配置laravel
@@ -141,6 +141,18 @@ composer require jenssegers/mongodb
 ```
 
 ### 使用PhpMyAdmin
+
+```
+# use with mysql
+docker-compose up -d mysql phpmyadmin
+PMA_DB_ENGINE=mysql
+
+# use with mariadb
+docker-compose up -d mariadb phpmyadmin
+PMA_DB_ENGINE=mariadb
+
+http://localhost:8080
+```
 
 
 
