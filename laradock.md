@@ -1,5 +1,126 @@
 # LaraDock
 
+**官网** - http://laradock.io/
+
+**Github** - https://github.com/laradock/laradock
+
+---
+
+### 介绍
+
+LaraDock - 一个Docker驱动的完整的PHP开发环境 . 
+
+**快速启动**
+
+```
+# 克隆仓库
+git clone https://github.com/Laradock/laradock.git
+# 创建.env
+cp env-example .env
+# 启动容器
+docker-compose up -d nginx mysql redis beanstalkd
+# 编辑.env文件
+DB_HOST=mysql
+REDIS_HOST=redis
+QUEUE_HOST=beanstalkd
+# 访问
+http://localhost
+# bingo
+```
+
+其他介绍...
+
+### 入门
+
+**依赖**
+
+* Git
+* Docker &gt;= 1.12
+
+**安装**
+
+如果已经有了项目寻找 , 可以添加submodule
+
+```
+git submodule add https://github.com/Laradock/laradock.git
+# tree
+project-a
+-- laradock-a
+project-b
+-- laradock-b
+```
+
+> 注意 : 如果要在多个项目中运行laradock , 这里的laradock文件夹名字需要重命名为唯一的.
+
+如果还没创建项目 , 可以直接clone
+
+```
+git clone https://github.com/laradock/laradock.git
+# tree
+laradock
+project-dev
+```
+
+clone方式创建多个项目 , 需要配置nginx
+
+```
+laradock
+project-1
+project-2
+# 添加nginx配置到NGINX_SITES_PATH文件夹中
+# 方法和添加hosts一样,只要注意路径都是在APPLICATION下即可
+```
+
+### **使用**
+
+**1.初始化laradock**
+
+使用laradock的第一步肯定是要新建.env文件,配置laradock
+
+```
+cp env-example .env
+```
+
+可以直接编辑.env文件 , 配置应用 , 这些env中的变量都会在docker-compose.yml文件中使用 . 
+
+**2.生成环境并运行**
+
+使用docker-compose启动
+
+```
+docker-compose up -d nginx mysql
+```
+
+大多数情况下 , workspace和php-fpm会自动运行 , 如果找不到可以运行
+
+```
+docker-compose up -d nginx php-fpm mysql workspace
+```
+
+**3.进入工作区**
+
+启动之后就可以进入`workspace`工作区容器了 , 执行Laravel安装及Artisan , Composer , PHPUnit等命令操作 . 
+
+```
+docker-compose exec workspace bash
+# 还可以指定用户进入,可以在.env文件里修改用户ID(PUID)和组ID(PGID)变量
+docker-compose exec --user=laradock workspace bash
+```
+
+**4.配置项目**
+
+为PHP项目配合数据库主机 , 直接修改PHP项目的.env文件即可
+
+```
+DB_HOST=mysql
+```
+
+这里不用写IP地址 , 直接写mysql即可 . 
+
+**5.浏览器访问绑定host的域名**
+
+---
+
 影响速度的某些原因,需要先给Docker换上国内源,阿里云中可以申请地址.
 
 Preferences &gt; Daemon &gt; Basic &gt; Registry mirrors 中添加.
@@ -12,30 +133,9 @@ sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
 
 除了这些,还有其他影响速度的,类似composer源,NPM等等,可根据情况修改.
 
-> 注意:项目中的IP地址直接写,mysql,redis等,例如`DB_HOST=mysql`
+> 注意:项目中的IP地址直接写mysql,redis等,例如`DB_HOST=mysql`
 
 ---
-
-```
-# 克隆laradock
-git clone https://github.com/Laradock/laradock.git
-# 进入文件夹,运行docker
-docker-compose up -d nginx mysql redis beanstalkd
-```
-
-如果已经有一个Laravel项目,可以克隆到项目根目录
-
-```
-git submodule add https://github.com/laradock/laradock.git
-```
-
-可以选择自己的容器组合
-
-nginx, hhvm, php-fpm, mysql, redis, postgres, mariadb, neo4j,
-
-mongo, apache2, caddy, memcached, beanstalkd, beanstalkd-console, workspace等.
-
-> 注:`workspace`和`php-fpm`将运行在大部分实例中, 所以不需要在`up`命令中加上它们.
 
 启动之后就可以进入`workspace`容器了,执行Laravel安装及Artisan命令等操作.
 
