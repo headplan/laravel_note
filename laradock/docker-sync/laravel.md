@@ -156,5 +156,21 @@ PMA_DB_ENGINE=mariadb
 http://localhost:8080
 ```
 
+### 使用Adminer
+
+```
+docker-compose up -d adminer  
+http://localhost:8080
+```
+
+> Adminer的版本固定在4.3.0 , 可以配置`adminer:latest`安装最新版
+
+### 使用PgAdmin
+
+```
+docker-compose up -d postgres pgadmin
+http://localhost:5050
+```
+
 
 
