@@ -95,5 +95,52 @@ composer require predis/predis:^1.0
 \Cache::store('redis')->put('Laradock', 'Awesome', 10);
 ```
 
+### 使用Mongo
+
+```
+docker-compose up -d mongo
+# 配置Laravel的.env文件
+INSTALL_MONGO=true
+workspace:
+    build:
+        context: ./workspace
+        args:
+            - INSTALL_MONGO=true
+...
+php-fpm:
+    build:
+        context: ./php-fpm
+        args:
+            - INSTALL_MONGO=true
+...
+# 重建
+docker-compose build workspace php-fpm
+# 也可以在config/database.php配置
+'connections' => [
+
+    'mongodb' => [
+        'driver'   => 'mongodb',
+        'host'     => env('DB_HOST', 'localhost'),
+        'port'     => env('DB_PORT', 27017),
+        'database' => env('DB_DATABASE', 'database'),
+        'username' => '',
+        'password' => '',
+        'options'  => [
+            'database' => '',
+        ]
+    ],
+
+	// ...
+
+],
+# 配置laravel
+DB_HOST=mongo
+DB_PORT=27017
+# 安装类包
+composer require jenssegers/mongodb
+```
+
+### 使用PhpMyAdmin
+
 
 
