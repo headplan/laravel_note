@@ -28,7 +28,7 @@ docker-compose build php-fpm
 
 #### 更换PHP-CLI版本
 
-这里和上面的方法一样 , PHP-CLI的Dockerfile在工作区中 , 也就是workspace目录中 . 
+这里和上面的方法一样 , PHP-CLI的Dockerfile在工作区中 , 也就是workspace目录中 .
 
 #### 安装PHP扩展
 
@@ -39,7 +39,7 @@ docker-compose build php-fpm
 
 **安装xDebug**
 
-其实.env文件中已经设置了很多变量开关给docker-compose.yml文件用 , 可以自己添加或者直接修改yml文件的开关为true . 
+其实.env文件中已经设置了很多变量开关给docker-compose.yml文件用 , 可以自己添加或者直接修改yml文件的开关为true .
 
 ```
 workspace:
@@ -75,7 +75,7 @@ xdebug还准备了开关脚本 , 可以直接在文件夹中启动关闭查看�
 
 > 可能需要chmod给执行访问权限
 
-
+有关phpstorm中使用xdebug的内容查看phpstorm相关笔记 . 
 
 
 
