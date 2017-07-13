@@ -45,9 +45,9 @@ phpunit
 
 ### 运行Laravel的队列
 
-先添加php-worker容器 , 就像添加PHP-FPM容器一样 . 
+先添加php-worker容器 , 就像添加PHP-FPM容器一样 .
 
-可以配置docker-compose.yml文件 : 
+可以配置docker-compose.yml文件 :
 
 ```
 php-worker:
@@ -57,6 +57,10 @@ php-worker:
   volumes_from:
     - applications
   command: php artisan queue:work
+```
+
+```
+docker-compose up -d php-worker
 ```
 
 
