@@ -135,47 +135,38 @@ sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
 
 ---
 
-**Docker常用命令**
+### **Docker常用命令**
 
-1.列出正在运行的容器
+**1.列出正在运行的容器**
 
 ```
 docker ps
+docker ps -a # 列出所有容器
+
+docker kill $(docker ps -a -q) # 杀死所有正在运行的容器
+docker rm $(docker ps -a -q) # 删除所有已经停止的容器
+
+=====
+
+docker image -a # 列出所有镜像
+docker rmi $(docker images -q) # 删除所有镜像
 ```
 
-你也可以使用以下命令列出某项目的容器：
+**2. 列出某项目的容器：**
 
 ```
 docker-compose ps
-```
-
-2.启动容器
-
-```
+# 启动容器
 docker-compose up -d {容器名称}
-```
-
-3.关闭所有容器
-
-```
+# 关闭所有容器
 docker-compose stop
-```
-
-关闭某个容器：
-
-```
+# 关闭某个容器
 docker-compose stop {容器名称}
-```
-
-4.删除所用容器
-
-```
+# 删除所有容器,使用该命令要小心,因为它会删除数据容器.
 docker-compose down
 ```
 
-> 使用该命令要小心, 因为它会删除数据容器.
-
-5.进入容器
+**3.进入容器**
 
 首先使用`docker ps`查看正在运行的容器，然后进入其中某个容器：
 
@@ -187,11 +178,13 @@ docker-compose exec {container-name} bash
 
 ```
 docker-compose exec mysql bash
+# 直接进入mysql
+docker-compose exec mysql mysql -uroot -proot
 ```
 
 要退出容器, 执行`exit`即可.
 
-6.编辑容器默认配置
+**4.编辑容器默认配置**
 
 编辑docker-compose.yml文件.
 
@@ -209,7 +202,7 @@ ports:
     - "1111:6379"
 ```
 
-7.编辑Docker镜像
+**5.编辑Docker镜像**
 
 修改dockerfile文件,例如MySQL位于mysql/Dockerfile
 
@@ -221,7 +214,7 @@ docker-compose build {container-name}
 docker-compose build --no-cache {container-name}
 ```
 
-8.查看日志文件
+**6.查看日志文件**
 
 查看容器的日志, 可以运行命令:
 
@@ -231,16 +224,17 @@ docker logs {container-name}
 
 ---
 
-Workspace容器可以执行像Artisan, Composer, PHPUnit, Gulp等命令.
+### Docker-Sync\(文件同步\)
 
-```
-# 进入容器
-docker-compose exec workspace bash
-# 使用特定账户进入容器
-docker-compose exec --user=laradock workspace bash
-```
+查看Laradock下相关内容
 
-> 可以从docker-compose.yml文件修改PUID\(User id\)和PGID\(group id\)值.
+### 添加更多软件\(Docker Images\)
+
+添加更多软件镜像 , 编辑docker-compose.yml文件 , 根据docker compose的配置语法写入即可 , 参考下面的文章或进入Docker Note笔记查看 . 
+
+https://docs.docker.com/compose/compose-file/
+
+### 
 
 ### **\[Laravel\]**
 
