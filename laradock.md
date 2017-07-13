@@ -230,11 +230,19 @@ docker logs {container-name}
 
 ### 添加更多软件\(Docker Images\)
 
-添加更多软件镜像 , 编辑docker-compose.yml文件 , 根据docker compose的配置语法写入即可 , 参考下面的文章或进入Docker Note笔记查看 . 
+添加更多软件镜像 , 编辑docker-compose.yml文件 , 根据docker compose的配置语法写入即可 , 参考下面的文章或进入Docker Note笔记查看 .
 
-https://docs.docker.com/compose/compose-file/
+[https://docs.docker.com/compose/compose-file/](https://docs.docker.com/compose/compose-file/)
 
-### 
+### 查看日志文件
+
+Nginx日志文件存储在logs/nginx目录中 . 要查看所有容器的日志 , 可以使用命令
+
+```
+docker-compose logs {container-name}
+docker-compose logs -f {container-name}
+docker-compose logs --help # 查看更多选项
+```
 
 ### **\[Laravel\]**
 
