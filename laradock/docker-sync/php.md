@@ -75,7 +75,11 @@ xdebug还准备了开关脚本 , 可以直接在文件夹中启动关闭查看�
 
 > 可能需要chmod给执行访问权限
 
-有关phpstorm中使用xdebug的内容查看phpstorm相关笔记 . 
+有关phpstorm中使用xdebug的内容查看phpstorm相关笔记 .
 
+**PHP部署工具Deployer**
 
+Workspace中也有开关 , 开启即可 . 
+
+Deployer文档 : https://deployer.org/docs
 
