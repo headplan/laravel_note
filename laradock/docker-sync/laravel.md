@@ -43,6 +43,8 @@ composer update
 phpunit
 ```
 
+---
+
 ### 运行Laravel的队列
 
 先添加php-worker容器 , 就像添加PHP-FPM容器一样 .

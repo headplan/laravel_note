@@ -24,7 +24,7 @@ workspace:
 
 #### 通过SSH访问工作区容器
 
-设置INSTALL\_WORKSPACE\_SSH就可以通过localhost:2222访问工作区容器 : 
+设置INSTALL\_WORKSPACE\_SSH就可以通过localhost:2222访问工作区容器 :
 
 ```
 workspace:
@@ -32,6 +32,16 @@ ports:
     - "2222:22" # Edit this line
 ...
 ```
+
+#### 绑定自定义域名
+
+修改/etc/hosts文件
+
+```
+127.0.0.1    laravel.dev
+```
+
+再配置Nginx的就可以了 . 
 
 
 

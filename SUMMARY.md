@@ -20,7 +20,7 @@
     * [Docker-Sync](laradock/docker-sync.md)
       * [D4m-nfs](laradock/d4m-nfs.md)
     * [PHP](laradock/docker-sync/php.md)
-    * [Laravel](laradock/docker-sync/laravel.md)
+    * [Laravel&其他服务](laradock/docker-sync/laravel.md)
     * [MySQL](laradock/mysql.md)
     * [生产环境](laradock/sheng-chan-huan-jing.md)
     * [其他杂项](laradock/qi-ta-za-xiang.md)
