@@ -63,5 +63,37 @@ php-worker:
 docker-compose up -d php-worker
 ```
 
+### 使用Redis
+
+```
+docker-compose up -d redis
+# 配置Laravel的.env文件
+REDIS_HOST=redis
+# 也可以在config/database.php配置
+'redis' => [
+    'cluster' => false,
+    'default' => [
+        'host'     => 'redis',
+        'port'     => 6379,
+        'database' => 0,
+    ],
+],
+```
+
+配置Laravel的Cache和Session的Driver
+
+```
+CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+```
+
+安装predis包
+
+```
+composer require predis/predis:^1.0
+# code
+\Cache::store('redis')->put('Laradock', 'Awesome', 10);
+```
+
 
 
