@@ -18,6 +18,7 @@
   * [Laravel Valet](laravel-valet.md)
   * [LaraDock](laradock.md)
     * [Docker-Sync](laradock/docker-sync.md)
+      * [Dinghy](laradock/dinghy.md)
       * [D4m-nfs](laradock/d4m-nfs.md)
     * [PHP](laradock/docker-sync/php.md)
     * [MySQL](laradock/mysql.md)
