@@ -21,8 +21,9 @@
       * [Dinghy](laradock/dinghy.md)
       * [D4m-nfs](laradock/d4m-nfs.md)
     * [PHP](laradock/docker-sync/php.md)
-    * [MySQL](laradock/mysql.md)
+      * PHPStorm中使用xDebug
     * [Laravel&其他服务](laradock/docker-sync/laravel.md)
+    * [MySQL](laradock/mysql.md)
     * [其他杂项](laradock/qi-ta-za-xiang.md)
     * [生产环境](laradock/sheng-chan-huan-jing.md)
     * [常见问题](laradock/chang-jian-wen-ti.md)

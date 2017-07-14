@@ -100,6 +100,10 @@ docker-compose build workspace
 
 ---
 
+### MySQL
+
+查看先关内容
+
 ### 运行Laravel的队列
 
 先添加php-worker容器 , 就像添加PHP-FPM容器一样 .
@@ -322,8 +326,4 @@ docker-compose build workspace php-fpm
 INSTALL\_LARAVEL\_ENVOY = true
 
 重建workspace
-
-
-
-
 
