@@ -45,6 +45,47 @@ phpunit
 
 ---
 
+### 工作区扩展
+
+#### 全局安装Composer
+
+```
+# 配置
+COMPOSER_GLOBAL_INSTALL=true
+# 现在就可以安装全局包了,配置工作区下的composer.json
+# 重建
+docker-compose build workspace
+```
+
+#### 安装Prestissimo
+
+这是一个提速composer的包 , 让Composer支持并行下载
+
+有了全局的composer , 可以直接进入工作区安装 , 或者配置workspace/composer.json , 然后重建
+
+```
+docker-compose build workspace
+```
+
+#### 安装Node+NVM
+
+> NVM是NodeJs版本管理工具,管理Nodejs版本和NPM版本
+
+开启配置INSTALL\_NODE=true
+
+重建工作区即可
+
+#### 安装Node + YARN
+
+方法同上 , 但要同时开启INSTALL\_NODE和INSTALL\_YARN
+
+```
+# 重建
+docker-compose build workspace
+```
+
+---
+
 ### 运行Laravel的队列
 
 先添加php-worker容器 , 就像添加PHP-FPM容器一样 .
