@@ -90,13 +90,13 @@ docker-compose build workspace
 
 > 这是Linux版本的Homebrew
 >
-> http://linuxbrew.sh/
+> [http://linuxbrew.sh/](http://linuxbrew.sh/)
 
 配置INSTALL\_LINUXBREW , 之后重建
 
 #### 工作区Aliases别名
 
-启动Docker的时候 , 会自动复制workspace文件夹下的aliases.sh文件 , 引入到.bashrc中 , 所以可以自定义你的快捷键了 . 
+启动Docker的时候 , 会自动复制workspace文件夹下的aliases.sh文件 , 引入到.bashrc中 , 所以可以自定义你的快捷键了 .
 
 ---
 
@@ -314,6 +314,16 @@ mc mb minio/bucket
 ```
 docker-compose build workspace php-fpm
 ```
+
+### 安装Laravel Envoy
+
+> Laravel Envoy 优雅的 SSH 远程任务执行工具
+
+INSTALL\_LARAVEL\_ENVOY = true
+
+重建workspace
+
+
 
 
 
