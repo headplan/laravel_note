@@ -1,18 +1,24 @@
 # 安装配置D4m-nfs扩展
 
+> D4m-nfs 自动安装nfs , 而不是osxfs
+
 `https://github.com/IFSight/d4m-nfs`
 
 通过D4m-nfs可以把docker的`file sharing`挂载到本地.
 
-首先配置Docker,打开Preferences中`file sharing`的配置,删除其中多余的目录,只保留/tmp目录.
+**安装**
 
-然后,克隆d4m-nfs到`~`目录下
+1.首先配置Docker,打开Preferences中`file sharing`的配置,删除其中多余的目录,只保留/tmp目录.
+
+2.重启Docker
+
+3.然后,克隆d4m-nfs到`~`目录下
 
 ```
 git clone https://github.com/IFSight/d4m-nfs ~/d4m-nfs
 ```
 
-项目克隆下来后修改`~/d4m-nfs/etc/d4m-nfs-mounts.txt`文件, 若文件不存在自己手动建一个, 加入要挂在的目录 :
+4.项目克隆下来后修改`~/d4m-nfs/etc/d4m-nfs-mounts.txt`文件, 若文件不存在自己手动建一个, 加入要挂在的目录 :
 
 ```
 /Users:/Users
@@ -20,9 +26,9 @@ git clone https://github.com/IFSight/d4m-nfs ~/d4m-nfs
 /private:/private
 ```
 
-检查系统文件`/etc/exports`下是否有内容, 编辑文件清空所有内容
+5.检查系统文件`/etc/exports`下是否有内容, 编辑文件清空所有内容 . \(如果在Vagrant中或者已经执行过下面的脚本可以会发生冲突\)
 
-在`~`目录下运行脚本
+6.在`~`目录下运行脚本
 
 ```
 ~/d4m-nfs/d4m-nfs.sh
@@ -76,6 +82,8 @@ screen -r d4m
 ```
 docker-compose up -d nginx redis mysql
 ```
+
+> 注意 : 遇到错误 , 可以尝试重启Docker , 或者看看_`d4m-nfs-mounts.txt`_文件是不是多写了空格 , 或者看看_`/etc/exports`_文件清空了没
 
 
 
