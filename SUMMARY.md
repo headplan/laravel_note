@@ -25,6 +25,7 @@
     * [Laravel&其他服务](laradock/docker-sync/laravel.md)
     * [其他杂项](laradock/qi-ta-za-xiang.md)
     * [生产环境](laradock/sheng-chan-huan-jing.md)
+    * [常见问题](laradock/chang-jian-wen-ti.md)
 * [核心概念](核心概念.md)
   * [服务容器](服务容器.md)
   * [服务提供者](服务提供者.md)
