@@ -172,5 +172,79 @@ docker-compose up -d postgres pgadmin
 http://localhost:5050
 ```
 
+### 使用Beanstalkd
+
+> 分布式内存队列系统
+
+```
+docker-compose up -d beanstalkd
+# 配置config/queue.php
+QUEUE_HOST=beanstalkd
+# 用Composer引入包
+https://github.com/pda/pheanstalk
+http://localhost:2080/
+```
+
+### 使用ElasticSearch
+
+```
+docker-compose up -d elasticsearch
+# http://localhost:9200
+# 安装ES的插件
+docker exec {container-name} /usr/share/elasticsearch/bin/plugin install delete-by-query
+# 重启容器
+docker restart {container-name}
+```
+
+### 使用Selenium
+
+自动化测试工具
+
+```
+docker-compose up -d selenium
+http://localhost:4444/wd/hub
+```
+
+### 使用RethinkDB
+
+一个实时数据库 , 这有个Laravel包
+
+tps://github.com/duxet/laravel-rethinkdb
+
+```
+docker-compose up -d rethinkdb
+# 配置一下就可以了
+```
+
+### 使用Minio
+
+分布式对象存储服务器
+
+在工作区启动INSTALL\_MC
+
+配置MINIO\_ACCESS\_KEY和MINIO\_ACCESS\_SECRET
+
+这个现在在yml文件中了
+
+```
+docker-compose up -d minio
+http://localhost:9000
+mc mb minio/bucket
+  S3_HOST=http://minio
+  S3_KEY=access
+  S3_SECRET=secretkey
+  S3_REGION=us-east-1
+  S3_BUCKET=bucket
+```
+
+> ### 安装CodeIgniter 3
+>
+> ```
+> # 修改配置
+> CODEIGNITER=true
+> # 重建容器
+> docker-compose build php-fpm
+> ```
+
 
 
