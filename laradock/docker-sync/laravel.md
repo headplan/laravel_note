@@ -47,6 +47,8 @@ phpunit
 
 ### 工作区扩展
 
+> 下面的工具都安装在workspace中 , 所以都需要对工作区进行重建
+
 #### 全局安装Composer
 
 ```
@@ -83,6 +85,18 @@ docker-compose build workspace
 # 重建
 docker-compose build workspace
 ```
+
+#### 安装Linuxbrew
+
+> 这是Linux版本的Homebrew
+>
+> http://linuxbrew.sh/
+
+配置INSTALL\_LINUXBREW , 之后重建
+
+#### 工作区Aliases别名
+
+启动Docker的时候 , 会自动复制workspace文件夹下的aliases.sh文件 , 引入到.bashrc中 , 所以可以自定义你的快捷键了 . 
 
 ---
 
@@ -286,6 +300,20 @@ mc mb minio/bucket
 > # 重建容器
 > docker-compose build php-fpm
 > ```
+
+---
+
+### 安装Aerospike扩展
+
+> Aerospike\(以下简称AS）是一个以分布式为核心基础，可基于行随机存取内存中索引、数据或SSD存储中数据的数据库。它主要用于百G、数T等大数据量并且在数万以上高并发情况下，对性能也有ms读取插入要求的场景。目前主要集中于互联网广告行业，如eXelate、BlueKai、MediaV、 InMobi、 applovin等。
+
+配置工作区和PHP-FPM中的INSTALL\_AEROSPIKE为true
+
+重建即可
+
+```
+docker-compose build workspace php-fpm
+```
 
 
 
