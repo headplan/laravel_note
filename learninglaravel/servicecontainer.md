@@ -24,5 +24,5 @@ $app->bind(
 dd($app);
 ```
 
-
+其他内容查看相关commit
 
