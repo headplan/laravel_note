@@ -109,6 +109,7 @@
   * [路由文件最佳分割方式](路由文件最佳分割方式.md)
   * [Laravel的Auth重写](laravelde-auth-zhong-xie.md)
   * [Learning\_Laravel](learninglaravel.md)
+    * [Service\_Container](learninglaravel/servicecontainer.md)
     * [Service\_Container\_Service\_Providers](learninglaravel/servicecontainer-service-providers.md)
   * [服务容器](fu-wu-rong-qi.md)
 * [Laravel资源](laravel资源记录.md)
