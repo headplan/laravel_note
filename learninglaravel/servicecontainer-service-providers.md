@@ -45,9 +45,35 @@ class TestLib
 php artisan make:provider TestServiceProvider
 ```
 
-看一下artisan命令生成的服务提供者 , 它继承自Illuminate\Support\ServiceProvider类
+看一下artisan命令生成的服务提供者 , 它继承自Illuminate\Support\ServiceProvider类 . 
 
+IoC 是将内部设计的类交给系统去控制 , 但是有些类在初始化的时候 , 需要制定特定的参数 , 或者当你需要将实现类绑定到某个接口 , 这时候就必须对这些依赖进行配置 , 系统才能正确解析并引用 . 
 
+**register**
+
+而 register 就是这样一个地方 , 你可以在 register 配置类的依赖 , 绑定实现类到接口 , 设置类的别名等等 . 
+
+**boot**
+
+而 boot 方法在 register 方法之后调用 , 这就意味着 , 你无须担心在注入某个实例的时候 , 他还没有被绑定或实例化 . 
+
+例如 , 建立了 Test 和 TestApi 两个类 , 前者依赖于后者 , 但是在 register 中不确定那个类先被实例化了 , 那么就可以在 boot 中再对后者进行引用 , 因为此时两个类都已经进行正确的配置 . 
+
+**providers**
+
+用于延迟加载的 ServiceProvider , 比如希望在引用的时候再让系统去解析那个类 , 可以设置 $defer 变量为 true 来延迟启动 , 节省开销
+
+```
+protected $defer = true;
+```
+
+设置了延迟启动 , 需要重写 providers 函数 . 
+
+```
+public function providers() {
+    return [Test::class];
+}
+```
 
 
 
