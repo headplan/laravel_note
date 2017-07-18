@@ -32,7 +32,9 @@ IoC 是将内部设计的类交给系统去控制 , 但是有些类在初始化�
 
 **注册服务提供者调用流程**
 
-在服务容器实例化完成后\(生成全局的$app\) , 会注册三个服务 , 服务容器的文章中提过不再冗述 . 如果接收的是http请求 , 将会通过服务容器的服务解析http处理核心类 , 得到全局$kernel变量\(public/index.php文件中\) , 该实例中有一个数组属性$bootstrappers , 这个数组中记录了程序处理请求的准备工作需要的类 , 其中就有专门处理服务提供者的类
+在服务容器实例化完成后\(生成全局的$app\) , 会注册三个服务 , 服务容器的文章中提过不再冗述 . 如果接收的是http请求 , 将会通过服务容器的服务解析http处理核心类 , 得到全局$kernel变量\(public/index.php文件中\) , 该实例中有一个数组属性$bootstrappers , 这个数组中记录了程序处理请求的准备工作需要的类 , 其中就有专门处理服务提供者的Illuminate\Foundation\Bootstrap\RegisterProviders类 . 
+
+然后通过$kernel类的handle\(\)函数处理请求 , 调用bootstrap\(\)函数 , 调用bootstrapWith\(\)函数 .....
 
 **providers**
 
@@ -50,5 +52,5 @@ public function providers() {
 }
 ```
 
-
+**代码示例查看 , Learning\_Laravel中Service\_Providers分支\(commit -m"服务提供者 延迟加载"\)**
 
