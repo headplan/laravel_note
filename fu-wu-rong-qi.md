@@ -1,6 +1,6 @@
 # 服务容器
 
-在Laravel框架中 , 服务容器是由Illuminate\Container\Container类实现的 , 它实现了服务容器的核心功能 , 而Illuminate\Foundation\Application类继承了这个类 , 主要实现了服务容器的初始化配置和扩展功能 , 对于Laravel框架 , 当接收到一个请求时 , 就会为了处理这个请求首先生成一个服务容器 , 用于容纳处理请求需要的服务 . 
+在Laravel框架中 , 服务容器是由Illuminate\Container\Container类实现的 , 它实现了服务容器的核心功能 , 而Illuminate\Foundation\Application类继承了这个类 , 主要实现了服务容器的初始化配置和扩展功能 , 对于Laravel框架 , 当接收到一个请求时 , 就会为了处理这个请求首先生成一个服务容器 , 用于容纳处理请求需要的服务 .
 
 ```
 # laravel\public\index.php
@@ -36,6 +36,8 @@ $app->singleton(
 
 return $app;
 ```
+
+autoload.php用于自动加载 , app.php文件实现了服务容器的实例化 , 同时绑定了核心处理类 , 并获得一个全局的服务容器实例$app . 
 
 
 
