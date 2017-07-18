@@ -16,6 +16,11 @@ $app->singleton(App\ServiceTest\SingleService::class, function($app){
 $instance = new App\ServiceTest\InstanceService();
 $app->instance('instanceService', $instance);
 
+$app->bind(
+    App\ServiceTest\ServiceContract::class,
+    App\ServiceTest\ServiceGeneral::class
+);
+
 dd($app);
 ```
 
