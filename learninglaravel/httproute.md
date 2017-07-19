@@ -13,6 +13,9 @@ Route::options($uri, $callback);
 
 **查看相关分支的commit**
 
+**路由整理列表**
+
+* 
 路由 where 正则约中 , 如果想要全局约束 , 可以在RouteServiceProvider服务提供者的boot中使用pattern方法配置
 
 ```
@@ -22,8 +25,6 @@ public function boot()
     parent::boot();
 }
 ```
-
-
 
 
 
