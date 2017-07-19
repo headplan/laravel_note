@@ -9,6 +9,9 @@
 * 路由 method 方法
   * get,post,put,patch,delete,options
   * match,any
+  * {{ csrf\_token\(\) }}
+  * {{ csrf\_field\(\) }}
+  * {{ method\_field\('PUT'\) }}
 * 路由 scheme 协议
 * 路由 domain 子域名
 * 路由 prefix 前缀
