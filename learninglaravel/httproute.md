@@ -12,14 +12,14 @@
   * `{{ csrf\_token\(\) }}`
   * `{{ csrf\_field\(\) }}`
   * `{{ method\_field\('PUT'\) }}`
-* 路由 scheme 协议
-* 路由 domain 子域名
+* 路由 scheme 协议 - \[http\] , \[https\]
+* 路由 domain 子域名 - 
 * 路由 prefix 前缀
-* 路由 where 正则约束
+* 路由 where 正则约束 - \[where\] , -&gt;where
 * 路由 middleware 中间件
 * 路由 namespace 属性
 * 路由 uses 属性
-* 路由 as 别名
+* 路由 as 别名 - \[as\] , ::as , ::name , -&gt;name
 * 路由 group 群组属性
 
 路由 where 正则约中 , 如果想要全局约束 , 可以在RouteServiceProvider服务提供者的boot中使用pattern方法配置
