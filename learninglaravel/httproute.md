@@ -25,15 +25,15 @@
   * prefix , middleware , namespace , as , where这几个属性是递增型属性 , 路由的属性和群组属性会相互结合 . 
   * 群组prefix前缀的优先级低于群组中路由的prefix前缀
 
-路由 where 正则约中 , 如果想要全局约束 , 可以在RouteServiceProvider服务提供者的boot中使用pattern方法配置
-
-```
-public function boot()
-{
-    Route::pattern('one', '(.+)');
-    parent::boot();
-}
-```
+> 路由 where 正则约中 , 如果想要全局约束 , 可以在RouteServiceProvider服务提供者的boot中使用pattern方法配置
+>
+> ```
+> public function boot()
+> {
+>     Route::pattern('one', '(.+)');
+>     parent::boot();
+> }
+> ```
 
 
 
