@@ -4,6 +4,12 @@
 
 **查看相关分支的commit**
 
+```
+php artisan route:cache
+php artisan route:clear
+php artisan route:list
+```
+
 ### **路由使用**
 
 * 路由 method 方法
