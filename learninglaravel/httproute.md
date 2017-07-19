@@ -20,7 +20,10 @@
 * 路由 namespace 属性 - \[namespace\] , ::namespace
 * 路由 uses 属性 - \[uses\] , -&gt;uses
 * 路由 as 别名 - \[as\] , ::as , ::name , -&gt;name
-* 路由 group 群组属性 - 
+* 路由 group 群组属性 - 群组属性可以分为会被替换的属性和递增型的属性 . 
+  * domain为替换型属性
+  * prefix , middleware , namespace , as , where这几个属性是递增型属性 , 路由的属性和群组属性会相互结合 . 
+  * 群组prefix前缀的优先级低于群组中路由的prefix前缀
 
 路由 where 正则约中 , 如果想要全局约束 , 可以在RouteServiceProvider服务提供者的boot中使用pattern方法配置
 
