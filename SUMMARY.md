@@ -110,7 +110,7 @@
   * [Learning\_Laravel](learninglaravel.md)
     * [Service\_Container](learninglaravel/servicecontainer.md)
     * [Service\_Providers](learninglaravel/servicecontainer-service-providers.md)
-    * Facades
+    * [Facades](learninglaravel/facades.md)
     * Contracts
     * [HTTP\_Route](learninglaravel/httproute.md)
   * [服务容器](fu-wu-rong-qi.md)
