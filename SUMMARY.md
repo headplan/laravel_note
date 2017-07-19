@@ -113,7 +113,7 @@
     * [Facades](learninglaravel/facades.md)
     * Contracts
     * [HTTP\_Route](learninglaravel/httproute.md)
-      * HTTP\_Middleware
+      * [HTTP\_Middleware](learninglaravel/httproute/httpmiddleware.md)
   * [服务容器](fu-wu-rong-qi.md)
   * [服务提供者](fu-wu-ti-gong-zhe.md)
 * [Laravel资源](laravel资源记录.md)
