@@ -17,8 +17,8 @@
 * 路由 prefix 前缀 - \[prefix\] , ::prefix , -&gt;prefix
 * 路由 where 正则约束 - \[where\] , -&gt;where
 * 路由 middleware 中间件 - \[middleware\] , ::middleware , -&gt;middleware
-* 路由 namespace 属性
-* 路由 uses 属性
+* 路由 namespace 属性 - \[namespace\] , ::namespace
+* 路由 uses 属性 - \[uses\] , -&gt;uses
 * 路由 as 别名 - \[as\] , ::as , ::name , -&gt;name
 * 路由 group 群组属性 - 
 
