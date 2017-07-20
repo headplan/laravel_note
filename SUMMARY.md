@@ -106,7 +106,6 @@
   * [Lartisan](lartisan.md)
   * [Laravel\_Basic](laravelbasic.md)
 * [源码分析](代码片段.md)
-  * [Laravel的Auth重写](laravelde-auth-zhong-xie.md)
   * [Learning\_Laravel](learninglaravel.md)
     * [Service\_Container](learninglaravel/servicecontainer.md)
     * [Service\_Providers](learninglaravel/servicecontainer-service-providers.md)
@@ -128,6 +127,8 @@
   * [Laravel框架中的设计模式](框架解析/laravelkuang-jia-zhong-de-she-ji-mo-shi.md)
   * [认证授权代码解析](框架解析/ren-zheng-shou-quan-dai-ma-jie-xi.md)
   * [Composer完整使用流程](框架展开及延伸/Composer完整使用流程.md)
+  * [Laravel的Auth重写](laravelde-auth-zhong-xie.md)
+  * [利用macro方法来扩展Laravel基础类](框架解析/li-yong-macro-fang-fa-lai-kuo-zhan-laravel-ji-chu-lei.md)
 * [补充及扩展](bu-chong-ji-kuo-zhan.md)
   * [Team笔记\(really\)](laravel_sharing.md)
 
