@@ -127,8 +127,6 @@
   * [组件化开发与Composer使用](框架解析/组件化开发与Composer使用.md)
   * [Laravel框架中的设计模式](框架解析/laravelkuang-jia-zhong-de-she-ji-mo-shi.md)
   * [认证授权代码解析](框架解析/ren-zheng-shou-quan-dai-ma-jie-xi.md)
-* [框架展开及延伸](框架展开及延伸.md)
-  * [Laravel用到的面向对象](框架展开及延伸/Laravel用到的面向对象.md)
   * [Composer完整使用流程](框架展开及延伸/Composer完整使用流程.md)
 * [补充及扩展](bu-chong-ji-kuo-zhan.md)
   * [Team笔记\(really\)](laravel_sharing.md)
