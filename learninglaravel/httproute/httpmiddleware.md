@@ -32,14 +32,15 @@ class TestMiddleware
      */
     public function handle($request, Closure $next)
     {
-        // 这里是请求之前执行的动作
+        // 这里是请求之前执行的操作
         return $next($request);
     }
-    
+
     // 请求之后执行
     public function handle($request Closure $next)
     {
         $respone = $next($request);
+        // 这里是请求之后执行的操作
         return $respone;
     }
 }
