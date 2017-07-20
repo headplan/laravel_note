@@ -26,16 +26,26 @@ php artisan make:middleware TestMiddleware
 
 > HTTP 中间件为过滤进入应用的 HTTP 请求提供了一套便利的机制 .
 
-* $middleware - 全局中间件 : 数组中的中间件在每一个 HTTP 请求期间被执行
-* $middlewareGroups - 中间件分组 : 如果想把中间件打包应用到请求中 , 可以在分组中配置 . 
+* **$middleware** - 全局中间件 : 数组中的中间件在每一个 HTTP 请求期间被执行
+* **$middlewareGroups** - 中间件分组 : 如果想把中间件打包应用到请求中 , 可以在分组中配置 . 
   * 默认自带并应用了web和api两个中间件 , 自动应用在Route的web.php和api.php的路由中
-  * 中间件组中可以循环嵌套中间件组
+  * 中间件组中可以循环嵌套中间件组 , 就是可以组中组
   * `php artisan route:list`
-* $routeMiddleware - 路由中间件 : 这里只是一个中间件的别名 , 指向具体路径 , 路由中间件的应用需要定义在路由中 , 或者配置到上面的数组变量中 , 自动加载 . 
+* **$routeMiddleware** - 路由中间件 : 这里只是一个中间件的别名 , 指向具体路径 , 路由中间件的应用需要定义在路由中 , 或者配置到上面的数组变量中 , 自动加载 . 
 
-**路由中间件**
+**路由中间件的应用**
 
- 
+加载方式::middleware , \[middleware\] , -&gt;middleware
+
+* **直接引入** - ::middleware\(TestMiddleware::class\)
+* **定义别名** - 在$routeMiddleware数组中定义别名
+
+支持多个逗号分割或数组传入`->middleware('a', c::class, 'b')`
+
+添加路由组和路由中间件也可以直接写在Route文件中 , 但是不建议这样写 ,这里只是简单引入
+
+* Route::aliasMiddleware\('别名', function\(回调直接写中间件\) , 或者写中间件namespace\)
+* Route::middlewareGroup\('组名', \[中间件名或别名组成的数组\]\)
 
 **相关代码查看HTTP\_Middleware分支中 , 中间件前置后置相关代码**
 
