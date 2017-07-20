@@ -25,3 +25,28 @@ php artisan make:controller PhotoController --resource
 
 在控制器的构造函数中使用 middleware 方法可以很轻松的分配中间件给该控制器 , 甚至可以限定该中间件应用到该控制器类的指定方法 . 还可以使用middleware\(\)方式以闭包的方式直接在构造函数中定义中间件 .
 
+**前置操作callAction**
+
+在路由控制器初始化之后 , 执行控制器方法之前 , 会先执行callAction方法 , 接收两个参数 , 第一个是方法名 , 第二个是参数 . 方法定义在Laravel代码中的抽象Controller类中 . 
+
+**后置\_\_call方法**
+
+这个方法和普通类中的一样 , 如果没有找到类中对应的方法 , 则会调用类的`__call`函数 , 基类中定义了抛出方法不存在的异常 . 
+
+#### 资源控制器
+
+* 生成资源控制器 - `php artisan make:controller PhotoController --resource`
+  * 绑定资源模型 - `php artisan make:controller PhotoController --resource --model=Photo`
+* 注册控制器路由 - `Route::resource('photos', 'PhotoController');`
+  * 部分资源路由
+    * 仅有 - `['only' => ['index', 'show']]`
+    * 除了 - `['except' => ['create', 'store', 'update', 'destroy']]`
+  * 重命名路由别名 - `['names' => ['show' => 'photo.build']]`\(注:和部分资源路由在一个数组中\)
+  * 重命名路由参数名 - `['parameters' => ['photo' => 'var']]`\(对应关系\)
+  * 重命名URL动作名称 - 在AppServiceProvider服务提供者的boot中使用Route::resourceVerbs配置映射数组
+* 附加资源控制器方法 - 定义时注意覆盖 , 后面的会覆盖前面的 , 注册方式和普通路由一样 . 
+
+资源控制器中
+
+
+
