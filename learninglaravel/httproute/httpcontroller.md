@@ -27,11 +27,11 @@ php artisan make:controller PhotoController --resource
 
 **前置操作callAction**
 
-在路由控制器初始化之后 , 执行控制器方法之前 , 会先执行callAction方法 , 接收两个参数 , 第一个是方法名 , 第二个是参数 . 方法定义在Laravel代码中的抽象Controller类中 . 
+在路由控制器初始化之后 , 执行控制器方法之前 , 会先执行callAction方法 , 接收两个参数 , 第一个是方法名 , 第二个是参数 . 方法定义在Laravel代码中的抽象Controller类中 .
 
 **后置\_\_call方法**
 
-这个方法和普通类中的一样 , 如果没有找到类中对应的方法 , 则会调用类的`__call`函数 , 基类中定义了抛出方法不存在的异常 . 
+这个方法和普通类中的一样 , 如果没有找到类中对应的方法 , 则会调用类的`__call`函数 , 基类中定义了抛出方法不存在的异常 .
 
 #### 资源控制器
 
@@ -46,7 +46,41 @@ php artisan make:controller PhotoController --resource
   * 重命名URL动作名称 - 在AppServiceProvider服务提供者的boot中使用Route::resourceVerbs配置映射数组
 * 附加资源控制器方法 - 定义时注意覆盖 , 后面的会覆盖前面的 , 注册方式和普通路由一样 . 
 
-资源控制器中
+**上面的配置 , 以及选项的修改重写等在route:list命令行中都会完整显示 , 可以辅助查看**
+
+#### 路由参数依赖注入与绑定
+
+服务容器会解析所有控制器 , 可以在控制器的构造函数中类型声明任何依赖 , 这些依赖会被自动解析并注入到控制器实例中 .
+
+**路由参数隐式绑定**
+
+* 使用类型依赖 , 可以在构造函数和方法中使用 , 可以使用Model,或者使用契约类型约束 . 
+* 路由参数绑定到控制器方法 , 将路由参数放到其他依赖之后 . 
+
+**路由参数显式绑定**
+
+可以在RouteServiceProvider服务提供者中绑定 , 也可以直接写在路由文件中
+
+* bind\(\)函数绑定参数 - 可以绑定回调函数 , 也可以绑定类方法处理参数 , 可以显示指定 , 或者绑定类在其中定义bind方法
+  * `Route::bind('var1', '\App\Http\Controllers\PhotoController@testBind');`
+  * `Route::bind('var2','\App\Http\Controllers\PhotoController');`
+* model\(\)函数绑定参数 - 为参数绑定数据库模型 , 参数会经过model模型where等固定的方法操作后返回给控制器或路由闭包函数 . 具体如下 :  
+
+```
+if ($model = $instance->where($instance->getRouteKeyName(), $value)->first()) {
+     return $model;
+}
+```
+
+* model绑定的第三个参数 , 定义一个回调函数 , 定义上面的判断操作没有信息时返回的内容
+
+```
+Route::model('mod','\App\Photo', function ($v) {
+    return $v."没有数据";
+});
+```
+
+> **注:这里的绑定是对所有路由同名的参数进行操作的.**
 
 
 
