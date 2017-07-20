@@ -51,7 +51,11 @@ php artisan make:middleware TestMiddleware
 
 #### **中间件的顺序**
 
-中间件的执行顺序按照配置中的顺序执行 , 但是受到$middlewarePriority数组变量控制 , 它定义在Kernel类的父类中 , 控制了中间件的执行顺序 . 
+中间件的执行顺序按照配置中的顺序执行 , 但是受到$middlewarePriority数组变量控制 , 它定义在Kernel类的父类中 , 控制了中间件的执行顺序 .
+
+这里重新提一下terminate中间件 , 请求终止后执行的中间件 , 为了不受到其他中间件干扰 , 定义了terminate方法的中间件的会定义在全局中 , 或者执行顺序排在最前面 , 例如StartSession中间件 . 
+
+> 中间件的 terminate 调用时，Laravel 会从 服务容器 中解析一个全新的中间件实例。如果你想在 handle 和 terminate 被调用时使用同一个中间件实例，可使用容器的 singleton 方法向容器注册中间件。
 
 **相关代码查看HTTP\_Middleware分支中 , 中间件前置后置相关代码**
 
