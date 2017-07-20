@@ -47,5 +47,9 @@ php artisan make:middleware TestMiddleware
 * Route::aliasMiddleware\('别名', function\(回调直接写中间件\) , 或者写中间件namespace\)
 * Route::middlewareGroup\('组名', \[中间件名或别名组成的数组\]\)
 
+**中间件的其他参数使用冒号:传入handle函数的$next变量之后 , 多个用逗号分割 , 具体查看代码中的VarMiddleware中间件**
+
+
+
 **相关代码查看HTTP\_Middleware分支中 , 中间件前置后置相关代码**
 
