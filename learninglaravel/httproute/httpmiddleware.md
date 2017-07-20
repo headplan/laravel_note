@@ -49,7 +49,9 @@ php artisan make:middleware TestMiddleware
 
 **中间件的其他参数使用冒号:传入handle函数的$next变量之后 , 多个用逗号分割 , 具体查看代码中的VarMiddleware中间件**
 
+#### **中间件的顺序**
 
+中间件的执行顺序按照配置中的顺序执行 , 但是受到$middlewarePriority数组变量控制 , 它定义在Kernel类的父类中 , 控制了中间件的执行顺序 . 
 
 **相关代码查看HTTP\_Middleware分支中 , 中间件前置后置相关代码**
 
