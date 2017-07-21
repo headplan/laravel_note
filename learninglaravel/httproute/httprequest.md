@@ -74,7 +74,15 @@ $except   = $request->except(['email','password']);
 $has      = $request->has('email');
 ```
 
-上面这些方法都在一个trait文件InteractsWithInput.php中 , 所有请求参数都分类存储在ParameterBag类或以其为基类的实例对象中 . 
+上面这些方法都在一个trait文件InteractsWithInput.php中 , 所有请求参数都分类存储在ParameterBag类或以其为基类的实例对象中 .
+
+**请求参数的一次存储**
+
+请求参数有时不仅来自本次请求 , 还需要利用上一次请求的信息 . HTTP协议无状态的原因 , 保存上一次请求的输入信息 , 需要使用session或cookie的方式实现 . Laravel框架的请求类提供了对于请求参数的一次性存储接口 , 即将请求参数存储到一次性session中 . 
+
+> Larave的验证特性会自动调用这些一次性存储接口 , 不需要手动实现 .
+
+一次性存储接口 : 
 
 
 
