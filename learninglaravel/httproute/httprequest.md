@@ -78,11 +78,29 @@ $has      = $request->has('email');
 
 **请求参数的一次存储**
 
-请求参数有时不仅来自本次请求 , 还需要利用上一次请求的信息 . HTTP协议无状态的原因 , 保存上一次请求的输入信息 , 需要使用session或cookie的方式实现 . Laravel框架的请求类提供了对于请求参数的一次性存储接口 , 即将请求参数存储到一次性session中 . 
+请求参数有时不仅来自本次请求 , 还需要利用上一次请求的信息 . HTTP协议无状态的原因 , 保存上一次请求的输入信息 , 需要使用session或cookie的方式实现 . Laravel框架的请求类提供了对于请求参数的一次性存储接口 , 即将请求参数存储到一次性session中 .
 
 > Larave的验证特性会自动调用这些一次性存储接口 , 不需要手动实现 .
 
-一次性存储接口 : 
+一次性存储接口 :
+
+* $request-&gt;flash\(\) - 方法会将当前输入的数据存进session中 , 因此下次用户发送请求到应用程序时就可以使用它们 . 
+* $request-&gt;flashOnly\(\) - 将当前请求数据的子集保存到session中 , 用法和input\(\)一样 . 
+* $request-&gt;flashExcept\(\) - 同上
+
+这些方法都定义在一个trait文件InteractsWithFlashData中 , 它被use在Request类里 . 
+
+**闪存数组到session后重定向**
+
+意思是重定向到页面后 , 数据也带过去 :
+
+```
+return redirect('form')->withInput();
+
+return redirect('form')->withInput(
+    $request->except('password')
+);
+```
 
 
 
