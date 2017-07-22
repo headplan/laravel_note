@@ -112,25 +112,25 @@ return redirect('form')->withInput(
 
 #### 输入数据的预处理和规范化
 
-全局中间件 , 
+全局中间件 ,
 
 ```
 \App\Http\Middleware\TrimStrings::class,
 \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
 ```
 
-它们会自动处理所有请求中传入的字符串字段 , 比如将空的字符串字段转变成`null`值等 . 所以不用担心路由和控制器中数据规范化的问题 . 
+它们会自动处理所有请求中传入的字符串字段 , 比如将空的字符串字段转变成`null`值等 . 所以不用担心路由和控制器中数据规范化的问题 .
 
 #### PSR-7
 
-[PSR-7 标准](http://www.php-fig.org/psr/psr-7/)制定的 HTTP 消息接口包含了请求和响应 . 如果想使用一个 PSR-7 请求来代替一个 Laravel 请求 , 那么你首先要安装几个函数库 . Laravel 使用了 Symfony 的 HTTP 消息桥接组件 , 将原来的 Laravel 请求和响应转换到 PSR-7 所兼容的实现 : 
+[PSR-7 标准](http://www.php-fig.org/psr/psr-7/)制定的 HTTP 消息接口包含了请求和响应 . 如果想使用一个 PSR-7 请求来代替一个 Laravel 请求 , 那么你首先要安装几个函数库 . Laravel 使用了 Symfony 的 HTTP 消息桥接组件 , 将原来的 Laravel 请求和响应转换到 PSR-7 所兼容的实现 :
 
 ```
 composer require symfony/psr-http-message-bridge
 composer require zendframework/zend-diactoros
+
+use Psr\Http\Message\ServerRequestInterface;
 ```
 
-安装之后 , 就可以在路由闭包或控制器中，简单的对请求类型使用类型提示来获取 PSR-7 的请求 . 如果从路由或者控制器返回了一个 PSR-7 响应实例 , 那么这个实例将被自动转换回一个 Laravel 响应实例 , 同时由框架显示 . 
-
-
+安装之后 , 就可以在路由闭包或控制器中，简单的对请求类型使用类型提示来获取 PSR-7 的请求 . 如果从路由或者控制器返回了一个 PSR-7 响应实例 , 那么这个实例将被自动转换回一个 Laravel 响应实例 , 同时由框架显示 .
 
