@@ -132,5 +132,7 @@ composer require zendframework/zend-diactoros
 use Psr\Http\Message\ServerRequestInterface;
 ```
 
-安装之后 , 就可以在路由闭包或控制器中，简单的对请求类型使用类型提示来获取 PSR-7 的请求 . 如果从路由或者控制器返回了一个 PSR-7 响应实例 , 那么这个实例将被自动转换回一个 Laravel 响应实例 , 同时由框架显示 .
+> 安装之后 , 就可以在路由闭包或控制器中，简单的对请求类型使用类型提示来获取 PSR-7 的请求 . 如果从路由或者控制器返回了一个 PSR-7 响应实例 , 那么这个实例将被自动转换回一个 Laravel 响应实例 , 同时由框架显示 .
+
+
 
