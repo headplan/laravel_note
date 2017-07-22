@@ -115,6 +115,7 @@
       * [HTTP\_Middleware](learninglaravel/httproute/httpmiddleware.md)
       * [HTTP\_Controller](learninglaravel/httproute/httpcontroller.md)
       * [HTTP\_Request](learninglaravel/httproute/httprequest.md)
+      * [HTTP\_Response](learninglaravel/httproute/httpresponse.md)
   * [服务容器](fu-wu-rong-qi.md)
   * [服务提供者](fu-wu-ti-gong-zhe.md)
 * [Laravel资源](laravel资源记录.md)
