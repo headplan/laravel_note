@@ -87,12 +87,13 @@ $has      = $request->has('email');
 * $request-&gt;flash\(\) - 方法会将当前输入的数据存进session中 , 因此下次用户发送请求到应用程序时就可以使用它们 . 
 * $request-&gt;flashOnly\(\) - 将当前请求数据的子集保存到session中 , 用法和input\(\)一样 . 
 * $request-&gt;flashExcept\(\) - 同上
+* $request-&gt;flush\(\) - 和flash方法对应 , 清空所有input数据 , 查看trait的实现可以看出区别仅仅是`$this->input()`
 
-这些方法都定义在一个trait文件InteractsWithFlashData中 , 它被use在Request类里 . 
+这些方法都定义在一个trait文件InteractsWithFlashData中 , 它被use在Request类里 .
 
 **闪存数组到session后重定向**
 
-意思是重定向到页面后 , 数据也带过去 :
+意思是重定向到页面后 , 数据也带过去 , 不然一次就没了 :
 
 ```
 return redirect('form')->withInput();
@@ -101,6 +102,11 @@ return redirect('form')->withInput(
     $request->except('password')
 );
 ```
+
+**获取闪存数据**
+
+* $request-&gt;old\(\) - 这里获取的数据也是从session中获取的 , 也在上面的trait文件中
+* old\(\) - 函数函数 , 通能相同 , 常用在魔棒中`{{ old('name') }}`
 
 
 
