@@ -18,11 +18,7 @@ Laravel框架响应生成的三种形式 :
 
 #### 生成响应的主体内容
 
-响应的主题内容可以简单的看做是一个很长的字符串 , 响应主体内容部分是只用了`echo $this->content`发送 , 所以可以直接返回字符串 , 当然也可以返回视图文件\(也相当于字符串\) . 
+响应的主题内容可以简单的看做是一个很长的字符串 , 响应主体内容部分是只用了`echo $this->content`发送 , 所以可以直接返回字符串 , 当然也可以返回视图文件\(也相当于字符串\) .
 
-返回的主体会被Response实例保存在$content属性中 , hearder头好UI通过调用Routing\Router类的prepareResponse\(\)方法生成 . 
-
-
-
-
+返回的主体会被Response实例保存在$content属性中 , hearder头会通过调用Routing\Router类的prepareResponse\(\)方法生成 .
 
