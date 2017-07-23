@@ -24,13 +24,13 @@ Laravel框架响应生成的三种形式 :
 * 数组\(自动将数组转为JSON响应\)
   * Eloquent集合也可以返回自动转为JSON响应
 
-返回的主体会被Response实例保存在$content属性中 , hearder头会通过调用Routing\Router类的prepareResponse\(\)方法生成 . 
+返回的主体会被Response实例保存在$content属性中 , hearder头会通过调用Routing\Router类的prepareResponse\(\)方法生成 .
 
 #### 生成自定义响应的实例
 
-主体部分直接return字符串 , 其他不会Larave框架会自动生成 , 当然自动生成的部分也可以自定义 . 一般我们不会返回字符串或者数组 , 而是返回整个Response实例或者视图 . 
+主体部分直接return字符串 , 其他不会Larave框架会自动生成 , 当然自动生成的部分也可以自定义 . 一般我们不会返回字符串或者数组 , 而是返回整个Response实例或者视图 .
 
-Illuminate\Http\Response实例继承自Symfony\Component\HttpFoundation\Response类 , 构造函数调用的是Symfony的Response类的构造函数 , 自定义响应的 HTTP 状态码和响应头信息的方法是Laravel的响应类中的header方法 . 
+Illuminate\Http\Response实例继承自Symfony\Component\HttpFoundation\Response类 , 构造函数调用的是Symfony的Response类的构造函数 , 自定义响应的 HTTP 状态码和响应头信息的方法是Laravel的响应类中的header方法 .
 
 生成响应实例 :
 
@@ -43,18 +43,31 @@ Illuminate\Http\Response实例继承自Symfony\Component\HttpFoundation\Response
 return $factory->make($content, $status, $headers);
 ```
 
-如果不包含参数则返回生成响应的实例$factory , 然后通过header\(\)等方法添加头信息等 , 这里只是用法不同而已 . 
+如果不包含参数则返回生成响应的实例$factory , 然后通过header\(\)等方法添加头信息等 , 这里只是用法不同而已 .
 
-这些方法都在ResponseTrait中 . 
+这些方法都在ResponseTrait中 .
 
 * header\(\)
 * withHeaders\(\[\]\)
 
 **代码示例查看相关分支**
 
+#### 生成重定向的响应
 
+重定向响应实际上是`Illuminate\Http\RedirectResponse`类的实例 , 而该类继承了`Symfony\Component\HttpFoundation\RedirectResponse`类的实例 , 这个类又继承了`Symfony\Component\HttpFoundation\Response`类 , 因此可以将重定向响应看做是一个特殊的响应 , 只是在响应的header中包含了Location重定向字段 . Larave的RedirectResponse类在Symfony的基础上封装了跟多的函数 , 例如一次性session , 自定义header等 .
 
+* **redirect\(\)** - 重定向指定路由
+* **redirect\(\)-&gt;route\('login'\)** - 重定向至**命名\(有name的;\)**路由
+* **redirect\(\)-&gt;route\('login', \['id' =&gt; 1\]\)** - 传递参数 , 跟着路由传到重定向到url上
+  * 如果路由原来有参数直接传递 - /login/{id}
+  * 如果路由没有参数 - /login?id=
+* **redirect\(\)-&gt;route\('profile', \[$user\]\)** - 传递模型本身即可 , ID会自动提取
+  * 要更改自动提取的路由参数的键值 , 可以重写Eloquent 模型里的`getRouteKey`方法
+* **redirect\(\)-&gt;action\('HomeController@index', \['id' =&gt; 1\]\)** - 重定向至控制器行为 , 第二个参数是给控制器传参的
+* **redirect\('dashboard'\)-&gt;with\('status', 'Profile updated!'\)** - 重定向并附加Session闪存数据
 
+* **back\(\)-&gt;withInput\(\)** - 重定向至上级一页面
+  * 由于此功能利用了Session , 请确保调用back函数的路由是使用web中间件组或应用了所有的Session中间件
 
 
 
