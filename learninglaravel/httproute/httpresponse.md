@@ -79,5 +79,33 @@ return $factory->make($content, $status, $headers);
 * JSON响应 - `Content-Type`响应头信息设置为`application/json`参数接收的数组会自动转为json串
   * 使用`json`方法并结合 withCallback 函数 , 可以创建JSONP响应
 
+#### 响应宏
+
+文档最后举例了响应宏 , 也是通过`macro`方法实现 , 代码中没有示例 , 这里仅copy作为参考 , 具体内容查看相关专题整理
+
+```
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Response;
+
+class ResponseMacroServiceProvider extends ServiceProvider
+{
+    /**
+     * 注册应用的响应宏
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Response::macro('caps', function ($value) {
+            return Response::make(strtoupper($value));
+        });
+    }
+}
+```
+
 
 
