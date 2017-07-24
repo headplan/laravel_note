@@ -68,6 +68,7 @@ return $factory->make($content, $status, $headers);
 * **redirect\('dashboard'\)-&gt;with\('status', 'Profile updated!'\)** - 重定向并附加Session闪存数据
 * **back\(\)-&gt;withInput\(\)** - 重定向至上级一页面
   * 由于此功能利用了Session , 请确保调用back函数的路由是使用web中间件组或应用了所有的Session中间件
+  * 查看Auth示例
 
 
 
