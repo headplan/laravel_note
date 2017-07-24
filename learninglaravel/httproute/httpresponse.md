@@ -70,6 +70,17 @@ return $factory->make($content, $status, $headers);
   * 由于此功能利用了Session , 请确保调用back函数的路由是使用web中间件组或应用了所有的Session中间件
   * 查看Auth示例
 
+重定向响应实例的生成可以分为两步 , 第一是实现重定向生成器的实例化 , 即app\('redirect'\)的实现过程 , 通过容器解析服务 , 注册进路由服务提供者中 , redirect实例还包括了url生成器实例也在路由服务提供者中 , 第一步完成后第二部就是通过生成器生成这个重定向实例 . 其过程是 , redirect\(\)生成一个重定向生成器 , 该类完成获取以及重定向实例的生成 . \(生成器类Redirector也继承Symfony框架\) . 
+
+Laravel在Symfony的基础上添加了一次性数据存储的功能 , 在Illuminate\Http\RedirectResponse类 , 前面提到的
+
+* with\(\)
+* withInput\(\)
+* onlyInput\(\)
+* withErrors\(\)
+
+还可以通过Redirector类实例的back\(\),route\(\),action\(\)等方法生成请求的URL , 并生成重定向响应的实例 .  
+
 #### 其他响应类型
 
 > 使用全局辅助函数`response`可以轻松的生成其他类型的响应实例 . 当不带任何参数调用`response`时 , 将会返回 Illuminate\Contracts\Routing\ResponseFactory Contract的实现 . Contract 包含许多有用的用来辅助生成响应的方法 .
