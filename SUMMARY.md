@@ -116,6 +116,7 @@
       * [HTTP\_Controller](learninglaravel/httproute/httpcontroller.md)
       * [HTTP\_Request](learninglaravel/httproute/httprequest.md)
       * [HTTP\_Response](learninglaravel/httproute/httpresponse.md)
+      * [HTTP\_Cookie\_N\_File](learninglaravel/httproute/httpcookie-n-file.md)
   * [服务容器](fu-wu-rong-qi.md)
   * [服务提供者](fu-wu-ti-gong-zhe.md)
 * [Laravel资源](laravel资源记录.md)
