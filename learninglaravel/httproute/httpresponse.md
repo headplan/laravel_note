@@ -62,11 +62,13 @@ return $factory->make($content, $status, $headers);
   * 如果路由原来有参数直接传递 - /login/{id}
   * 如果路由没有参数 - /login?id=
 * **redirect\(\)-&gt;route\('profile', \[$user\]\)** - 传递模型本身即可 , ID会自动提取
+  * 这里文档写的有些模糊 , 其实用到了路由模型绑定 , 查看代码实例\(直接隐式绑定了 , 也可以在提供者中绑定\)
   * 要更改自动提取的路由参数的键值 , 可以重写Eloquent 模型里的`getRouteKey`方法
 * **redirect\(\)-&gt;action\('HomeController@index', \['id' =&gt; 1\]\)** - 重定向至控制器行为 , 第二个参数是给控制器传参的
 * **redirect\('dashboard'\)-&gt;with\('status', 'Profile updated!'\)** - 重定向并附加Session闪存数据
 
 * **back\(\)-&gt;withInput\(\)** - 重定向至上级一页面
+
   * 由于此功能利用了Session , 请确保调用back函数的路由是使用web中间件组或应用了所有的Session中间件
 
 
