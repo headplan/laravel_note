@@ -70,5 +70,14 @@ return $factory->make($content, $status, $headers);
   * 由于此功能利用了Session , 请确保调用back函数的路由是使用web中间件组或应用了所有的Session中间件
   * 查看Auth示例
 
+#### 其他响应类型
+
+> 使用全局辅助函数`response`可以轻松的生成其他类型的响应实例 . 当不带任何参数调用`response`时 , 将会返回 Illuminate\Contracts\Routing\ResponseFactory Contract的实现 . Contract 包含许多有用的用来辅助生成响应的方法 .
+
+* 视图响应 - view\(\)函数和全局的view\(\)辅助函数一样 , 参数分别是模板名 , 数据 , 最后一次参数是状态码
+  * 也可以定义响应的头信息 , 使用header\(\)函数
+* JSON响应 - `Content-Type`响应头信息设置为`application/json`参数接收的数组会自动转为json串
+  * 使用`json`方法并结合 withCallback 函数 , 可以创建JSONP响应
+
 
 
