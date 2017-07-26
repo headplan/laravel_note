@@ -115,7 +115,34 @@ Laravel重新设计了session的处理机制 . 同时Laravel附带支持了多�
   * 也可以向session中继续添加或删除数据
 * session的关闭 - 返回响应时 , 将session中的数据存储到相应的位置 , 以备下一次请求到来时使用并发送sessionID的Cookie
 
+**session的启动**
 
+请求首先经过中间件 , session的启动也是在开启会话中间件中handle\(\)函数开启并完成的 . 
+
+```php
+\Illuminate\Session\Middleware\StartSession::class
+public function handle($request, Closure $next)
+{
+    $this->sessionHandled = true;
+    if ($this->sessionConfigured()) {
+        $request->setLaravelSession(
+            $session = $this->startSession($request)
+        );
+
+        $this->collectGarbage($session);
+    }
+
+    $response = $next($request);
+
+    if ($this->sessionConfigured()) {
+        $this->storeCurrentUrl($request, $session);
+
+        $this->addCookieToResponse($response, $session);
+    }
+
+    return $response;
+}
+```
 
 
 
