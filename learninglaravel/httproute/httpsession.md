@@ -74,18 +74,35 @@ $value = $request->cookie('name');
 
 #### Session
 
-Session相当于Cookie的升级版 , Cookie的工作机制是将信息记录在客户端 , Session则是将信息记录在服务器端 , 服务器存储信息的方式可以是文件 , 数据库 , 内存等 . 
+Session相当于Cookie的升级版 , Cookie的工作机制是将信息记录在客户端 , Session则是将信息记录在服务器端 , 服务器存储信息的方式可以是文件 , 数据库 , 内存等 .
 
-以文件存储方式为例 : 
+以文件存储方式为例 :
 
 1. 客户端第一次访问某服务区
 2. 服务器通过Cookie发送sessionID给客户端 , 并在服务器建立一个与sessionID同名的文件用于存储信息 , 而sessionID不能重复 , 即不同客户端的sessionID是不同的
 3. 客户端再次访问服务器时会携带服务器发送给客户端的sessionID
 4. 服务器根绝客户端发送的sessionID查找对应的文件 , 读取文件中的内容
 
-上面的步骤可以看出 , session依赖Cookie , 当然不用Cookie也可以依赖URL . 
+上面的步骤可以看出 , session依赖Cookie , 当然不用Cookie也可以依赖URL .
 
-开启PHP自带的session功能 , 在需要共享客户端信息的脚本中通过session_start\(\)_函数开启 , 然后就可以向$\_SESSION全局数组中存入或读取数据 , 而$\_SESSION数组与其他数组不同的是 , 当向该数组中添加数组时 , PHP还会将其中的数据序列化写入session文件中 , 每次开启session时 , PHP会将session文件中的数据读取到该全局数组中 , 实现数据共享的功能 . 
+开启PHP自带的session功能 , 在需要共享客户端信息的脚本中通过session\_start\(\)函数开启 , 然后就可以向$\_SESSION全局数组中存入或读取数据 , 而$\_SESSION数组与其他数组不同的是 , 当向该数组中添加数组时 , PHP还会将其中的数据序列化写入session文件中 , 每次开启session时 , PHP会将session文件中的数据读取到该全局数组中 , 实现数据共享的功能 . 
+
+**session\_start\(\)函数** - 生成一个sessionID添加到响应头 , 生成一个同名的文件存储在服务器中 , 同时也会判断客户端是否发送sessionID , 如果发送 , 则不再向客户端发送sessionID , 同时查找sessionID同名的文件 , 并将存储的数据读取到$\_SESSION数组中
+
+**$\_SESSION\['name'\] **- 使用全局数组存储添加内容 , PHP会将这个数组中的内容存储到文件中 . 
+
+Session中数据的删除相对于Cookie略微繁琐一些 : 
+
+* 开启session - session\_start\(\)
+* 清空session数组 - unset或者赋值\[\]
+* 删除客户端Cookie中存储的sessionID - setCookie\(session\_name\(\),"",time\(\)-10,"/"\) 设置为过期
+* 删除服务器中的session文件 - session\_destroy\(\)
+
+这里简单描述了session的工作机制 , 详细内容查看php\_note中的记录 , 和php.ini中的关于session的配置
+
+#### Laravel框架中的session机制
+
+
 
 
 
