@@ -113,7 +113,7 @@ Laravel重新设计了session的处理机制 . 同时Laravel附带支持了多�
   * 根绝sessionID恢复之前存储的数据
   * 请求处理期间可以使用恢复的数据
   * 也可以向session中继续添加或删除数据
-* session的关闭
+* session的关闭 - 返回响应时 , 将session中的数据存储到相应的位置 , 以备下一次请求到来时使用并发送sessionID的Cookie
 
 
 
