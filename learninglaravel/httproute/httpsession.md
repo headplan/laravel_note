@@ -102,9 +102,18 @@ Session中数据的删除相对于Cookie略微繁琐一些 :
 
 #### Laravel框架中的session机制
 
-Laravel重新设计了session的处理机制 . 同时Laravel附带支持了多种Session后端驱动 , 它们都可以通过语义化统一的API访问 , Memcached , Redis , 数据库等 . \(这里依然使用Cookie作为session的驱动 , 即通过Cookie传输sessionID\) . 
+Laravel重新设计了session的处理机制 . 同时Laravel附带支持了多种Session后端驱动 , 它们都可以通过语义化统一的API访问 , Memcached , Redis , 数据库等 . \(这里依然使用Cookie作为session的驱动 , 即通过Cookie传输sessionID\) .
 
-
+* session的启动
+  * 客户端访问服务器
+  * 服务器开启session
+  * 检测请求中Cookie是否携带sessionID
+  * 携带则使用该ID , 没有则生成新的sessionID
+* session的操作
+  * 根绝sessionID恢复之前存储的数据
+  * 请求处理期间可以使用恢复的数据
+  * 也可以向session中继续添加或删除数据
+* session的关闭
 
 
 
