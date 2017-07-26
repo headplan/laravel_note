@@ -117,7 +117,7 @@ Laravel重新设计了session的处理机制 . 同时Laravel附带支持了多�
 
 **session的启动**
 
-请求首先经过中间件 , session的启动也是在开启会话中间件中handle\(\)函数开启并完成的 . 
+请求首先经过中间件 , session的启动也是在开启会话中间件中handle\(\)函数开启并完成的 .
 
 ```php
 \Illuminate\Session\Middleware\StartSession::class
@@ -143,6 +143,21 @@ public function handle($request, Closure $next)
     return $response;
 }
 ```
+
+一个以$response = $next\($request\);分割 , 之前的代码为session开启阶段 , 之后的为session关闭阶段 . 
+
+**开启阶段**
+
+$this-&gt;sessionConfigured\(\)检测session驱动的配置\(driver\) , 如果配置了则通过startSession\(\)函数开启session , 并在请求中添加session实例对象 . Larave是通过一个类的实例来管理session的内容的 . session的开启阶段可以分为四步 : 
+
+* 检测配置 - 配置文件在config/session.php中完成 , 主要配置session驱动 , 生存时间 , 是否加密和Cookie名称等
+  * 过程中用到Session管理器\(SessionManager类实例\) , 在session中间件初始化\(\_\_construct\)的过程中通过依赖注入生成 , 在服务容器中注册的别名为session , 在SessionServiceProvider中的registerSessionManager\(\)中实现 . 完成了依赖注入 , 即有了session管理器 , 接下来就是验证session的驱动了 , 通过管理器实例获取session的配置信息 , 检测driver项 , 即sessionConfigured\(\)中的判断 , 存在则进入下一步 . 
+* session实例化 - Session的开启其实就是完成其实例化的过程 , Larave中session的实例有加密和非加密之分 , 也就是EncryptedStore类或Store类的实例 , 主要区别也是数据存储和读取的过程中对数据的加密和解密 . 其实EncryptedStore类继承了Store类 . 
+  * Store类初始化时需要hander驱动 , 符合SessionHandlerInterface接口 , 接口定义了7个函数接口 , 即开启,关闭,读取,写入,销毁,回收 , 而驱动的形式可能不同 , 文件驱动 , 数据库驱动Memcache等等 , 区别就是存储媒介不同 , 满足驱动接口即可 . 
+    * http://php.net/manual/zh/class.sessionhandlerinterface.php
+  * 
+* 开启session
+* 将session实例传递给请求实例
 
 
 
