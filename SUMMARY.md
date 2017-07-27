@@ -118,6 +118,7 @@
       * [HTTP\_Response](learninglaravel/httproute/httpresponse.md)
       * [HTTP\_File](learninglaravel/httproute/httpcookie-n-file.md)
       * [HTTP\_Session](learninglaravel/httproute/httpsession.md)
+        * [Session配置与驱动](learninglaravel/httproute/httpsession/sessionpei-zhi-yu-qu-dong.md)
   * [服务容器](fu-wu-rong-qi.md)
   * [服务提供者](fu-wu-ti-gong-zhe.md)
 * [Laravel资源](laravel资源记录.md)
