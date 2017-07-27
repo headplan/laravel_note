@@ -199,6 +199,13 @@ Session开启的最终结果是生成一个session实例\(也就是Store实例\)
     * exists\(\)方法检查session值是否存在 , null也表示存在 , 返回true . \(仅支持一维数组\)
     * has\(\)方法同样是检查值是否存在 , null表示不存在 , 如果该值存在并且不为null , 那么则返回 true . \(仅支持一维数组\)
 * 数据删除
+  * Session::forget\('key'\) - 从 Session 内删除一条数据
+  * Session::flush\(\) - 删除 Session 内所有数据
+* 数据暂存
+  * Session::flash\('key', 'value'\) - 将session数据保留到下一次 HTTP 请求 , 两个注意参数必填 , 第一个参数为字符串 . 
+  * Session::reflash\(\) - 留闪存数据给更多请求 . 将数据刷新一次 , 使得本次应该删除的数据不再删除 . 
+  * Session::keep\(\['a','b'\]\) - 刷新指定数据 . 如果将原session的key也设置为暂存数据 , 再次请求也会消失 . 
+  * 其实在session中 , 有一个\_flash键 , 专门用来存储暂存数据 , 而该键值下又有两个键 , 分别为old和new , 用来记录暂存数据的新旧 , 即本次请求存储的暂存数据为新\(new\) , 上次存储的暂存数据为旧\(old\) , 当本次请求结束时 , 会将旧的数据删除 , 而新的数据保留 , 到下一次请求时 , 上次新的就变成旧的了 , 以此循环 , 函数reflash和keep就是old中准备删除的 , 重新放到新的里 . 
 
 
 
