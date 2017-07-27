@@ -206,6 +206,8 @@ Session开启的最终结果是生成一个session实例\(也就是Store实例\)
   * Session::reflash\(\) - 留闪存数据给更多请求 . 将数据刷新一次 , 使得本次应该删除的数据不再删除 . 
   * Session::keep\(\['a','b'\]\) - 刷新指定数据 . 如果将原session的key也设置为暂存数据 , 再次请求也会消失 . 
   * 其实在session中 , 有一个\_flash键 , 专门用来存储暂存数据 , 而该键值下又有两个键 , 分别为old和new , 用来记录暂存数据的新旧 , 即本次请求存储的暂存数据为新\(new\) , 上次存储的暂存数据为旧\(old\) , 当本次请求结束时 , 会将旧的数据删除 , 而新的数据保留 , 到下一次请求时 , 上次新的就变成旧的了 , 以此循环 , 函数reflash和keep就是old中准备删除的 , 重新放到新的里 . 
+* 重新生成SessionID - $request-&gt;session\(\)-&gt;regenerate\(\);
+  * 在LoginController控制器中的trait有对其的应用 , 重新生成 Session ID , 通常是为了防止恶意用户利用 session fixation 对应用进行攻击 . 
 
 
 
