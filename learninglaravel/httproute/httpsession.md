@@ -144,18 +144,24 @@ public function handle($request, Closure $next)
 }
 ```
 
-一个以$response = $next\($request\);分割 , 之前的代码为session开启阶段 , 之后的为session关闭阶段 . 
+一个以$response = $next\($request\);分割 , 之前的代码为session开启阶段 , 之后的为session关闭阶段 .
 
 **开启阶段**
 
-$this-&gt;sessionConfigured\(\)检测session驱动的配置\(driver\) , 如果配置了则通过startSession\(\)函数开启session , 并在请求中添加session实例对象 . Larave是通过一个类的实例来管理session的内容的 . session的开启阶段可以分为四步 : 
+$this-&gt;sessionConfigured\(\)检测session驱动的配置\(driver\) , 如果配置了则通过startSession\(\)函数开启session , 并在请求中添加session实例对象 . Larave是通过一个类的实例来管理session的内容的 . session的开启阶段可以分为四步 :
 
 * 检测配置 - 配置文件在config/session.php中完成 , 主要配置session驱动 , 生存时间 , 是否加密和Cookie名称等
   * 过程中用到Session管理器\(SessionManager类实例\) , 在session中间件初始化\(\_\_construct\)的过程中通过依赖注入生成 , 在服务容器中注册的别名为session , 在SessionServiceProvider中的registerSessionManager\(\)中实现 . 完成了依赖注入 , 即有了session管理器 , 接下来就是验证session的驱动了 , 通过管理器实例获取session的配置信息 , 检测driver项 , 即sessionConfigured\(\)中的判断 , 存在则进入下一步 . 
 * session实例化 - Session的开启其实就是完成其实例化的过程 , Larave中session的实例有加密和非加密之分 , 也就是EncryptedStore类或Store类的实例 , 主要区别也是数据存储和读取的过程中对数据的加密和解密 . 其实EncryptedStore类继承了Store类 . 
   * Store类初始化时需要hander驱动 , 符合SessionHandlerInterface接口 , 接口定义了7个函数接口 , 即开启,关闭,读取,写入,销毁,回收 , 而驱动的形式可能不同 , 文件驱动 , 数据库驱动Memcache等等 , 区别就是存储媒介不同 , 满足驱动接口即可 . 
-    * http://php.net/manual/zh/class.sessionhandlerinterface.php
-  * 
+    * [http://php.net/manual/zh/class.sessionhandlerinterface.php](http://php.net/manual/zh/class.sessionhandlerinterface.php)
+  * Session类的实例化以及配置是通过$this-&gt;getSession\($request\)实现的 , 分为三步 : 
+    * 首先 , 根据session配置信息通过session管理器获取负责session实例化函数的名称;
+    * 调用该实例化函数完成session类的实例化;
+    * 完成sessionID的获取;
+    * 总结起来就是 , 通过getDefaultDriver\(\)函数获取session默认驱动的配置信息 , 就是配置文件中的driver 即file , 然后拼装实例化函数名$method = createFileDriver , 最后通过这个函数完成Session的实例化 . 
+  * 在session实例化的过程中会通过配置信息判断是否加密 , 就是配置中的encrypt . 然后通过buildSession\(\)函数完成Store类的实例化 , 即Laravel的session管理类 . 这个类的初始化需要两个重要的参数 , 一个就是Cookie的名称 , 即配置中的Larave\_session , 另一个就是数据的存储形式 , 默认为File , 所以就是FileSessionHandler , 这两个也是都可以在配置文件中配置的 . 
+  * 最后实例化完成 , 获取sessionID , 即检查请求中的Cookie是否有$session-&gt;getName\(\)获取的 . 没有就创建一个 , 通过generateSessionId\(\)重新生成的\(在setId\(\)中\) . 
 * 开启session
 * 将session实例传递给请求实例
 
