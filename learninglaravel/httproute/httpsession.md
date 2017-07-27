@@ -168,5 +168,21 @@ $this-&gt;sessionConfigured\(\)检测session驱动的配置\(driver\) , 如果�
 
 **session的操作**
 
+Session开启的最终结果是生成一个session实例\(也就是Store实例\) , 在程序处理请求生成响应的过程中 , 就可以通过从操作这个实例实现对session的操作 . 
+
+1.获取实例
+
+获取session实例和获取请求实例基本相同 . 三种方式 : 
+
+* 通过请求获取 - $request-&gt;session\(\) , session启动的最后一步就是将session实例传递给请求 . 
+* 通过Facade外观调用 - session::put\('name', 'kony.k'\) , 其流程是
+  * 通过session的Facade类的getFacadeAccessor\(\)方法返回服务名称"session" , 其对应的实例对象是SessionManager类实例 , 所以会调用该类的put\(\)方法 , 但该类没有定义这个方法 , 所以调用其继承的Manager类中的\_\_call\(\)魔术方法 , 于是调用了$this-&gt;driver\(\)的put方法 , 而$this-&gt;driver\(\)返回的正式记录的session实例即Store类实例 , 也会调用Store类实例的方法 . 
+* 全局辅助函数 - session\(\)-&gt;driver\(\);
+  * session\(\)辅助函数返回名称为session的服务 , 即SessionManager类实例 , 然后通过driver\(\)方法获取当前配置的session实例 
+
+2.操作实例
+
+
+
 
 
