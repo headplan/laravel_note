@@ -211,15 +211,11 @@ Session开启的最终结果是生成一个session实例\(也就是Store实例\)
 
 **Session的关闭\(就是到最后的响应\)**
 
-关闭可分为四个步骤 , 存储当前的URL , 垃圾回收 , 添加响应首部和存储session数据 . 一切的一切依然都发生在session中间件handle函数中 . 
+关闭可分为四个步骤 , 存储当前的URL , 垃圾回收 , 添加响应首部和存储session数据 . 一切的一切依然都发生在session中间件handle函数中 .
 
-当前URL的存储需要满足请求方法为get , 具有路由并且非ajax的请求 . 这发生在$this-&gt;storeCurrentUrl\($request, $session\);中 . 
+当前URL的存储需要满足请求方法为get , 具有路由并且非ajax的请求 . 这发生在$this-&gt;storeCurrentUrl\($request, $session\);中 .
 
-垃圾回收是通过$this-&gt;configHitsLotter\($config\)进行判断的 , 其实就是配置文件中的lottery进行配置的 , 它是一个数组 , 第一个值是阈值 , 第二个是产生的随机数的最大值 . 默认为\[2,100\] , 意思就是随机生成1-100的数 , 如果生成的随机数小于2 , 就触发垃圾回收 , 也就是有1%的几率触发 , 回收过期的session .  
+垃圾回收是通过$this-&gt;configHitsLotter\($config\)进行判断的 , 其实就是配置文件中的lottery进行配置的 , 它是一个数组 , 第一个值是阈值 , 第二个是产生的随机数的最大值 . 默认为\[2,100\] , 意思就是随机生成1-100的数 , 如果生成的随机数小于2 , 就触发垃圾回收 , 也就是有1%的几率触发 , 回收过期的session .
 
-然后是添加Cookie到响应头 . 过程是先判断session是否是持久化存储\(不是数组驱动的就是持久化的\) , 持久化的情况下会将SessionID设置到响应头 , 就是在响应实例中的$headers属性中添加一个Cookie实例 , 用于发送SessionID . 
-
-
-
-
+然后是添加Cookie到响应头 . 过程是先判断session是否是持久化存储\(不是数组驱动的就是持久化的\) , 持久化的情况下会将SessionID设置到响应头 , 就是在响应实例中的$headers属性中添加一个Cookie实例 , 用于发送SessionID . 最后就是session的存储 , 通过terminate\(\)函数 . 
 
