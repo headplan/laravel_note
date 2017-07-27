@@ -162,7 +162,7 @@ $this-&gt;sessionConfigured\(\)检测session驱动的配置\(driver\) , 如果�
     * 总结起来就是 , 通过getDefaultDriver\(\)函数获取session默认驱动的配置信息 , 就是配置文件中的driver 即file , 然后拼装实例化函数名$method = createFileDriver , 最后通过这个函数完成Session的实例化 . 
   * 在session实例化的过程中会通过配置信息判断是否加密 , 就是配置中的encrypt . 然后通过buildSession\(\)函数完成Store类的实例化 , 即Laravel的session管理类 . 这个类的初始化需要两个重要的参数 , 一个就是Cookie的名称 , 即配置中的Larave\_session , 另一个就是数据的存储形式 , 默认为File , 所以就是FileSessionHandler , 这两个也是都可以在配置文件中配置的 . 
   * 最后实例化完成 , 获取sessionID , 即检查请求中的Cookie是否有$session-&gt;getName\(\)获取的 . 没有就创建一个 , 通过generateSessionId\(\)重新生成的\(在setId\(\)中\) . 
-* 开启session
+* 开启session - 通过Store类实例中的start\(\)函数开启 , 其实就是根据sessionID将对应的数据从存储媒介中取出来 , 放到Store的$attributes数组属性中 . 
 * 将session实例传递给请求实例
 
 
