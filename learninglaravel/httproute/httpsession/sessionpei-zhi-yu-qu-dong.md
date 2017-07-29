@@ -27,3 +27,11 @@ return [
 
 laravel默认支持 - "file", "cookie", "database", "apc", "memcached", "redis", "array"
 
+* file - 将Session保存在storage/framework/sessions中 , 从新生成sessionID就会生成新的文件
+* cookie - Session 保存在安全加密的 Cookie 中
+* database - Session 保存在关系型数据库 . 使用数据库作为Session驱动时 , 需要创建一张包含Session各项数据的表 . 
+  * php artisan session:table - 生成文件database/migrations/2020\_01\_01\_143711\_create\_sessions\_table.php
+  * php artisan migrate - 生成数据表
+
+
+
