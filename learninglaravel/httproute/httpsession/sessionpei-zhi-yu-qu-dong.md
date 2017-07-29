@@ -23,5 +23,7 @@ return [
 ];
 ```
 
+**driver - 驱动程序**
 
+laravel默认支持 - "file", "cookie", "database", "apc", "memcached", "redis", "array"
 
