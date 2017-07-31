@@ -28,7 +28,42 @@
 
 视图合成器是在视图渲染时调用的一些回调或者类方法 . 例如 , 需要在某些视图渲染时绑定一些数据上去 , 或者将这些绑定逻辑整理到特定的位置 . 
 
+创建合成器类
+
+```php
+<?php
+namespace App\Http\ViewComposers;
+
+use Illuminate\View\View;
+
+class ProfileComposer
+{
+    protected $_num;
+    
+    public function __construct()
+    {
+        $this->_num = 100;
+    }
+
+    public function testc(View $view)
+    {
+        $view->with('tc', $this->_num);
+    }
+
+    public function compose(View $view)
+    {
+        $view->with('count', $this->_num);
+    }
+}
+```
+
+创建合成关联
+
+```
+View::composer('view2', 'App\Http\ViewComposers\ProfileComposer@testc');
+```
+
+第一个参数是视图 , 第二个参数是加载视图时运行的类方法 , 如果没有方法则直接加载类中的compose方法 . 这有点类似我们前面提到的控制器模型绑定 , 这里只要渲染视图 , 就会加载方法 , with需要的数据 . 
+
 **视图构造器**
-
-
 
