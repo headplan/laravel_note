@@ -18,7 +18,7 @@ Blade 是 Laravel 提供的一个既简单又强大的模板引擎 , Blade 并�
   * @parent - 追加布局中的section定义的内容\(和section结尾无关联\) , 使用时和类中的继承类似 , 在section中使用 , 如果不使用则会覆盖掉布局中的这部分内容 . 
 * @component\(\) - 指令用来加载并构造这个组件 , 其中第一个参数用来指定组件的模板 , 第二个参数可以传递参数到模板当中 . 组件模板中的{{ $slot }}变量用来接收并渲染component中的构建 , 也可以自定义slot : 
   * @slot\(\) - 其中的参数对应组件模板中的自定义变量 , 例如{{ $title }}
-  * @component和@slot都是@end+关键词结尾 , 也就是@endcomponent和@endslot
+  * @component和@slot都是@end加关键词结尾 , 也就是@endcomponent和@endslot
 
 
 
