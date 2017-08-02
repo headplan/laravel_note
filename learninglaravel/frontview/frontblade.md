@@ -20,3 +20,5 @@ Blade 是 Laravel 提供的一个既简单又强大的模板引擎 , Blade 并�
   * @slot\(\) - 其中的参数对应组件模板中的自定义变量
   * @component和@slot都是@end加关键词结尾 , 也就是@endcomponent和@endslot
 
+
+
