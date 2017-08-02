@@ -12,8 +12,8 @@ Blade 是 Laravel 提供的一个既简单又强大的模板引擎 , Blade 并�
 * @section\(\) - 用来定义一个视图区块 . 它是可以被替代 , 又可以被扩展的 . 
 * * @show - 指的是执行到此处时将该 section 中的内容输出到页面 . 通常首次定义section时 , 应该用show . 但继承或替换的模板中使用show , 表示出现了两次该section , 还会破坏页面结构 . 
   * @stop - 只是进行内容解析 , 并且不再处理当前模板中后续对该section的处理 . 例如继承了一个@stop结尾的section , 则什么也不会显示 . 
-  * @overwrite
   * @append
+  * @overwrite
 * @extends\(\) - 子页面指定其所**继承**的页面布局 , 也就是说当子页面继承布局之后 , 就可以使用@section命令将内容注入于布局页面中的yield和section中 . 
   * @parent - 追加布局中的section定义的内容 , 使用时和类中的继承类似 , 在section中使用 , 如果不使用则会覆盖掉布局中的这部分内容 . 
 
