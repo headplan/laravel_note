@@ -20,5 +20,47 @@ Blade 是 Laravel 提供的一个既简单又强大的模板引擎 , Blade 并�
   * @slot\(\) - 其中的参数对应组件模板中的自定义变量
   * @component和@slot都是@end加关键词结尾 , 也就是@endcomponent和@endslot
 
+### 数据的显示
+
+将数据传递给模板前面已经提到过 , 显示变量直接用两个大括号包裹住就可以了 , 也可以显示PHP函数的结果 , 或者任意PHP代码 . 
+
+```
+The current UNIX timestamp is {{ time() }}.
+```
+
+三元运算符也是可以的 , 当然也可以简写
+
+```
+{{ $name or 'Default' }}
+```
+
+两个大括号包括的数据是经过htmlspecialchars处理的 , 为了防止XSS攻击 , 去掉函数包裹应该这样写
+
+```
+Hello, {!! $name !!}.
+```
+
+由于很多 JavaScript 框架都使用花括号来表明所提供的表达式 , 可以使用@符抑制blade引擎的渲染 , 显示他原本的样子
+
+```
+Hello, @{{ name }}.
+```
+
+也可以使用@verbatim指令来包裹大片区块中展示 JavaScript 变量 , 避免了大量的@符抑制
+
+```
+@verbatim
+    <div class="container">
+        Hello, {{ name }}.
+    </div>
+@endverbatim
+```
+
+> blade模板中的注释写法
+>
+> ```
+> {{-- 我是注释 --}}
+> ```
+
 
 
