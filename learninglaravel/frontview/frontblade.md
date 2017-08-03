@@ -80,26 +80,54 @@ Hello, @{{ name }}.
 @empty(),
 @endempty
 
-@hasSection
+@hasSection('name') # 判断section存在否
+   @yield('name')
+@endif
+
+@can() # 判断有么有权限
+@elsecan()
+@endcan
+
+@cannot()
+@elsecannot()
+@endcannot
+
+===== # 消失的blade指令
+
+@auth()
+@endauth 
+
+@switch
+@case 
+@default
+@endswitch
 ```
 
 **循环**
 
 ```
 @for(),
-@endfor,
-@foreach()
-@empty,
-@endforeach,
+@endfor
+
+@foreach(),
+@endforeach
+
+@forelse(),
+@empty # 这里的empty是必须的,否则会报错
+@endforelse
+
 @while(),
-@endwhile,
-@continue(),
+@endwhile
+
+@continue(), # 循环中的两个按钮,括号里写条件
 @break()
+
+@unset() # 这只是个函数
 ```
 
 **循环变量**
 
-循环内访问`$loop`变量 , 可以提供一些有用的信息 : 
+循环内访问`$loop`变量 , 可以提供一些有用的信息 :
 
 | 属性 | 描述 |
 | :--- | :--- |
@@ -114,46 +142,47 @@ Hello, @{{ name }}.
 
 ### 引入子模板
 
+```
+@include('view.name', ['some' => 'data'])
+@includeIf('view.name', ['some' => 'data']) # 没这个视图也没事,不报错
+@includeWhen(isset($msg),'default.other',['msg'=>$msg]) # 第一个参数变成了判断条件
+@each('default.item',[],'var','default.def') # 组合了include和foreach
+- 第一个参数是要include的视图
+- 第二个参数是要循环的数据
+- 第三个参数是循环数据在引入视图中的变量名
+- 第四个参数是如果没有数组是空的没有数据时引入的模板
+```
 
+> 视图中的\_\_FILE\_\_和\_\_DIR\_\_会指向渲染后的路径
 
 ### 其他模板指令
 
 ```
 
 
-@auth() - 
-@endauth - 
 
-@case() - 
-@choice()
-@default
-
-@can()
-@cannot()
-@elsecan()
-@elsecannot()
-@endcan
-@endcannot
-
-
-@each
-
-@forelse
-@endforelse
 @lang
 @endlang
 @php
 @endphp
+
+
+
+
+
+@each
+
 
 @prepend
 @endprepend
 @push
 @endpush
 
-@switch
-@endswitch
 
-@unset
+@choice()
+
+
+
 @stack
 @inject
 
