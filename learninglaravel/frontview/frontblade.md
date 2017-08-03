@@ -158,31 +158,35 @@ Hello, @{{ name }}.
 
 > 视图中的\_\_FILE\_\_和\_\_DIR\_\_会指向渲染后的路径
 
+### 注入服务
+
+从服务容器中取出服务注入到视图中 , 第一个参数是视图中用的变量别名 , 第二个参数是要解析的服务的类或是接口的名称
+
+```
+@inject('mymsg', 'App\Http\Controllers\InjectController')
+```
+
 ### 其他模板指令
 
 ```
-@lang
-@endlang
+# 这一对相对简单,在之间输入php代码即可,渲染的也就是<?php ?>标签
 @php
 @endphp
 
-
-
-
-@prepend
-@endprepend
-@push
-@endpush
-@stack
-
-
+# 这三个都是用来加载resources/lang中的内容的
+# 配置文件config/app.php中配置了默认语言和第二默认语言,也就是resources/lang下的文件夹,默认的en就是.
+# 第一种情况是使用下面的方式,默认会渲染其之间的内容,其中写的也就是文件.key,渲染成其后的值
+# 其调用的是Illuminate\View\Concerns下的ManagesTranslations Trait.其中也就有两个方法
+# startTranslation和renderTranslation
+@lang
+...# 比如写msg.test
+@endlang
+# 第二种方式就是单独使用,括号中写参数
+# 第一个参数是文件.key
+# 第二个参数是lang文件的可变变量用:abc定义.这个参数强制数组
+# 第三个参数是使用的语言,就是resources/lang的文件夹名,为空则使用config/app.php配置下的默认值,或者第二默认值
+@lang('')
 @choice()
-
-
-
-
-@inject
-
 ```
 
 
