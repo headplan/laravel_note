@@ -207,5 +207,20 @@ Hello, @{{ name }}.
 # {}和[]都可以
 ```
 
+### 扩展Blade指令
 
+这里是blade的最后一个环节 , 就是使用directive扩展自己的模板指令 . 
+
+扩展指令 , 要在服务提供者的boot中注册
+
+```
+public function boot()
+{
+    Blade::directive('datetime', function ($data) {
+        return "<?php echo date($data,time()) ?>";
+    });
+}
+```
+
+第一个参数是指令名 , 后面return的就是模板渲染出的内容 . 
 
