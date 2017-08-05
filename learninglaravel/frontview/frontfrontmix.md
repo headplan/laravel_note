@@ -29,7 +29,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 ### Laravel Mix
 
+相关内容查看\[基本功能\]笔记中的**前端**-&gt;**编译前端资源**
 
-
-
+代码演示查看**Front\_FrontMix**分支
 
