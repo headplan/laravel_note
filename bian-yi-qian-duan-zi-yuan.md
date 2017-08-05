@@ -18,7 +18,7 @@ npm install --no-bin-links
 
 **应用**
 
-> Mix 基于 Webpack 的配置， , 所以运行定义于 package.json 文件中的 NPM 脚本即可执行 Mix 的编译任务
+> Mix 基于 Webpack 的配置 , 所以运行定义于 package.json 文件中的 NPM 脚本即可执行 Mix 的编译任务
 
 ```
 // 运行所有 Mix 任务...
@@ -264,7 +264,7 @@ mix.browserSync({
 
 #### 通知
 
-在有效的情况下 , Mix 会自动为每个捆绑显示操作系统通知 , 这可以给你一个及时的反馈 : 编译成功还是失败 . 不过 , 某些场景下你可能希望禁止这些通知 , 一个例子就是在生成环境服务器触发Mix . 通知可以通过`disableNotifications`方法被停用 : 
+在有效的情况下 , Mix 会自动为每个捆绑显示操作系统通知 , 这可以给你一个及时的反馈 : 编译成功还是失败 . 不过 , 某些场景下你可能希望禁止这些通知 , 一个例子就是在生成环境服务器触发Mix . 通知可以通过`disableNotifications`方法被停用 :
 
 ```
 mix.disableNotifications();

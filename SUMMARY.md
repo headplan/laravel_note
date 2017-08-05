@@ -122,6 +122,7 @@
     * [Front\_View](learninglaravel/frontview.md)
       * [Front\_Blade](learninglaravel/frontview/frontblade.md)
       * [Front\_Local](learninglaravel/frontview/frontlocal.md)
+      * [Front\_FrontMix](learninglaravel/frontview/frontfrontmix.md)
   * [服务容器](fu-wu-rong-qi.md)
   * [服务提供者](fu-wu-ti-gong-zhe.md)
 * [Laravel资源](laravel资源记录.md)
