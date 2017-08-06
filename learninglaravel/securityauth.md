@@ -16,5 +16,3 @@ Migrate是创建database/migrations下的迁移 . 当然创建之前 , 要配置
 
 
 
-
-

@@ -124,6 +124,7 @@
       * [Front\_Local](learninglaravel/frontview/frontlocal.md)
       * [Front\_FrontMix](learninglaravel/frontview/frontfrontmix.md)
     * [Security\_Auth](learninglaravel/securityauth.md)
+    * [Digging\_Deeper](learninglaravel/diggingdeeper.md)
   * [服务容器](fu-wu-rong-qi.md)
   * [服务提供者](fu-wu-ti-gong-zhe.md)
 * [Laravel资源](laravel资源记录.md)
