@@ -14,5 +14,9 @@ Migrate是创建database/migrations下的迁移 . 当然创建之前 , 要配置
 
 > Learning\_Laravel的测试代码中 , 添加了多用户的控制 , 下面的内容都会根据原Auth命令生成的基础上修改添加 .
 
+认证系统的配置文件`config/auth.php`, 这个后面在详细说明 .
 
+---
+
+先看一下生成的文件
 
