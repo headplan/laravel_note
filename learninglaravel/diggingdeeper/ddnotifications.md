@@ -29,7 +29,7 @@ php artisan make:notification TestNotification
 
 再来看看前面创建的**通知类**
 
-`via`方法受到一个`$notifiable`实例 , 它是接收通知的类实例 , 可以用来决定通知用哪个频道来发送 . 
+`via`方法受到一个`$notifiable`实例 , 它是接收通知的类实例 , 可以用来决定通知用哪个频道来发送 .
 
 ```
 /**
@@ -52,7 +52,7 @@ public function via($notifiable)
 * `nexmo`
 * `slack`
 
-更多的频道 , 例如Telegram或Pusher , 可以去http://laravel-notification-channels.com/看看 . 
+更多的频道 , 例如Telegram或Pusher , 可以去[http://laravel-notification-channels.com/看看](http://laravel-notification-channels.com/看看) .
 
 **队列化通知**
 
@@ -67,6 +67,10 @@ public function via($notifiable)
 $when = Carbon::now()->addMinutes(10);
 $user->notify((new InvoicePaid($invoice))->delay($when));
 ```
+
+---
+
+#### mail
 
 
 
