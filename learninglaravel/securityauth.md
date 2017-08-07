@@ -122,11 +122,35 @@ php artisan route:list 查看所有路由![](/assets/routelist.png)**视图**
 * `RegisterController`
 * `ResetPasswordController`
 
-中设置`redirectTo`属性来自定义登录认证成功之后的跳转路径 . 这三个类中都使用了RedirectsUsers Trait . 其中定义了redirectTo使用的逻辑 . 如果跳转路径需要自定义逻辑来生成 , 可以定义`redirectTo()`方法来代替redirectTo属性 . 看一下RedirectsUsers Trait中的redirectPath方法 , 定义`redirectTo()`方法优先级高于redirectTo属性 . 
+中设置`redirectTo`属性来自定义登录认证成功之后的跳转路径 . 这三个类中都使用了RedirectsUsers Trait . 其中定义了redirectTo使用的逻辑 . 如果跳转路径需要自定义逻辑来生成 , 可以定义`redirectTo()`方法来代替redirectTo属性 . 看一下RedirectsUsers Trait中的redirectPath方法 , 定义`redirectTo()`方法优先级高于redirectTo属性 .
 
 **自定义用户名**
 
-Laravel默认使用`email`字段来认证 , 定义在LoginController中使用的AuthenticatesUsers Trait中的username\(\)方法 , 可以在LoginController中重写username\(\)方法 , return要验证的登录字段 . 
+Laravel默认使用`email`字段来认证 , 定义在LoginController中使用的AuthenticatesUsers Trait中的username\(\)方法 , 可以在LoginController中重写username\(\)方法 , return要验证的登录字段 .
+
+**自定义Guard**
+
+配置文件中的default中定义了web为默认的guard , 定义了自己的认证guard , 在Auth认证系统中使用 , 要在
+
+* `LoginController`
+* `RegisterController`
+* `ResetPasswordController`
+
+三个控制前中重写guard\(\)方法 , 因为他们使用的trait中默认使用了default的web的guard . 重写即可
+
+```
+protected function guard()
+{
+    return Auth::guard('guard-name');
+}
+```
+
+**自定义验证 / 存储**
+
+用户的注册在RegisterController类中完成 , 应用验证输入参数和创建新用户也在其中定义 . 
+
+* `validator`方法包含了新用户的验证规则
+* `create`方法负责使用 Eloquent ORM 在数据库中创建新的 App\User 记录
 
 ---
 
