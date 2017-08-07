@@ -147,10 +147,27 @@ protected function guard()
 
 **自定义验证 / 存储**
 
-用户的注册在RegisterController类中完成 , 应用验证输入参数和创建新用户也在其中定义 . 
+用户的注册在RegisterController类中完成 , 应用验证输入参数和创建新用户也在其中定义 .
 
 * `validator`方法包含了新用户的验证规则
 * `create`方法负责使用 Eloquent ORM 在数据库中创建新的 App\User 记录
+
+**获取已认证的用户**
+
+**Auth facade**
+
+* Auth::user\(\) - 获取当前已通过认证的用户
+* Auth::id\(\) - 获取当前已通过认证的用户id
+* Auth::check\(\) - 检查用户是否登录
+
+**Request实例**
+
+```
+public function update(Request $request)
+{
+    // $request->user() 返回认证过的用户的实例...
+}
+```
 
 ---
 
