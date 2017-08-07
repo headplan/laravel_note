@@ -124,6 +124,10 @@ php artisan route:list 查看所有路由![](/assets/routelist.png)**视图**
 
 中设置`redirectTo`属性来自定义登录认证成功之后的跳转路径 . 这三个类中都使用了RedirectsUsers Trait . 其中定义了redirectTo使用的逻辑 . 如果跳转路径需要自定义逻辑来生成 , 可以定义`redirectTo()`方法来代替redirectTo属性 . 看一下RedirectsUsers Trait中的redirectPath方法 , 定义`redirectTo()`方法优先级高于redirectTo属性 . 
 
+**自定义用户名**
+
+Laravel默认使用`email`字段来认证 , 定义在LoginController中使用的AuthenticatesUsers Trait中的username\(\)方法 , 可以在LoginController中重写username\(\)方法 , return要验证的登录字段 . 
+
 ---
 
 > Learning\_Laravel的测试代码中 , 添加了多用户的控制 , 下面的内容都会根据原Auth命令生成的基础上修改添加 .
