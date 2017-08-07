@@ -16,7 +16,7 @@ Migrate是创建database/migrations下的迁移 . 当然创建之前 , 要配置
 
 #### 配置文件
 
-先来看看认证系统的**配置文件** . 其中包含了用于调整认证服务行为的 , 标注好注释的选项配置 . Laravel 的认证组件由`guards`和`providers`组成的 . 
+先来看看认证系统的**配置文件** . 其中包含了用于调整认证服务行为的 , 标注好注释的选项配置 . Laravel 的认证组件由`guards`和`providers`组成的 .
 
 * Guard 定义了用户在每个请求中如何实现认证
 * Provider 定义了如何从持久化存储中获取用户信息
@@ -71,6 +71,43 @@ Migrate是创建database/migrations下的迁移 . 当然创建之前 , 要配置
         'expire' => 60,
     ],
 ],
+```
+
+#### 认证系统
+
+Laravel 带有几个预设的认证控制器 , 它们被放置在`App\Http\Controllers\Auth`命名空间内
+
+* RegisterController - 处理用户注册
+* LoginController - 处理用户登录认证
+* ForgotPasswordController - 处理重置密码的 e-mail 链接
+* ResetPasswordController - 包含重置密码的逻辑
+
+这些控制器使用了 trait 来包含所需要的方法 .
+
+```
+php artisan make:auth
+```
+
+命令生成所有的认证路由 , layout 布局 , 注册和登录视图 , 同时生成`HomeController`控制器 , 用来处理登录成功后跳转的控制器 .
+
+**路由**
+
+php artisan route:list 查看所有路由![](/assets/routelist.png)**视图**
+
+下面是make:auth命令生成的视图文件 , tree显示的很清晰 , 除了原来的welcome.blade.php
+
+```
+./resources/views
+├── auth/
+│   ├── login.blade.php
+│   ├── passwords/
+│   │   ├── email.blade.php
+│   │   └── reset.blade.php
+│   └── register.blade.php
+├── home.blade.php
+├── layouts/
+│   └── app.blade.php
+└── welcome.blade.php
 ```
 
 ---
