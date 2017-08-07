@@ -177,11 +177,11 @@ public function update(Request $request)
 * Auth::id\(\) - 获取当前已通过认证的用户id
 * Auth::check\(\) - 检查用户是否登录
 
-在这里的check\(\)方法之前 , 还可以使用中间件检查用户是否认证过 . 
+在这里的check\(\)方法之前 , 还可以使用中间件检查用户是否认证过 .
 
 **认证中间件**
 
-在 HTTP kernel 中注册了Illuminate\Auth\Middleware\Authenticate中间件 , 可以在路由中直接使用 , 也可以在控制器初始化时指定 . 
+在 HTTP kernel 中注册了Illuminate\Auth\Middleware\Authenticate中间件 , 可以在路由中直接使用 , 也可以在控制器初始化时指定 .
 
 * middleware\('auth'\);
 
@@ -189,6 +189,20 @@ public function update(Request $request)
 
 * middleware\('auth:api'\);
 * middleware\('auth',\['web','api'\]\);
+
+**登录限流**
+
+这个功能在ThrottlesLogins Trait中实现 , 用户在进行几次尝试后仍不能提供正确的凭证 , 将在一分钟内无法进行登录 . 
+
+定义属性 , 控制次数与时间
+
+* maxAttempts
+* decayMinutes
+
+限制针对
+
+* $this-&gt;username\(\)
+* $request-&gt;ip\(\)
 
 ---
 
