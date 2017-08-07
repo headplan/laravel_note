@@ -78,9 +78,17 @@ Migrate是创建database/migrations下的迁移 . 当然创建之前 , 要配置
 Laravel 带有几个预设的认证控制器 , 它们被放置在`App\Http\Controllers\Auth`命名空间内
 
 * RegisterController - 处理用户注册
+  * RegistersUsers Trait
+    * RedirectsUsers Trait
 * LoginController - 处理用户登录认证
+  * AuthenticatesUsers Trait
+    * RedirectsUsers Trait
+    * ThrottlesLogins Trait
 * ForgotPasswordController - 处理重置密码的 e-mail 链接
+  * SendsPasswordResetEmails Trait
 * ResetPasswordController - 包含重置密码的逻辑
+  * ResetsPasswords Trait
+    * RedirectsUsers Trait
 
 这些控制器使用了 trait 来包含所需要的方法 .
 
@@ -154,12 +162,6 @@ protected function guard()
 
 **获取已认证的用户**
 
-**Auth facade**
-
-* Auth::user\(\) - 获取当前已通过认证的用户
-* Auth::id\(\) - 获取当前已通过认证的用户id
-* Auth::check\(\) - 检查用户是否登录
-
 **Request实例**
 
 ```
@@ -168,6 +170,25 @@ public function update(Request $request)
     // $request->user() 返回认证过的用户的实例...
 }
 ```
+
+**Auth facade**
+
+* Auth::user\(\) - 获取当前已通过认证的用户
+* Auth::id\(\) - 获取当前已通过认证的用户id
+* Auth::check\(\) - 检查用户是否登录
+
+在这里的check\(\)方法之前 , 还可以使用中间件检查用户是否认证过 . 
+
+**认证中间件**
+
+在 HTTP kernel 中注册了Illuminate\Auth\Middleware\Authenticate中间件 , 可以在路由中直接使用 , 也可以在控制器初始化时指定 . 
+
+* middleware\('auth'\);
+
+还可以直接指定guard
+
+* middleware\('auth:api'\);
+* middleware\('auth',\['web','api'\]\);
 
 ---
 
