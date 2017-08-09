@@ -192,7 +192,7 @@ public function update(Request $request)
 
 **登录限流**
 
-这个功能在ThrottlesLogins Trait中实现 , 用户在进行几次尝试后仍不能提供正确的凭证 , 将在一分钟内无法进行登录 . 
+这个功能在ThrottlesLogins Trait中实现 , 用户在进行几次尝试后仍不能提供正确的凭证 , 将在一分钟内无法进行登录 .
 
 定义属性 , 控制次数与时间
 
@@ -203,6 +203,22 @@ public function update(Request $request)
 
 * $this-&gt;username\(\)
 * $request-&gt;ip\(\)
+
+#### 手动认证用户
+
+如果不使用Laravel内置的认证控制器 , 可以使用Auth Facade来访问Laravel认证服务 , 即`use Illuminate\Support\Facades\Auth;`
+
+Auth::attempt\(\) - 接受一个数组来作为第一个参数 , 可用来寻找数据库里的用户数据 , 数组参数可以添加用户名,密码,或其他状态 . 第二个参数是bool值 , 判断是否remember , 前提是要认证的用户表中必须要包含remember\_token字段 , 就可以快速实现记住我功能 . 
+
+除了config/auth.php配置中默认的Guard , 还可以手动的指定Guard , 应用不同部分管理用户认证时使用完全不同的认证模型或者用户表 : 
+
+```
+if (Auth::guard('admin')->attempt($credentials)) {
+    //
+}
+```
+
+注销用户 - `Auth::logout()`这个方法会清除所有认证后加入到用户 session 的数据 . 
 
 ---
 
