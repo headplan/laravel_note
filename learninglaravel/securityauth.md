@@ -333,6 +333,7 @@ class User extends Authenticatable
   * 初始化配置中间件`guest:admin`
 
   * 绑定路由
+
   * 再来看看login方法的步骤
     * 验证form表单数据 , 也就是email和password字段
     * 尝试登陆 , 这里用到了前面的自定义认证`Auth::guard('admin')->attempt($credentials, $remember)`
