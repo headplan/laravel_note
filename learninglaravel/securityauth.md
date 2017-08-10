@@ -222,6 +222,13 @@ if (Auth::guard('admin')->attempt($credentials)) {
 
 注销用户 - `Auth::logout()`这个方法会清除所有认证后加入到用户 session 的数据 .
 
+#### 其他认证方法
+
+* Auth::login\($user, true\) - 用用户实例做认证 , 第二个参数为记住用户 . 
+* Auth::guard\('admin'\)-&gt;login\($user\) - 指定guard
+* Auth::loginUsingId\(1, true\) - 登录指定 ID 用户 , 也可以是要登录用户的主键 , 第二个参数为记住用户 . 
+* Auth::once\($credentials\) - 针对一次性认证用户 , 没有任何的 session 或 cookie 会被使用 . 参数和attempt\(\)一样 . 
+
 ---
 
 > Learning\_Laravel的测试代码中 , 添加了多用户的控制 , 下面的内容都会根据原Auth命令生成的基础上修改添加 .
