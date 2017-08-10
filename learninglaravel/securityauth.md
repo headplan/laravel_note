@@ -318,6 +318,16 @@ class User extends Authenticatable
 }
 ```
 
+* 接下来配置新的Guard和Provider , 具体查看实例中的config/auth.php配置
+* 创建admin路由和控制器以及视图 . 
+* commit一次
+* 参考route:list添加admin控制器
+  * LoginController - 这个控制器的实体在use AuthenticatesUsers中 , 前面已经提到了.
+    * 路由访问的是showLoginForm方法和login方法
+    * 创建Admin的登录控制器`php artisan make:controller Auth/AdminLoginController`
+
+
+
 ---
 
 #### 
