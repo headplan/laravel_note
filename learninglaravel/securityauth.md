@@ -229,9 +229,39 @@ if (Auth::guard('admin')->attempt($credentials)) {
 * Auth::loginUsingId\(1, true\) - 登录指定 ID 用户 , 也可以是要登录用户的主键 , 第二个参数为记住用户 . 
 * Auth::once\($credentials\) - 针对一次性认证用户 , 没有任何的 session 或 cookie 会被使用 . 参数和attempt\(\)一样 . 
 
+#### HTTP基础认证
+
+auth.basic中间件被增加到路由上 , 当使用浏览器进入这个路由时 , 将自动的被提示需要提供凭证 . 它不需要登录页面 , 
+
+```
+Route::get('profile', function () {
+    // 只有认证过的用户可进入...
+})->middleware('auth.basic');
+```
+
+> 使用FastCGI , 肯能会让基础认证无法运行 , 在public的.htaccess文件中加入下面几行即可
+>
+> ```
+> RewriteCond %{HTTP:Authorization} ^(.+)$
+> RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+> ```
+
+#### 无状态 HTTP 基础认证
+
+onceBasic和上面的Auth::once的功能一样 , 没有任何的 session 或 cookie 会被使用 , 一次性的 , 默认参数验证字段email . 更方便的方法是 , 新建中间件 , 调用Auth::onceBasic方法 , 然后在路由或控制器中直接使用 . 
+
+```
+public function handle($request, $next)
+{
+    return Auth::onceBasic() ?: $next($request);
+}
+```
+
+上面提到的手动认证或者HTTP认证 , 无状态等方法都来自Illuminate\Auth\SessionGuard , 它实现了两个接口 , StatefulGuard和SupportsBasicAuth . StatefulGuard是前面提到的方法 , SupportsBasicAuth中的就是Basic和onceBasic两个方法 . 
+
 ---
 
-> Learning\_Laravel的测试代码中 , 添加了多用户的控制 , 下面的内容都会根据原Auth命令生成的基础上修改添加 .
+> Learning\_Laravel的测试代码中 , 添加了多用户的控制 , 下面的内容都会根据原Auth命令生成的基础上修改添加 . 为了让测试代码更加有针对性 , 上面的各种认证方式都会在不同的路由中测试 .
 
 在创建auth之前 , 新建一个迁移表`php artisan make:migration create_admins_table --create=admins`
 
