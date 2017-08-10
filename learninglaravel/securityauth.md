@@ -177,7 +177,7 @@ public function update(Request $request)
 * Auth::id\(\) - 获取当前已通过认证的用户id
 * Auth::check\(\) - 检查用户是否登录
 
-在这里的check\(\)方法之前 , 还可以使用中间件检查用户是否认证过 .
+在这里的check\(\)方法还可以使用在中间件中 , 用来检查用户是否认证过 .
 
 **认证中间件**
 
@@ -335,13 +335,70 @@ class User extends Authenticatable
   * 绑定路由
 
   * 再来看看login方法的步骤
+
     * 验证form表单数据 , 也就是email和password字段
     * 尝试登陆 , 这里用到了前面的自定义认证`Auth::guard('admin')->attempt($credentials, $remember)`
       * 其中password字段被排除了trim过滤 , 可以查看trim全局中间件
     * 登陆成功重定向跳转 , 这里使用了intended\(\)方法 , 表示将用户请求重定向至被用户验证过滤器拦截之前用户试图访问URL中去 . 
     * 认证失败重定向到上一页并带着提交的数据
     * 更多逻辑后续添加
+
   * 使用tinker创建admin数据
+
+**跳转重定向的问题**
+
+前面的内容已经基本完成了一个手动的验证流程 , 但是有跳转的问题 , 比如登录了admin , 再访问admin/login会跳转到login页面 , 原因是laravel的中间件两处硬编码写死的跳转 . 
+
+第一个在Laravel的异常中 , app/Exceptions/Handler.php , 其中的unauthenticated方法 , 将身份验证异常转换为未经身份验证的响应 , 也就是最后面写的跳转到登录页面 , 这里写死了跳转的地址 . 修改为
+
+```php
+protected function unauthenticated($request, AuthenticationException $exception)
+{
+    if ($request->expectsJson()) {
+        return response()->json(['error' => 'Unauthenticated.'], 401);
+    }
+    
+    $guard = array_get($exception->guards(), 0);
+    switch ($guard) {
+        case 'admin':
+            $login = 'admin.login';
+            break;
+        default:
+            $login = 'login';
+            break;
+    }
+
+    return redirect()->guest(route($guard));
+}
+```
+
+另一处在RedirectIfAuthenticated中间件里 , 这里check就是前面提到的在中间件中检查用户是否登录 , 如果登录跳转的页面也是写死的 , 稍作修改
+
+```php
+public function handle($request, Closure $next, $guard = null)
+{
+    switch ($guard) {
+        case 'admin':
+            if (Auth::guard($guard)->check()) {
+                return redirect()->route('admin.dashboard');
+            }
+            break;
+        default:
+            if (Auth::guard($guard)->check()) {
+                return redirect('/home');
+            }
+            break;
+    }
+
+    return $next($request);
+}
+```
+
+视图中后台也不需要登录注册 , 在layout模板中标注guard即可
+
+```
+@elseif (Auth::guard('admin')->guest())
+```
 
 ---
 
