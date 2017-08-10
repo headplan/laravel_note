@@ -289,7 +289,7 @@ Schema::create('admins', function (Blueprint $table) {
 <?php
 # 命名空间
 namespace App;
-# 这里用到了消息通知,下面有use Notifiable
+# 这里用到了消息通知,下面有use Notifiable,关于消息通知查看下面的内容
 use Illuminate\Notifications\Notifiable;
 # 这个是User的Base Model,它也是继承Model的,也叫User.只是起了别名Authenticatable,其继承了3个接口,然后分3个trait完成了接口的功能
 use Illuminate\Foundation\Auth\User as Authenticatable;
