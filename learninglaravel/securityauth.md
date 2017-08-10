@@ -343,11 +343,17 @@ class User extends Authenticatable
     * 认证失败重定向到上一页并带着提交的数据
     * 更多逻辑后续添加
 
-  * 使用tinker创建admin数据
+  * 使用tinker创建admin数据 , 登录成功
+
+  * 重写logout , 先新建一个component视图 , 区分logout的是user还是admin . 
+
+    * 默认的login控制器自带了一个logout , 但是会清空所有的session记录 , 这里分别重写
+
+    * logout和userLogout , 添加路由
 
 **跳转重定向的问题**
 
-前面的内容已经基本完成了一个手动的验证流程 , 但是有跳转的问题 , 比如登录了admin , 再访问admin/login会跳转到login页面 , 原因是laravel的中间件两处硬编码写死的跳转 . 
+前面的内容已经基本完成了一个手动的验证流程 , 但是有跳转的问题 , 比如登录了admin , 再访问admin/login会跳转到login页面 , 原因是laravel的中间件两处硬编码写死的跳转 .
 
 第一个在Laravel的异常中 , app/Exceptions/Handler.php , 其中的unauthenticated方法 , 将身份验证异常转换为未经身份验证的响应 , 也就是最后面写的跳转到登录页面 , 这里写死了跳转的地址 . 修改为
 
@@ -357,7 +363,7 @@ protected function unauthenticated($request, AuthenticationException $exception)
     if ($request->expectsJson()) {
         return response()->json(['error' => 'Unauthenticated.'], 401);
     }
-    
+
     $guard = array_get($exception->guards(), 0);
     switch ($guard) {
         case 'admin':
@@ -392,12 +398,6 @@ public function handle($request, Closure $next, $guard = null)
 
     return $next($request);
 }
-```
-
-视图中后台也不需要登录注册 , 在layout模板中标注guard即可
-
-```
-@elseif (Auth::guard('admin')->guest())
 ```
 
 ---
