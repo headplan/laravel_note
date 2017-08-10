@@ -231,7 +231,7 @@ if (Auth::guard('admin')->attempt($credentials)) {
 
 #### HTTP基础认证
 
-auth.basic中间件被增加到路由上 , 当使用浏览器进入这个路由时 , 将自动的被提示需要提供凭证 . 它不需要登录页面 , 
+auth.basic中间件被增加到路由上 , 当使用浏览器进入这个路由时 , 将自动的被提示需要提供凭证 . 它不需要登录页面 ,
 
 ```
 Route::get('profile', function () {
@@ -248,7 +248,7 @@ Route::get('profile', function () {
 
 #### 无状态 HTTP 基础认证
 
-onceBasic和上面的Auth::once的功能一样 , 没有任何的 session 或 cookie 会被使用 , 一次性的 , 默认参数验证字段email . 更方便的方法是 , 新建中间件 , 调用Auth::onceBasic方法 , 然后在路由或控制器中直接使用 . 
+onceBasic和上面的Auth::once的功能一样 , 没有任何的 session 或 cookie 会被使用 , 一次性的 , 默认参数验证字段email . 更方便的方法是 , 新建中间件 , 调用Auth::onceBasic方法 , 然后在路由或控制器中直接使用 .
 
 ```
 public function handle($request, $next)
@@ -257,7 +257,11 @@ public function handle($request, $next)
 }
 ```
 
-上面提到的手动认证或者HTTP认证 , 无状态等方法都来自Illuminate\Auth\SessionGuard , 它实现了两个接口 , StatefulGuard和SupportsBasicAuth . StatefulGuard是前面提到的方法 , SupportsBasicAuth中的就是Basic和onceBasic两个方法 . 
+上面提到的手动认证或者HTTP认证 , 无状态等方法都来自Illuminate\Auth\SessionGuard , 它实现了两个接口 , StatefulGuard和SupportsBasicAuth . StatefulGuard是前面提到的方法 , SupportsBasicAuth中的就是Basic和onceBasic两个方法 .
+
+### 自定义Guard和用户提供者
+
+稍后更新...
 
 ---
 
