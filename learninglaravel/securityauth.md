@@ -396,9 +396,9 @@ public function handle($request, Closure $next, $guard = null)
 查看一下自带的路由  
 ![](/assets/passwordroute.png)
 
-* 路由password/reset , 访问ForgotPasswordController控制器showLinkRequestForm方法 , 展示视图
-* 路由password/email , 根据post得到的邮件 , 发送消息 . 访问ForgotPasswordController控制器的sendResetLinkEmail方法
-* 路由password/reset/{token} , 访问重置密码链接 , ResetPasswordController控制器的showResetForm方法
+* 路由password/reset , 访问ForgotPasswordController控制器showLinkRequestForm方法 , 展示视图email.blade.php
+* 路由password/email , 根据post得到的邮件 , 发送消息ResetPasswordNotification . 访问ForgotPasswordController控制器的sendResetLinkEmail方法
+* 路由password/reset/{token} , 访问重置密码链接 , ResetPasswordController控制器的showResetForm方法 , 展示视图reset.blade.php
 * 路由password/reset , 操作数据重置密码 . ResetPasswordController控制器的reset方法
 
 ---
