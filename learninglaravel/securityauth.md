@@ -401,7 +401,7 @@ public function handle($request, Closure $next, $guard = null)
 * 路由password/reset/{token} , 访问重置密码链接 , ResetPasswordController控制器的showResetForm方法 , 展示视图reset.blade.php
 * 路由password/reset , 操作数据重置密码 . ResetPasswordController控制器的reset方法
 
-新建这两个控制器 , AdminForgotPasswordController和AdminResetPasswordController . 
+新建这两个控制器 , AdminForgotPasswordController和AdminResetPasswordController .
 
 **AdminForgotPasswordController**
 
@@ -417,7 +417,8 @@ public function handle($request, Closure $next, $guard = null)
 * 重写broker方法 , 选择admins , Password::broker\('admins'\)
 * 重写guard方法 , 选择admin , Auth::guard\('admin'\)
 
-新建Admin重置密码的路由
+* 新建Admin重置密码的路由
+* 新建Admin视图
 
 ---
 
