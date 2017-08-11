@@ -124,6 +124,7 @@
       * [Front\_Local](learninglaravel/frontview/frontlocal.md)
       * [Front\_FrontMix](learninglaravel/frontview/frontfrontmix.md)
     * [Security\_Auth](learninglaravel/securityauth.md)
+      * [Security\_Auth\_Multiple](learninglaravel/securityauth/securityauth-multiple.md)
     * [Digging\_Deeper](learninglaravel/diggingdeeper.md)
       * [DD\_Notifications](learninglaravel/diggingdeeper/ddnotifications.md)
   * [服务容器](fu-wu-rong-qi.md)

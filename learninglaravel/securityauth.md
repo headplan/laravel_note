@@ -441,9 +441,7 @@ public function handle($request, Closure $next, $guard = null)
 * 新建Admin视图 - auth.passwords.reset-admin
 * 最后一步就是执行reset , 把修改的密码入库 , 因为前面重写的方法已经定义了guard和broker , 随意这里就不用修改reset方法了 . 
 
----
-
-#### 
+最后配置mailtrap.io , 测试邮件发送 , 修改密码 . 
 
 
 
