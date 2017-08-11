@@ -411,6 +411,18 @@ public function handle($request, Closure $next, $guard = null)
 * 重写broker方法 , 选择admins , Password::broker\('admins'\)
 * 重写showLinkRequestForm方法 , 返回要展示的admin的忘记密码视图 , 这里绑定的是password/reset路由
 * 新建Admin视图 - auth.passwords.email-admin
+* 控制器中还给sendResetLinkEmail方法绑定了password/email的post路由 , 先看一下trait种原来自带的 : 
+  1. 验证数据 - $this-&gt;validateEmail\($request\);
+  2. 向该用户邮箱发送密码重置的链接 , 尝试发送链接并检查响应 , 然后向用户显示消息 , 最后返回响应 . 
+     * 用了sendResetLink方法
+     * 在Illuminate\Auth\Passwords\PasswordBroker中 , 是PasswordBrokerContract的实现
+     * 首先检查在给定的凭据中\(这里就是email\) , 是否找到了一个用户，如果没有将用会话中的一个“flash”数据重定向到当前URI , 以向开发人员指出错误 . 
+       * 就是$user = $this-&gt;getUser\($credentials\);和下面的is\_null\(\)判断
+     * 获取重置令牌 , 然后就可以用一个重置密码的链接将消息发送给这个用户 . 
+       * 就是sendPasswordResetNotification\(\)和其中的$this-&gt;tokens-&gt;create\(\)
+     * 然后 , 将重定向回当前的URI , 在会话中没有设置任何东西来指示错误 .
+       * return static::RESET\_LINK\_SENT
+  3. 1
 
 **AdminResetPasswordController**
 
