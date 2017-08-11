@@ -401,24 +401,28 @@ public function handle($request, Closure $next, $guard = null)
 * 路由password/reset/{token} , 访问重置密码链接 , ResetPasswordController控制器的showResetForm方法 , 展示视图reset.blade.php
 * 路由password/reset , 操作数据重置密码 . ResetPasswordController控制器的reset方法
 
-新建这两个控制器 , AdminForgotPasswordController和AdminResetPasswordController .
+新建这两个控制器 , AdminForgotPasswordController和AdminResetPasswordController . 新建Admin相关的重置密码路由 .
 
 **AdminForgotPasswordController**
 
 * use Illuminate\Support\Facades\Password
+* 中间件使用guard , 即guest:admin
+* password broker - 这里就是我们在auth.php配置文件中配置的passwords重置密码配置 . 
+* 重写broker方法 , 选择admins , Password::broker\('admins'\)
+* 重写showLinkRequestForm方法 , 返回要展示的admin的忘记密码视图 , 这里绑定的是password/reset路由
+* 新建Admin视图 - auth.passwords.email-admin
 
 **AdminResetPasswordController**
 
 * use Illuminate\Http\Request
   use Illuminate\Support\Facades\Password
   use Illuminate\Support\Facades\Auth
-* 因为这个类是重置密码 , 用到了Auth , 所以修改成功后跳转 , 和中间件使用的guard , 即guest:admin
+* 因为这个类是重置密码 , 用到了Auth , 然后修改成功后跳转redirectTo , 和中间件使用的guard , 即guest:admin
 * password broker - 这里就是我们在auth.php配置文件中配置的passwords重置密码配置 . 
 * 重写broker方法 , 选择admins , Password::broker\('admins'\)
-* 重写guard方法 , 选择admin , Auth::guard\('admin'\)
-
-* 新建Admin重置密码的路由
-* 新建Admin视图
+* 重写guard方法 , 选择admin , Auth::guard\('admin'\) , 因为有调用guard\(\)的地方 .
+* 重写showResetForm方法 , 返回要展示的admin的忘记密码视图 , 这里绑定的是password/reset/{token}路由
+* 新建Admin视图 - auth.passwords.reset-admin
 
 ---
 
