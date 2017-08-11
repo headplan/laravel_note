@@ -417,12 +417,16 @@ public function handle($request, Closure $next, $guard = null)
      * 用了sendResetLink方法
      * 在Illuminate\Auth\Passwords\PasswordBroker中 , 是PasswordBrokerContract的实现
      * 首先检查在给定的凭据中\(这里就是email\) , 是否找到了一个用户，如果没有将用会话中的一个“flash”数据重定向到当前URI , 以向开发人员指出错误 . 
-       * 就是$user = $this-&gt;getUser\($credentials\);和下面的is\_null\(\)判断
+       * 就是$user = $this-&gt;getUser\($credentials\);和下面的is\_null\(\)判断 , 这里的$user就是model对象
      * 获取重置令牌 , 然后就可以用一个重置密码的链接将消息发送给这个用户 . 
-       * 就是sendPasswordResetNotification\(\)和其中的$this-&gt;tokens-&gt;create\(\)
+       * 就是sendPasswordResetNotification\(\)和其中的$this-&gt;tokens-&gt;create\(\) , 就是创建个token , 前面的方法在
+         * Illuminate\Auth\Passwords\CanResetPassword这个trait中 , 里面就是执行发送消息的notify\(\)方法 , 里面的对象定义了消息的内容 .  
      * 然后 , 将重定向回当前的URI , 在会话中没有设置任何东西来指示错误 .
        * return static::RESET\_LINK\_SENT
   3. 判断$response == passwords.sent , 执行sendResetLinkResponse方法 . 
+* 现在在admin model中重写前面的提到的发送信息的方法sendPasswordResetNotification , 因为发送消息都是通过$user发出去的 . 其中的消息内容类改为AdminResetPasswordNotification , 这个类还不存在 , 创建他 . 
+* php artisan make:notification AdminResetPasswordNotification
+  * 修改这个消息类 , 初始化$token属性
 
 **AdminResetPasswordController**
 
@@ -435,6 +439,7 @@ public function handle($request, Closure $next, $guard = null)
 * 重写guard方法 , 选择admin , Auth::guard\('admin'\) , 因为有调用guard\(\)的地方 .
 * 重写showResetForm方法 , 返回要展示的admin的忘记密码视图 , 这里绑定的是password/reset/{token}路由
 * 新建Admin视图 - auth.passwords.reset-admin
+* 最后一步就是执行reset , 把修改的密码入库 , 因为前面重写的方法已经定义了guard和broker , 随意这里就不用修改reset方法了 . 
 
 ---
 
