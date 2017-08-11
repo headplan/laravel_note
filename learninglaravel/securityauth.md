@@ -422,7 +422,7 @@ public function handle($request, Closure $next, $guard = null)
        * 就是sendPasswordResetNotification\(\)和其中的$this-&gt;tokens-&gt;create\(\)
      * 然后 , 将重定向回当前的URI , 在会话中没有设置任何东西来指示错误 .
        * return static::RESET\_LINK\_SENT
-  3. 1
+  3. 判断$response == passwords.sent , 执行sendResetLinkResponse方法 . 
 
 **AdminResetPasswordController**
 
