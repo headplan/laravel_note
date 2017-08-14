@@ -14,9 +14,13 @@ share共享资源 , 下载 , 优惠等 .
 
 **Technology Stack**
 
-Laravel
+Laravel Framework
 
 Vue.js components and widgets
+
+* remove bootstrap
+* bulma.io - npm install bulma
+* buefy - npm install buefy
 
 Ajax \(Axios/jQuery\)
 
