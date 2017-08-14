@@ -18,9 +18,9 @@ Laravel Framework
 
 Vue.js components and widgets
 
-* remove bootstrap
 * bulma.io - npm install bulma
 * buefy - npm install buefy
+* font-awesome - npm install font-awesome
 
 Ajax \(Axios/jQuery\)
 
