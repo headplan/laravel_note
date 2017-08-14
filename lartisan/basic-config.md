@@ -15,7 +15,7 @@
 
 **resources/assets/js/app.js**
 
-删除vue组件应用的例子 . 引入Buefy组件并使用 . 
+删除vue组件应用的例子 . 引入Buefy组件并使用 .
 
 ```
 import Buefy from 'buefy';
@@ -24,7 +24,7 @@ Vue.use(Buefy);
 
 **resources/assets/js/bootstrap.js**
 
-删除对已经移除package的bootstrap-sass的渲染 . 
+删除对已经移除package的bootstrap-sass的渲染 .
 
 #### CSS
 
@@ -43,7 +43,17 @@ Vue.use(Buefy);
 @import "~buefy/src/scss/buefy";
 ```
 
-运行npm run dev , 检查是否引入正确 . 
+运行npm run dev , 检查是否引入正确 .
+
+#### .env和config/
+
+**.env** - 配置数据库 , 其他暂时不变 . 
+
+**config/app.php** - 配置应用名称和时区 , 其他暂时不变 . 
+
+#### Composer
+
+
 
 
 
