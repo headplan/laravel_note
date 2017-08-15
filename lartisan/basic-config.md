@@ -1,5 +1,23 @@
 # Basic Config
 
+```
+composer create-project laravel/laravel ./ "5.4.*" --prefer-dist
+```
+
+#### Composer
+
+```
+composer require 'barryvdh/laravel-debugbar' --dev
+composer require 'barryvdh/laravel-ide-helper' --dev
+composer require 'summerblue/generator' --dev
+```
+
+#### .env和config/
+
+**.env** - 配置数据库 , 其他暂时不变 .
+
+**config/app.php** - 配置应用名称和时区 , 其他暂时不变 .
+
 **package.json**
 
 保留"bootstrap-sass": "^3.3.7", bulma文档不全
@@ -38,14 +56,4 @@ Vue.use(Buefy);
 ```
 
 运行npm run dev , 检查是否引入正确 .
-
-#### .env和config/
-
-**.env** - 配置数据库 , 其他暂时不变 .
-
-**config/app.php** - 配置应用名称和时区 , 其他暂时不变 .
-
-#### Composer
-
-
 
