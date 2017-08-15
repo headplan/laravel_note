@@ -45,11 +45,11 @@ composer require 'summerblue/generator' --dev
 
 **resources/assets/js/app.js**
 
-删除vue组件应用的例子 . 引入Buefy组件并使用 .
+删除vue组件应用的例子 . ~~引入Buefy组件并使用 .~~
 
 ```
-import Buefy from 'buefy';
-Vue.use(Buefy);
+// import Buefy from 'buefy';
+// Vue.use(Buefy);
 ```
 
 **resources/assets/js/bootstrap.js**
