@@ -34,39 +34,43 @@ composer require 'barryvdh/laravel-ide-helper' --dev
 
 #### **package.json**
 
-保留"bootstrap-sass": "^3.3.7", ~~bulma文档不全~~
+删除"bootstrap-sass": "^3.3.7"
 
 **yarn install** - 安装依赖
 
 * yarn install
-* ~~yarn install bulma~~
-* ~~yarn install buefy~~
+* yarn install bulma
+* yarn install buefy
 * yarn add font-awesome
 
 #### JavaScript
 
 **resources/assets/js/app.js**
 
-删除vue组件应用的例子 . ~~引入Buefy组件并使用 .~~
+删除vue组件应用的例子 . 引入Buefy组件并使用 .
 
 ```
-// import Buefy from 'buefy';
-// Vue.use(Buefy);
+import Buefy from 'buefy';
+Vue.use(Buefy);
 ```
 
 **resources/assets/js/bootstrap.js**
 
-~~删除对已经移除package的bootstrap-sass的渲染 .~~
+删除对已经移除package的bootstrap-sass的引入 .
 
 #### CSS
 
 **resources/assets/sass/app.scss**
 
-删除原有引入的Google字体和bootstrap , 添加
+删除原有引入的Google字体和bootstrap , 引入
 
 ```
 // Font Awesome
 @import "~font-awesome/scss/font-awesome";
+// Bulma
+@import "~bulma/bulma";
+// Bulma Vue Modules
+@import "~buefy/src/scss/buefy";
 ```
 
 添加SCSS分层
