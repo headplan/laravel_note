@@ -9,7 +9,6 @@ composer create-project laravel/laravel ./ "5.4.*" --prefer-dist
 ```
 composer require 'barryvdh/laravel-debugbar' --dev
 composer require 'barryvdh/laravel-ide-helper' --dev
-composer require 'summerblue/generator' --dev
 ```
 
 别忘记在代码中配置服务
