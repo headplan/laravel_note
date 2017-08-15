@@ -12,11 +12,23 @@ composer require 'barryvdh/laravel-ide-helper' --dev
 composer require 'summerblue/generator' --dev
 ```
 
+```
+# 修改composer.json文件
+"name": "headplan/lartisan",
+"description": "Lartisan.",
+"keywords": ["lartisan", "headplan"],
+```
+
 #### .env和config/
 
 **.env** - 配置数据库 , 其他暂时不变 .
 
 **config/app.php** - 配置应用名称和时区 , 其他暂时不变 .
+
+```
+'name' => 'Lartisan',
+'timezone' => 'PRC',
+```
 
 **package.json**
 
