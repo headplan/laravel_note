@@ -6,19 +6,20 @@ composer create-project laravel/laravel ./ "5.4.*" --prefer-dist
 
 #### Composer
 
+修改composer.json文件
+
+```
+"name": "headplan/lartisan",
+"description": "Lartisan.",
+"keywords": ["lartisan", "headplan"],
+```
+
 ```
 composer require 'barryvdh/laravel-debugbar' --dev
 composer require 'barryvdh/laravel-ide-helper' --dev
 ```
 
-别忘记在代码中配置服务
-
-```
-# 修改composer.json文件
-"name": "headplan/lartisan",
-"description": "Lartisan.",
-"keywords": ["lartisan", "headplan"],
-```
+> 别忘记在代码中配置服务
 
 #### .env和config/
 
