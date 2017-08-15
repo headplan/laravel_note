@@ -21,11 +21,9 @@ composer require 'barryvdh/laravel-debugbar' --dev
 composer require 'barryvdh/laravel-ide-helper' --dev
 ```
 
-> 别忘记在代码中配置服务
+#### config/app.php
 
-#### .env和config/
-
-**.env** - 配置数据库 , 其他暂时不变 .
+配置上面安装的服务提供者
 
 **config/app.php** - 配置应用名称和时区 , 其他暂时不变 .
 
