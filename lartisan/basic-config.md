@@ -75,10 +75,29 @@ composer require 'barryvdh/laravel-ide-helper' --dev
 // Custom SASS Pages
 # 重写
 @import "overrides";
-# 助手
+# 助手 - 添加helpers
 @import "helpers";
 # 样式
 @import "styles";
+```
+
+```
+# Helpers
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
 ```
 
 运行npm run dev , 检查是否引入正确 .
