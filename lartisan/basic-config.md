@@ -32,7 +32,7 @@ composer require 'barryvdh/laravel-ide-helper' --dev
 'timezone' => 'PRC',
 ```
 
-**package.json**
+#### **package.json**
 
 保留"bootstrap-sass": "^3.3.7", ~~bulma文档不全~~
 
@@ -41,7 +41,7 @@ composer require 'barryvdh/laravel-ide-helper' --dev
 * yarn install
 * ~~yarn install bulma~~
 * ~~yarn install buefy~~
-* yarn install font-awesome
+* yarn add font-awesome
 
 #### JavaScript
 
