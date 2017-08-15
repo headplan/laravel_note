@@ -12,6 +12,8 @@ composer require 'barryvdh/laravel-ide-helper' --dev
 composer require 'summerblue/generator' --dev
 ```
 
+别忘记在代码中配置服务
+
 ```
 # 修改composer.json文件
 "name": "headplan/lartisan",
@@ -32,7 +34,7 @@ composer require 'summerblue/generator' --dev
 
 **package.json**
 
-保留"bootstrap-sass": "^3.3.7", bulma文档不全
+保留"bootstrap-sass": "^3.3.7", ~~bulma文档不全~~
 
 **yarn install** - 安装依赖
 
@@ -65,6 +67,18 @@ composer require 'summerblue/generator' --dev
 ```
 // Font Awesome
 @import "~font-awesome/scss/font-awesome";
+```
+
+添加SCSS分层
+
+```
+// Custom SASS Pages
+# 重写
+@import "overrides";
+# 助手
+@import "helpers";
+# 样式
+@import "styles";
 ```
 
 运行npm run dev , 检查是否引入正确 .
