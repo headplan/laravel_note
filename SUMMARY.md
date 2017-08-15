@@ -107,6 +107,7 @@
     * [Project Plan](lartisan/jian-dan-gui-hua.md)
     * [Scope of Work](lartisan/scope-of-work.md)
     * [Basic Config](lartisan/basic-config.md)
+    * [Basic View](lartisan/basic-view.md)
   * [Laravel\_Basic](laravelbasic.md)
 * [源码分析](代码片段.md)
   * [Learning\_Laravel](learninglaravel.md)
