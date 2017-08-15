@@ -4,6 +4,8 @@
 composer create-project laravel/laravel ./ "5.4.*" --prefer-dist
 ```
 
+**git init - 初始化**
+
 #### Composer
 
 修改composer.json文件
