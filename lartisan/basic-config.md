@@ -32,6 +32,8 @@ composer require 'barryvdh/laravel-ide-helper' --dev
 'timezone' => 'PRC',
 ```
 
+**git commit**
+
 #### **package.json**
 
 删除"bootstrap-sass": "^3.3.7"
@@ -39,15 +41,15 @@ composer require 'barryvdh/laravel-ide-helper' --dev
 **yarn install** - 安装依赖
 
 * yarn install
-* yarn install bulma
-* yarn install buefy
+* yarn add bulma
+* yarn add buefy
 * yarn add font-awesome
 
 #### JavaScript
 
 **resources/assets/js/app.js**
 
-删除vue组件应用的例子 . 引入Buefy组件并使用 .
+先注释掉vue组件应用的例子 . 引入Buefy组件并使用 .
 
 ```
 import Buefy from 'buefy';
@@ -56,7 +58,7 @@ Vue.use(Buefy);
 
 **resources/assets/js/bootstrap.js**
 
-删除对已经移除package的bootstrap-sass的引入 .
+删除对已经移除package的bootstrap-sass的引入 , ~~ require\('bootstrap-sass'\);~~
 
 #### CSS
 
@@ -73,7 +75,7 @@ Vue.use(Buefy);
 @import "~buefy/src/scss/buefy";
 ```
 
-添加SCSS分层
+**添加SCSS分层**
 
 ```
 // Custom SASS Pages
@@ -105,4 +107,15 @@ $sides: (top, bottom, left, right);
 ```
 
 运行npm run dev , 检查是否引入正确 .
+
+#### .env配置数据库
+
+生成默认认证测试数据库连接
+
+```
+php artisan make:auth
+php artisan migrate
+```
+
+
 
