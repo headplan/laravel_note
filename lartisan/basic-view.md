@@ -67,5 +67,15 @@
 
 **使用bulma重写登录和注册**
 
-修改resources/assets/sass/\_variables.scss文件中的变量 , 可以使用默认的也可以自定义 , 或者添加Bulma的变量 . 
+修改resources/assets/sass/\_variables.scss文件中的变量 , 可以使用默认的也可以自定义 , 或者添加Bulma的变量 .
+
+修改背景色
+
+```
+$body-background-color: #f5f5f5;
+```
+
+
+
+
 
