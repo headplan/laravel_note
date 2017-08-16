@@ -65,5 +65,7 @@
 # 重构样式时再更新5.0.1版本的navbar样式
 ```
 
+**使用bulma重写登录和注册**
 
+修改resources/assets/sass/\_variables.scss文件中的变量 , 可以使用默认的也可以自定义 , 或者添加Bulma的变量 . 
 
