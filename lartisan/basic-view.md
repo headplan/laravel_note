@@ -77,5 +77,7 @@ $body-background-color: #f5f5f5;
 
 添加了助手在helpers.scss
 
-其他就是重写布局了 , login.blade.php完成 . 
+其他就是重写布局了 , login.blade.php完成 .
+
+然后是重写注册register.blade.php页面 , 暂时不添加任何新东西 , 只是替换模板 . 
 
