@@ -77,7 +77,5 @@ $body-background-color: #f5f5f5;
 
 添加了助手在helpers.scss
 
-其他就是重写布局了 , login.blade.php完成 .
-
-然后是重写注册register.blade.php页面 , 暂时不添加任何新东西 , 只是替换模板 . 
+其他就是重写布局了 , login.blade.php完成 . 布局中用到了一个vue组件 , 是buefy的一个组件 , value传入true是选中 , 记住登录状态那里之后需要修改一下 . 然后是重写注册register.blade.php页面 , 暂时不添加任何新东西 , 只是替换模板 .
 
