@@ -125,5 +125,29 @@ php artisan migrate
 * permission\_role - 存储权限和角色之间的多对多关系
 * permission\_user - 存储权限和用户之间的多态关系
 
+**配置模型 - models**
+
+配置Laratrust用来定义角色 , 权限和团队的模型 , 可以配置不同的命名空间中或不同的名称 . 
+
+```
+'models' => [
+    /**
+     * Role model
+     */
+    'role' => 'App\Role',
+
+    /**
+     * Permission model
+     */
+    'permission' => 'App\Permission',
+
+    /**
+     * Team model
+     */
+    'team' => 'App\Team',
+
+],
+```
+
 
 
