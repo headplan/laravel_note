@@ -61,7 +61,7 @@ use_morph_map => true
 use_teams => true
 ```
 
-> 如果开启团队功能 , 还需要执行两条命令 , 这里是单独安装的时候执行的 . 
+> 如果开启团队功能 , 还需要执行两条命令 , 这里是单独安装的时候执行的 .
 >
 > ```
 > php artisan laratrust:setup-teams
@@ -116,7 +116,7 @@ php artisan laratrust:migration
 php artisan migrate
 ```
 
-即可 . 如果开启了团队功能 , 会生成6张表 : 
+即可 . 如果开启了团队功能 , 会生成6张表 :
 
 * roles - 存储角色记录
 * permissions - 存储权限记录

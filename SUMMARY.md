@@ -140,6 +140,7 @@
   * [Summerblue-generator](summerblue-generator.md)
   * [用户认证](yong-hu-ren-zheng.md)
     * [Laratrust](laratrust.md)
+      * [Laratrust表结构](laratrust/laratrustbiao-jie-gou.md)
     * Laravel-permission
     * Bouncer
     * [Entrust](entrust.md)
