@@ -90,7 +90,7 @@ php artisan laratrust:setup
 
 这条命令会生成迁移文件和模型 :
 
-* database/migrations/\_laratrust\_setup\_tables.php - 生成迁移文件
+* database/migrations/0000\_laratrust\_setup\_tables.php - 生成迁移文件
 * app/Permission.php - 生成模型
 * app/Role.php - 生成模型
 * app/Team.php - 如果配置中启用了团队功能 , 则生成此模型
