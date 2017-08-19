@@ -90,11 +90,11 @@ php artisan laratrust:setup
 
 这条命令会生成迁移文件和模型 :
 
-* database/migrations/0000\_laratrust\_setup\_tables.php - 生成迁移文件
-* app/Permission.php - 生成模型
-* app/Role.php - 生成模型
-* app/Team.php - 如果配置中启用了团队功能 , 则生成此模型
-* app/User.php - 修改User模型\(就是config/laratrust.php中配置的模型\) , 添加use LaratrustUserTrait
+* **database/migrations/&lt;timestamp&gt;\_laratrust\_setup\_tables.php** - 生成迁移文件
+* **app/Permission.php** - 生成模型
+* **app/Role.php** - 生成模型
+* **app/Team.php** - 如果配置中启用了团队功能 , 则生成此模型
+* **app/User.php** - 修改User模型\(就是config/laratrust.php中配置的模型\) , 添加use LaratrustUserTrait
 
 > 生产必备
 >
@@ -102,5 +102,19 @@ php artisan laratrust:setup
 > composer dump-autoload
 > ```
 
+**生成迁移**
 
+生成迁移文件
+
+```
+php artisan laratrust:migration
+```
+
+如果已经存在迁移文件\(上一步自动设置会生成\) , 直接执行
+
+```
+php artisan migrate
+```
+
+即可 . 
 
