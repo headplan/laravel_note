@@ -80,21 +80,27 @@ use_teams => true
 
 **自动设置**
 
-可以使用下面的命令让Laratrust自动设置 , 
+可以使用下面的命令让Laratrust自动设置 ,
 
 ```
 php artisan laratrust:setup
 ```
 
-前提是别忘记配置服务提供者在config/app.php中 . 
+前提是别忘记配置服务提供者在config/app.php中 .
 
-这条命令会生成迁移文件和模型 : 
+这条命令会生成迁移文件和模型 :
 
 * database/migrations/\_laratrust\_setup\_tables.php - 生成迁移文件
 * app/Permission.php - 生成模型
 * app/Role.php - 生成模型
 * app/Team.php - 如果配置中启用了团队功能 , 则生成此模型
-* app/User.php - 修改User模型 , 添加use LaratrustUserTrait
+* app/User.php - 修改User模型\(就是config/laratrust.php中配置的模型\) , 添加use LaratrustUserTrait
+
+> 生产必备
+>
+> ```
+> composer dump-autoload
+> ```
 
 
 
