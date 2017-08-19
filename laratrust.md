@@ -45,7 +45,7 @@ php artisan vendor:publish --tag="laratrust"
 
 包的配置文件在**config/laratrust.php**中 , 其中包含所有Laratrust的配置
 
-**多态关联**
+**多态关联 - use\_morph\_map**
 
 在模型之间的关系中使用MorphMap . 设置为true , 则将使用morphMap功能 , 多态关联使用的是"user\_models"数组值 .
 
@@ -53,7 +53,7 @@ php artisan vendor:publish --tag="laratrust"
 use_morph_map => true
 ```
 
-**团队功能**
+**团队功能 - use\_teams**
 
 团队功能也是可选的 , 配置文件
 
@@ -67,6 +67,16 @@ use_teams => true
 > php artisan laratrust:setup-teams
 > php artisan migrate
 > ```
+
+**用户模型 - user\_models**
+
+这里的配置就是用户模型信息的数组 , 如果开启前面的多态开启了 , 也表示多态的关联信息 , 例如包含了多个用户模型信息 , 有前台后台用户区分的角色权限管理 , 权限表中的user\_type字段存储的是这里配置的类名 , 开启多态 , 就可以用key名存储了 . 
+
+```
+'user_models' => [
+    'users' => 'App\User',
+],
+```
 
 
 
