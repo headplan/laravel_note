@@ -139,7 +139,10 @@
   * [Laravel-ide-helper](laravel-ide-helper.md)
   * [Summerblue-generator](summerblue-generator.md)
   * [用户认证](yong-hu-ren-zheng.md)
-  * [Entrust](entrust.md)
+    * [Laratrust](laratrust.md)
+    * Laravel-permission
+    * Bouncer
+    * [Entrust](entrust.md)
 * [框架应用解析](框架解析.md)
   * [组件化开发与Composer使用](框架解析/组件化开发与Composer使用.md)
   * [Laravel框架中的设计模式](框架解析/laravelkuang-jia-zhong-de-she-ji-mo-shi.md)
