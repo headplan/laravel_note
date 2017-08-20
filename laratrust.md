@@ -260,7 +260,17 @@ Laratrust用来存储所有授权数据的表的映射配置 .
 
 **配置中间件 - middleware**
 
-自定义 Laratrust 中间件行为 . 判断过滤返回的回调的函数 , 支持abort和redirect , 第二个参数配置前面函数的参数 . 
+自定义 Laratrust 中间件行为 . 判断过滤返回的回调的函数 , 支持abort和redirect , 第二个参数配置前面函数的参数 .
 
-例如 , 中间件判断过滤时 , 返回abort\(403\) . 
+例如 , 中间件判断过滤时 , 返回abort\(403\) .
+
+**配置魔术can方法 - magic\_can\_method\_case**
+
+这里配置的其实是can方法的参数的格式 , 支持三种格式
+
+* camel\_case - createUsers形式
+* snake\_case - create\_users形式
+* kebab\_case - create-users形式
+
+
 
