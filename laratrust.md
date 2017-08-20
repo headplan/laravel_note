@@ -127,7 +127,7 @@ php artisan migrate
 
 **配置模型 - models**
 
-配置Laratrust用来定义角色 , 权限和团队的模型 , 可以配置不同的命名空间中或不同的名称 . 
+配置Laratrust用来定义角色 , 权限和团队的模型 , 可以配置不同的命名空间中或不同的名称 .
 
 ```
 'models' => [
@@ -148,6 +148,16 @@ php artisan migrate
 
 ],
 ```
+
+**Role角色模型**
+
+有三个主要的属性
+
+* name - 角色的唯一名称 , 用于在应用程序层查找角色信息 . 例如admin , owner等 . 
+* display\_name - 角色的显示名称 , 可选 , 不一定是唯一的 , 例如用户管理员 , 项目所有者等 . 
+* description - 更详细地说明角色的作用 , 可选 . 
+
+display\_name和description都是可选的 , 也就是说它们的字段在数据库中是可以为空的 . 
 
 
 
