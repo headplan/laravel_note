@@ -173,7 +173,9 @@ display\_name和description都是可选的 , 也就是说它们的字段在数�
 
 * name - 团队名称
 * display\_name - 团队显示名
-* description - 对权限更详细的解释
+* description - 对权限更详细的描述
+
+仅在使用 "团队" 功能时才适用 . 
 
 
 
