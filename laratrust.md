@@ -175,7 +175,57 @@ display\_name和description都是可选的 , 也就是说它们的字段在数�
 * display\_name - 团队显示名
 * description - 对权限更详细的描述
 
-仅在使用 "团队" 功能时才适用 . 
+仅在使用 "团队" 功能时才适用 .
 
+**User模型**
 
+配置在**user\_models**里的模型 , 会添加use Laratrust\Traits\LaratrustUserTrait , 可以使用其中的方法 . 
+
+**配置数据表 - tables**
+
+Laratrust用来存储所有授权数据的表的映射配置 . 
+
+```
+'tables' => [
+    /**
+     * Roles table.
+     * 角色表
+     */
+    'roles' => 'roles',
+
+    /**
+     * Permissions table.
+     * 权限表
+     */
+    'permissions' => 'permissions',
+
+    /**
+     * Teams table.
+     * 团队表
+     */
+    'teams' => 'teams',
+
+    /**
+     * Role - User intermediate table.
+     * 角色/用户中间表
+     * 
+     */
+    'role_user' => 'role_user',
+
+    /**
+     * Permission - User intermediate table.
+     * 权限/用户中间表
+     */
+    'permission_user' => 'permission_user',
+
+    /**
+     * Permission - Role intermediate table.
+     * 权限/角色中间表
+     */
+    'permission_role' => 'permission_role',
+
+],
+```
+
+外键配置外键 - foreign\_keys
 
