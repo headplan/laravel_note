@@ -179,11 +179,11 @@ display\_name和description都是可选的 , 也就是说它们的字段在数�
 
 **User模型**
 
-配置在**user\_models**里的模型 , 会添加use Laratrust\Traits\LaratrustUserTrait , 可以使用其中的方法 . 
+配置在**user\_models**里的模型 , 会添加use Laratrust\Traits\LaratrustUserTrait , 可以使用其中的方法 .
 
 **配置数据表 - tables**
 
-Laratrust用来存储所有授权数据的表的映射配置 . 
+Laratrust用来存储所有授权数据的表的映射配置 .
 
 ```
 'tables' => [
@@ -227,5 +227,36 @@ Laratrust用来存储所有授权数据的表的映射配置 .
 ],
 ```
 
-外键配置外键 - foreign\_keys
+**外键配置外键 - foreign\_keys**
+
+```
+'foreign_keys' => [
+    /**
+     * User foreign key on Laratrust's role_user and permission_user tables.
+     * Laratrust 的 role_user 和 permission_user 表上的用户外键。
+     */
+    'user' => 'user_id',
+
+    /**
+     * Role foreign key on Laratrust's role_user and permission_role tables.
+     * Laratrust 的 role_user 和 permission_role 表的角色外键。
+     */
+    'role' => 'role_id',
+
+    /**
+     * Role foreign key on Laratrust's permission_user and permission_role tables.
+     * Laratrust 的 permission_user 和 permission_role 表的角色外键。
+     */
+    'permission' => 'permission_id',
+
+    /**
+     * Role foreign key on Laratrust's role_user and permission_user tables.
+     * Laratrust 的 role_user 和 permission_user 表的角色外键。
+     */
+    'team' => 'team_id',
+
+],
+```
+
+
 
