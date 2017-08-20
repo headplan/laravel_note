@@ -157,7 +157,23 @@ php artisan migrate
 * display\_name - 角色的显示名称 , 可选 , 不一定是唯一的 , 例如用户管理员 , 项目所有者等 . 
 * description - 更详细地说明角色的作用 , 可选 . 
 
-display\_name和description都是可选的 , 也就是说它们的字段在数据库中是可以为空的 . 
+display\_name和description都是可选的 , 也就是说它们的字段在数据库中是可以为空的 .
+
+**Permission权限模型**
+
+也有三个主要的属性 , 而且和角色模型一样
+
+* name - 权限的唯一名称 , 用于在应用程序层中查找权限信息 . 例如create-post , edit-user等 . 
+* display\_name - 权限的显示名称 , 可选 , 不一定是唯一的 , 例如创建帖子 , 编辑用户等 . 
+* description - 对权限更详细的解释 , 可选 . 
+
+**Team团队模型**
+
+也有三个主要的属性 , 同上
+
+* name - 团队名称
+* display\_name - 团队显示名
+* description - 对权限更详细的解释
 
 
 
