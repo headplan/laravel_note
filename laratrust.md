@@ -274,11 +274,62 @@ Laratrust用来存储所有授权数据的表的映射配置 .
 
 #### Seeder配置
 
-Laratrust配备了Seeder , 根据模块填充每个角色的权限 , 并为每个角色创建一个用户 . 
+Laratrust配备了Seeder , 根据模块填充每个角色的权限 , 并为每个角色创建一个用户 .
 
 > Laratrust中使用Seeder填充数据的模型是配置中**user\_models**数组中的第一个模型 . 而且Seeder数据填充现在还不支持团队功能数据的填充 .
 
+生成seeder文件
 
+```
+php artisan laratrust:seeder
+```
+
+在database/seeds/DatabaseSeeder.php文件中添加run下面的方法
+
+```
+$this->call(LaratrustSeeder::class);
+```
+
+> 要先执行php artisan vendor:publish --tag="laratrust,以生成自定义生成数据配置文件
+
+**config/laratrust\_seeder.php**
+
+**配置role\_structure数组**
+
+* 第一层是角色
+* 第二层的key是模块 , 其值是权限
+
+```
+'superadministrator' => [
+    'users' => 'c,r,u,d',
+    'acl' => 'c,r,u,d',
+    'profile' => 'r,u'
+],
+```
+
+**配置permission\_structure数组**
+
+* 第一层是角色
+* 第二层的key是模块 , 其值是权限
+
+```
+'cru_user' => [
+    'profile' => 'c,r,u'
+],
+```
+
+**配置permissions\_map数组**
+
+配置CRUD权限映射
+
+```
+'permissions_map' => [
+    'c' => 'create',
+    'r' => 'read',
+    'u' => 'update',
+    'd' => 'delete'
+]
+```
 
 
 
