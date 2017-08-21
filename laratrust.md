@@ -331,5 +331,9 @@ $this->call(LaratrustSeeder::class);
 ]
 ```
 
+> 具体配置根据需求配置 , 可以参考Wordpress的文档
+>
+> https://codex.wordpress.org/Roles\_and\_Capabilities
+
 
 
