@@ -272,5 +272,13 @@ Laratrust用来存储所有授权数据的表的映射配置 .
 * snake\_case - create\_users形式
 * kebab\_case - create-users形式
 
+#### Seeder配置
+
+Laratrust配备了Seeder , 根据模块填充每个角色的权限 , 并为每个角色创建一个用户 . 
+
+> Laratrust中使用Seeder填充数据的模型是配置中**user\_models**数组中的第一个模型 . 而且Seeder数据填充现在还不支持团队功能数据的填充 .
+
+
+
 
 
