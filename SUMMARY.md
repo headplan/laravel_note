@@ -108,7 +108,7 @@
     * [Scope of Work](lartisan/scope-of-work.md)
     * [Basic Config](lartisan/basic-config.md)
     * [Basic View](lartisan/basic-view.md)
-      * [Change 1](lartisan/basic-view/changes-1.md)
+      * [Change](lartisan/basic-view/changes-1.md)
     * [Basic Auth](lartisan/basic-auth.md)
   * [Laravel\_Basic](laravelbasic.md)
 * [源码分析](代码片段.md)
