@@ -26,7 +26,7 @@ resources/views/manage/dashboard.blade.php
 **修改view和sass文件**
 
 ```
-# 添加dashboard链接
+# 添加导航栏中设置选项的链接为dashboard链接
 resources/views/_includes/nav/main.blade.php
 # import manage.scss文件
 resources/assets/sass/app.scss
