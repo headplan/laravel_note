@@ -30,7 +30,7 @@ to
 /resources/views/vendor/pagination
 ```
 
-这样就可以编辑翻页视图的模板了 . 
+这样就可以编辑翻页视图的模板了 .
 
 基本的模板
 
@@ -57,7 +57,5 @@ const app = new Vue({
 });
 ```
 
-
-
-
+**Permission相关**
 
