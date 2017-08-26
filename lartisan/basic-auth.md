@@ -59,3 +59,13 @@ const app = new Vue({
 
 **Permission相关**
 
+创建路由
+
+资源路由 , 排除destroy销毁方法 . 
+
+```
+Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
+```
+
+
+
