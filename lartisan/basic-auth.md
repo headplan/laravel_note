@@ -61,11 +61,17 @@ const app = new Vue({
 
 创建路由
 
-资源路由 , 排除destroy销毁方法 . 
+资源路由 , 排除destroy销毁方法 .
 
 ```
 Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
 ```
 
+创建控制器
 
+```
+php artisan make:controller PermissionController --resource
+```
+
+和对应的方法以及视图文件 . 
 
