@@ -75,3 +75,5 @@ php artisan make:controller PermissionController --resource
 
 和对应的方法以及视图文件 . 
 
+这里简单实用Buefy的模块 . 
+
