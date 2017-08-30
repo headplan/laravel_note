@@ -5,7 +5,7 @@
   * [Laravel 5.4](laravel-54.md)
   * [Laravel 5.3](laravel-53.md)
   * [Laravel 5.2](laravel.md)
-  * Laravel 5.1
+  * [Laravel 5.1](laravel-51.md)
   * [版本升级](ban-ben-sheng-ji.md)
   * [贡献指南](gong-xian-zhi-nan.md)
   * [起步](安装.md)
