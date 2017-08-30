@@ -103,7 +103,7 @@
       * [DD\_Notifications](learninglaravel/diggingdeeper/ddnotifications.md)
   * [服务容器](fu-wu-rong-qi.md)
   * [服务提供者](fu-wu-ti-gong-zhe.md)
-* [Laravel资源](laravel资源记录.md)
+* [资源收集](laravel资源记录.md)
   * [Repository层支持](repository层支持.md)
   * [Laravel-debugbar](laravel-debugbar.md)
   * [Laravel-ide-helper](laravel-ide-helper.md)
@@ -114,7 +114,7 @@
     * Laravel-permission
     * Bouncer
     * [Entrust](entrust.md)
-* [框架应用解析](框架解析.md)
+* [框架解析](框架解析.md)
   * [组件化开发与Composer使用](框架解析/组件化开发与Composer使用.md)
   * [Laravel框架中的设计模式](框架解析/laravelkuang-jia-zhong-de-she-ji-mo-shi.md)
   * [认证授权代码解析](框架解析/ren-zheng-shou-quan-dai-ma-jie-xi.md)
