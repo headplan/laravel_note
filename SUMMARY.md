@@ -121,7 +121,7 @@
   * [Composer完整使用流程](框架展开及延伸/Composer完整使用流程.md)
   * [Laravel的Auth重写](laravelde-auth-zhong-xie.md)
   * [利用macro方法来扩展Laravel基础类](框架解析/li-yong-macro-fang-fa-lai-kuo-zhan-laravel-ji-chu-lei.md)
-* [补充及扩展](bu-chong-ji-kuo-zhan.md)
+* [补充扩展](bu-chong-ji-kuo-zhan.md)
   * [Team笔记\(really\)](laravel_sharing.md)
 * [项目开发](项目开发.md)
   * [Blog](blog.md)
