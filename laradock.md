@@ -1,4 +1,4 @@
-# LaraDock
+# LaraDock\(更新中...\)
 
 **官网** - [http://laradock.io/](http://laradock.io/)
 
