@@ -101,6 +101,8 @@
       * [Security\_Auth\_Multiple](learninglaravel/securityauth/securityauth-multiple.md)
     * [Digging\_Deeper](learninglaravel/diggingdeeper.md)
       * [DD\_Notifications](learninglaravel/diggingdeeper/ddnotifications.md)
+    * [Database](learninglaravel/database.md)
+      * [DB\_Redis](learninglaravel/database/dbredis.md)
   * [服务容器](fu-wu-rong-qi.md)
   * [服务提供者](fu-wu-ti-gong-zhe.md)
 * [资源收集](laravel资源记录.md)
@@ -114,6 +116,7 @@
     * Laravel-permission
     * Bouncer
     * [Entrust](entrust.md)
+  * [Predis](predis.md)
 * [框架解析](框架解析.md)
   * [组件化开发与Composer使用](框架解析/组件化开发与Composer使用.md)
   * [Laravel框架中的设计模式](框架解析/laravelkuang-jia-zhong-de-she-ji-mo-shi.md)
