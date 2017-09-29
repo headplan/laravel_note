@@ -99,6 +99,7 @@
       * [Front\_FrontMix](learninglaravel/frontview/frontfrontmix.md)
     * [Security\_Auth](learninglaravel/securityauth.md)
       * [Security\_Auth\_Multiple](learninglaravel/securityauth/securityauth-multiple.md)
+      * [Security\_Passport\_OAuth](learninglaravel/securityauth/securitypassport-oauth.md)
     * [Digging\_Deeper](learninglaravel/diggingdeeper.md)
       * [DD\_Notifications](learninglaravel/diggingdeeper/ddnotifications.md)
     * [Database](learninglaravel/database.md)
