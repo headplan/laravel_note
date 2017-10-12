@@ -54,15 +54,18 @@ Homestead 包含了两个东西：
 
 **下载和导入 Homestead Box**
 
-这里准备了适用于国内的Box , 包括Composer,NPM和Yarn的国内加速镜像 . 
+这里准备了适用于国内的Box , 包括Composer,NPM和Yarn的国内加速镜像 .
 
 ```
 vagrant box add metadata.json
+==> box: Successfully added box 'laravel/homestead' (v3.0.0) for 'virtualbox'!
+vagrant box list
+laravel/homestead (virtualbox, 3.0.0)
 ```
 
-> 更多关于vagrant的命令 , 可以到Linux\_note中的专题查看 . 
+> 更多关于vagrant的命令 , 可以到Linux\_note中的专题查看 .
 >
 > 这里metadata.json只是一个配置文件
 
-
+box导入完成 . 
 
