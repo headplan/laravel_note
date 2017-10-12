@@ -116,10 +116,10 @@ keys:
     - ~/.ssh/id_rsa
 ```
 
-* **`authorize`**选项是指派登录虚拟机授权连接的公钥文件 , 此文件填写的是主机上的公钥文件地址 , 虚拟机初始化时 , 此文件里的内容会被复制存储到虚拟机的 `/home/vagrant/.ssh/authorized_keys`文件中 , 从而实现 SSH 免密码登录 . 
-* **`keys`**是数组选项 , 填写的是本机的 SSH 私钥文件地址 . 虚拟机初始化时 , 会将此处填写的所有 SSH 私钥文件复制到虚拟机的`/home/vagrant/.ssh/`文件夹中 , 从而使虚拟机能共享主机上的 SSH 私钥文件 , 使虚拟机具备等同于主机的身份认证 . 此功能为 SSH 授权提供了便利 . 例如 , 我们在Github上配置了公钥 , 这种同步即可实现 GitHub 对虚拟机和主机共同认证 . 
+* `authorize`选项是指派登录虚拟机授权连接的公钥文件 , 此文件填写的是主机上的公钥文件地址 , 虚拟机初始化时 , 此文件里的内容会被复制存储到虚拟机的 `/home/vagrant/.ssh/authorized_keys`文件中 , 从而实现 SSH 免密码登录 . 
+* `keys`是数组选项 , 填写的是本机的 SSH 私钥文件地址 . 虚拟机初始化时 , 会将此处填写的所有 SSH 私钥文件复制到虚拟机的`/home/vagrant/.ssh/`文件夹中 , 从而使虚拟机能共享主机上的 SSH 私钥文件 , 使虚拟机具备等同于主机的身份认证 . 此功能为 SSH 授权提供了便利 . 例如 , 我们在Github上配置了公钥 , 这种同步即可实现 GitHub 对虚拟机和主机共同认证 . 
 
-这里我们创建Homestead专用的密钥对 : 
+这里我们创建Homestead专用的密钥对 :
 
 ```
 ssh-keygen -t rsa -C "headplan@163.com"
@@ -132,7 +132,7 @@ Host 192.168.10.10
     IdentityFile ~/.ssh/homestead
 ```
 
-修改一下配置文件\(这里把公钥也同步上去\) : 
+修改一下配置文件\(这里把公钥也同步上去\) :
 
 ```
 authorize: ~/.ssh/homestead.pub
@@ -144,10 +144,10 @@ keys:
 
 **共享文件夹配置**
 
-**`folders`**指明了本机要映射到 Homestead 虚拟机上的文件夹 . 
+`folders`指明了本机要映射到 Homestead 虚拟机上的文件夹 .
 
-* **`map`**对应的是我们本机的文件夹
-* **`to`**对应的是 Homestead 上的文件夹
+* `map`对应的是我们本机的文件夹
+* `to`对应的是 Homestead 上的文件夹
 
 **站点配置**
 
@@ -159,7 +159,7 @@ sites:
       to: /home/vagrant/Code/Laravel/public
 ```
 
-要访问虚拟机站点还要绑定hosts : 
+要访问虚拟机站点还要绑定hosts :
 
 ```
 192.168.10.10  homestead.app
@@ -167,7 +167,7 @@ sites:
 
 **数据库配置**
 
-这里只是指定数据库名称 : 
+这里只是指定数据库名称 :
 
 ```
 databases:
@@ -176,7 +176,7 @@ databases:
 
 **自定义变量**
 
-如果需要自定义一些在虚拟机上可以使用的自定义变量 , 则可以在`variables`中进行定义 : 
+如果需要自定义一些在虚拟机上可以使用的自定义变量 , 则可以在`variables`中进行定义 :
 
 ```
 variables:
@@ -195,21 +195,21 @@ variables:
 * vagrant provision - 重新应用更改 vagrant 配置
 * vagrant destroy  - 删除 vagrant
 
-或者使用Vagrant Manager . 
+或者使用Vagrant Manager .
 
-启动 Homestead : 
+启动 Homestead :
 
 ```
 cd ~/Homestead && vagrant up
 ```
 
-第一次启动时 , Vagrant 会做以下这几件事情 : 
+第一次启动时 , Vagrant 会做以下这几件事情 :
 
 * 以导入的 Homestead 虚拟机盒子为模板 , 新建一台虚拟机
 * 并按照 `Homestead.yaml`里的配置信息 , 对这台新建的虚拟机进行配置
 * 配置完成后启动虚拟机
 
-和操作Vagrant一样 , 进入Homestead目录 , SSH登录 : 
+和操作Vagrant一样 , 进入Homestead目录 , SSH登录 :
 
 ```
 vagrant ssh
@@ -217,5 +217,23 @@ exit - 退出
 vagrant halt - 关闭虚拟机
 ```
 
+#### Hello Laravel ! 
 
+进入虚拟机
+
+```
+> cd ~/Homestead && vagrant up
+> vagrant ssh
+```
+
+新建一个名为 Laravel 的项目
+
+```
+cd ~/Code
+composer create-project laravel/laravel Laravel --prefer-dist "5.5.*"
+```
+
+访问http://homestead.app/
+
+安装完成
 
