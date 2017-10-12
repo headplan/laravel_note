@@ -162,4 +162,5 @@
   * [AuthPlan](authplan.md)
   * [Laravel\_Basic](laravelbasic.md)
 * [部署上线](bu-shu-shang-xian.md)
+  * [Heroku](bu-shu-shang-xian/heroku.md)
 
