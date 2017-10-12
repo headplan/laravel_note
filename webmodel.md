@@ -42,10 +42,12 @@ git log
 
 #### **Github配置**
 
-Homestead在初始化时 , 通过 Homestaed.yaml 文件中的 `keys`选项 , 我们已经把专门的Homestead的 SSH Key 私钥复制到虚拟机中 , 这里需要将 SSH Key 添加到 ssh-agent 中 : 
+Homestead在初始化时 , 通过 Homestaed.yaml 文件中的 `keys`选项 , 我们已经把专门的Homestead的 SSH Key 私钥复制到虚拟机中 , 这里需要将 SSH Key 添加到 ssh-agent 中 :
 
     $ eval `ssh-agent -s`
     $ ssh-add ~/.ssh/homestead
 
-然后将公钥添加到 GitHub 账号即可 . 
+然后将公钥添加到 GitHub 账号即可 , https://github.com/settings/keys . 
+
+
 
