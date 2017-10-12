@@ -52,5 +52,17 @@ Homestead 包含了两个东西：
 
 #### Homestead 安装和使用
 
+**下载和导入 Homestead Box**
+
+这里准备了适用于国内的Box , 包括Composer,NPM和Yarn的国内加速镜像 . 
+
+```
+vagrant box add metadata.json
+```
+
+> 更多关于vagrant的命令 , 可以到Linux\_note中的专题查看 . 
+>
+> 这里metadata.json只是一个配置文件
+
 
 
