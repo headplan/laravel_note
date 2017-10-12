@@ -47,7 +47,14 @@ Homestead在初始化时 , 通过 Homestaed.yaml 文件中的 `keys`选项 , 我
     $ eval `ssh-agent -s`
     $ ssh-add ~/.ssh/homestead
 
-然后将公钥添加到 GitHub 账号即可 , https://github.com/settings/keys . 
+然后将公钥添加到 GitHub 账号即可 , [https://github.com/settings/keys](https://github.com/settings/keys) .
+
+创建一个仓库 , 提交试试 : 
+
+```
+$ git remote add origin git@github.com:your_username/your_laravel.git
+$ git push -u origin master
+```
 
 
 
