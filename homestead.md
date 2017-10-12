@@ -67,5 +67,35 @@ laravel/homestead (virtualbox, 3.0.0)
 >
 > 这里metadata.json只是一个配置文件
 
-box导入完成 . 
+box导入完成 .
+
+#### 下载 Homestead 管理脚本
+
+官方下载地址 : https://github.com/laravel/homestead
+
+检出放到`~/Homestead`目录下 . 
+
+```
+cd ~
+git clone https://github.com/laravel/homestead.git Homestead
+cd ~/Homestead
+git checkout v5.4.0
+```
+
+这里 , 我们使用v5.4.0版本 . 然后 , 初始化 Homestead : 
+
+```
+bash init.sh
+```
+
+初始化后 , 会在 `~/Homestead`目录下生成以下三个文件 : 
+
+* Homestead.yaml - 主要配置信息文件 , 我们可以在此文件中配置 Homestead 的站点和数据库等信息 ; 
+* after.sh - 每一次 Homestead 盒子重置后\(provision\)会调用的 shell 脚本文件 ; 
+* aliases - 每一次 Homestead 盒子重置后\(provision\), 会被替换至虚拟机的`~/.bash_aliases`
+  文件中 , `aliases`里可以放一些快捷命令的定义 . 
+
+#### Homestead.yaml 配置文件
+
+
 
