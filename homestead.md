@@ -1,21 +1,16 @@
 # **Homestead**
 
-**安装的软件**
+> 作为官方推荐的本地开发环境 , 这里再次统一整理一次 . 前期和LaraDock一样 , 坑很多所以放弃 , 经历过这么多更新后 , 希望一切顺利 . 
+>
+> 使用Homestead的好处不再冗述 , 直接上流程\(MacOS\) .
 
-* Ubuntu 14.04
-* Git
-* PHP 5.6 \/ 7.0
-* Xdebug
-* HHVM
-* Nginx
-* MySQL
-* Sqlite3
-* Postgres
-* Composer
-* Node \(With PM2, Bower, Grunt, and Gulp\)
-* Redis
-* Memcached \(PHP 5.x Only\)
-* Beanstalkd
-* [Laravel Envoy](http://www.golaravel.com/laravel/docs/5.1/envoy)
-* [Blackfire Profiler](http://www.golaravel.com/laravel/docs/5.1/homestead/#blackfire-profiler)
+#### 安装 VirtualBox
+
+**下载地址**
+
+https://www.virtualbox.org/wiki/Downloads
+
+当前版本 : 5.1.28
+
+
 
