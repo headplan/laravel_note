@@ -44,9 +44,13 @@ Homestead 包含了两个东西：
 
 **Homestead Box 虚拟机盒子**
 
-`homestead.box`虚拟机盒子是提前打包好的 Vagrant Box 虚拟机盒子 , 里面预装了 Nginx Web 服务器、PHP等Laravel开发时所需要用到的各种软件 . 
+`homestead.box`虚拟机盒子是提前打包好的 Vagrant Box 虚拟机盒子 , 里面预装了 Nginx Web 服务器、PHP等Laravel开发时所需要用到的各种软件 .
 
-虚拟机盒子的历史版本 : 
+虚拟机盒子的历史版本 :
 
-https://atlas.hashicorp.com/laravel/boxes/homestead/
+[https://atlas.hashicorp.com/laravel/boxes/homestead/](https://atlas.hashicorp.com/laravel/boxes/homestead/)
+
+#### Homestead 安装和使用
+
+
 
