@@ -22,7 +22,7 @@
 
 #### Homestead 介绍
 
-Homestead 利用 Vagrantfile 提供的便利，定制了一整套的可配置、可移植和复用的 Laravel 开发环境 . 
+Homestead 利用 Vagrantfile 提供的便利，定制了一整套的可配置、可移植和复用的 Laravel 开发环境 .
 
 Homestead 包含了两个东西：
 
@@ -38,9 +38,15 @@ Homestead 包含了两个东西：
 * 数据库创建；
 * 主机文件夹挂载到虚拟机等任务。
 
-版本历史在这里 : 
+历史版本在这里 :
 
-https://github.com/laravel/homestead/releases
+[https://github.com/laravel/homestead/releases](https://github.com/laravel/homestead/releases)
 
+**Homestead Box 虚拟机盒子**
 
+`homestead.box`虚拟机盒子是提前打包好的 Vagrant Box 虚拟机盒子 , 里面预装了 Nginx Web 服务器、PHP等Laravel开发时所需要用到的各种软件 . 
+
+虚拟机盒子的历史版本 : 
+
+https://atlas.hashicorp.com/laravel/boxes/homestead/
 
