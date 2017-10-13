@@ -17,6 +17,8 @@ yum install ansible # RHEL/CentOS/Fedora
 apt-get install ansible # Debian/Ubuntu
 emerge -avt ansible  # Gentoo/Funtoo
 pip install ansible # will also install paramiko PyYAML jinja2
+# 可以使用阿里云源
+pip3 install ansible -i https://mirrors.aliyun.com/pypi/simple/
 ```
 
 2、宿主机无需其他配置，兼容 ~/.ssh/config 名称、证书配置
@@ -27,5 +29,5 @@ pip install ansible # will also install paramiko PyYAML jinja2
 > 2. \(可选\) config/params.php 配置 ansible\_hosts 文件存放路径
 > 3. 按正常流程发布、上线代码，传输文件、远程执行命令均会通过ansible并发执行
 
-
+#### 安装
 
