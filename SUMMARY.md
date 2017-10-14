@@ -137,6 +137,7 @@
       * [Change](lartisan/basic-view/changes-1.md)
     * [Basic Auth](lartisan/basic-auth.md)
   * [WebModel](webmodel.md)
+    * [构建页面](webmodel/gou-jian-ye-mian.md)
   * [Blog](blog.md)
     * [目录结构](目录结构.md)
     * [composer.json](composerjson.md)
@@ -166,4 +167,5 @@
   * Deployer
   * Travis
   * [walle](bu-shu-shang-xian/walle.md)
+    * [Git项目配置](bu-shu-shang-xian/walle/gitxiang-mu-pei-zhi.md)
 
