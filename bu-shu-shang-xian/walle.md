@@ -31,3 +31,60 @@ pip3 install ansible -i https://mirrors.aliyun.com/pypi/simple/
 
 #### 安装
 
+```
+git clone git@github.com:meolu/walle-web.git
+```
+
+设置MySQL数据库连接
+
+```
+vi config/local.php
+'db' => [
+    'dsn'       => 'mysql:host=127.0.0.1;dbname=walle', # 新建数据库walle
+    'username'  => 'username',                          # 连接的用户名
+    'password'  => 'password',                          # 连接的密码
+],
+```
+
+composer 安装依赖
+
+```
+composer install --prefer-dist --no-dev --optimize-autoloader -vvvv
+安装速度慢或失败,可直接下载官网提供的vendor解压到项目根目录
+```
+
+执行初始化命令
+
+```
+# 别忘记创建数据库
+./yii walle/setup
+```
+
+然后nginx简单配置一下即可
+
+```
+server {
+    listen       80;
+    server_name  walle.compony.com; # 改你的host
+    root /the/dir/of/walle-web/web; # 根目录为web
+    index index.php;
+
+    # 建议放内网
+    # allow 192.168.0.0/24;
+    # deny all;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri = 404;
+        fastcgi_pass   127.0.0.1:9000;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}
+```
+
+
+
