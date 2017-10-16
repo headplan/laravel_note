@@ -32,6 +32,14 @@ su {user} && cat ~/.ssh/id_rsa.pub
 
 目标机器部署出错 , 请确认php进程{local\_user}用户ssh-key加入目标机器的{remote\_user}用户ssh-key信任列表 , 且{remote\_user}有目标机器发布版本库{path}写入权限 .
 
+```
+# ssh的一些条件
+# 免密码登录需要远程机器权限满足以下三个条件：
+   /home/{remote_user} 755
+   ~/.ssh 700
+   ~/.ssh/authorized_keys 644 或 600
+```
+
 解决方案同上 , 其中可能遇到目标机器切换时`This account is currently not available`的情况 :
 
 ```
@@ -47,5 +55,5 @@ su --shell=/bin/bash www
 
 #### 配置项目
 
-![](/assets/walle.png)配置完成后检测通过 , 如无问题则可以发起上线单了 . 
+![](/assets/walle.png)配置完成后检测通过 , 如无问题则可以发起上线单了 .
 
