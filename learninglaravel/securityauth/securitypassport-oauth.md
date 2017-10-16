@@ -112,5 +112,58 @@ class AuthServiceProvider extends ServiceProvider
 
 **配置完成 . **
 
+---
+
+使用seed来预设填充数据 , 先创建一个Seeder
+
+```
+php artisan make:seeder UsersTableSeeder
+```
+
+在run方法中添加数据
+
+```
+DB::table('users')->insert([
+'name'=>'admin',
+'email'=>'godcheese@gioov.com',
+'password'=>bcrypt('admin')
+]);
+```
+
+跑数据
+
+```
+php artisan db:seed --class=UsersTableSeeder
+```
+
+---
+
+#### 使用Vue组件
+
+先安装组件 , 其实是移动
+
+```
+php artisan vendor:publish --tag=passport-components
+```
+
+已发布的组件将被放置在`resources/assets/js/components`目录中 , 可以在`resources/assets/js/app.js`文件中注册这些已发布的组件 : 
+
+```js
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue')
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue')
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue')
+);
+```
+
 
 
