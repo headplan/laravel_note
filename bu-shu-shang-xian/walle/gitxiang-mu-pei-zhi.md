@@ -1,4 +1,34 @@
 # Git项目配置
 
+**基本要求**
 
+宿主机php进程用户walle的ssh-key , 要加入git/gitlab的deploy-keys中 . 
+
+宿主机php进程用户walle的ssh-key , 要加入目标机群部署用户www的ssh-key信任 . 
+
+> 可通过配置的检测查看或ps aux \| grep php
+
+**可遇见的错误**
+
+宿主机代码检出检测出错 , 请确认php进程用户{user}有代码存储仓库{path}读写权限，且把ssh-key加入git的deploy-keys列表 . 
+
+* 问题：**请确认php进程用户{user}有代码存储仓库{path}读写权限**
+
+```
+没有权限，是因为用户{user}对目录{path}没有读写权限，给权限即可
+ll {path}
+chown {user} -R {path}
+chmod 755 -R {path}
+```
+
+* 问题：**把ssh-key加入git的deploy-keys列表**
+
+```
+su {user} && cat ~/.ssh/id_rsa.pub
+打开 github/gitlab/bitbucket 网站, 添加 ssh-key 到ssh-keys列表
+```
+
+如果还会报错 , 可能需要手工git clone一次 : 
+
+![](/assets/import111111.png)
 
