@@ -8,13 +8,13 @@ Laravel 项目中可以使用 Passport 轻而易举地实现 API 授权过程 , 
 composer require laravel/passport
 ```
 
-将 Passport 的服务提供者注册到配置文件`config/app.php`的`providers`数组中 : 
+将 Passport 的服务提供者注册到配置文件`config/app.php`的`providers`数组中 :
 
 ```
 Laravel\Passport\PassportServiceProvider::class,
 ```
 
-前面的内容完成后 , 运行迁移命令 , 会自动创建应用程序需要的客户端数据表和令牌数据表 : 
+前面的内容完成后 , 运行迁移命令 , 会自动创建应用程序需要的客户端数据表和令牌数据表 :
 
 ```
 php artisan migrate
@@ -34,6 +34,65 @@ php artisan migrate
 >     Passport::ignoreMigrations();
 > }
 > ```
+
+接下来，你需要运行`passport:install`命令来创建生成安全访问令牌时用到的加密密钥，同时，这条命令也会创建「私人访问」客户端和「密码授权」客户端 : 
+
+```
+php artisan passport:install
+```
+
+然后 , 请将`Laravel\Passport\HasApiTokens`Trait 添加到`App\User`模型中，这个 Trait 会给你的模型提供一些辅助函数，用于检查已认证用户的令牌和使用作用域 : 
+
+```php
+<?php
+
+namespace App;
+
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use HasApiTokens, Notifiable;
+}
+```
+
+接下来 , 需要在`AuthServiceProvider`的`boot`方法中调用`Passport::routes`函数 , 这个函数会注册一些在访问令牌、客户端、私人访问令牌的发放和吊销过程中会用到的必要路由 : 
+
+```php
+<?php
+
+namespace App\Providers;
+
+use Laravel\Passport\Passport;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [
+        'App\Model' => 'App\Policies\ModelPolicy',
+    ];
+
+    /**
+     * Register any authentication / authorization services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->registerPolicies();
+
+        Passport::routes();
+    }
+}
+```
 
 
 
