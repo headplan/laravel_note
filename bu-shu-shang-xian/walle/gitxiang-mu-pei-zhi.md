@@ -1,6 +1,6 @@
 # Git项目配置
 
-**基本要求**
+#### **基本要求**
 
 宿主机php进程用户walle的ssh-key , 要加入git/gitlab的deploy-keys中 .
 
@@ -30,18 +30,22 @@ su {user} && cat ~/.ssh/id_rsa.pub
 
 如果还会报错 , 可能需要手工git clone一次 :![](/assets/import111111.png)
 
-目标机器部署出错 , 请确认php进程{local\_user}用户ssh-key加入目标机器的{remote\_user}用户ssh-key信任列表 , 且{remote\_user}有目标机器发布版本库{path}写入权限 . 
+目标机器部署出错 , 请确认php进程{local\_user}用户ssh-key加入目标机器的{remote\_user}用户ssh-key信任列表 , 且{remote\_user}有目标机器发布版本库{path}写入权限 .
 
-解决方案同上 , 其中可能遇到目标机器切换时`This account is currently not available`的情况 : 
+解决方案同上 , 其中可能遇到目标机器切换时`This account is currently not available`的情况 :
 
 ```
 cat /etc/passwd | grep www
 www:x:501:501::/home/www:/sbin/nologin
 修改为
 www:x:501:501::/home/www:/bin/bash
-或者使用参数
+或者使用参数(经过测试,必须像上面那样修改才有效)
 su --shell=/bin/bash www
 ```
 
-如果没有家目录 , 新建并给权限即可 . 
+如果没有家目录 , 新建并给权限即可 .
+
+#### 配置项目
+
+
 
