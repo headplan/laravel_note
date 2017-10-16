@@ -1,6 +1,6 @@
 # 部署上线
 
-Laravel的部署 , 参考官方的文档即可 . 
+Laravel的部署 , 参考官方的文档即可 .
 
 #### 服务器要求
 
@@ -17,7 +17,7 @@ Laravel框架对PHP版本和扩展有一定要求，不过这些要求 Homestead
 
 满足以上需求之后，就可以开始安装Laravel 了。
 
-项目初始化在Homstead中生成很方便 : 
+项目初始化在Homstead中生成很方便 :
 
 ```
 composer create-project --prefer-dist laravel/laravel blog 5.4.*
@@ -25,7 +25,7 @@ composer create-project --prefer-dist laravel/laravel blog 5.4.*
 
 #### 配置Laravel
 
-web服务器指向public目录 . 
+web服务器指向public目录 .
 
 可以在config中配置
 
@@ -37,6 +37,13 @@ web服务器指向public目录 .
 chown -R www.www /data/wwwroot/
 find /data/wwwroot/ -type d -exec chmod 755 {} \;
 find /data/wwwroot/ -type f -exec chmod 644 {} \;
+```
+
+**应用key配置**
+
+```
+# 记得要有.env文件
+php artisan key:generate
 ```
 
 
