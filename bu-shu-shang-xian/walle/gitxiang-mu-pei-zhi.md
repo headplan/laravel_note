@@ -47,5 +47,5 @@ su --shell=/bin/bash www
 
 #### 配置项目
 
-![](/assets/walle.png)
+![](/assets/walle.png)配置完成后检测通过 , 如无问题则可以发起上线单了 . 
 
