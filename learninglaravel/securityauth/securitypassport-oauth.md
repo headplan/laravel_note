@@ -35,13 +35,13 @@ php artisan migrate
 > }
 > ```
 
-接下来，你需要运行`passport:install`命令来创建生成安全访问令牌时用到的加密密钥，同时，这条命令也会创建「私人访问」客户端和「密码授权」客户端 : 
+接下来，你需要运行`passport:install`命令来创建生成安全访问令牌时用到的加密密钥，同时，这条命令也会创建「私人访问」客户端和「密码授权」客户端 :
 
 ```
 php artisan passport:install
 ```
 
-然后 , 请将`Laravel\Passport\HasApiTokens`Trait 添加到`App\User`模型中，这个 Trait 会给你的模型提供一些辅助函数，用于检查已认证用户的令牌和使用作用域 : 
+然后 , 请将`Laravel\Passport\HasApiTokens`Trait 添加到`App\User`模型中，这个 Trait 会给你的模型提供一些辅助函数，用于检查已认证用户的令牌和使用作用域 :
 
 ```php
 <?php
@@ -58,7 +58,7 @@ class User extends Authenticatable
 }
 ```
 
-接下来 , 需要在`AuthServiceProvider`的`boot`方法中调用`Passport::routes`函数 , 这个函数会注册一些在访问令牌、客户端、私人访问令牌的发放和吊销过程中会用到的必要路由 : 
+接下来 , 需要在`AuthServiceProvider`的`boot`方法中调用`Passport::routes`函数 , 这个函数会注册一些在访问令牌、客户端、私人访问令牌的发放和吊销过程中会用到的必要路由 :
 
 ```php
 <?php
@@ -92,6 +92,22 @@ class AuthServiceProvider extends ServiceProvider
         Passport::routes();
     }
 }
+```
+
+最后，需要将配置文件`config/auth.php`中`api`部分的授权保护项（`driver`）改为`passport`。此调整会让你的应用程序在接收到 API 的授权请求时使用 Passport 的`TokenGuard`来处理 : 
+
+```
+'guards' => [
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'users',
+    ],
+
+    'api' => [
+        'driver' => 'passport',
+        'provider' => 'users',
+    ],
+],
 ```
 
 
