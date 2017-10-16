@@ -47,5 +47,5 @@ su --shell=/bin/bash www
 
 #### 配置项目
 
-
+![](/assets/walle.png)
 
