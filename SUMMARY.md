@@ -168,4 +168,5 @@
   * Travis
   * [walle](bu-shu-shang-xian/walle.md)
     * [Git项目配置](bu-shu-shang-xian/walle/gitxiang-mu-pei-zhi.md)
+    * [高级任务配置](bu-shu-shang-xian/walle/gao-ji-ren-wu-pei-zhi.md)
 
