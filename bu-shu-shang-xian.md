@@ -25,6 +25,17 @@ composer create-project --prefer-dist laravel/laravel blog 5.4.*
 
 #### 配置Laravel
 
+目标服务器中安装依赖
+
+```
+curl -sS https://getcomposer.org/installer | php # 如果失败换成
+php -r "readfile('https://getcomposer.org/installer');" | php
+# 执行安装命令即可
+php composer.phar install
+# 或许还需要修改php.ini配置
+disable_functions中被禁用的函数
+```
+
 web服务器指向public目录 .
 
 可以在config中配置
@@ -49,6 +60,4 @@ php artisan key:generate
 **更多配置**
 
 可以查看config中的配置文件 , 例如app.php中的`timezone`和`locale`
-
-
 
