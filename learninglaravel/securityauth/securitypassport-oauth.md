@@ -146,7 +146,7 @@ php artisan db:seed --class=UsersTableSeeder
 php artisan vendor:publish --tag=passport-components
 ```
 
-已发布的组件将被放置在`resources/assets/js/components`目录中 , 可以在`resources/assets/js/app.js`文件中注册这些已发布的组件 : 
+已发布的组件将被放置在`resources/assets/js/components`目录中 , 可以在`resources/assets/js/app.js`文件中注册这些已发布的组件 :
 
 ```js
 Vue.component(
@@ -163,6 +163,14 @@ Vue.component(
     'passport-personal-access-tokens',
     require('./components/passport/PersonalAccessTokens.vue')
 );
+```
+
+然后 , 就可以直接将这些组件直接放入应用程序的模板中，用于创建客户端和私人访问令牌 : 
+
+```
+<passport-clients></passport-clients>
+<passport-authorized-clients></passport-authorized-clients>
+<passport-personal-access-tokens></passport-personal-access-tokens>
 ```
 
 
