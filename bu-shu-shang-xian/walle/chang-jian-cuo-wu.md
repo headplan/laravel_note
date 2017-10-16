@@ -12,5 +12,7 @@
 
 解决办法：直接删除目标机群webroot目录:`rm -rf /d/e/f`，确定其父目录有读写的权限即可，由瓦力系统生成webroot软链接。
 
+#### 更多帮助查看
 
+http://www.walle-web.io/docs/troubleshooting.html
 
