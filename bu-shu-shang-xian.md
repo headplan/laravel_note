@@ -46,5 +46,9 @@ find /data/wwwroot/ -type f -exec chmod 644 {} \;
 php artisan key:generate
 ```
 
+**更多配置**
+
+可以查看config中的配置文件 , 例如app.php中的`timezone`和`locale`
+
 
 
