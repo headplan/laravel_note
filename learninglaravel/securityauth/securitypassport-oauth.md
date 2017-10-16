@@ -94,7 +94,7 @@ class AuthServiceProvider extends ServiceProvider
 }
 ```
 
-最后，需要将配置文件`config/auth.php`中`api`部分的授权保护项（`driver`）改为`passport`。此调整会让你的应用程序在接收到 API 的授权请求时使用 Passport 的`TokenGuard`来处理 : 
+最后，需要将配置文件`config/auth.php`中`api`部分的授权保护项（`driver`）改为`passport`。此调整会让你的应用程序在接收到 API 的授权请求时使用 Passport 的`TokenGuard`来处理 :
 
 ```
 'guards' => [
@@ -109,6 +109,8 @@ class AuthServiceProvider extends ServiceProvider
     ],
 ],
 ```
+
+**配置完成 . **
 
 
 
