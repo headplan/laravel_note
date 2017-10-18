@@ -137,6 +137,8 @@
       * [Change](lartisan/basic-view/changes-1.md)
     * [Basic Auth](lartisan/basic-auth.md)
   * [Lartisan API](lartisan-api.md)
+    * [API文档及开发规范](lartisan-api/apiwen-dang-ji-kai-fa-gui-fan.md)
+    * [实例开发](lartisan-api/shi-li-kai-fa.md)
   * [WebModel](webmodel.md)
     * [构建页面](webmodel/gou-jian-ye-mian.md)
   * [Blog](blog.md)
