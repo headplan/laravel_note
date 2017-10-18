@@ -13,7 +13,7 @@ composer create-project laravel/laravel ./Lartisan-API "5.4.*" --prefer-dist
 ```
 php artisan make:migration create_article_table --create=articles
 php artisan make:model Article
-php artisan make:controller ArticlesController
+php artisan make:controller ArticlesController --resource
 ```
 
 创建数据库
