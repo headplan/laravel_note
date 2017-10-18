@@ -175,5 +175,36 @@ Vue.component(
 
 > 这里使用Vue的部分内容 , 还记得么 , npm run dev , 标签内容都放到&lt;div id="app"&gt;&lt;/div&gt;标签中 .
 
+---
+
+#### 配置
+
+**令牌的有效期**
+
+> 这里的两个有效期就是OAuth2中 , 我们提到的`token`和`refresh_token`
+
+默认情况下，Passport 发放的访问令牌是永久有效的，不需要刷新。但是如果你想给访问令牌配置一个短一些的有效期，那你就需要用到`tokensExpireIn`和`refreshTokensExpireIn`方法了，上述两个方法同样需要在`AuthServiceProvider`的`boot`方法中调用 : 
+
+```php
+# 记住要加载Carbon类
+use Carbon\Carbon;
+
+/**
+ * Register any authentication / authorization services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this->registerPolicies();
+
+    Passport::routes();
+
+    Passport::tokensExpireIn(Carbon::now()->addDays(15));
+
+    Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
+}
+```
+
 
 
