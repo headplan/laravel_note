@@ -71,3 +71,50 @@ Route::group(['prefix'=>'/v1'], function () {
 
 查看路由 : `php artisan route:list`
 
+---
+
+**操作数据**
+
+```php
+# 控制器简单查数据
+# 添加状态吗
+public function index()
+{
+    $articles = Article::all();
+    return response()->json([
+        'status'      => 'success',
+        'status_code' => '200',
+        'data'        => $this->transformAll($articles)
+    ]);
+}
+
+public function show($id)
+{
+    $article = Article::findOrFail($id);
+    return response()->json([
+        'status'      => 'success',
+        'status_code' => '200',
+        'data'        => $this->transform($article)
+    ]);
+}
+# 隐藏表结构,简单添加两个转换器
+private function transform($article)
+{
+    return [
+        'title'   => $article['title'],
+        'content' => $article['content'],
+        'status'  => (boolean) $article['status']
+    ];
+}
+
+private function transformAll($articles)
+{
+    return array_map([$this, 'transform'], $articles->toArray());
+}
+
+# 模型简单隐藏数据
+protected $hidden = ['updated_at'];
+```
+
+
+
