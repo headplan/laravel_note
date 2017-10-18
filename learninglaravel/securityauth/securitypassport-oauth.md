@@ -165,13 +165,15 @@ Vue.component(
 );
 ```
 
-然后 , 就可以直接将这些组件直接放入应用程序的模板中，用于创建客户端和私人访问令牌 : 
+然后 , 就可以直接将这些组件直接放入应用程序的模板中，用于创建客户端和私人访问令牌 :
 
 ```
 <passport-clients></passport-clients>
 <passport-authorized-clients></passport-authorized-clients>
 <passport-personal-access-tokens></passport-personal-access-tokens>
 ```
+
+> 这里使用Vue的部分内容 , 还记得么 , npm run dev , 标签内容都放到&lt;div id="app"&gt;&lt;/div&gt;标签中 .
 
 
 
