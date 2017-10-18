@@ -64,7 +64,7 @@ php artisan tinker
 **配置路由**
 
 ```
-Route::group(['prefix'=>'/v1', 'middleware'=>'auth:api'], function () {
+Route::group(['prefix'=>'/v1'], function () {
     Route::resource('articles', 'ArticlesController');
 });
 ```
