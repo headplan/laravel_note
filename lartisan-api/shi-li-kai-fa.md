@@ -61,5 +61,13 @@ php artisan tinker
 >>> factory(Article::class, 100)->create();
 ```
 
+**配置路由**
 
+```
+Route::group(['prefix'=>'/v1', 'middleware'=>'auth:api'], function () {
+    Route::resource('articles', 'ArticlesController');
+});
+```
+
+查看路由 : `php artisan route:list`
 
