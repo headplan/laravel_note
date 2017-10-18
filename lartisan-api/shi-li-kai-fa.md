@@ -16,5 +16,27 @@ php artisan make:model Article
 php artisan make:controller ArticlesController
 ```
 
+创建数据库
+
+**配置migration文件**
+
+简单设置几个字段
+
+```php
+public function up()
+{
+    Schema::create('articles', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('title');
+        $table->string('subtitle');
+        $table->text('content');
+        $table->boolean('status');
+        $table->timestamps();
+    });
+}
+```
+
+生成数据表 : `php artisan migrate`
+
 
 
