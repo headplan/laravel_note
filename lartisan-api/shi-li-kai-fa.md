@@ -38,5 +38,28 @@ public function up()
 
 生成数据表 : `php artisan migrate`
 
+**生成测试数据**
+
+编辑ModelFactory.php文件
+
+```php
+$factory->define(App\Article::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->title,
+        'subtitle' => $faker->sentence,
+        'content' => $faker->paragraph,
+        'status' => $faker->boolean,
+    ];
+});
+```
+
+进入tinker交互界面 , 生成测试数据
+
+```
+php artisan tinker
+>>> namespace App;
+>>> factory(Article::class, 100)->create();
+```
+
 
 
