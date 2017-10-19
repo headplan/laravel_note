@@ -125,9 +125,6 @@
   * [Composer完整使用流程](框架展开及延伸/Composer完整使用流程.md)
   * [Laravel的Auth重写](laravelde-auth-zhong-xie.md)
   * [利用macro方法来扩展Laravel基础类](框架解析/li-yong-macro-fang-fa-lai-kuo-zhan-laravel-ji-chu-lei.md)
-* [补充扩展](bu-chong-ji-kuo-zhan.md)
-  * [Team笔记\(really\)](laravel_sharing.md)
-  * [OAuth整理](oauthzheng-li.md)
 * [实验开发](项目开发.md)
   * [Lartisan](lartisan.md)
     * [Project Plan](lartisan/jian-dan-gui-hua.md)
@@ -176,4 +173,7 @@
     * [项目配置与上线](bu-shu-shang-xian/walle/xiang-mu-pei-zhi-yu-shang-xian.md)
     * [自定义配置](bu-shu-shang-xian/walle/zi-ding-yi-pei-zhi.md)
     * [常见错误](bu-shu-shang-xian/walle/chang-jian-cuo-wu.md)
+* [补充扩展](bu-chong-ji-kuo-zhan.md)
+  * [Team笔记\(really\)](laravel_sharing.md)
+  * [OAuth整理](oauthzheng-li.md)
 
