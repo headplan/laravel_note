@@ -49,7 +49,7 @@ HTTP Basic Auth : HTTP基本认证
 
 Laravel中对其的配置在config/auth.php中可以看到 . 里面用到了user表 . 我们先添加一条用户数据 :
 
-```
+```php
 php artisan tinker
 >>> $data = [
 ... "name" => "admin",
@@ -62,6 +62,12 @@ php artisan tinker
 ... 'email' => $data['email'],
 ... 'password' => bcrypt($data['password']),
 ... ]);
+```
+
+控制器添加middleware对方法进行过滤
+
+```php
+$this->middleware('auth.basic',['only'=>['store','update']]);
 ```
 
 
