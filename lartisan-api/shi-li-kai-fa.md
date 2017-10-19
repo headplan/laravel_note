@@ -240,8 +240,7 @@ class ApiController extends Controller
         return response()->json($data, $this->getStatusCode());
     }
 }
-
 ```
 
-
+重新调用一下ApiController中的方法,在我们的ArticlesController中 . 
 
