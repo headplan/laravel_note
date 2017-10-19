@@ -185,9 +185,61 @@ if ( ! $article) {
 
 重构API的错误提示 , 让其更容易管理
 
-```
+```php
 # 新建一个控制器
 php artisan make:controller ApiController
+# 在ApiController中统一管理响应内容,状态,错误等
+<?php
+
+namespace App\Http\Controllers;
+
+class ApiController extends Controller
+{
+    protected $statusCode = 200;
+
+    /**
+     * @return int
+     */
+    public function getStatusCode(): int
+    {
+        return $this->statusCode;
+    }
+
+    /**
+     * @param int $statusCode
+     * @return $this
+     */
+    public function setStatusCode(int $statusCode)
+    {
+        $this->statusCode = $statusCode;
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function responseNotFound($message = 'Not Found')
+    {
+        return $this->setStatusCode(404)->responseError($message);
+    }
+
+    private function responseError($message)
+    {
+        return $this->response([
+            'status'      => 'failed',
+            'error'       => [
+                'status_code' => $this->getStatusCode(),
+                'message'     => $message
+            ]
+        ]);
+    }
+
+    protected function response($data)
+    {
+        return response()->json($data, $this->getStatusCode());
+    }
+}
 
 ```
 
