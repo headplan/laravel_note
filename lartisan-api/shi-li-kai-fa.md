@@ -118,8 +118,43 @@ protected $hidden = ['updated_at'];
 
 **重构转换器**
 
-```
+```php
+# 新建转换器的抽象类
+# Transformers
+<?php
 
+namespace App\Transformers;
+
+abstract class Transformers
+{
+    public function transformAll($items)
+    {
+        return array_map([$this, 'transform'], $items);
+    }
+    public abstract function transform($item);
+}
+
+# 之后针对不同需求,或者说不同的表进行不同的转换就可以新建一个Transformer
+# 然后依赖注入到控制器中
+<?php
+
+namespace App\Transformers;
+
+class ArticlesTransformer extends Transformers
+{
+    /**
+     * @param $article
+     * @return array
+     */
+    public function transform($article)
+    {
+        return [
+            'title'   => $article['title'],
+            'content' => $article['content'],
+            'status'  => (boolean) $article['status']
+        ];
+    }
+}
 ```
 
 
