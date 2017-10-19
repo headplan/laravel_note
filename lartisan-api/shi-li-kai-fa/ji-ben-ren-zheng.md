@@ -70,23 +70,11 @@ php artisan tinker
 $this->middleware('auth.basic',['only'=>['store','update']]);
 ```
 
-简单的在store方法中进行验证 , 也就是post添加数据
+简单的在store方法中进行验证 , 也就是post添加数据 . 
 
-```php
-public function store(Request $request)
-{
-    if ( ! $request->get('title') or ! $request->get('content')) {
-        return $this->setStatusCode(422)->responseError('validata faile');
-    }
+Laravel自带的token api认证 , 可以查看TokenGuard类 , 这里不再记录 . 
 
-    Article::create($request->all());
 
-    return $this->setStatusCode(201)->response([
-        'status'  => 'success',
-        'message' => 'Article Created'
-    ]);
-}
-```
 
 
 
