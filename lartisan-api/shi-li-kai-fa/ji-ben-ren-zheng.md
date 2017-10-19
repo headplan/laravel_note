@@ -70,11 +70,9 @@ php artisan tinker
 $this->middleware('auth.basic',['only'=>['store','update']]);
 ```
 
-简单的在store方法中进行验证 , 也就是post添加数据 . 
+简单的在store方法中进行验证 , 也就是post添加数据 .
 
-Laravel自带的token api认证 , 可以查看TokenGuard类 , 这里不再记录 . 
+Laravel自带的token api认证 , 可以查看TokenGuard类 , 这里有一篇文章描述的很详细 . 
 
-
-
-
+https://segmentfault.com/a/1190000008784051
 
