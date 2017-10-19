@@ -186,6 +186,10 @@ if ( ! $article) {
 重构API的错误提示 , 让其更容易管理
 
 ```
+# 新建一个控制器
+php artisan make:controller ApiController
 
 ```
+
+
 
