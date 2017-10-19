@@ -116,5 +116,11 @@ private function transformAll($articles)
 protected $hidden = ['updated_at'];
 ```
 
+**重构转换器**
+
+```
+
+```
+
 
 
