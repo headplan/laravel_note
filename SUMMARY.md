@@ -138,6 +138,7 @@
     * [自定义基础规则](lartisan-api/shi-li-kai-fa.md)
       * [基本认证](lartisan-api/shi-li-kai-fa/ji-ben-ren-zheng.md)
       * [Token认证](lartisan-api/shi-li-kai-fa/tokenren-zheng.md)
+    * [Dingo API](lartisan-api/dingo-api.md)
   * [WebModel](webmodel.md)
     * [构建页面](webmodel/gou-jian-ye-mian.md)
   * [Blog](blog.md)
