@@ -135,7 +135,6 @@ abstract class Transformers
 }
 
 # 之后针对不同需求,或者说不同的表进行不同的转换就可以新建一个Transformer
-# 然后依赖注入到控制器中
 <?php
 
 namespace App\Transformers;
@@ -154,6 +153,18 @@ class ArticlesTransformer extends Transformers
             'status'  => (boolean) $article['status']
         ];
     }
+}
+
+# 然后依赖注入到控制器中,修改一下调用方式即可
+protected $articlesTransformer;
+
+/**
+ * ArticlesController constructor.
+ * @param $articlesTransformer
+ */
+public function __construct(ArticlesTransformer $articlesTransformer)
+{
+    $this->articlesTransformer = $articlesTransformer;
 }
 ```
 
