@@ -168,5 +168,24 @@ public function __construct(ArticlesTransformer $articlesTransformer)
 }
 ```
 
+---
 
+**错误与消息提示**
+
+```php
+# 请求找不到的数据时,需要错误的消息提示,简单判断即可
+if ( ! $article) {
+    return response()->json([
+        'status'      => 'failed',
+        'status_code' => '404',
+        'message'     => 'Atricle Not Found'
+    ]);
+}
+```
+
+重构API的错误提示 , 让其更容易管理
+
+```
+
+```
 
