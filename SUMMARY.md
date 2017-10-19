@@ -137,6 +137,7 @@
     * [API文档及开发规范](lartisan-api/apiwen-dang-ji-kai-fa-gui-fan.md)
     * [自定义基础规则](lartisan-api/shi-li-kai-fa.md)
       * [基本认证](lartisan-api/shi-li-kai-fa/ji-ben-ren-zheng.md)
+      * [Token认证](lartisan-api/shi-li-kai-fa/tokenren-zheng.md)
   * [WebModel](webmodel.md)
     * [构建页面](webmodel/gou-jian-ye-mian.md)
   * [Blog](blog.md)
