@@ -23,9 +23,14 @@ Dingo API会自动将响应格式化为JSON格式并设置`Content-Type`头为`a
 
 #### **响应构建器**
 
-响应构建器提供了平滑的接口以便我们轻松构建更多自定义的响应 . 响应构建器通常与转换器\(Transformer\)一起使用 . 这与我们前面自定义基础规则中创建的几个类的意思相同 . 
+响应构建器提供了平滑的接口以便我们轻松构建更多自定义的响应 . 响应构建器通常与转换器\(Transformer\)一起使用 . 这与我们前面自定义基础规则中创建的几个类的意思相同 .
 
-要使用响应构建器控制器需要使用`Dingo\Api\Routing\Helpers`trait , 为了让每个控制器都可以使用这个trait , 我们将其放置在API基类控制器`Controller`中 : 
+要使用响应构建器控制器需要使用`Dingo\Api\Routing\Helpers`trait , 为了让每个控制器都可以使用这个trait , 我们将其放置在API基类控制器`Controller`中 :
+
+```
+# 创建控制器
+php artisan make:controller ApiController 
+```
 
 ```
 use Dingo\Api\Routing\Helpers;
@@ -35,6 +40,20 @@ class ApiController extends Controller
 {
     use Helpers;
 }
+```
+
+现在可以定义一个继承自该控制器的控制器 , 在这些控制器中可以通过`$response`属性来访问响应构建器 . 
+
+```
+# 创建Articles控制器,这里我们将其创建到Api目录下
+php artisan make:controller Api/ArticlesController
+# 前面我们已经创建了,还有Article.php模型
+```
+
+编辑控制器 , 并测试Dingo API给出的响应 : 
+
+```
+
 ```
 
 
