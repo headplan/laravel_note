@@ -38,7 +38,7 @@ composer require dingo/api:1.0.x@dev
 ]
 ```
 
-或者使用命令行添加 :
+然后运行命令 , 会在config中生成api.php配置文件 : 
 
 ```php
 php artisan vendor:publish --provider="Dingo\Api\Provider\LaravelServiceProvider"
