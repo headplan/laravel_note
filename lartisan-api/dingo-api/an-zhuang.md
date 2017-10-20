@@ -180,7 +180,7 @@ $app['Dingo\Api\Exception\Handler']->setErrorFormat([
 
 ```
 'auth' => [
-        'jwt' => Dingo\Api\Auth\Provider\JWT::class,
+    'jwt' => Dingo\Api\Auth\Provider\JWT::class,
 ],
 ```
 
@@ -196,9 +196,9 @@ $app['Dingo\Api\Http\RateLimit\Handler']->extend(function ($app) {
 });
 ```
 
-**transformer\(响应转化器\)** : `Fractal`是默认的响应转化器。你可以在`.env`中配置 . 
+**transformer\(响应转化器\)** : `Fractal`是默认的响应转化器。你可以在`.env`中配置 .
 
-如果要实现更加复杂的配置还是需要在服务提供者或启动文件操作 : 
+如果要实现更加复杂的配置还是需要在服务提供者或启动文件操作 :
 
 ```php
 $app['Dingo\Api\Transformer\Factory']->setAdapter(function ($app) {
@@ -208,6 +208,12 @@ $app['Dingo\Api\Transformer\Factory']->setAdapter(function ($app) {
 
     return new Dingo\Api\Transformer\Adapter\Fractal($fractal);
 });
+```
+
+**defaultFormat\(默认响应格式\)和formats\(响应格式配置\)** : 默认的响应格式是JSON , 其调用的是formats中配置的key . 更加高级的格式配置需要发布配置文件或者在服务提供者及启动文件中操作 . 
+
+```
+Dingo\Api\Http\Response::addFormatter('json', new Dingo\Api\Http\Response\Format\Jsonp);
 ```
 
 
