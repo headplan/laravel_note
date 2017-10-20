@@ -61,6 +61,8 @@ php artisan vendor:publish --provider="Dingo\Api\Provider\LaravelServiceProvider
 Dingo\Api\Facade\API
 # 这是一个用于API路由的facade,可以用作获取当前路由,请求,检查当前路由名称等
 Dingo\Api\Facade\Route
+
+
 ```
 
 ### 配置文件
@@ -172,6 +174,28 @@ $app['Dingo\Api\Exception\Handler']->setErrorFormat([
         'debug' => ':debug'
     ] 
 ]);
+```
+
+**middleware\(中间件\)** : 配置全局性的API请求的中间件 . 
+
+**auth\(认证提供者\) : **默认的只有basic认证是开启的 . 这里可以配置其他的例如Laravel自带的Passport的认证 , 或者配置JWT认证 . 
+
+```
+'auth' => [
+        'jwt' => Dingo\Api\Auth\Provider\JWT::class,
+],
+```
+
+当然前提是安装了这个包 . 
+
+**throttling\(频率限制\)** : 默认频率限制是被禁用的 , 你可以注册自定义的带有频率限制的throttle或者使用已经存在的认证及取消认证throttle . 
+
+要进行更加复杂的配置同样需要在服务提供者或启动文件中操作 : 
+
+```php
+$app['Dingo\Api\Http\RateLimit\Handler']->extend(function ($app) {
+    return new Dingo\Api\Http\RateLimit\Throttle\Authenticated;
+});
 ```
 
 
