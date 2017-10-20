@@ -38,7 +38,7 @@ composer require dingo/api:1.0.x@dev
 ]
 ```
 
-然后运行命令 , 会在config中生成api.php配置文件 : 
+然后运行命令 , 会在config中生成api.php配置文件 :
 
 ```php
 php artisan vendor:publish --provider="Dingo\Api\Provider\LaravelServiceProvider"
@@ -61,6 +61,50 @@ php artisan vendor:publish --provider="Dingo\Api\Provider\LaravelServiceProvider
 Dingo\Api\Facade\API
 # 这是一个用于API路由的facade,可以用作获取当前路由,请求,检查当前路由名称等
 Dingo\Api\Facade\Route
+```
+
+### 配置文件
+
+> 其实大部分已经配置好了 , 也可以使用.env去配置 , Lumen可以在bootstrap/app.php文件中配置 , 也可以使用AppServiceProvider中的boot方法 . 当然 , Laravel还是使用命令生成api.php配置文件为好 .
+
+```php
+<?php
+
+return [
+
+    'standardsTree' => env('API_STANDARDS_TREE', 'x'),
+    'subtype' => env('API_SUBTYPE', ''),
+    'version' => env('API_VERSION', 'v1'),
+    'prefix' => env('API_PREFIX', null),
+    'domain' => env('API_DOMAIN', null),
+    'name' => env('API_NAME', null),
+    'conditionalRequest' => env('API_CONDITIONAL_REQUEST', true),
+    'strict' => env('API_STRICT', false),
+    'debug' => env('API_DEBUG', false),
+    'errorFormat' => [
+        'message' => ':message',
+        'errors' => ':errors',
+        'code' => ':code',
+        'status_code' => ':status_code',
+        'debug' => ':debug',
+    ],
+    'middleware' => [
+
+    ],
+    'auth' => [
+
+    ],
+    'throttling' => [
+
+    ],
+    'transformer' => env('API_TRANSFORMER', Dingo\Api\Transformer\Adapter\Fractal::class),
+    'defaultFormat' => env('API_DEFAULT_FORMAT', 'json'),
+    'formats' => [
+        'json' => Dingo\Api\Http\Response\Format\Json::class,
+    ],
+
+];
+
 ```
 
 
