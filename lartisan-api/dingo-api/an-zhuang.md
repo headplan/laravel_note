@@ -138,25 +138,34 @@ API_NAME=My API
 API_NAME="My API"
 ```
 
-**conditionalRequest\(条件请求\)** : 默认开启 , 它将利用客户端的缓存机制在可能的情况下缓存 API 请求 . 
+**conditionalRequest\(条件请求\)** : 默认开启 , 它将利用客户端的缓存机制在可能的情况下缓存 API 请求 .
 
-**strict\(严格模式\)** : 严格模式需要客户端发送 Accept 头 , 代替配置文件中配置的默认版本 . 这意味着你将不能通过浏览器访问你的 API . 
+**strict\(严格模式\)** : 严格模式需要客户端发送 Accept 头 , 代替配置文件中配置的默认版本 . 这意味着你将不能通过浏览器访问你的 API .
 
-如果开启严格模式 , 发送非法的Acceept会抛出一个未处理的异常 : 
+如果开启严格模式 , 发送非法的Acceept会抛出一个未处理的异常 :
 
 ```
 Symfony\Component\HttpKernel\Exception\BadRequestHttpException
 ```
 
-需要自己处理这个异常 . 
+需要自己处理这个异常 .
 
-**debug\(调试模式\)** : 当调试模式开启时 , 一般的错误都会被包捕获 , 结果中会包含了一个debug键 , 值为详细的错误追踪记录 . 
+**debug\(调试模式\)** : 当调试模式开启时 , 一般的错误都会被包捕获 , 结果中会包含了一个debug键 , 值为详细的错误追踪记录 .
 
+**errorFormat\(格式化错误\)** : 当遇到错误的时候 , 这个包会尝试生成一个通用的错误响应 , 而不是将异常打印给用户 . 可以在喜欢的地方配置错误格式化 . 当然必须在一个已经发布的配置文件\(例如,api.php\)或启动文件中配置这个 : 
 
-
-
-
-
+```php
+$app['Dingo\Api\Exception\Handler']->setErrorFormat([
+    'error' => [ 
+        'message' => ':message', 
+        'errors' => ':errors', 
+        'code' => ':code', 
+        'status_code' => 
+        ':status_code', 
+        'debug' => ':debug'
+    ] 
+]);
+```
 
 
 
