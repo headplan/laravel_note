@@ -19,5 +19,7 @@ class UserController
 }
 ```
 
+Dingo API会自动将响应格式化为JSON格式并设置`Content-Type`头为`application/json`
+
 
 
