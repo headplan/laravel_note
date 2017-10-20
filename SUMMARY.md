@@ -140,6 +140,7 @@
       * [Token认证](lartisan-api/shi-li-kai-fa/tokenren-zheng.md)
     * [Dingo API](lartisan-api/dingo-api.md)
       * [安装与配置](lartisan-api/dingo-api/an-zhuang.md)
+      * [创建 API Endpoint路由](lartisan-api/dingo-api/chuang-jian-api-endpoint-lu-you.md)
   * [WebModel](webmodel.md)
     * [构建页面](webmodel/gou-jian-ye-mian.md)
   * [Blog](blog.md)
