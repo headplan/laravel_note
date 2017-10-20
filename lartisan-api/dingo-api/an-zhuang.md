@@ -152,16 +152,23 @@ Symfony\Component\HttpKernel\Exception\BadRequestHttpException
 
 **debug\(调试模式\)** : 当调试模式开启时 , 一般的错误都会被包捕获 , 结果中会包含了一个debug键 , 值为详细的错误追踪记录 .
 
-**errorFormat\(格式化错误\)** : 当遇到错误的时候 , 这个包会尝试生成一个通用的错误响应 , 而不是将异常打印给用户 . 可以在喜欢的地方配置错误格式化 . 当然必须在一个已经发布的配置文件\(例如,api.php\)或启动文件中配置这个 : 
+**errorFormat\(格式化错误\)** : 当遇到错误的时候 , 这个包会尝试生成一个通用的错误响应 , 而不是将异常打印给用户 . 可以在喜欢的地方配置错误格式化 . 当然必须在一个已经发布的配置文件\(例如,api.php\)或启动文件中配置这个 :
 
 ```php
+'errorFormat' => [
+    'message' => ':message',
+    'errors' => ':errors',
+    'code' => ':code',
+    'status_code' => ':status_code',
+    'debug' => ':debug',
+],
+# 或者
 $app['Dingo\Api\Exception\Handler']->setErrorFormat([
     'error' => [ 
         'message' => ':message', 
         'errors' => ':errors', 
         'code' => ':code', 
-        'status_code' => 
-        ':status_code', 
+        'status_code' => ':status_code', 
         'debug' => ':debug'
     ] 
 ]);
