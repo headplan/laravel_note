@@ -1,4 +1,4 @@
-# 安装
+# 安装与配置
 
 要安装这个包 , 你需要 :
 
@@ -20,7 +20,7 @@
 }
 ```
 
-命令行可以使用 : 
+命令行可以使用 :
 
 ```
 composer require dingo/api:1.0.x@dev
@@ -30,7 +30,7 @@ composer require dingo/api:1.0.x@dev
 
 #### Laravel
 
-打开config/app.php文件 , 注册必要的 service provider  : 
+打开config/app.php文件 , 注册必要的 service provider  :
 
 ```php
 'providers' => [ 
@@ -38,7 +38,7 @@ composer require dingo/api:1.0.x@dev
 ]
 ```
 
-或者使用命令行添加 : 
+或者使用命令行添加 :
 
 ```php
 php artisan vendor:publish --provider="Dingo\Api\Provider\LaravelServiceProvider"
@@ -51,6 +51,17 @@ php artisan vendor:publish --provider="Dingo\Api\Provider\LaravelServiceProvider
 > ```
 > $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 > ```
+
+#### Facades
+
+这个包提供了两个 facades . 可以随意添加任何一个
+
+```
+# 这是一个用于api调度的facade,它也为这个包的其他方法提供辅助方法
+Dingo\Api\Facade\API
+# 这是一个用于API路由的facade,可以用作获取当前路由,请求,检查当前路由名称等
+Dingo\Api\Facade\Route
+```
 
 
 
