@@ -177,7 +177,7 @@ class ArticlesController extends ApiController
 
 #### 自定义响应格式
 
-在安装配置中我们已经简单接触过响应格式 , 默认情况下Dingo API会自动使用JSON格式并设置相应的Content-Type头 . 除了JSON之外还有一个JSONP格式 ,该格式会将响应封装到一个回调中 . 要注册该格式只需要简单将配置文件\(Laravel\)或启动文件\(Lumen\)中的默认JSON格式替换成JSONP即可 : 
+在安装配置中我们已经简单接触过响应格式 , 默认情况下Dingo API会自动使用JSON格式并设置相应的Content-Type头 . 除了JSON之外还有一个JSONP格式 ,该格式会将响应封装到一个回调中 . 要注册该格式只需要简单将配置文件\(Laravel\)或启动文件\(Lumen\)中的默认JSON格式替换成JSONP即可 :
 
 ```
 'formats' => [
@@ -187,7 +187,9 @@ class ArticlesController extends ApiController
 Dingo\Api\Http\Response::addFormatter('json', new Dingo\Api\Http\Response\Format\Jsonp);
 ```
 
-默认情况下 , 预计的 query string 中的回调参数是callback , 可以传递第一个参数到 class 的构造函数中去替换 . 如果 query string 中没有提供回调参数的名字 , 它将默认的返回 JSON 响应 . 
+> JSONP部分内容可以查看json\_note中相关记录
+
+默认情况下 , 预计的 query string 中的回调参数是callback , 可以传递第一个参数到 class 的构造函数中去替换 . 如果 query string 中没有提供回调参数的名字 , 它将默认的返回 JSON 响应 .
 
 如果你需要 , 你可以注册并使用你自己的 formatters . 你的 formatter 需要继承Dingo\Api\Http\Response\Format\Format . 下面的方法需要被定义 : formatEloquentModel,formatEloquentCollection,formatArray和getContentType . 你可以在预定义格式化类中得到更多的资料 , 包括提到的抽象类中每个方法需要做什么 . 
 
