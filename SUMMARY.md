@@ -102,6 +102,7 @@
       * [Security\_Passport\_OAuth](learninglaravel/securityauth/securitypassport-oauth.md)
     * [Digging\_Deeper](learninglaravel/diggingdeeper.md)
       * [DD\_Notifications](learninglaravel/diggingdeeper/ddnotifications.md)
+      * [DD\_Events](learninglaravel/diggingdeeper/ddevents.md)
     * [Database](learninglaravel/database.md)
       * [DB\_Redis](learninglaravel/database/dbredis.md)
   * [服务容器](fu-wu-rong-qi.md)
