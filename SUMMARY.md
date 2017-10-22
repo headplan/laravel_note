@@ -117,6 +117,7 @@
     * Bouncer
     * [Entrust](entrust.md)
   * [Predis](predis.md)
+  * [Dingo API](dingo-api.md)
 * [延伸课题](框架解析.md)
   * [Repository层支持](repository层支持.md)
   * [组件化开发与Composer使用](框架解析/组件化开发与Composer使用.md)
