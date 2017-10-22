@@ -191,5 +191,9 @@ Dingo\Api\Http\Response::addFormatter('json', new Dingo\Api\Http\Response\Format
 
 默认情况下 , 预计的 query string 中的回调参数是callback , 可以传递第一个参数到 class 的构造函数中去替换 . 如果 query string 中没有提供回调参数的名字 , 它将默认的返回 JSON 响应 .
 
-如果你需要 , 你可以注册并使用你自己的 formatters . 你的 formatter 需要继承Dingo\Api\Http\Response\Format\Format . 下面的方法需要被定义 : formatEloquentModel,formatEloquentCollection,formatArray和getContentType . 你可以在预定义格式化类中得到更多的资料 , 包括提到的抽象类中每个方法需要做什么 . 
+如果你需要 , 你可以注册并使用你自己的 formatters . 你的 formatter 需要继承Dingo\Api\Http\Response\Format\Format . 下面的方法需要被定义 : formatEloquentModel,formatEloquentCollection,formatArray和getContentType . 你可以在预定义格式化类中得到更多的资料 , 包括提到的抽象类中每个方法需要做什么 .
+
+#### **Morphing和Morphed事件**
+
+在Dingo API发送响应之前会先对该响应进行转化\(morph\) , 这个过程包括运行所有转换器\(Transformer\)以及通过配置的响应格式发送响应 . 如果你需要控制响应如何被转化可以使用`ResponseWasMorphed`和`ResponseIsMorphing`事件 . 
 
