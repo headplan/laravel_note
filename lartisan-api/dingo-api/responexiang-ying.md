@@ -195,5 +195,36 @@ Dingo\Api\Http\Response::addFormatter('json', new Dingo\Api\Http\Response\Format
 
 #### **Morphing和Morphed事件**
 
-在Dingo API发送响应之前会先对该响应进行转化\(morph\) , 这个过程包括运行所有转换器\(Transformer\)以及通过配置的响应格式发送响应 . 如果你需要控制响应如何被转化可以使用`ResponseWasMorphed`和`ResponseIsMorphing`事件 . 
+在Dingo API发送响应之前会先对该响应进行转化\(morph\) , 这个过程包括运行所有转换器\(Transformer\)以及通过配置的响应格式发送响应 . 如果你需要控制响应如何被转化可以使用`ResponseWasMorphed`和`ResponseIsMorphing`事件 .
+
+在`app/Listeners`中为事件创建监听器 , 然后在EventServiceProvider中注册即可 , 和使用Laravel的事件一样 : 
+
+```php
+protected $listen = [
+    'Dingo\Api\Event\ResponseWasMorphed' => [
+        'App\Listeners\AddPaginationLinksToResponse'
+    ]
+];
+
+<?php
+# 下面是监听器要做的
+use Dingo\Api\Event\ResponseWasMorphed;
+
+class AddPaginationLinksToResponse
+{
+    public function handle(ResponseWasMorphed $event)
+    {
+        if (isset($event->content['meta']['pagination'])) {
+            $links = $event->content['meta']['pagination']['links'];
+
+            $event->response->headers->set(
+                'link',
+                sprintf('<%s>; rel="next", <%s>; rel="prev"', $links['links']['next'], $links['links']['previous'])
+            );
+        }
+    }
+}
+```
+
+
 
