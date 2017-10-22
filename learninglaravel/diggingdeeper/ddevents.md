@@ -22,12 +22,37 @@ protected $listen = [
 ];
 ```
 
-#### 生成事件和监听器
+##### 生成事件和监听器
 
-按照前面的配置 , 直接使用artisan命令生成 : 
+按照前面的配置 , 直接使用artisan命令生成 :
 
 ```
 php artisan event:generate
+```
+
+##### 手动注册事件
+
+如果不通过`EventServiceProvider`类的`$listen`数组进行注册 , 也可以直接在其`boot`方法中注册闭包事件 : 
+
+```php
+public function boot()
+{
+    parent::boot();
+
+    Event::listen('event.name', function ($foo, $bar) {
+        //
+    });
+}
+```
+
+##### 通配符事件监听器
+
+你甚至可以在注册监听器时使用`*`通配符参数 , 它让你在一个监听器中可以监听到多个事件 . 通配符监听器接受的第一个参数是事件名称 , 第二个参数是整个的事件数据 : 
+
+```
+Event::listen('event.*', function ($eventName, array $data) {
+    //
+});
 ```
 
 
