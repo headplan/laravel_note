@@ -29,10 +29,10 @@ Dingo API会自动将响应格式化为JSON格式并设置`Content-Type`头为`a
 
 ```
 # 创建控制器
-php artisan make:controller ApiController 
+php artisan make:controller ApiController
 ```
 
-```
+```php
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Routing\Controller;
 
@@ -42,7 +42,7 @@ class ApiController extends Controller
 }
 ```
 
-现在可以定义一个继承自该控制器的控制器 , 在这些控制器中可以通过`$response`属性来访问响应构建器 . 
+现在可以定义一个继承自该控制器的控制器 , 在这些控制器中可以通过`$response`属性来访问响应构建器 .
 
 ```
 # 创建Articles控制器,这里我们将其创建到Api目录下
@@ -50,7 +50,30 @@ php artisan make:controller Api/ArticlesController
 # 前面我们已经创建了,还有Article.php模型
 ```
 
-编辑控制器 , 并测试Dingo API给出的响应 : 
+下面还要用到我们前面自定义时需要用到的转换器transformer , 这里使用的是Dingo API的转换器 , 我们先简单的创建一下 : 
+
+```php
+# 创建Transformers\ArticlesTransformer.php文件
+<?php
+
+namespace App\Transformers;
+
+use League\Fractal\TransformerAbstract;
+
+class ArticlesTransformer extends TransformerAbstract
+{
+    public function transform($article)
+    {
+        return [
+            'title' => $article['title'],
+            'content' => $article['content'],
+            'status' => (boolean) $article['status']
+        ];
+    }
+}
+```
+
+编辑控制器 , 并测试Dingo API给出的响应 :
 
 ```
 
