@@ -22,7 +22,7 @@
 | `Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException` | 401 |
 | `Symfony\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException` | 415 |
 
-下面是一个示例 , 当我们尝试更新一条已经被别人更新过的记录时抛出一个`ConflictHttpException`异常 : 
+下面是一个示例 , 当我们尝试更新一条已经被别人更新过的记录时抛出一个`ConflictHttpException`异常 :
 
 ```
 # 添加路由
@@ -37,6 +37,5 @@ public function update($id)
 }
 ```
 
-  
-
+这个包自动的接住异常 , 然后转换为JSON . 响应的 HTTP 状态码也会根据异常而改变 . 如果你没有改变默认的错误格式 , 一个ConflictHttpException异常返回的结果为HTTP 409 状态码和响应的JSON表述信息 . 
 
