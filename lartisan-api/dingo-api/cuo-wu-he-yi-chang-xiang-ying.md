@@ -41,7 +41,7 @@ public function update($id)
 
 #### **资源异常**
 
-以下是资源异常 , 每个异常都会返回`422`状态码 : 
+以下是资源异常 , 每个异常都会返回`422`状态码 :
 
 ```
 Dingo\Api\Exception\DeleteResourceFailedException
@@ -50,9 +50,9 @@ Dingo\Api\Exception\StoreResourceFailedException
 Dingo\Api\Exception\UpdateResourceFailedException
 ```
 
-这些异常特殊之处在于你可以将创建、更新或者删除资源时遇到的验证错误传递到这些异常中 . 
+这些异常特殊之处在于你可以将创建、更新或者删除资源时遇到的验证错误传递到这些异常中 .
 
-下面我们就来看一个创建数据失败抛出`StoreResourceFailedException`异常的例子 : 
+下面我们就来看一个创建数据失败抛出`StoreResourceFailedException`异常的例子 :
 
 ```php
 # 创建路由
@@ -71,6 +71,20 @@ public function create(Request $request)
     if ($validator->fails()) {
         throw new StoreResourceFailedException('无法创建新数据', $validator->errors());
     }
+}
+```
+
+Dingo API会自动捕获抛出的异常并将其转化为JSON格式 , 响应的HTTP状态码也会更改为与异常相匹配的值 , 资源异常会返回`422`状态码以及如下JSON格式错误信息 : 
+
+```
+{
+  "message": "无法创建新数据",
+  "errors": {
+    "content": [
+      "The content must be at least 7 characters."
+    ]
+  },
+  "status_code": 422
 }
 ```
 
