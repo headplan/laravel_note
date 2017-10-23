@@ -37,5 +37,42 @@ public function update($id)
 }
 ```
 
-这个包自动的接住异常 , 然后转换为JSON . 响应的 HTTP 状态码也会根据异常而改变 . 如果你没有改变默认的错误格式 , 一个ConflictHttpException异常返回的结果为HTTP 409 状态码和响应的JSON表述信息 . 
+这个包自动的接住异常 , 然后转换为JSON . 响应的 HTTP 状态码也会根据异常而改变 . 如果你没有改变默认的错误格式 , 一个ConflictHttpException异常返回的结果为HTTP 409 状态码和响应的JSON表述信息 .
+
+#### **资源异常**
+
+以下是资源异常 , 每个异常都会返回`422`状态码 : 
+
+```
+Dingo\Api\Exception\DeleteResourceFailedException
+Dingo\Api\Exception\ResourceException
+Dingo\Api\Exception\StoreResourceFailedException
+Dingo\Api\Exception\UpdateResourceFailedException
+```
+
+这些异常特殊之处在于你可以将创建、更新或者删除资源时遇到的验证错误传递到这些异常中 . 
+
+下面我们就来看一个创建数据失败抛出`StoreResourceFailedException`异常的例子 : 
+
+```php
+# 创建路由
+$api->post('article', 'ArticlesController@create');
+
+public function create(Request $request)
+{
+    $rules = [
+        'title' => ['required', 'alpha'],
+        'content' => ['required', 'min:7']
+    ];
+
+    $payload = $request->only('title', 'content');
+    $validator = Validator::make($payload, $rules);
+
+    if ($validator->fails()) {
+        throw new StoreResourceFailedException('无法创建新数据', $validator->errors());
+    }
+}
+```
+
+
 
