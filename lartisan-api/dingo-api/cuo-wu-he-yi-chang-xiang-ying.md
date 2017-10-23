@@ -74,9 +74,9 @@ public function create(Request $request)
 }
 ```
 
-Dingo API会自动捕获抛出的异常并将其转化为JSON格式 , 响应的HTTP状态码也会更改为与异常相匹配的值 , 资源异常会返回`422`状态码以及如下JSON格式错误信息 : 
+Dingo API会自动捕获抛出的异常并将其转化为JSON格式 , 响应的HTTP状态码也会更改为与异常相匹配的值 , 资源异常会返回`422`状态码以及如下JSON格式错误信息 :
 
-```
+```js
 {
   "message": "无法创建新数据",
   "errors": {
