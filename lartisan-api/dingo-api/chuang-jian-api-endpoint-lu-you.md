@@ -94,7 +94,7 @@ php artisan api:routes
 
 ---
 
-添加了Facades , 重新整理了之前的路由 : 
+添加了Facades , 重新整理了之前的路由 :
 
 ```php
 DingoRoute::version('v1', function () {

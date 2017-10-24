@@ -63,7 +63,7 @@ Dingo\Api\Facade\API
 Dingo\Api\Facade\Route
 ```
 
-之前一直没有使用 , 文档中提供的使用方式大部分都是在Lumen中的使用方式 . 这里添加facades , 重新修改路由 . 
+之前一直没有使用 , 文档中提供的使用方式大部分都是在Lumen中的使用方式 . 这里添加facades , 重新修改路由 .
 
 ```php
 # config/app.php文件中配置
