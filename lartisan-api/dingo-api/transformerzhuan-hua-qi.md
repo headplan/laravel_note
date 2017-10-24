@@ -19,5 +19,7 @@
 app('Dingo\Api\Transformer\Factory')->register('User', 'UserTransformer');
 ```
 
+**在响应构建器中使用**
 
+我们前面已经创建了Transformer用来转换数据 . 参考Response响应中的内容 . 
 
