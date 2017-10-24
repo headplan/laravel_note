@@ -88,5 +88,9 @@ Dingo API会自动捕获抛出的异常并将其转化为JSON格式 , 响应的H
 }
 ```
 
+#### 自定义HTTP异常
+
+自定义HTTP异常很简单 , 前提是它们继承自`Symfony\Component\HttpKernel\Exception\HttpException`或者实现了`Symfony\Component\HttpKernel\Exception\HttpExceptionInterface`接口
+
 
 
