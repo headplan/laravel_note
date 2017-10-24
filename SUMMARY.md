@@ -185,4 +185,5 @@
 * [补充扩展](bu-chong-ji-kuo-zhan.md)
   * [Team笔记\(really\)](laravel_sharing.md)
   * [OAuth整理](oauthzheng-li.md)
+* [出版书籍](chu-ban-shu-ji.md)
 
