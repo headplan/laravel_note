@@ -98,7 +98,27 @@ Dingo API会自动捕获抛出的异常并将其转化为JSON格式 , 响应的H
 
 #### **自定义异常响应**
 
-如果你需要自定义异常返回的响应可以注册一个异常处理器 : 
+如果你需要自定义异常返回的响应可以注册一个异常处理器 :
+
+```php
+app('Dingo\Api\Exception\Handler')->register(function (Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException $exception) {
+    return Response::make(['error' => 'Hey, what do you think you are doing!?'], 401);
+});
+```
+
+现在如果认证失败我们会显示如下JSON格式信息 : 
+
+```
+{
+    "error": "Hey, what do you think you are doing!?"
+}
+```
+
+#### 表单请求
+
+如果你使用表单请求 , 那么需要继承API表单请求基类或者实现自己的类 .API请求基类会检查输入请求是否是请求API , 如果是的话当验证失败会抛出`Dingo\Api\Exception\ValidationHttpException`异常 . 这个异常会被Dingo API渲染并返回错误响应 . 
+
+如果你想要实现自己的表单请求 , 则必须重载`failedValidation`和`failedAuthorization`方法 , 这些方法必须抛出上述其中一种异常而不是Laravel抛出的HTTP异常 . 
 
 
 
