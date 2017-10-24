@@ -187,4 +187,5 @@
   * [OAuth整理](oauthzheng-li.md)
 * [出版书籍](chu-ban-shu-ji.md)
   * [From Apprentice To Artisan](chu-ban-shu-ji/from-apprentice-to-artisan.md)
+  * [Implementing Laravel](chu-ban-shu-ji/implementing-laravel.md)
 
