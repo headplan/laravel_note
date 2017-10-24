@@ -63,6 +63,17 @@ Dingo\Api\Facade\API
 Dingo\Api\Facade\Route
 ```
 
+之前一直没有使用 , 文档中提供的使用方式大部分都是在Lumen中的使用方式 . 这里添加facades , 重新修改路由 . 
+
+```php
+# config/app.php文件中配置
+/**
+ * dingo api
+ */
+'DingoApi' => Dingo\Api\Facade\API::class,
+'DingoRoute' => Dingo\Api\Facade\Route::class,
+```
+
 ### 配置文件
 
 > 其实大部分已经配置好了 , 也可以使用.env去配置 , Lumen可以在bootstrap/app.php文件中配置 , 也可以使用AppServiceProvider中的boot方法 . 当然 , Laravel还是使用命令生成api.php配置文件为好 .
@@ -210,7 +221,7 @@ $app['Dingo\Api\Transformer\Factory']->setAdapter(function ($app) {
 });
 ```
 
-**defaultFormat\(默认响应格式\)和formats\(响应格式配置\)** : 默认的响应格式是JSON , 其调用的是formats中配置的key . 更加高级的格式配置需要发布配置文件或者在服务提供者及启动文件中操作 . 
+**defaultFormat\(默认响应格式\)和formats\(响应格式配置\)** : 默认的响应格式是JSON , 其调用的是formats中配置的key . 更加高级的格式配置需要发布配置文件或者在服务提供者及启动文件中操作 .
 
 ```
 Dingo\Api\Http\Response::addFormatter('json', new Dingo\Api\Http\Response\Format\Jsonp);
