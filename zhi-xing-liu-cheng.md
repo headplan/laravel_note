@@ -43,13 +43,15 @@ public static function loadClassLoader($class)
 }
 ```
 
-静态方法 , 含有一个`$class`参数 , 判断如果`$class`等于`Composer\Autoload\ClassLoader` , 则载入当前目录下 的 ClassLoader.php 文件 , 实际上是这只是个入口 , 其目的也是为后面赋值用的 . 
+静态方法 , 含有一个`$class`参数 , 判断如果`$class`等于`Composer\Autoload\ClassLoader` , 则载入当前目录下 的 ClassLoader.php 文件 , 实际上是这只是个入口 , 其目的也是为后面赋值用的 .
 
 ```php
 spl_autoload_register(array('ComposerAutoloaderInit10488597059b401fe5386bdff1f41d9d', 'loadClassLoader'), true, true);
 self::$loader = $loader = new \Composer\Autoload\ClassLoader();
 spl_autoload_unregister(array('ComposerAutoloaderInit10488597059b401fe5386bdff1f41d9d', 'loadClassLoader'));
 ```
+
+这里首先注册本类中的`loadClassLoader`函数 , 其参数$class就是后面`new \Composer\Autoload\ClassLoader();`的类名 , 然后按照`loadClassLoader`函数中的规则 , 引入了`ClassLoader.php`文件 , 最后再unregister这个函数`loadClassLoader`.
 
 
 
