@@ -51,7 +51,33 @@ self::$loader = $loader = new \Composer\Autoload\ClassLoader();
 spl_autoload_unregister(array('ComposerAutoloaderInit10488597059b401fe5386bdff1f41d9d', 'loadClassLoader'));
 ```
 
-这里首先注册本类中的`loadClassLoader`函数 , 其参数$class就是后面`new \Composer\Autoload\ClassLoader();`的类名 , 然后按照`loadClassLoader`函数中的规则 , 引入了`ClassLoader.php`文件 , 最后再unregister这个函数`loadClassLoader`.
+这里首先注册本类中的`loadClassLoader`函数 , 其参数$class就是后面`new \Composer\Autoload\ClassLoader();`的类名 , 然后按照`loadClassLoader`函数中的规则 , 引入了`ClassLoader.php`文件 , 最后再unregister这个函数`loadClassLoader`.简单来说 , 就是`$loader`得到`ClassLoader`类\(`\Composer\Autoload\ClassLoader`\)的一个实例 , 卸载自动加载程序 loadClassLoader . 
+
+得到了$loader , 然后就是载入设置一些路径信息 , 新版本的composer加入了autoload\_static.php文件 , 也就是在composer 1.1.0 版本开始如果php的版本大于5.6等条件 , composer 会进行加载优化 . 
+
+```php
+$useStaticLoader = PHP_VERSION_ID >= 50600 && !defined('HHVM_VERSION') && (!function_exists('zend_loader_file_encoded') || !zend_loader_file_encoded());
+if ($useStaticLoader) {
+    require_once __DIR__ . '/autoload_static.php';
+
+    call_user_func(\Composer\Autoload\ComposerStaticInit10488597059b401fe5386bdff1f41d9d::getInitializer($loader));
+} else {
+    $map = require __DIR__ . '/autoload_namespaces.php';
+    foreach ($map as $namespace => $path) {
+        $loader->set($namespace, $path);
+    }
+
+    $map = require __DIR__ . '/autoload_psr4.php';
+    foreach ($map as $namespace => $path) {
+        $loader->setPsr4($namespace, $path);
+    }
+
+    $classMap = require __DIR__ . '/autoload_classmap.php';
+    if ($classMap) {
+        $loader->addClassMap($classMap);
+    }
+}
+```
 
 
 
