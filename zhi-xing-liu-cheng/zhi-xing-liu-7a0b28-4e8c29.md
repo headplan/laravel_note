@@ -150,5 +150,5 @@ if ($this->resolved($abstract)) {
 }
 ```
 
-这里的意思是 , 如果$abstract没有解析`resolved` , 那么就会`rebound`反弹 , 通过监听者的回调函数更新对象 . 
+这里的意思是 , 如果$abstract没有解析`resolved` , 那么就会`rebound`反弹 , 通过监听者的回调函数更新对象 . 这里留下几个未展开的内容 , 就是build和makeWith方法 , 还有rebound反弹相关的内容 , 留在后面 . 
 
