@@ -83,5 +83,15 @@ public function bind($abstract, $concrete = null, $shared = false)
 }
 ```
 
+绑定之前 , 首先删除就的实例`dropStaleInstances()`
+
+```php
+$this->dropStaleInstances($abstract);
+protected function dropStaleInstances($abstract)
+{
+    unset($this->instances[$abstract], $this->aliases[$abstract]);
+}
+```
+
 
 
