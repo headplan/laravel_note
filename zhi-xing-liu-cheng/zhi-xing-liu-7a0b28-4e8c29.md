@@ -102,5 +102,13 @@ if (is_null($concrete)) {
 }
 ```
 
+这里的注释的意思是 , 如果没有具体的类型 , 也就是闭包`$concrete`是null , 这里会将`$concrete`直接设置为`$abstract`抽象类型 . 这么做会将具体类型$concrete设置为共享 , 并且也不需要声明\($concrete和$abstract\)的类 . 这里我们先假设符合前面的条件 , 看看下面的代码是什么意思
+
+```php
+if (! $concrete instanceof Closure) {
+    $concrete = $this->getClosure($abstract, $concrete);
+}
+```
+
 
 
