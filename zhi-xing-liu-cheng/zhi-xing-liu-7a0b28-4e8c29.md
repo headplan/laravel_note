@@ -110,5 +110,20 @@ if (! $concrete instanceof Closure) {
 }
 ```
 
+这里判断具体类型$concrete不是闭包 , 然后进入到getClosure方法中
+
+```php
+protected function getClosure($abstract, $concrete)
+{
+    return function ($container, $parameters = []) use ($abstract, $concrete) {
+        if ($abstract == $concrete) {
+            return $container->build($concrete);
+        }
+
+        return $container->makeWith($concrete, $parameters);
+    };
+}
+```
+
 
 
