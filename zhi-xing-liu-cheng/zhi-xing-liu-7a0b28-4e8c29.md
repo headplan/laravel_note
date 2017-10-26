@@ -94,5 +94,13 @@ protected function dropStaleInstances($abstract)
 }
 ```
 
+然后判断如果闭包是null , 则把抽象赋值给闭包
+
+```php
+if (is_null($concrete)) {
+    $concrete = $abstract;
+}
+```
+
 
 
