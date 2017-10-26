@@ -125,5 +125,54 @@ protected function getClosure($abstract, $concrete)
 }
 ```
 
+如果$concrete不是闭包 , getClosure方法会返回一个闭包给她 , 带有两个参数 , $container就是容器 , 或者说是$app , 后面的$parameters是参数 , 这个闭包使用了$abstract和$concrete , 这就是前面null判断的部分 , 这里给出了两个方法的选择 , build方法和makeWith方法 . 先看看build方法 , 也就是$concrete为null或者$concrete和$abstract相等的情况
+
+```php
+public function build($concrete)
+{
+    // If the concrete type is actually a Closure, we will just execute it and
+    // hand back the results of the functions, which allows functions to be
+    // used as resolvers for more fine-tuned resolution of these objects.
+    if ($concrete instanceof Closure) {
+        return $concrete($this, $this->getLastParameterOverride());
+    }
+
+    $reflector = new ReflectionClass($concrete);
+
+    // If the type is not instantiable, the developer is attempting to resolve
+    // an abstract type such as an Interface of Abstract Class and there is
+    // no binding registered for the abstractions so we need to bail out.
+    if (! $reflector->isInstantiable()) {
+        return $this->notInstantiable($concrete);
+    }
+
+    $this->buildStack[] = $concrete;
+
+    $constructor = $reflector->getConstructor();
+
+    // If there are no constructors, that means there are no dependencies then
+    // we can just resolve the instances of the objects right away, without
+    // resolving any other types or dependencies out of these containers.
+    if (is_null($constructor)) {
+        array_pop($this->buildStack);
+
+        return new $concrete;
+    }
+
+    $dependencies = $constructor->getParameters();
+
+    // Once we have all the constructor's parameters we can create each of the
+    // dependency instances and then use the reflection instances to make a
+    // new instance of this class, injecting the created dependencies in.
+    $instances = $this->resolveDependencies(
+        $dependencies
+    );
+
+    array_pop($this->buildStack);
+
+    return $reflector->newInstanceArgs($instances);
+}
+```
+
 
 
