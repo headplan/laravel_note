@@ -87,6 +87,7 @@ public function bind($abstract, $concrete = null, $shared = false)
 
 ```php
 $this->dropStaleInstances($abstract);
+
 protected function dropStaleInstances($abstract)
 {
     unset($this->instances[$abstract], $this->aliases[$abstract]);
