@@ -6,7 +6,7 @@
 $this->register(new EventServiceProvider($this));
 ```
 
-一切从这里开始 , 我们看一下这个服务提供者 , 这也是Laravel第一个服务提供者
+一切从这里开始 , 我们看一下这个服务提供者 , 这也是Laravel第一个服务提供者的注册
 
 ```php
 class EventServiceProvider extends ServiceProvider
@@ -150,5 +150,5 @@ if ($this->resolved($abstract)) {
 }
 ```
 
-这里的意思是 , 如果$abstract没有解析`resolved` , 那么就会`rebound`反弹 , 通过监听者的回调函数更新对象 . 这里留下几个未展开的内容 , 就是build和makeWith方法 , 还有rebound反弹相关的内容 , 留在后面 . 
+这里的意思是 , 如果$abstract没有解析`resolved` , 那么就会`rebound`反弹 , 通过监听者的回调函数更新对象 . 这里留下几个未展开的内容 , 就是build和makeWith方法 , 还有rebound反弹相关的内容 , 留在后面 .
 
