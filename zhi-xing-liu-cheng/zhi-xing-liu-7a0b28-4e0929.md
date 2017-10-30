@@ -89,5 +89,5 @@ array_pop($this->buildStack);
 return $reflector->newInstanceArgs($instances);
 ```
 
-如果构造函数有参数 , getConstructor获取构造函数的参数 , 我们就可以创建每个依赖实例 , 然后使用反射实例来创建这个类的新实例，注入所创建的依赖项 . 
+如果构造函数有参数 , getConstructor获取构造函数的参数 , 然后使用反射实例来创建这个类的新实例，注入所创建的依赖项 .
 
