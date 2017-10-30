@@ -91,3 +91,63 @@ return $reflector->newInstanceArgs($instances);
 
 如果构造函数有参数 , getConstructor获取构造函数的参数 , 然后使用反射实例来创建这个类的新实例，注入所创建的依赖项 .
 
+再来看看makeWith方法 , 她是resolve的封装 , 同样make方法也是 , 只是差了个默认参数 . 这里我们应该看一下resolve方法
+
+```php
+protected function resolve($abstract, $parameters = [])
+{
+    $abstract = $this->getAlias($abstract);
+
+    $needsContextualBuild = ! empty($parameters) || ! is_null(
+        $this->getContextualConcrete($abstract)
+    );
+
+    // If an instance of the type is currently being managed as a singleton we'll
+    // just return an existing instance instead of instantiating new instances
+    // so the developer can keep using the same objects instance every time.
+    if (isset($this->instances[$abstract]) && ! $needsContextualBuild) {
+        return $this->instances[$abstract];
+    }
+
+    $this->with[] = $parameters;
+
+    $concrete = $this->getConcrete($abstract);
+
+    // We're ready to instantiate an instance of the concrete type registered for
+    // the binding. This will instantiate the types, as well as resolve any of
+    // its "nested" dependencies recursively until all have gotten resolved.
+    if ($this->isBuildable($concrete, $abstract)) {
+        $object = $this->build($concrete);
+    } else {
+        $object = $this->make($concrete);
+    }
+
+    // If we defined any extenders for this type, we'll need to spin through them
+    // and apply them to the object being built. This allows for the extension
+    // of services, such as changing configuration or decorating the object.
+    foreach ($this->getExtenders($abstract) as $extender) {
+        $object = $extender($object, $this);
+    }
+
+    // If the requested type is registered as a singleton we'll want to cache off
+    // the instances in "memory" so we can return it later without creating an
+    // entirely new instance of an object on each subsequent request for it.
+    if ($this->isShared($abstract) && ! $needsContextualBuild) {
+        $this->instances[$abstract] = $object;
+    }
+
+    $this->fireResolvingCallbacks($abstract, $object);
+
+    // Before returning, we will also set the resolved flag to "true" and pop off
+    // the parameter overrides for this build. After those two things are done
+    // we will be ready to return back the fully constructed class instance.
+    $this->resolved[$abstract] = true;
+
+    array_pop($this->with);
+
+    return $object;
+}
+```
+
+
+
