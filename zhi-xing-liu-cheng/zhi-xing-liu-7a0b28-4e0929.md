@@ -51,5 +51,21 @@ public function build($concrete)
 }
 ```
 
-首先判断具体类型是不是闭包 , 如果是闭包的话 , 直接执行并
+首先判断具体类型是不是闭包 , 如果是闭包的话 , 直接执行这个闭包 . 如果不是则继续执行下面的反射相关的内容 , 这里简单的看一下手册中的内容 : 
+
+> http://php.net/manual/zh/class.reflectionclass.php
+
+这里的ReflectionClass类实现了Reflection接口 , PHP里针对不同的应用常见还实现了其他几个类 , 例如ReflectionMethod,ReflectionFunction等 . 根据手册 , 我们可以继续看build中的代码了 . 
+
+```php
+if (! $reflector->isInstantiable()) {
+return $this->notInstantiable($concrete);
+}
+
+$this->buildStack[] = $concrete;
+
+$constructor = $reflector->getConstructor();
+```
+
+
 
