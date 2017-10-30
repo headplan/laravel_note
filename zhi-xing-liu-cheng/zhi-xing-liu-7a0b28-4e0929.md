@@ -149,5 +149,13 @@ protected function resolve($abstract, $parameters = [])
 }
 ```
 
+先是获取正确的别名`getAlias`, 然后是判断是不是单例 , 如果配置的是单例则直接返回 , 如果不是 , 我们准备实例化为绑定注册的具体类型的实例 . 这将实例化这些类型, 并以递归方式解析它的任何 "嵌套" 依赖项, 直到全部都得到解决 . 
 
+```php
+foreach ($this->getExtenders($abstract) as $extender) {
+    $object = $extender($object, $this);
+}
+```
+
+如果我们定义了此类型的任何扩展程序, 我们将需要通过它们进行旋转并将它们应用于正在生成的对象。这允许扩展服务, 如更改配置或装饰对象。
 
