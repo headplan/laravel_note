@@ -157,7 +157,7 @@ foreach ($this->getExtenders($abstract) as $extender) {
 }
 ```
 
-如果我们定义了此类型的任何扩展程序, 我们将需要通过它们进行旋转并将它们应用于正在生成的对象 . 这允许扩展服务, 如更改配置或装饰对象 . 
+如果我们定义了此类型的任何扩展程序, 我们将需要通过它们进行旋转并将它们应用于正在生成的对象 . 这允许扩展服务, 如更改配置或装饰对象 .
 
 ```php
 if ($this->isShared($abstract) && ! $needsContextualBuild) {
@@ -165,5 +165,13 @@ if ($this->isShared($abstract) && ! $needsContextualBuild) {
 }
 ```
 
-如果请求的类型被注册为单例, 我们将希望缓存 "内存" 中的实例, 这样我们以后就可以返回它, 而不必在其后的每个请求中创建一个完全新的对象实例。
+如果请求的类型被注册为单例, 我们将希望缓存 "内存" 中的实例 , 这样我们以后就可以返回它 , 而不必在其后的每个请求中创建一个完全新的对象实例 .  
+
+然后是触发所有解析回调 : 
+
+```php
+$this->fireResolvingCallbacks($abstract, $object);
+```
+
+最后更新成员属性$this-&gt;resolved标注意为已经解析过的 . 最后返回object . 
 
