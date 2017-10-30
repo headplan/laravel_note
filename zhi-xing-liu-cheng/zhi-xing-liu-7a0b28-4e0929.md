@@ -67,7 +67,7 @@ $this->buildStack[] = $concrete;
 $constructor = $reflector->getConstructor();
 ```
 
-首先判断 , 如果类不能实例化 , 则抛出异常 . 否则继续 , 将$concrete具体类型更新到容器的buildStack成员属性中 . 然后获取初始化 . 
+首先判断 , 如果类不能实例化 , 则抛出异常 . 否则继续 , 将$concrete具体类型更新到容器的buildStack成员属性中 . 然后获取初始化 .
 
 ```php
 if (is_null($constructor)) {
@@ -77,7 +77,7 @@ if (is_null($constructor)) {
 }
 ```
 
-如果没有构造函数 , 那就意味着没有依赖项 , 那么我们就可以立即解析对象的实例 , 而不需要从这些容器中解析任何其他类型或依赖项 . 
+如果没有构造函数 , 那就意味着没有依赖项 , 那么我们就可以立即解析对象的实例 , 而不需要从这些容器中解析任何其他类型或依赖项 .
 
 ```php
 $instances = $this->resolveDependencies(
@@ -89,5 +89,5 @@ array_pop($this->buildStack);
 return $reflector->newInstanceArgs($instances);
 ```
 
-如果构造函数有参数 , getConstructor获取构造函数的参数 , 我们就可以创建每个依赖实例，然后使用反射实例来创建这个类的新实例，注入所创建的依赖项。
+如果构造函数有参数 , getConstructor获取构造函数的参数 , 我们就可以创建每个依赖实例 , 然后使用反射实例来创建这个类的新实例，注入所创建的依赖项 . 
 
