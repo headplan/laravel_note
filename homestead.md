@@ -192,7 +192,7 @@ variables:
 * vagrant up - 启动 vagrant
 * vagrant halt - 关闭 vagrant
 * vagrant ssh - 通过 SSH 登录 vagrant（需要先启动 vagrant）
-* vagrant provision - 重新应用更改 vagrant 配置
+* vagrant provision - 重置应用更改 vagrant 配置
 * vagrant destroy  - 删除 vagrant
 
 或者使用Vagrant Manager .
@@ -217,7 +217,7 @@ exit - 退出
 vagrant halt - 关闭虚拟机
 ```
 
-#### Hello Laravel ! 
+#### Hello Laravel !
 
 进入虚拟机
 
@@ -233,7 +233,7 @@ cd ~/Code
 composer create-project laravel/laravel Laravel --prefer-dist "5.5.*"
 ```
 
-访问http://homestead.app/
+访问[http://homestead.app/](http://homestead.app/)
 
 安装完成
 
