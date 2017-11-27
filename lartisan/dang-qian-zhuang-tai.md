@@ -6,6 +6,8 @@
 
 ### 使用Git版本控制 , 初始化第一个版本Initial commit .
 
+> 这里指Homestead中的git
+
 #### **Git配置**
 
 进入Homestead虚拟机中 , 配置Git用户名和邮箱 :
@@ -55,16 +57,16 @@ Homestead在初始化时 , 通过 Homestaed.yaml 文件中的 `keys`选项 , 我
 
 然后将公钥添加到 Gogs 账号即可 .
 
-### 通过walle拉取Gogs中的版本部署到线上服务器 . 
+### 通过walle拉取Gogs中的版本部署到线上服务器 .
 
 walle配置可以查看部署上线中walle的安装和Git项目配置 . 其中会出现问题的通常是目录权限问题 .
 
-项目配置分为 : 
+项目配置分为 :
 
 * 测试环境 - 绑定本地host
 * 线上环境 - 绑定域名
 
-高级任务 : 
+高级任务 :
 
 ```
 # post_deploy代码检出之后
