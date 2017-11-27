@@ -58,14 +58,14 @@ $ git push -u origin master
 
 #### Gogs配置
 
-Homestead在初始化时 , 通过 Homestaed.yaml 文件中的 `keys`选项 , 我们已经把专门的Homestead的 SSH Key 私钥复制到虚拟机中 , 这里需要将 SSH Key 添加到 ssh-agent 中 : 
+Homestead在初始化时 , 通过 Homestaed.yaml 文件中的 `keys`选项 , 我们已经把专门的Homestead的 SSH Key 私钥复制到虚拟机中 , 这里需要将 SSH Key 添加到 ssh-agent 中 :
 
     $ eval `ssh-agent -s`
     $ ssh-add ~/.ssh/homestead
 
-然后将公钥添加到 GitHub 账号即可 ,[ ](http://gogs.dev/user/settings/ssh)http://acb/user/settings/ssh
+然后将公钥添加到 GitHub 账号即可 ,[ ](http://gogs.dev/user/settings/ssh)[http://acb/user/settings/ssh](http://acb/user/settings/ssh)
 
-创建一个仓库 , 提交试试 : 
+创建一个仓库 , 提交试试 :
 
 ```
 $ git remote add origin git@******.dev:******/Lartisan.git
