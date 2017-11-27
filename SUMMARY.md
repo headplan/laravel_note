@@ -132,6 +132,7 @@
   * [利用macro方法来扩展Laravel基础类](框架解析/li-yong-macro-fang-fa-lai-kuo-zhan-laravel-ji-chu-lei.md)
 * [实验开发](项目开发.md)
   * [Lartisan](lartisan.md)
+    * [当前状态](lartisan/dang-qian-zhuang-tai.md)
     * [Project Plan](lartisan/jian-dan-gui-hua.md)
     * [Scope of Work](lartisan/scope-of-work.md)
     * [Basic Config](lartisan/basic-config.md)
