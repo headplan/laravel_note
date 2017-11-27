@@ -70,7 +70,7 @@ walle配置可以查看部署上线中walle的安装和Git项目配置 . 其中�
 
 ```
 # post_deploy代码检出之后
-# 复制vendor仓库:因为宿主在本地这里直接复制
+# 复制vendor仓库:因为宿主在本地,这里直接复制
 cp -r {WORKSPACE}/../../package/vendor {WORKSPACE}/vendor
 # 生成.env文件:这里的env配置分为线上线下(正式和测试),即online和offline
 cp {WORKSPACE}/../../package/env/offline.env {WORKSPACE}/.env
