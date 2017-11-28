@@ -96,5 +96,9 @@ cp {WORKSPACE}/../../package/env/offline.env {WORKSPACE}/.env
 php artisan key:generate
 ```
 
+#### 共享目录
+
+package目录存放vendor相关文件和线上线下的env配置 . 
+
 
 
