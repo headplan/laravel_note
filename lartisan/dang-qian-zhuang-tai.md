@@ -100,5 +100,3 @@ php artisan key:generate
 
 package目录存放vendor相关文件和线上线下的env配置 . 
 
-
-

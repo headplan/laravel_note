@@ -140,6 +140,7 @@
     * [Basic View](lartisan/basic-view.md)
       * [Change](lartisan/basic-view/changes-1.md)
     * [Basic Auth](lartisan/basic-auth.md)
+    * 配置初始化
   * [Lartisan API](lartisan-api.md)
     * [API文档及开发规范](lartisan-api/apiwen-dang-ji-kai-fa-gui-fan.md)
     * [自定义基础规则](lartisan-api/shi-li-kai-fa.md)
