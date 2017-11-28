@@ -9,10 +9,9 @@
   * Zend OPcache
   * ionCube
 * MySQL5.6.38
+  * 更新添加管理用户\(待更新...\)
 * Redis 4.0.2
 * Memcached 1.5.3
 
 其他软件
-
-
 
