@@ -133,6 +133,7 @@
 * [实验开发](项目开发.md)
   * [Lartisan](lartisan.md)
     * [当前状态](lartisan/dang-qian-zhuang-tai.md)
+    * [服务器状态](lartisan/fu-wu-qi-zhuang-tai.md)
     * [Project Plan](lartisan/jian-dan-gui-hua.md)
     * [Scope of Work](lartisan/scope-of-work.md)
     * [Basic Config](lartisan/basic-config.md)
