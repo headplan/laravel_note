@@ -56,6 +56,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
+.DS_Store
 ```
 
 #### 添加编辑器代码风格配置
