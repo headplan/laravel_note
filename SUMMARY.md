@@ -136,6 +136,7 @@
     * [服务器状态](lartisan/fu-wu-qi-zhuang-tai.md)
     * [配置初始化](lartisan/pei-zhi-chu-shi-hua.md)
     * [页面分支](lartisan/ye-mian-fen-zhi.md)
+      * [前端构建](lartisan/ye-mian-fen-zhi/qian-duan-gou-jian.md)
     * [Project Plan](lartisan/jian-dan-gui-hua.md)
     * [Scope of Work](lartisan/scope-of-work.md)
     * [Basic Config](lartisan/basic-config.md)
