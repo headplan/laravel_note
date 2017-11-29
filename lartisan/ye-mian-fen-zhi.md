@@ -5,7 +5,7 @@ $ git checkout master
 $ git checkout -b static-pages
 ```
 
-合并与删除分支示例 : 
+合并与删除分支示例 :
 
 ```
 $ git merge test-branch
@@ -84,6 +84,17 @@ static_pages/about.blade.php
     @stack('scripts')
 </body>
 </html>
+```
+
+**提交合并部署**
+
+```
+$ git add -A
+$ git commit -m "Finish static pages"
+$ git checkout master
+$ git merge static-pages
+$ git push
+$ 发布到testing
 ```
 
 
