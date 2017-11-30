@@ -91,12 +91,16 @@ cp -r {WORKSPACE}/../../package/vendor {WORKSPACE}/vendor
 # 生成.env文件:这里的env配置分为线上线下(正式和测试),即online和offline
 cp {WORKSPACE}/../../package/env/offline.env {WORKSPACE}/.env
 
-# post_release代码同步并穿件链接之后
+# post_release代码同步并创建链接之后
+# 复制vendor
+cp /home/www/vendor.zip {WORKSPACE}/
+unzip {WORKSPACE}/vendor.zip
+rm -f {WORKSPACE}/vendor.zip
 # 生成App Key
 php artisan key:generate
 ```
 
 #### 共享目录
 
-package目录存放vendor相关文件和线上线下的env配置 . 
+package目录存放vendor相关文件和线上线下的env配置 .
 
