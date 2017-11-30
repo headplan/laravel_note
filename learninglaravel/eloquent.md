@@ -51,7 +51,7 @@ Eloquent模型默认情况下会使用类的「下划线命名法」与「复数
 
 #### 取回多个模型
 
-一旦你创建并关联了一个模型到数据表上 , 那么就可以从数据库中获取数据 . 
+一旦你创建并关联了一个模型到数据表上 , 那么就可以从数据库中获取数据 .
 
 ```
 $flights = App\Flight::all();
@@ -63,7 +63,7 @@ foreach ($flights as $flight) {
 
 **增加额外的限制**
 
-每个 Eloquent 模型都可以当作一个查询构造器 , 可以使用其所有方法 . 
+每个 Eloquent 模型都可以当作一个查询构造器 , 可以使用其所有方法 .
 
 ```
 $flights = App\Flight::where('my_id', '>',3)
@@ -73,9 +73,9 @@ $flights = App\Flight::where('my_id', '>',3)
 
 **集合**
 
-类似`all`以及`get`之类的可以取回多个结果的Eloquent方法 , 将会返回一个`Illuminate\Database\Eloquent\Collection`实例 . 
+类似`all`以及`get`之类的可以取回多个结果的Eloquent方法 , 将会返回一个`Illuminate\Database\Eloquent\Collection`实例 .
 
-`Collection`类提供多种辅助函数来处理Eloquent结果 . 
+`Collection`类提供多种辅助函数来处理Eloquent结果 .
 
 ```
 $flights = App\Flight::all();
@@ -87,7 +87,7 @@ $flights = $flights->reject(function ($flight) {
 
 **分块结果**
 
-需要处理数以千计的 Eloquent 查找结果 , 则可以使用`chunk`命令 . `chunk`方法将会获取一个 Eloquent 模型的「分块」, 并将它们送到指定的`闭包 (Closure)`中进行处理 . 当在处理大量结果时 , 使用`chunk`方法可节省内存 : 
+需要处理数以千计的 Eloquent 查找结果 , 则可以使用`chunk`命令 . `chunk`方法将会获取一个 Eloquent 模型的「分块」, 并将它们送到指定的`闭包 (Closure)`中进行处理 . 当在处理大量结果时 , 使用`chunk`方法可节省内存 :
 
 ```
 App\Flight::chunk(2, function ($flights) {
@@ -97,11 +97,11 @@ App\Flight::chunk(2, function ($flights) {
 });
 ```
 
-传递到方法的第一个参数表示每次「分块」时你希望接收的数据数量 . 闭包则作为第二个参数传递 , 它将会在每次从数据取出分块时被调用 . 
+传递到方法的第一个参数表示每次「分块」时你希望接收的数据数量 . 闭包则作为第二个参数传递 , 它将会在每次从数据取出分块时被调用 .
 
 **使用游标**
 
-`cursor`允许你使用游标来遍历数据库数据 , 一次只执行单个查询 . 在处理大数据量请求时`cursor`方法可以大幅度减少内存的使用 : 
+`cursor`允许你使用游标来遍历数据库数据 , 一次只执行单个查询 . 在处理大数据量请求时`cursor`方法可以大幅度减少内存的使用 :
 
 ```
 foreach (App\Flight::where('my_id', '>', 1)->cursor() as $flight) {
@@ -110,6 +110,45 @@ foreach (App\Flight::where('my_id', '>', 1)->cursor() as $flight) {
 ```
 
 #### 取回单个模型或集合
+
+可以通过`find`和`first`方法来取回单条记录 . 但这些方法返回的是单个模型的实例 , 而不是返回模型的集合 : 
+
+```
+$flight = App\Flight::find(1);
+    echo $flight->title."<br>";
+$flight = App\Flight::where('my_id', '>', 1)->first();
+    echo $flight->title."<br>";
+$flights = App\Flight::find([1, 2, 3]);
+    dump($flights);    
+```
+
+**「未找到」异常**
+
+`findOrFail`以及`firstOrFail`方法会取回查询的第一个结果 . 如果没有找到相应结果 , 则会抛出一个
+
+`Illuminate\Database\Eloquent\ModelNotFoundException`
+
+如果该异常没有被捕获 , 则会自动返回 HTTP`404`响应给用户 , 不用再编写 . 
+
+```
+try{
+    $model = App\Flight::findOrFail(20);
+} catch (Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+    echo $e->getMessage()."<br>";
+} finally {
+    echo "没找到数据<br>";
+}
+
+try{
+    $model = App\Flight::where('my_id', '>', 100)->firstOrFail();
+} catch (Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+    echo $e->getMessage()."<br>";
+} finally {
+    echo "也没找到数据<br>";
+}
+```
+
+
 
 添加和更新模型
 
