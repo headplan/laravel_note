@@ -31,15 +31,27 @@ class Article extends Model
 
 #### 约定优于配置
 
-约定优于配置\(convention over configuration\) , 也称作按约定编程 , 这是一种软件设计范式 , 旨在减少软件开发人员需做决定的数量，获得简单的好处 , 而又不失灵活性 . 如果所用工具的约定与你的期待相符 , 便可省去配置 ; 反之 , 你可以配置来达到你所期待的方式 . Eloquent 数据表命名约定机制即属于约定优于配置 . 
+约定优于配置\(convention over configuration\) , 也称作按约定编程 , 这是一种软件设计范式 , 旨在减少软件开发人员需做决定的数量，获得简单的好处 , 而又不失灵活性 . 如果所用工具的约定与你的期待相符 , 便可省去配置 ; 反之 , 你可以配置来达到你所期待的方式 . Eloquent 数据表命名约定机制即属于约定优于配置 .
+
+---
 
 #### 创建模型
 
 ```
 php artisan make:model Models/Article
 # -m或--migration表示同时创建迁移文件
-php artisan make:model Models/Post -m
-php artisan make:model Models/Post --migration
+php artisan make:model Models/BlogPost -m
+php artisan make:model Models/BlogPost --migration
+```
+
+**编辑迁移文件database/migrations**
+
+```
+# 新增4个列
+$table->string('slug')->unique(); # 别名,将文章标题转化为URL的一部分,以利于SEO
+$table->string('title'); # 文章标题
+$table->text('content'); # 文章内容
+$table->timestamp('published_at')->index(); # 文章正式发布时间
 ```
 
 
