@@ -111,7 +111,7 @@ foreach (App\Flight::where('my_id', '>', 1)->cursor() as $flight) {
 
 #### 取回单个模型或集合
 
-可以通过`find`和`first`方法来取回单条记录 . 但这些方法返回的是单个模型的实例 , 而不是返回模型的集合 : 
+可以通过`find`和`first`方法来取回单条记录 . 但这些方法返回的是单个模型的实例 , 而不是返回模型的集合 :
 
 ```
 $flight = App\Flight::find(1);
@@ -119,7 +119,7 @@ $flight = App\Flight::find(1);
 $flight = App\Flight::where('my_id', '>', 1)->first();
     echo $flight->title."<br>";
 $flights = App\Flight::find([1, 2, 3]);
-    dump($flights);    
+    dump($flights);
 ```
 
 **「未找到」异常**
@@ -128,9 +128,9 @@ $flights = App\Flight::find([1, 2, 3]);
 
 `Illuminate\Database\Eloquent\ModelNotFoundException`
 
-如果该异常没有被捕获 , 则会自动返回 HTTP`404`响应给用户 , 不用再编写 . 
+如果该异常没有被捕获 , 则会自动返回 HTTP`404`响应给用户 , 不用再编写 .
 
-```
+```php
 try{
     $model = App\Flight::findOrFail(20);
 } catch (Illuminate\Database\Eloquent\ModelNotFoundException $e) {
@@ -147,8 +147,6 @@ try{
     echo "也没找到数据<br>";
 }
 ```
-
-
 
 添加和更新模型
 
