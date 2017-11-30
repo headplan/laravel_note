@@ -122,6 +122,7 @@
       * [DD\_Events](learninglaravel/diggingdeeper/ddevents.md)
     * [Database](learninglaravel/database.md)
       * [DB\_Redis](learninglaravel/database/dbredis.md)
+    * [Eloquent](learninglaravel/eloquent.md)
 * [延伸课题](框架解析.md)
   * [Repository层支持](repository层支持.md)
   * [组件化开发与Composer使用](框架解析/组件化开发与Composer使用.md)
