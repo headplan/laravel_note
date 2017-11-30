@@ -9,7 +9,7 @@ git checkout -b database
 
 #### 数据库迁移
 
-在database/migrations中 , 已经准备了两个默认迁移文件 . 迁移文件中有两个方法 : 
+在database/migrations中 , 已经准备了两个默认迁移文件 . 迁移文件中有两个方法 :
 
 * up\(\)方法运行迁移,创建Schema::create\(\)表
 * down\(\)方法回滚迁移,删除Schema::dropIfExists\(\)表
@@ -29,5 +29,7 @@ php artisan make:migration # 创建迁移文件
 
 #### 更新env数据库相关配置
 
-配置offline.evn和online.env文件 . 
+配置offline.evn和online.env文件 .
+
+
 

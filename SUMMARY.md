@@ -140,6 +140,7 @@
         * [SASS基本语法](lartisan/ye-mian-fen-zhi/qian-duan-gou-jian/sassji-ben-yu-fa.md)
       * [视图布局](lartisan/ye-mian-fen-zhi/bu-ju-shi-tu.md)
     * [数据初始化](lartisan/shu-ju-chu-shi-hua.md)
+      * [模型文件](lartisan/shu-ju-chu-shi-hua/mo-xing-wen-jian.md)
     * [Project Plan](lartisan/jian-dan-gui-hua.md)
     * [Scope of Work](lartisan/scope-of-work.md)
     * [Basic Config](lartisan/basic-config.md)
@@ -198,6 +199,4 @@
 * [出版书籍](chu-ban-shu-ji.md)
   * [From Apprentice To Artisan](chu-ban-shu-ji/from-apprentice-to-artisan.md)
   * [Implementing Laravel](chu-ban-shu-ji/implementing-laravel.md)
-
-
 
