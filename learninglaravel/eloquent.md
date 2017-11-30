@@ -14,6 +14,8 @@ php artisan make:model Flight --migration
 php artisan make:model Flight -m
 ```
 
+**测试表**
+
 ```php
 Schema::create('flights', function (Blueprint $table) {
     $table->increments('id');
