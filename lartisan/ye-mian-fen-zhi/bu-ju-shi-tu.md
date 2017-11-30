@@ -18,12 +18,21 @@ _includes/nav/main.blade.php
 
 ---
 
-布局是需要用到很多URL , 这里记录几个常用的视图中生成URL的方法 . 
+布局是需要用到很多URL , 这里记录几个常用的视图中生成URL的方法 .
 
 * route\(\) 生成指定**路由名称**的 URL , 这里需要在路由中使用name\(\)方法指定路由名称 . 
 * asset\(\) 生成资源路径的完整 URL . 
 * secure\_url \(\) 使用**HTTPS 协议**生成指定**路径**的完整 URL . 
 * url \(\) 生成指定**路径**的完整 URL . 
+
+---
+
+**合并代码**
+
+```
+git checkout master
+git merge frontends
+```
 
 
 
