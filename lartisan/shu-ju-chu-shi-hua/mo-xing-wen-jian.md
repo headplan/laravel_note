@@ -8,13 +8,13 @@ commit一下 .
 
 #### Eloquent约定
 
-Eloquent模型默认情况下会使用类的「下划线命名法」与「复数形式名称」来作为数据表的名称生成规则 , 例如 : 
+Eloquent模型默认情况下会使用类的「下划线命名法」与「复数形式名称」来作为数据表的名称生成规则 , 例如 :
 
 * Article 数据模型类对应`articles`表；
 * User 数据模型类对应`users`表；
 * BlogPost 数据模型类对应`blog_posts`表；
 
-因此 Eloquent 将会假设 Article 模型被存储记录在 articles 数据表中 . 如果你需要指定自己的数据表 , 则可以通过`table`属性来定义 , 例如 : 
+因此 Eloquent 将会假设 Article 模型被存储记录在 articles 数据表中 . 如果你需要指定自己的数据表 , 则可以通过`table`属性来定义 , 例如 :
 
 ```php
 <?php
@@ -28,6 +28,10 @@ class Article extends Model
     protected $table = 'my_articles';
 }
 ```
+
+#### 约定优于配置
+
+约定优于配置\(convention over configuration\) , 也称作按约定编程 , 这是一种软件设计范式 , 旨在减少软件开发人员需做决定的数量，获得简单的好处 , 而又不失灵活性 . 如果所用工具的约定与你的期待相符 , 便可省去配置 ; 反之 , 你可以配置来达到你所期待的方式 . Eloquent 数据表命名约定机制即属于约定优于配置 . 
 
 #### 创建模型
 
