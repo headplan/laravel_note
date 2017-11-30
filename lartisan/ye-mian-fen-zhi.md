@@ -58,6 +58,7 @@ static_pages/about.blade.php
 **添加通用视图**
 
 ```HTML
+# layouts/app.blade.php
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
