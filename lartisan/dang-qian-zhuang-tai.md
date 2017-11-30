@@ -102,5 +102,5 @@ php artisan key:generate
 
 #### 共享目录
 
-package目录存放vendor相关文件和线上线下的env配置 .
+package目录修改 , 仅存放env文件 . 配置远程服务器MySQL配置 . 
 
