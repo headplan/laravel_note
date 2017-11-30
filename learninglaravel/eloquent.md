@@ -38,13 +38,16 @@ Eloquent模型默认情况下会使用类的「下划线命名法」与「复数
 
 **配置约定**
 
-数据表名称 : `protected $table = 'my_flights';`
-
-主键 : `$primaryKey = 'my_id';`
-
-使用非递增或者非数字的主键 : `public $incrementing = false;`
-
-时间戳 : 关闭自动维护`created_at`和`updated_at`字段 , `public $timestamps = false;`
+* 数据表名称 : 自定义表名`protected $table = 'my_flights';`
+* 主键 : 自定义主键名`$primaryKey = 'my_id';`
+  * 使用非递增或者非数字的主键 : `public $incrementing = false;`
+* 时间戳 : 
+  * 关闭自动维护`created_at`和`updated_at`字段 , `public $timestamps = false;`
+  * 定义时间戳格式以及当模型被序列化成数组或 JSON 格式 , `protected $dateFormat = 'U';`
+  * 自定义用于存储时间戳的字段名 : 
+    * `const CREATED_AT = 'creation_date';`
+    * `const UPDATED_AT = 'last_update';`
+* 数据库连接 : 自定义数据库连接`protected $connection = 'connection-name';`
 
 #### 取回多个模型
 
