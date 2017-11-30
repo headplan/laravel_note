@@ -1,4 +1,4 @@
-# 页面分支
+# 前端初始化
 
 ```
 $ git checkout master
@@ -57,7 +57,7 @@ static_pages/about.blade.php
 
 **添加通用视图**
 
-```HTML
+```html
 # layouts/app.blade.php
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
