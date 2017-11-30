@@ -51,7 +51,65 @@ Eloquent模型默认情况下会使用类的「下划线命名法」与「复数
 
 #### 取回多个模型
 
-取回单个模型或集合
+一旦你创建并关联了一个模型到数据表上 , 那么就可以从数据库中获取数据 . 
+
+```
+$flights = App\Flight::all();
+
+foreach ($flights as $flight) {
+    echo $flight->title;
+}
+```
+
+**增加额外的限制**
+
+每个 Eloquent 模型都可以当作一个查询构造器 , 可以使用其所有方法 . 
+
+```
+$flights = App\Flight::where('my_id', '>',3)
+    ->orderBy('title', 'desc')
+    ->get();
+```
+
+**集合**
+
+类似`all`以及`get`之类的可以取回多个结果的Eloquent方法 , 将会返回一个`Illuminate\Database\Eloquent\Collection`实例 . 
+
+`Collection`类提供多种辅助函数来处理Eloquent结果 . 
+
+```
+$flights = App\Flight::all();
+
+$flights = $flights->reject(function ($flight) {
+    echo $flight->title."<br>";
+});
+```
+
+**分块结果**
+
+需要处理数以千计的 Eloquent 查找结果 , 则可以使用`chunk`命令 . `chunk`方法将会获取一个 Eloquent 模型的「分块」, 并将它们送到指定的`闭包 (Closure)`中进行处理 . 当在处理大量结果时 , 使用`chunk`方法可节省内存 : 
+
+```
+App\Flight::chunk(2, function ($flights) {
+    foreach ($flights as $flight) {
+        echo $flight->title."<br>";
+    }
+});
+```
+
+传递到方法的第一个参数表示每次「分块」时你希望接收的数据数量 . 闭包则作为第二个参数传递 , 它将会在每次从数据取出分块时被调用 . 
+
+**使用游标**
+
+`cursor`允许你使用游标来遍历数据库数据 , 一次只执行单个查询 . 在处理大数据量请求时`cursor`方法可以大幅度减少内存的使用 : 
+
+```
+foreach (App\Flight::where('my_id', '>', 1)->cursor() as $flight) {
+    echo $flight->title."<br>";
+}
+```
+
+#### 取回单个模型或集合
 
 添加和更新模型
 
