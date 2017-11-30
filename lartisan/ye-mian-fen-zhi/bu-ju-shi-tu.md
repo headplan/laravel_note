@@ -27,11 +27,17 @@ _includes/nav/main.blade.php
 
 ---
 
-**合并代码**
+**合并frontends分支代码**
 
 ```
 git checkout master
 git merge frontends
+```
+
+**删除static-pages分支**
+
+```
+git branch -d static-pages
 ```
 
 
