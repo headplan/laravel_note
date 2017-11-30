@@ -148,6 +148,19 @@ try{
 }
 ```
 
+**其他聚合函数**
+
+使用`count`、`sum`、`max`等 , 返回计算后的标量 : 
+
+```
+$count = App\Flight::all()->count();
+dump($count);
+$max = App\Flight::all()->max('my_id');
+dump($max);
+$sum = App\Flight::all()->sum('my_id');
+dump($sum);
+```
+
 添加和更新模型
 
 删除模型
