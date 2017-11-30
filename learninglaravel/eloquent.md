@@ -150,7 +150,7 @@ try{
 
 **其他聚合函数**
 
-使用`count`、`sum`、`max`等 , 返回计算后的标量 : 
+使用`count`、`sum`、`max`等 , 返回计算后的标量 :
 
 ```
 $count = App\Flight::all()->count();
@@ -161,7 +161,29 @@ $sum = App\Flight::all()->sum('my_id');
 dump($sum);
 ```
 
-添加和更新模型
+#### 添加和更新模型
+
+**基本添加**
+
+要在数据库中创建一条新记录 , 只需创建一个新模型实例 , 并在模型上设置属性和调用`save`方法即可 : 
+
+```
+$flight = new App\Flight;
+$flight->slug = str_random(10);
+$flight->title = str_random(10);
+$flight->content = bcrypt('secret');
+$flight->save();
+```
+
+**基本更新**
+
+`save`方法也可以用于更新数据库中已经存在的模型 . `updated_at`时间戳将会被自动更新 . 
+
+```
+$flight = App\Flight::find(1);
+$flight->title = 'New Flight Name';
+$flight->save()
+```
 
 删除模型
 
