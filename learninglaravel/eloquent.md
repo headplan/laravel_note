@@ -165,7 +165,7 @@ dump($sum);
 
 **基本添加**
 
-要在数据库中创建一条新记录 , 只需创建一个新模型实例 , 并在模型上设置属性和调用`save`方法即可 : 
+要在数据库中创建一条新记录 , 只需创建一个新模型实例 , 并在模型上设置属性和调用`save`方法即可 :
 
 ```
 $flight = new App\Flight;
@@ -177,12 +177,51 @@ $flight->save();
 
 **基本更新**
 
-`save`方法也可以用于更新数据库中已经存在的模型 . `updated_at`时间戳将会被自动更新 . 
+`save`方法也可以用于更新数据库中已经存在的模型 . `updated_at`时间戳将会被自动更新 .
 
 ```
 $flight = App\Flight::find(1);
 $flight->title = 'New Flight Name';
 $flight->save()
+```
+
+**批量更新**
+
+使用`update`方法针对符合指定查询的任意数量模型进行更新 . 
+
+> 当通过“Eloquent”批量更新时 , `saved`和`updated`模型事件将不会被更新后的模型代替 .
+
+```
+App\Flight::where('my_id', '>', 1)
+    ->where('my_id', '<',4)
+    ->update(['title' => 'aaaaa']);
+```
+
+**批量赋值**
+
+使用`create`方法通过一行代码来保存一个新模型 , 被插入数据库的模型实例也会返回 . 但是 , 所有的Eloquent模型都针对批量赋值\(Mass-Assignment\)做了保护 . 
+
+> 批量赋值漏洞 , 当用户通过 HTTP 请求传入了非预期的参数，并借助这些参数更改了数据库中你并不打算要更改的字段，这时就会出现批量赋值（Mass-Assignment）漏洞 .
+
+所以 , 在开始之前 , 你应该定义好哪些模型属性是可以被批量赋值的 . 定义白名单或黑名单 . 
+
+```
+# 白名单,可以被批量复制的列
+protected $fillable = ['slug','title'];
+# 黑名单,不可以被批量复制的列,为[]表示都可以被批量赋值,默认为[*],表示都不可以被批量复制,也就是批量复制保护
+protected $guarded = ['content'];
+```
+
+```
+$flight = App\Flight::create(['title' => 'Flight 101']);
+```
+
+如果已经有了一个**model模型** , 可以使用fill\(\)方法批量复制 , 当然也要定义白名单 . 
+
+```
+$flight = new App\Flight;
+$flight->fill(['slug' => str_random()]);
+echo "成功创建数据<br>";
 ```
 
 删除模型
