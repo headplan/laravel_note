@@ -271,7 +271,7 @@ App\Flight::destroy(4, 5, 6);
 
 **通过查询来批量删除模型**
 
-查询结果中被删除的模型 , 不会报错 . 
+查询结果中被删除的模型 , 不会报错 .
 
 ```
 $deletedRows = App\Flight::where('my_id', '>=', 7)
@@ -279,9 +279,48 @@ $deletedRows = App\Flight::where('my_id', '>=', 7)
         ->delete();
 ```
 
-返回被删除数量 . where没有查到则返回0 . 
+返回被删除数量 . where没有查到则返回0 .
 
-因为批量删除时 , deleting和deleted模型事件不会在被删除模型实例上触发 , 删除语句执行时 , 不会检索回模型实例 . 
+因为批量删除时 , deleting和deleted模型事件不会在被删除模型实例上触发 , 删除语句执行时 , 不会检索回模型实例 .
+
+#### 软删除
+
+软删除在Laravel中也有约定可用 , 要在模型上启动软删除 , 则必须在模型上使用`Illuminate\Database\Eloquent\SoftDeletes`trait 并添加`deleted_at`字段到`$dates`属性上 : 
+
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Flight extends Model
+{
+    use SoftDeletes;
+
+    /**
+     * 需要被转换成日期的属性。
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+}
+```
+
+当然 , 数据库中也需要添加一列 : 
+
+```
+php artisan make:migration add_deleted_at_column_flights --table=flights
+```
+
+```
+Schema::table('flights', function (Blueprint $table) {
+    $table->softDeletes();
+});
+```
+
+现在 , 当在模型上调用`delete`方法时\(当然destroy\(\)方法也可以\) , `deleted_at`字段将会被设置成目前的日期和时间 . 而且 , 当查询有启用软删除的模型时 , 被软删除的模型将会自动从所有查询结果中排除 . 
 
 查询作用域
 
