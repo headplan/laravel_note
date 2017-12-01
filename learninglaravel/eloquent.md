@@ -255,7 +255,7 @@ $flight = App\Flight::updateOrCreate(
 
 #### 删除模型
 
-要删除模型，必须在模型实例上调用`delete`方法 : 
+要删除模型，必须在模型实例上调用`delete`方法 :
 
 ```
 $flight = App\Flight::find(77);
@@ -268,6 +268,20 @@ $flight->delete();
 App\Flight::destroy([1, 2, 3]);
 App\Flight::destroy(4, 5, 6);
 ```
+
+**通过查询来批量删除模型**
+
+查询结果中被删除的模型 , 不会报错 . 
+
+```
+$deletedRows = App\Flight::where('my_id', '>=', 7)
+        ->where('my_id', '<=', 10)
+        ->delete();
+```
+
+返回被删除数量 . where没有查到则返回0 . 
+
+因为批量删除时 , deleting和deleted模型事件不会在被删除模型实例上触发 , 删除语句执行时 , 不会检索回模型实例 . 
 
 查询作用域
 
