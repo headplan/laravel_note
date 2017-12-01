@@ -226,7 +226,7 @@ echo "成功创建数据<br>";
 
 **其它创建的方**
 
-`firstOrCreate`和`firstOrNew`方法也可以通过属性批量赋值创建模型 . 他们都会尝试寻找数据库中的记录 , 如果在数据库中找不到模型 , 则会使用指定的属性来添加一条记录 . 不同的是`firstOrnew`返回的模型还尚未保存到数据库 , 需要通过手动调用`save`方法来保存它 : 
+`firstOrCreate`和`firstOrNew`方法也可以通过属性批量赋值创建模型 . 他们都会尝试寻找数据库中的记录 , 如果在数据库中找不到模型 , 则会使用指定的属性来添加一条记录 . 不同的是`firstOrnew`返回的模型还尚未保存到数据库 , 需要通过手动调用`save`方法来保存它 :
 
 ```php
 $flight = App\Flight::firstOrCreate(['title' => 'new title']);
@@ -244,7 +244,7 @@ $flight = App\Flight::firstOrNew(
 $flight->save();
 ```
 
-还可以使用`updateOrCreate`方法 , 让模型已经存在则更新 , 否则创建新模型的情形 , 用法和`firstOrCreate`一样 , 第一个参数数组为条件 , 第二个参数数组为要修改大数据 : 
+还可以使用`updateOrCreate`方法 , 让模型已经存在则更新 , 否则创建新模型的情形 , 用法和`firstOrCreate`一样 , 第一个参数数组为条件 , 第二个参数数组为要修改大数据 :
 
 ```php
 $flight = App\Flight::updateOrCreate(
@@ -253,9 +253,21 @@ $flight = App\Flight::updateOrCreate(
 );
 ```
 
+#### 删除模型
 
+要删除模型，必须在模型实例上调用`delete`方法 : 
 
-删除模型
+```
+$flight = App\Flight::find(77);
+$flight->delete();
+```
+
+**通过主键来删除现有的模型**
+
+```
+App\Flight::destroy([1, 2, 3]);
+App\Flight::destroy(4, 5, 6);
+```
 
 查询作用域
 
