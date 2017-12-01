@@ -228,6 +228,31 @@ echo "成功创建数据<br>";
 
 `firstOrCreate`和`firstOrNew`方法也可以通过属性批量赋值创建模型 . 他们都会尝试寻找数据库中的记录 , 如果在数据库中找不到模型 , 则会使用指定的属性来添加一条记录 . 不同的是`firstOrnew`返回的模型还尚未保存到数据库 , 需要通过手动调用`save`方法来保存它 : 
 
+```php
+$flight = App\Flight::firstOrCreate(['title' => 'new title']);
+
+$flight = App\Flight::firstOrCreate(
+    ['title' => 'new title2'], ['slug' => str_random()]
+);
+
+$flight = App\Flight::firstOrNew(['title' => 'new title33333']);
+$flight->save();
+
+$flight = App\Flight::firstOrNew(
+    ['title' => 'new title444444'], ['slug' => str_random()]
+);
+$flight->save();
+```
+
+还可以使用`updateOrCreate`方法 , 让模型已经存在则更新 , 否则创建新模型的情形 , 用法和`firstOrCreate`一样 , 第一个参数数组为条件 , 第二个参数数组为要修改大数据 : 
+
+```php
+$flight = App\Flight::updateOrCreate(
+    ['title' => 'new title444444'],
+    ['content' => 999]
+);
+```
+
 
 
 删除模型
