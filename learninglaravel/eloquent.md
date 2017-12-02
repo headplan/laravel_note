@@ -418,7 +418,7 @@ protected static function boot()
 
 **匿名的全局作用域**
 
-作用域可以使用使用闭包配置 : 
+作用域可以使用使用闭包配置 :
 
 ```php
 protected static function boot()
@@ -430,6 +430,21 @@ protected static function boot()
             ->where('my_id', '<=', 100);
     });
 }
+```
+
+**移除全局作用域**
+
+在操作模型时使用`withoutGlobalScope()`方法移除作用域方法
+
+```php
+# 移除所有
+User::withoutGlobalScopes()->get();
+# 移除单个
+User::withoutGlobalScope(AgeScope::class)->get();
+# 移除所有
+User::withoutGlobalScopes([FirstScope::class, SecondScope::class])->get();
+# 移除闭包
+User::withoutGlobalScope('my_id')->get();
 ```
 
 事件
