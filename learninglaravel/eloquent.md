@@ -285,7 +285,7 @@ $deletedRows = App\Flight::where('my_id', '>=', 7)
 
 #### 软删除
 
-软删除在Laravel中也有约定可用 , 要在模型上启动软删除 , 则必须在模型上使用`Illuminate\Database\Eloquent\SoftDeletes`trait 并添加`deleted_at`字段到`$dates`属性上 : 
+软删除在Laravel中也有约定可用 , 要在模型上启动软删除 , 则必须在模型上使用`Illuminate\Database\Eloquent\SoftDeletes`trait 并添加`deleted_at`字段到`$dates`属性上 :
 
 ```
 <?php
@@ -308,7 +308,7 @@ class Flight extends Model
 }
 ```
 
-当然 , 数据库中也需要添加一列 : 
+当然 , 数据库中也需要添加一列 :
 
 ```
 php artisan make:migration add_deleted_at_column_flights --table=flights
@@ -322,7 +322,87 @@ Schema::table('flights', function (Blueprint $table) {
 
 现在 , 当在模型上调用`delete`方法时\(当然destroy\(\)方法也可以\) , `deleted_at`字段将会被设置成目前的日期和时间 . 而且 , 当查询有启用软删除的模型时 , 被软删除的模型将会自动从所有查询结果中排除 . 
 
-查询作用域
+确认指定的模型实例是否已经被软删除使用
+
+```
+if ($flight->trashed()) {
+    //
+}
+```
+
+**软删除的模型操作**
+
+包含被软删除的模型
+
+```
+$flights = App\Flight::withTrashed()
+    ->where('account_id', 1)
+    ->get();
+```
+
+关联查询
+
+```
+$flight->history()->withTrashed()->get();
+```
+
+只取出软删除数据
+
+```
+$flights = App\Flight::onlyTrashed()
+    ->where('airline_id', 1)
+    ->get();
+```
+
+恢复被软删除的模型
+
+可以在模型实例上使用`restore`方法 , 也可以在查询上批量恢复
+
+```
+App\Flight::withTrashed()
+    ->where('airline_id', 1)
+    ->restore();
+```
+
+```
+$flight->history()->restore();
+```
+
+永久删除模型
+
+开启了软删除约定后 , 使用forceDelete\(\)方法进行硬删除 : 
+
+```
+$flight->forceDelete();
+```
+
+#### 查询作用域
+
+**全局作用域**
+
+全局作用域允许我们为给定模型的所有查询添加条件约束 . 例如前面的软删除功能 .
+
+**编写全局作用域**
+
+定义一个实现`Illuminate\Database\Eloquent\Scope`接口 , 可以在app文件夹下创建Scopes文件夹存放 可以自动加载即可 . 
+
+```php
+<?php
+
+namespace App\Scopes;
+
+use Illuminate\Database\Eloquent\Scope;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+
+class MyidScope implements Scope
+{
+    public function apply(Builder $builder, Model $model)
+    {
+        return $builder->where('my_id', '>', 6);
+    }
+}
+```
 
 事件
 
