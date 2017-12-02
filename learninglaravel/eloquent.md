@@ -404,7 +404,7 @@ class MyidScope implements Scope
 }
 ```
 
-时间了接口之后 , 就可以在模型类中使用了 : 
+时间了接口之后 , 就可以在模型类中使用了 :
 
 ```php
 protected static function boot()
@@ -414,7 +414,23 @@ protected static function boot()
 }
 ```
 
-现在的查询 , 就会加上这个全局的条件 . 
+现在的查询 , 就会加上这个全局的条件 .
+
+**匿名的全局作用域**
+
+作用域可以使用使用闭包配置 : 
+
+```php
+protected static function boot()
+{
+    parent::boot();
+    //static::addGlobalScope(new MyidScope);
+    static::addGlobalScope('my_id', function (Builder $builder) {
+        return $builder->where('my_id', '>=', 1)
+            ->where('my_id', '<=', 100);
+    });
+}
+```
 
 事件
 
