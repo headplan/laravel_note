@@ -320,7 +320,7 @@ Schema::table('flights', function (Blueprint $table) {
 });
 ```
 
-现在 , 当在模型上调用`delete`方法时\(当然destroy\(\)方法也可以\) , `deleted_at`字段将会被设置成目前的日期和时间 . 而且 , 当查询有启用软删除的模型时 , 被软删除的模型将会自动从所有查询结果中排除 . 
+现在 , 当在模型上调用`delete`方法时\(当然destroy\(\)方法也可以\) , `deleted_at`字段将会被设置成目前的日期和时间 . 而且 , 当查询有启用软删除的模型时 , 被软删除的模型将会自动从所有查询结果中排除 .
 
 确认指定的模型实例是否已经被软删除使用
 
@@ -370,7 +370,7 @@ $flight->history()->restore();
 
 永久删除模型
 
-开启了软删除约定后 , 使用forceDelete\(\)方法进行硬删除 : 
+开启了软删除约定后 , 使用forceDelete\(\)方法进行硬删除 :
 
 ```
 $flight->forceDelete();
@@ -384,7 +384,7 @@ $flight->forceDelete();
 
 **编写全局作用域**
 
-定义一个实现`Illuminate\Database\Eloquent\Scope`接口 , 可以在app文件夹下创建Scopes文件夹存放 可以自动加载即可 . 
+定义一个实现`Illuminate\Database\Eloquent\Scope`接口 , 可以在app文件夹下创建Scopes文件夹存放 可以自动加载即可 .
 
 ```php
 <?php
@@ -403,6 +403,18 @@ class MyidScope implements Scope
     }
 }
 ```
+
+时间了接口之后 , 就可以在模型类中使用了 : 
+
+```php
+protected static function boot()
+{
+    parent::boot();
+    static::addGlobalScope(new MyidScope);
+}
+```
+
+现在的查询 , 就会加上这个全局的条件 . 
 
 事件
 
