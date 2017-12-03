@@ -144,6 +144,7 @@
       * [模型文件](lartisan/shu-ju-chu-shi-hua/mo-xing-wen-jian.md)
     * [功能初始化](lartisan/gong-neng-chu-shi-hua.md)
       * [Blog模块](lartisan/gong-neng-chu-shi-hua/blogmo-kuai.md)
+      * [User模块](lartisan/gong-neng-chu-shi-hua/usermo-kuai.md)
       * [Backend模块](lartisan/gong-neng-chu-shi-hua/backendmo-kuai.md)
     * [Project Plan](lartisan/jian-dan-gui-hua.md)
     * [Scope of Work](lartisan/scope-of-work.md)
