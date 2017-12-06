@@ -86,7 +86,7 @@
   * [用户认证](yong-hu-ren-zheng.md)
     * [Laratrust](laratrust.md)
       * [Laratrust表结构](laratrust/laratrustbiao-jie-gou.md)
-    * Laravel-permission
+    * [Laravel-permission](laravel-permission.md)
     * Bouncer
     * [Entrust](entrust.md)
   * [Predis](predis.md)

@@ -14,10 +14,25 @@ composer require barryvdh/laravel-ide-helper
 Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 ```
 
-接下来运行以下命令生成代码对应文档
+**生成Laravel Facades代码对应文档**
 
 ```
 php artisan ide-helper:generate
+```
+
+> 注 : 要先清除bootstrap/compiled.php文件 , 可以执行`php artisan clear-compiled`命令 ,
+
+也可以配置composer.json文件 , 每次提交自动执行 : 
+
+```js
+"scripts":{
+    "post-update-cmd": [
+        "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+        "php artisan ide-helper:generate",
+        "php artisan ide-helper:meta",
+        "php artisan optimize"
+    ]
+},
 ```
 
 
