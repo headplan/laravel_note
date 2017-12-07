@@ -82,6 +82,7 @@
 * [资源收集](laravel资源记录.md)
   * [Laravel-debugbar](laravel-debugbar.md)
   * [Laravel-ide-helper](laravel-ide-helper.md)
+    * [配置文件详解](laravel-ide-helper/pei-zhi-wen-jian-xiang-jie.md)
   * [Summerblue-generator](summerblue-generator.md)
   * [用户认证](yong-hu-ren-zheng.md)
     * [Laratrust](laratrust.md)
