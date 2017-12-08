@@ -47,7 +47,28 @@ php artisan vendor:publish --provider="Barryvdh\LaravelIdeHelper\IdeHelperServic
 
 生成器会尝试定位真正的类 , 如果找不到 , 可以在配置文件中定义 .
 
-有些类需要数据库连接 , 如果没有相应的数据库连接 , 某些门面可能无法包含到生成器文件中 . 可以通过`-M`参数 , 使用内存SQLite驱动 . 还可以配置要包含的辅助函数文件 , 默认该选项并未开启 , 可以通过`--helpers`选项或者`-H`覆盖默认配置 , 也可以在配置文件中添加自定义的辅助函数文件 .
+有些类需要数据库连接 , 如果没有相应的数据库连接 , 某些门面可能无法包含到生成器文件中 . 可以通过`-M`参数 , 使用内存SQLite驱动 . 还可以配置要包含的辅助函数文件 , 默认该选项并未开启 , 可以通过`--helpers`选项或者`-H`覆盖默认配置 , 也可以在配置文件中添加自定义的辅助函数文件 . 
+
+#### **生成模型对应的文档**
+
+在使用本特性之前 , 需要先引入依赖
+
+```
+composer require doctrine/dbal
+```
+
+如果不自己写文档属性 , 可以使用命令来基于数据表字段,关联关系以及getters/setters生成对应的phpDoc文档 : 
+
+```
+php artisan ide-helper:models
+```
+
+执行命令会提示是否要改写现有的模型文件 , 还是以写入`_ide_helper_models. php`文件代替 , 默认为no , 生成`_ide_helper_models. php`文件 . 可以使用`-W`参数 , 直接写入模型文件中 , 或者`-N`参数生成`_ide_helper_models. php`文件 . 
+
+```
+php artisan ide-helper:models -W
+php artisan ide-helper:models -N
+```
 
 
 
