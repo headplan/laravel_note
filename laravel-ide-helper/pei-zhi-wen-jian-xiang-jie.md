@@ -113,5 +113,16 @@ return array(
 ),
 ```
 
+```
+'model_camel_case_properties' => false,
+# 设置驼峰模式属性
+# 普通配置
+* @property \Carbon\Carbon $created_at
+* @property \Carbon\Carbon $updated_at
+# 设置后
+* @property \Carbon\Carbon $createdAt
+* @property \Carbon\Carbon $updatedAt
+```
+
 
 
