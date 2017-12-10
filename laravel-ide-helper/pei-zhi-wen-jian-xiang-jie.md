@@ -124,5 +124,14 @@ return array(
 * @property \Carbon\Carbon $updatedAt
 ```
 
+```
+# 属性强制转换
+# 将给定的真实类型转换为给定的类型
+'type_overrides' => array(
+   'integer' => 'int',
+   'boolean' => 'bool',
+),
+```
+
 
 
