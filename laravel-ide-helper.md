@@ -72,9 +72,9 @@ php artisan ide-helper:models -W
 php artisan ide-helper:models -N
 ```
 
-需要注意的是在进行操作之前需要备份模型文件 , 因为我们要保留之前已存在的 , 只是追加新属性和方法 , 而不是覆盖和重写 . phpdoc文档已存在会被替换 , 否则新增 . 我们通过`—reset(-R)`参数 , 将已存在的phpdoc忽略 , 只保存新增的字段/关系 . 
+需要注意的是在进行操作之前需要备份模型文件 , 因为我们要保留之前已存在的 , 只是追加新属性和方法 , 而不是覆盖和重写 . phpdoc文档已存在会被替换 , 否则新增 . 我们通过`—reset(-R)`参数 , 将已存在的phpdoc忽略 , 只保存新增的字段/关系 .
 
-默认情况`app/models`目录下的模型会被遍历 , 也可以指定模型或者目录 : 
+默认情况`app/models`目录下的模型会被遍历 , 也可以指定模型或者目录 :
 
 ```
 php artisan ide-helper:models Post User
@@ -83,7 +83,7 @@ php artisan ide-helper:models --dir="path/to/models" --dir="app/src/Model"
 
 > 也可以在配置文件中设置模型目录
 
-使用命名空间也可以 , 但要注意添加引号 : 
+使用命名空间也可以 , 但要注意添加引号 :
 
 ```
 php artisan ide-helper:models "Api\User"
@@ -91,13 +91,13 @@ php artisan ide-helper:models "Api\User"
 php artisan ide-helper:models Api\\User
 ```
 
-使用`--ignore(-I)`选项来忽略模型文档生成 : 
+使用`--ignore(-I)`选项来忽略模型文档生成 :
 
 ```
 php artisan ide-helper:models --ignore="Post,User"
 ```
 
-为了正确识别模型方法 , 例如`paginate, findOrFail`等 , 可以让模型类继承`Eloquent`或者给模型类添加注释 , 就可以自动提示了 : 
+为了正确识别模型方法 , 例如`paginate, findOrFail`等 , 可以让模型类继承`Eloquent`或者给模型类添加注释 , 就可以自动提示了 :
 
 ```
 /**
@@ -109,7 +109,7 @@ php artisan ide-helper:models --ignore="Post,User"
 
 #### 生成PHPStorm中容器实例对应的Meta
 
-可以生成一个PHPStorm meta文件来添加工厂设计模式支持，对Laravel而言，这意味着我们可以让PHPStorm理解从IoC容器中取出的对象类型 . 例如 , `events`会返回`Illuminate\Events\Dispatcher`对象 , 因此通过meta文件你可以调用`app('events')`然后它会自动补全对应的调度方法 . 
+可以生成一个PHPStorm meta文件来添加工厂设计模式支持，对Laravel而言，这意味着我们可以让PHPStorm理解从IoC容器中取出的对象类型 . 例如 , `events`会返回`Illuminate\Events\Dispatcher`对象 , 因此通过meta文件你可以调用`app('events')`然后它会自动补全对应的调度方法 .
 
 ```
 php artisan ide-helper:meta
@@ -127,4 +127,12 @@ app('App\SomeClass');
 ```
 
 生成文档之后需要重启PHPStorm , 目的也是为了重新索引.phpstorm.meta.php文件 . 需要注意的是 , 当因为未找到类而产生致命异常时 , 可以检查一下配置文件 , 例如没有配置S3云服务而引入了 , 没有使用Redis , 而引入了服务提供者 , 可能发生致命异常 . 
+
+为了方便 , 可以直接添加预生成文件 : 
+
+```
+https://gist.github.com/barryvdh/bb6ffc5d11e0a75dba67
+```
+
+
 
