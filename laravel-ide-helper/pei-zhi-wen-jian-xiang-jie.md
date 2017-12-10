@@ -38,7 +38,80 @@ return array(
     >     class Fluent {}
     > }
 
+```
+# 开启关闭模型的魔术方法
+'write_model_magic_where' => true,
+# 设置为true会在_ide_helper_models文件中添加下面的内容
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BlogPost whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BlogPost whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BlogPost whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BlogPost wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BlogPost whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BlogPost whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BlogPost whereUpdatedAt($value)
+```
 
+```
+'include_helpers' => false,
+
+'helper_files' => array(
+    base_path().'/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+),
+
+# 生成helper文档
+# 可以在数组中添加自定义路径
+# 也可以直接在命令行中添加-H(--helpers)生成
+```
+
+```
+'model_locations' => array(
+    'app',
+),
+# 生成模型文档时的遍历的路径
+```
+
+```
+# 扩展类
+# 这些实现不是真正的扩展,而是用魔术方法调用的
+'extra' => array(
+    'Eloquent' => array('Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'),
+    'Session' => array('Illuminate\Session\Store'),
+),
+
+'magic' => array(
+    'Log' => array(
+        'debug'     => 'Monolog\Logger::addDebug',
+        'info'      => 'Monolog\Logger::addInfo',
+        'notice'    => 'Monolog\Logger::addNotice',
+        'warning'   => 'Monolog\Logger::addWarning',
+        'error'     => 'Monolog\Logger::addError',
+        'critical'  => 'Monolog\Logger::addCritical',
+        'alert'     => 'Monolog\Logger::addAlert',
+        'emergency' => 'Monolog\Logger::addEmergency',
+    )
+),
+```
+
+```
+# 接口实现
+# 这些接口将被实现类替换.某些接口是由helpers检测到的,其他的则可以在下面的数组中列出
+'interfaces' => array(
+
+),
+```
+
+```
+# 自定义支持类型
+# 此设置允许映射任何自定义数据库类型.配置中的所有数组键都是Doctrine2 DBAL平台中提供的名称.
+# 由Doctrine/DBAL/Platforms/AbstractPlatform的自方法getName()返回
+# 数组的配置可以查看http://doctrine-dbal.readthedocs.org/en/latest/reference/types.html配置
+# 这里举例配置
+'custom_db_types' => array(
+    "postgresql" => array(
+        "jsonb" => "json_array",
+    ),
+),
+```
 
 
 
