@@ -88,6 +88,7 @@
     * [Laratrust](laratrust.md)
       * [Laratrust表结构](laratrust/laratrustbiao-jie-gou.md)
     * [Laravel-permission](laravel-permission.md)
+      * [配置文件详解](laravel-permission/pei-zhi-wen-jian-xiang-jie.md)
     * Bouncer
     * [Entrust](entrust.md)
   * [Predis](predis.md)

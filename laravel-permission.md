@@ -8,7 +8,7 @@
 composer require spatie/laravel-permission
 ```
 
-Laravel5.5的服务提供者已经可以自动注册了 , 5.4版本可以添加配置 : 
+Laravel5.5的服务提供者已经可以自动注册了 , 5.4版本可以添加配置 :
 
 ```
 'providers' => [
@@ -17,10 +17,22 @@ Laravel5.5的服务提供者已经可以自动注册了 , 5.4版本可以添加�
 ];
 ```
 
-然后 , 发布迁移文件 : 
+然后 , 发布迁移文件 :
 
 ```
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
+```
+
+创建表 : 
+
+```
+php artisan migrate
+```
+
+生成配置文件 : 
+
+```
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
 ```
 
 
