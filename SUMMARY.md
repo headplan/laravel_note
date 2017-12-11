@@ -148,9 +148,10 @@
       * [Blog模块](lartisan/gong-neng-chu-shi-hua/blogmo-kuai.md)
       * [User模块](lartisan/gong-neng-chu-shi-hua/usermo-kuai.md)
       * [Backend模块](lartisan/gong-neng-chu-shi-hua/backendmo-kuai.md)
+    * [第三方包](lartisan/di-san-fang-bao.md)
     * [Project Plan](lartisan/jian-dan-gui-hua.md)
     * [Scope of Work](lartisan/scope-of-work.md)
-    * [Basic Config](lartisan/basic-config.md)
+    * 第三方包
   * [Lartisan API](lartisan-api.md)
     * [API文档及开发规范](lartisan-api/apiwen-dang-ji-kai-fa-gui-fan.md)
     * [自定义基础规则](lartisan-api/shi-li-kai-fa.md)

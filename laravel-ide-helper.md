@@ -126,9 +126,9 @@ $app->make('events')->fire();
 app('App\SomeClass');
 ```
 
-生成文档之后需要重启PHPStorm , 目的也是为了重新索引.phpstorm.meta.php文件 . 需要注意的是 , 当因为未找到类而产生致命异常时 , 可以检查一下配置文件 , 例如没有配置S3云服务而引入了 , 没有使用Redis , 而引入了服务提供者 , 可能发生致命异常 . 
+生成文档之后需要重启PHPStorm , 目的也是为了重新索引.phpstorm.meta.php文件 . 需要注意的是 , 当因为未找到类而产生致命异常时 , 可以检查一下配置文件 , 例如没有配置S3云服务而引入了 , 没有使用Redis , 而引入了服务提供者 , 可能发生致命异常 .
 
-为了方便 , 可以直接添加预生成文件 : 
+为了方便 , 可以直接添加预生成文件 :
 
 ```
 https://gist.github.com/barryvdh/bb6ffc5d11e0a75dba67
