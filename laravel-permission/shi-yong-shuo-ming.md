@@ -57,12 +57,22 @@ $permissions = $user->getAllPermissions();
 $roles = $user->getRoleNames(); // Returns a collection
 ```
 
-HasRoles trait还添加了一个角色范围到模型 , 可以将查询范围限定为特定的角色或权限 : 
+HasRoles trait还添加了一个角色范围到模型 , 可以将查询范围限定为特定的角色或权限 :
 
 ```php
 // 获取具有writer角色的用户
 $users = User::role('writer')->get();
 ```
+
+这个角色范围的参数可以是一个字符串 , 一个`\Spatie\Permission\Models\Role`对象或者一个`\Illuminate\Support\Collection`对象
+
+同样 , trait中还有方法可以限定只获取有权限的用户 : 
+
+```php
+$users = User::permission('edit articles')->get();
+```
+
+参数也可以is一个字符串 , `\Spatie\Permission\Models\Role`对象或者`\Illuminate\Support\Collection`对象 . 
 
 
 
