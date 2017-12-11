@@ -23,13 +23,13 @@ Laravel5.5的服务提供者已经可以自动注册了 , 5.4版本可以添加�
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
 ```
 
-创建表 : 
+创建表 :
 
 ```
 php artisan migrate
 ```
 
-生成配置文件 : 
+生成配置文件 :
 
 ```
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
