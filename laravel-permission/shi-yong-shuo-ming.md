@@ -44,7 +44,7 @@ $permission = Permission::create(['name' => 'edit articles']);
 
 注意 , 使用其他的guard , 需要给模型定义guard\_name属性 .
 
-HasRoles trait会将Eloquent关系模型添加到模型中 , 可以直接使用这些方法 : 
+HasRoles trait会将Eloquent关系模型添加到模型中 , 可以直接使用这些方法 :
 
 ```php
 // 获取直接分配给用户的所有权限列表
@@ -55,6 +55,13 @@ $permissions = $user->getAllPermissions();
 
 // 获取所有已定义角色的集合
 $roles = $user->getRoleNames(); // Returns a collection
+```
+
+HasRoles trait还添加了一个角色范围到模型 , 可以将查询范围限定为特定的角色或权限 : 
+
+```php
+// 获取具有writer角色的用户
+$users = User::role('writer')->get();
 ```
 
 
