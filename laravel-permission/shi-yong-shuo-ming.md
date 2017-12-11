@@ -1,6 +1,6 @@
 # 使用说明
 
-首先 , 添加`Spatie\Permission\Traits\HasRoles Trait`在用户模型 : 
+首先 , 添加`Spatie\Permission\Traits\HasRoles Trait`在用户模型 :
 
 ```php
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,7 +14,7 @@ class User extends Authenticatable
 }
 ```
 
-注意 : 如果要将HasRoles trait使用在其他用户模型中 , 需要添加一个属性 : 
+注意 : 如果要将HasRoles trait使用在其他用户模型中 , 需要添加一个属性 :
 
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -30,9 +30,9 @@ class Page extends Model
 }
 ```
 
-否则可能会报错 . 
+否则可能会报错 .
 
-程序包允许用户与权限和角色相关联 . 每个角色都与多个权限相关联 . 角色和权限都是正常的Eloquent模型 , 需要手动创建 : 
+程序包允许用户与权限和角色相关联 . 每个角色都与多个权限相关联 . 角色和权限都是正常的Eloquent模型 , 需要手动创建 :
 
 ```php
 use Spatie\Permission\Models\Role;
@@ -42,7 +42,20 @@ $role = Role::create(['name' => 'writer']);
 $permission = Permission::create(['name' => 'edit articles']);
 ```
 
-注意 , 使用其他的guard , 需要给模型定义guard\_name属性 . 
+注意 , 使用其他的guard , 需要给模型定义guard\_name属性 .
+
+HasRoles trait会将Eloquent关系模型添加到模型中 , 可以直接使用这些方法 : 
+
+```php
+// 获取直接分配给用户的所有权限列表
+$permissions = $user->permissions;
+
+// 获取用户通过角色继承的所有权限
+$permissions = $user->getAllPermissions();
+
+// 获取所有已定义角色的集合
+$roles = $user->getRoleNames(); // Returns a collection
+```
 
 
 
