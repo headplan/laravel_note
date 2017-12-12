@@ -66,13 +66,11 @@ $users = User::role('writer')->get();
 
 这个角色范围的参数可以是一个字符串 , 一个`\Spatie\Permission\Models\Role`对象或者一个`\Illuminate\Support\Collection`对象
 
-同样 , trait中还有方法可以限定只获取有权限的用户 : 
+同样 , trait中还有方法可以限定只获取有权限的用户 :
 
 ```php
 $users = User::permission('edit articles')->get();
 ```
 
-参数也可以is一个字符串 , `\Spatie\Permission\Models\Role`对象或者`\Illuminate\Support\Collection`对象 . 
-
-
+参数也可以是一个字符串 , `\Spatie\Permission\Models\Role`对象或者`\Illuminate\Support\Collection`对象 .
 
