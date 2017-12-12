@@ -1,6 +1,6 @@
 # Laravel-lang
 
-https://github.com/overtrue/laravel-lang
+[https://github.com/overtrue/laravel-lang](https://github.com/overtrue/laravel-lang)
 
 Laravel 5 语言包，包含 52 种语言, 基于[caouecs/Laravel-lang](https://github.com/caouecs/Laravel-lang).
 
@@ -27,7 +27,7 @@ Overtrue\LaravelLang\TranslationServiceProvider::class,
 
 #### 使用
 
-使用和正常一样 , 在创建resources/lang/zh-CN/文件夹 , 添加自定义语言项 : 
+使用和正常一样 , 在创建resources/lang/zh-CN/文件夹 , 添加自定义语言项 :
 
 ```
 <?php
@@ -38,7 +38,7 @@ return [
 ];
 ```
 
-使用helper函数调用 : 
+使用helper函数调用 :
 
 ```
 echo trans('demo.user_not_exists'); // 用户不存在
@@ -54,6 +54,12 @@ echo trans('demo.user_not_exists'); // 用户不存在
 return [
     'reset' => '您的密码已经重置成功了，你可以使用新的密码登录了!',
 ];
+```
+
+#### 复制默认的语言包文件
+
+```
+php artisan lang:publish zh-CN,zh-HK,th,tk
 ```
 
 
