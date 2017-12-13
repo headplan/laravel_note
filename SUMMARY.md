@@ -97,6 +97,8 @@
         * [使用中间件](laravel-permission/shi-yong-shuo-ming/shi-yong-zhong-jian-jian.md)
         * [使用artisan命令](laravel-permission/shi-yong-shuo-ming/shi-yong-artisan-ming-ling.md)
       * [单元测试](laravel-permission/dan-yuan-ce-shi.md)
+      * [数据播种](laravel-permission/shu-ju-bo-zhong.md)
+      * [扩展与缓存](laravel-permission/kuo-zhan.md)
     * Bouncer
     * [Entrust](entrust.md)
   * [Predis](predis.md)

@@ -35,5 +35,14 @@ php artisan migrate
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
 ```
 
+---
+
+两篇关于使用Laravel-permission的文章 : 
+
+```
+https://scotch.io/tutorials/user-authorization-in-laravel-54-with-spatie-laravel-permission
+http://www.qcode.in/easy-roles-and-permissions-in-laravel-5-4/
+```
+
 
 
