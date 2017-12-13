@@ -93,6 +93,7 @@
         * [使用直接权限](laravel-permission/shi-yong-shuo-ming/shi-yong-direct-quan-xian.md)
         * [通过角色使用权限](laravel-permission/shi-yong-shuo-ming/tong-guo-jiao-se-shi-yong-quan-xian.md)
         * [使用Blade模板命令](laravel-permission/shi-yong-shuo-ming/shi-yong-blade-mo-ban-ming-ling.md)
+        * [使用多个Guard](laravel-permission/shi-yong-shuo-ming/shi-yong-duo-ge-guard.md)
     * Bouncer
     * [Entrust](entrust.md)
   * [Predis](predis.md)
