@@ -94,6 +94,9 @@
         * [通过角色使用权限](laravel-permission/shi-yong-shuo-ming/tong-guo-jiao-se-shi-yong-quan-xian.md)
         * [使用Blade模板命令](laravel-permission/shi-yong-shuo-ming/shi-yong-blade-mo-ban-ming-ling.md)
         * [使用多个Guard](laravel-permission/shi-yong-shuo-ming/shi-yong-duo-ge-guard.md)
+        * [使用中间件](laravel-permission/shi-yong-shuo-ming/shi-yong-zhong-jian-jian.md)
+        * [使用artisan命令](laravel-permission/shi-yong-shuo-ming/shi-yong-artisan-ming-ling.md)
+      * [单元测试](laravel-permission/dan-yuan-ce-shi.md)
     * Bouncer
     * [Entrust](entrust.md)
   * [Predis](predis.md)
