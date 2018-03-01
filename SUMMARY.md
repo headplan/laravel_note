@@ -30,7 +30,7 @@
 * [官方手册](manual.md)
   * [基本功能](manual/ji-ben-gong-neng.md)
   * [编译前端资源](manual/bian-yi-qian-duan-zi-yuan.md)
-* [资源收集](laravel资源记录.md)
+* [精选资源](laravel资源记录.md)
   * [Laravel-debugbar](laravel-debugbar.md)
   * [Laravel-ide-helper](laravel-ide-helper.md)
     * [配置文件详解](laravel-ide-helper/pei-zhi-wen-jian-xiang-jie.md)
