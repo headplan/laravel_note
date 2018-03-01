@@ -1,11 +1,11 @@
 # Summary
 
-* [Introduction](README.md)
-* [版本更新](版本变更.md)
-  * [Laravel 5.4](laravel-54.md)
-  * [Laravel 5.3](laravel-53.md)
-  * [Laravel 5.2](laravel.md)
-  * [Laravel 5.1](laravel-51.md)
+* [关于](README.md)
+* [版本更新](version.md)
+  * [Laravel 5.4](version/laravel-54.md)
+  * [Laravel 5.3](version/laravel-53.md)
+  * [Laravel 5.2](version/laravel-52.md)
+  * [Laravel 5.1](version/laravel-51.md)
   * [版本升级](ban-ben-sheng-ji.md)
   * [贡献指南](gong-xian-zhi-nan.md)
   * [起步](安装.md)
