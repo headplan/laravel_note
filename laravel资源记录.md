@@ -1,15 +1,5 @@
 # 资源记录
 
-##### 参考资料
-
-[http://laravelacademy.org/post/153.html](http://laravelacademy.org/post/153.html)
-
-> [https://github.com/nonfu/awesome-laravel](https://github.com/nonfu/awesome-laravel)
-
-[http://www.tuicool.com/articles/vyIRBbB](http://www.tuicool.com/articles/vyIRBbB)
-
-> [https://github.com/summerblue/laravel-package-top-100](https://github.com/summerblue/laravel-package-top-100)
-
 ##### 官方资源
 
 [http://packalyst.com/](http://packalyst.com/)
@@ -57,4 +47,18 @@ mews/captcha - 验证码
 **页面**
 
 laravelcollective/html\(5.4之前叫illuminate/html\) - 在blade中生成html标签
+
+---
+
+##### 参考资料
+
+[http://laravelacademy.org/post/153.html](http://laravelacademy.org/post/153.html)
+
+> [https://github.com/nonfu/awesome-laravel](https://github.com/nonfu/awesome-laravel)
+
+[http://www.tuicool.com/articles/vyIRBbB](http://www.tuicool.com/articles/vyIRBbB)
+
+> [https://github.com/summerblue/laravel-package-top-100](https://github.com/summerblue/laravel-package-top-100)
+
+
 
