@@ -87,7 +87,7 @@
     * [Database](laravel-code/learninglaravel/database.md#database)
       * [DB\_Redis](laravel-code/learninglaravel/database/dbredis.md)
     * [Eloquent](laravel-code/learninglaravel/eloquent.md)
-* [实验开发](项目开发.md)
+* [开发记录](develop-recode.md#develop-recode)
   * [Lartisan](lartisan.md)
     * [当前状态](lartisan/dang-qian-zhuang-tai.md)
     * [服务器状态](lartisan/fu-wu-qi-zhuang-tai.md)
