@@ -1,6 +1,6 @@
-# WebModel
+# 初始化
 
-前面已经在Homestead中安装好了Laravel , 开始之前还需要简单配置一些东西 .
+前面已经在Homestead中安装好了Laravel , 开始之前还可以简单配置一些东西 .
 
 #### **Git配置**
 
