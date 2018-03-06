@@ -65,7 +65,7 @@ laravel/homestead (virtualbox, 3.0.0)
 
 > 更多关于vagrant的命令 , 可以到Linux\_note中的专题查看 .
 >
-> 这里metadata.json只是一个配置文件
+> 这里metadata.json只是一个配置文件 , 可以自定义 .
 
 box导入完成 .
 
