@@ -148,7 +148,7 @@
   * [Heroku](deploy-the-line/heroku.md)
   * [Deployer](deploy-the-line/deployer.md)
   * [Travis](deploy-the-line/travis.md)
-  * [walle](deploy-the-line/walle.md)
+  * [walle](deploy-the-line/walle.md#walle)
     * [Git项目配置](deploy-the-line/walle/gitxiang-mu-pei-zhi.md)
     * [高级任务配置](deploy-the-line/walle/gao-ji-ren-wu-pei-zhi.md)
     * [项目配置与上线](deploy-the-line/walle/xiang-mu-pei-zhi-yu-shang-xian.md)
