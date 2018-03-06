@@ -1,4 +1,4 @@
-# Lartisan社区
+# Lartisan
 
 ### 安装扩展包
 
