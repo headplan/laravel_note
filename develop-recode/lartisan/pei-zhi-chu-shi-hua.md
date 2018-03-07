@@ -1,6 +1,16 @@
 # 配置初始化
 
-配置env文件 . 根据不同环境配置 :
+#### 配置conposer.json
+
+```
+"name": "headplan/lartisan",
+"description": "Lartisan.",
+"keywords": ["lartisan", "headplan"],
+```
+
+#### 配置env文件
+
+根据不同环境配置 :
 
 * 本地开发环境
 * 测试环境

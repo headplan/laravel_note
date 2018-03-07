@@ -89,7 +89,6 @@
     * [Eloquent](laravel-code/learninglaravel/eloquent.md)
 * [开发记录](develop-recode.md#develop-recode)
   * [Lartisan](/develop-recode/lartisan.md#lartisan)
-    * [初始化](develop-recode/lartisan/lartisan-init.md)
     * [当前状态](develop-recode/lartisan/dang-qian-zhuang-tai.md)
     * [服务器状态](develop-recode/lartisan/fu-wu-qi-zhuang-tai.md)
     * [配置初始化](develop-recode/lartisan/pei-zhi-chu-shi-hua.md)
