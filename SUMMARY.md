@@ -103,7 +103,7 @@
       * [Blog模块](develop-recode/lartisan/function/blogmo-kuai.md)
       * [User模块](develop-recode/lartisan/function/usermo-kuai.md)
       * [Backend模块](develop-recode/lartisan/function/backendmo-kuai.md)
-    * [Project Plan](develop-recode/lartisan/jian-dan-gui-hua.md)
+    * [Project Plan](develop-recode/lartisan/project-plan.md)
     * [Scope of Work](develop-recode/lartisan/scope-of-work.md)
     * [Package](develop-recode/lartisan/laravel-package.md)
   * [Lartisan API](lartisan-api.md)
