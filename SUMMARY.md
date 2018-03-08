@@ -106,7 +106,7 @@
     * [Project Plan](develop-recode/lartisan/project-plan.md)
     * [Scope of Work](develop-recode/lartisan/scope-of-work.md)
     * [Package](develop-recode/lartisan/laravel-package.md)
-  * [Lartisan API](lartisan-api.md)
+  * [Lartisan API](/develop-recode/lartisan-api.md#lartisan-api)
     * [API文档及开发规范](lartisan-api/apiwen-dang-ji-kai-fa-gui-fan.md)
     * [自定义基础规则](lartisan-api/shi-li-kai-fa.md)
       * [基本认证](lartisan-api/shi-li-kai-fa/ji-ben-ren-zheng.md)
