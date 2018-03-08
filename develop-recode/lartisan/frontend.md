@@ -32,8 +32,8 @@
     * helper.scss - 函数助手 , 一些公共的函数 , 比如批量生成的margin和padding
     * overides.scss - 覆盖样式 , 比如覆盖框架原有样式
     * style.scss - 自定义样式
-* lang
-* views
+* \lang - 语言包 , 目前只安装了中文扩展翻译的自带语言包
+* \views
 
 ---
 
