@@ -1,4 +1,4 @@
-# 实例开发
+# 自定义基本规则
 
 **新建项目**
 
@@ -242,5 +242,5 @@ class ApiController extends Controller
 }
 ```
 
-重新调用一下ApiController中的方法,在我们的ArticlesController中 . 
+重新调用一下ApiController中的方法,在我们的ArticlesController中 .
 
