@@ -14,7 +14,19 @@
 
 **\resources - 资源目录说明**
 
-
+* \assets - 前端模板资源 , 包括js文件和css文件的模板
+  * \js
+    * \components - vue组件模板
+    * app.js - 前台vue入口文件
+    * backend - 后台vue入口文件
+    * bootstrap.js - Webpack引导文件
+  * \sass
+    * \app - 前端CSS模板
+    * \backend - 后端CSS模板
+    * app.scss - 引导加载
+    * backend.scss - 引导加载
+* lang
+* views
 
 ---
 
