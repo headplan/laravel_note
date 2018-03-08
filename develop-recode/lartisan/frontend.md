@@ -5,7 +5,7 @@
 * \node\_modules - 前端资源目录
 * \public - 生成后的公共文件 , 基本的css , js目录
   * mix-manifest.json - , 通过Laravel-mix打包的文件会生成`app.asjduiik2l1323879dasfydua23.js`
-    , 即`js原文件名+hash+.js后缀`, 这是一个对应关系配置文件 . php中可以直接使用mix\(\)函数调用这个路径 , 与之类似的还有asset\(\)函数 , 不适用带后缀的路径
+    , 即`js原文件名+hash+.js后缀`, 这是一个对应关系配置文件 . php中可以直接使用mix\(\)函数调用这个路径 , 与之类似的还有asset\(\)函数 , 不适用带后缀的路径 . 
 * \resources - 资源模板目录
 * package.json - npm包管理配置文件
 * webpack.mix.js - Laravel的webpack配置文件 , 这里区分了前后台的加载文件
