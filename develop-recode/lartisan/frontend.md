@@ -22,9 +22,16 @@
     * bootstrap.js - Webpack引导文件
   * \sass
     * \app - 前端CSS模板
+      * 其他功能样式文件
     * \backend - 后端CSS模板
+      * 其他功能样式文件
     * app.scss - 引导加载
     * backend.scss - 引导加载
+    * =====
+    * \_variables.scss - 定义样式变量 , 例如颜色
+    * helper.scss - 函数助手 , 一些公共的函数 , 比如批量生成的margin和padding
+    * overides.scss - 覆盖样式 , 比如覆盖框架原有样式
+    * style.scss - 自定义样式
 * lang
 * views
 
