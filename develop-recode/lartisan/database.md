@@ -1,4 +1,4 @@
-# 数据初始化
+# 数据
 
 **创建分支**
 
@@ -30,6 +30,4 @@ php artisan make:migration # 创建迁移文件
 #### 更新env数据库相关配置
 
 配置offline.evn和online.env文件 .
-
-
 
