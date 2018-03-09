@@ -9,6 +9,7 @@
 * \resources - 资源模板目录 , 这里见下文单独的整理 . 
 * package.json - npm包管理配置文件
 * webpack.mix.js - Laravel的webpack配置文件 , 这里区分了前后台的加载文件
+* yarn.lock - 使用yarn作为前端的包管理器 , 这是一个自动生成的锁文件
 
 ---
 
@@ -46,8 +47,10 @@
 
 ---
 
+#### 测试代码
+
 ```
-$ git checkout master
+$git checkout master
 $ git checkout -b static-pages
 ```
 
