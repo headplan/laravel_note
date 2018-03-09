@@ -20,6 +20,7 @@ try {
 } catch (e) {}
 
 # axios:一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中
+# https://www.kancloud.cn/yunye/axios/234845
 window.axios = require('axios');
 
 # 定义了csrf-token
