@@ -1,6 +1,6 @@
 # 脚本
 
-前面在webpack.mix.js中配置了脚本构建文件的路径 : resources/assets/js/app.js , js目录中包含了所有需要构建的脚本 .
+> 前面在webpack.mix.js中配置了脚本构建文件的路径 : resources/assets/js/app.js , js目录中包含了所有需要构建的脚本 .
 
 #### 目录结构描述
 
