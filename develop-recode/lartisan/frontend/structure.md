@@ -92,7 +92,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 这里可以自定义创建一些帮助函数 , 例如循环生成不同的margin等 .
 
-这里的内容部分下一篇内容更新 , 这里直接编译生成文件 . commit一下 .
+**构建命令**
 
 ```
 $ npm run dev

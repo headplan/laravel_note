@@ -93,9 +93,11 @@
     * [服务器状态](develop-recode/lartisan/server.md)
     * [配置初始化](develop-recode/lartisan/config.md)
     * [前端](develop-recode/lartisan/frontend.md#frontend)
-      * [前端构建](develop-recode/lartisan/frontend/qian-duan-gou-jian.md#qian-duan-gou-jian)
+      * [前端构建](develop-recode/lartisan/frontend/structure.md#structure)
         * [SASS基本语法](develop-recode/lartisan/frontend/qian-duan-gou-jian/sassji-ben-yu-fa.md)
-        * [Layout布局](develop-recode/lartisan/frontend/qian-duan-gou-jian/bu-ju-shi-tu.md)
+        * [脚本](develop-recode/lartisan/frontend/qian-duan-gou-jian/jiao-ben.md)
+        * 样式
+        * [布局](develop-recode/lartisan/frontend/qian-duan-gou-jian/bu-ju-shi-tu.md)
       * [前端完善](develop-recode/lartisan/frontend/qian-duan-wan-shan.md)
     * [数据](develop-recode/lartisan/database.md#database)
       * [模型文件](develop-recode/lartisan/database/mo-xing-wen-jian.md)
