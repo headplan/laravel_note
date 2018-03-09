@@ -1,10 +1,10 @@
 # 脚本
 
-前面在webpack.mix.js中配置了脚本构建文件的路径 : resources/assets/js/app.js , js目录中包含了所有需要构建的脚本 . 
+前面在webpack.mix.js中配置了脚本构建文件的路径 : resources/assets/js/app.js , js目录中包含了所有需要构建的脚本 .
 
 #### 目录结构描述
 
-bootstrap.js - 引导文件 , 通过自定义变量引入了常用的组件 . 
+bootstrap.js - 引导文件 , 通过自定义变量引入了常用的组件 .
 
 ```js
 # lodash:一个一致性、模块化、高性能的 JavaScript 实用工具库
@@ -13,6 +13,19 @@ bootstrap.js - 引导文件 , 通过自定义变量引入了常用的组件 .
 # => [['a', 'b'], ['c', 'd']]
 # https://www.lodashjs.com/
 window._ = require('lodash');
+
+# 引入jQuery
+try {
+    window.$ = window.jQuery = require('jquery');
+} catch (e) {}
+
+# axios:一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中
+window.axios = require('axios');
+
+# 定义了csrf-token
+let token = document.head.querySelector('meta[name="csrf-token"]');
+
+...其他注释部分待更新
 ```
 
 
