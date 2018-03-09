@@ -54,6 +54,21 @@ $ yarn install --no-bin-links
 $ yarn install xxx --dev
 ```
 
+这里更新了buefy包以及其扩展和依赖 , 需要注意的是font-awesome 5之后开始收费 , 这里的图标还是使用之前4.7版本 . 
+
+当前版本
+
+```
+"buefy": "^0.6.2"
+"bulma": "^0.6.2"
+```
+
+更新
+
+```
+yarn upgrade
+```
+
 **前端构建流程**
 
 所有前端的文件 , js或css , 都是通过laravel-mix , 也就是改装后的webpack构建而成的 , 这里查看webpack.mix.js配置文件可以看到素有前端文件的入口是app文件 , 最后生成到public目录 :
@@ -87,7 +102,7 @@ $ npm run watch-poll
 npm run production
 ```
 
-> 这构建编译时报错 , 是因为已经删除了bootstrap , 在js文件中依然引入了 ,删除即可 .
+> 这构建编译时报错 , 是因为已经删除了bootstrap框架 , 在js文件中依然引入了 ,删除即可 .
 
 
 
