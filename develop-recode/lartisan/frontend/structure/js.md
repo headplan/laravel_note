@@ -28,5 +28,23 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 ...其他注释部分待更新
 ```
 
+app.js - 应用脚本文件 , 引入自定义脚本
 
+```js
+# 引导文件
+require('./bootstrap');
+# Vue
+window.Vue = require('vue');
+# Vue组件
+import Buefy from 'buefy'
+Vue.use(Buefy);
+Vue.component('example', require('./components/Example.vue'));
+
+const app = new Vue({
+    el: '#app',
+    data: {}
+});
+```
+
+\components - Vue组件文件目录
 
