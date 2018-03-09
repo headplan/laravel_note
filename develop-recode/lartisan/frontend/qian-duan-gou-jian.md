@@ -54,20 +54,20 @@ $ yarn install --no-bin-links
 $ yarn install xxx --dev
 ```
 
-这里更新了buefy包以及其扩展和依赖 , 需要注意的是font-awesome 5之后开始收费 , 这里的图标还是使用之前4.7版本 . 
+这里更新了buefy包以及其扩展和依赖 , 需要注意的是font-awesome 5说是要收费 , 这里的图标还是使用之前4.7版本 .
 
 当前版本
 
 ```
-"buefy": "^0.6.2"
-"bulma": "^0.6.2"
+npm ls bulma
+├─┬ buefy@0.6.3
+│ └── bulma@0.6.2  deduped
+└── bulma@0.6.2
 ```
 
-更新
-
-```
-yarn upgrade
-```
+> 更新时出现的warning , 解决放在在这`https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5`
+>
+> 更新时总是失败 , 原因都是网络问题 , 这里重新安装了所有 , 打开全局的VPN安装成功了 .
 
 **前端构建流程**
 
