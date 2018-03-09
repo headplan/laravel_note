@@ -96,7 +96,7 @@
       * [前端构建](develop-recode/lartisan/frontend/structure.md#structure)
         * [SASS基本语法](develop-recode/lartisan/frontend/qian-duan-gou-jian/sassji-ben-yu-fa.md)
         * [脚本](develop-recode/lartisan/frontend/qian-duan-gou-jian/jiao-ben.md)
-        * 样式
+        * [样式](develop-recode/lartisan/frontend/qian-duan-gou-jian/yang-shi.md)
         * [布局](develop-recode/lartisan/frontend/qian-duan-gou-jian/bu-ju-shi-tu.md)
       * [前端完善](develop-recode/lartisan/frontend/qian-duan-wan-shan.md)
     * [数据](develop-recode/lartisan/database.md#database)
