@@ -95,7 +95,7 @@
     * [前端](develop-recode/lartisan/frontend.md#frontend)
       * [前端构建](develop-recode/lartisan/frontend/structure.md#structure)
         * [脚本](develop-recode/lartisan/frontend/structure/js.md)
-        * [样式](develop-recode/lartisan/frontend/structure/css.md)
+        * [样式](develop-recode/lartisan/frontend/structure/css.md#css)
           * [SASS](develop-recode/lartisan/frontend/structure/css/sass.md)
         * [布局](develop-recode/lartisan/frontend/structure/layout.md)
       * [前端完善](develop-recode/lartisan/frontend/qian-duan-wan-shan.md)
