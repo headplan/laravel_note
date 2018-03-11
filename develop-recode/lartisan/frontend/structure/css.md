@@ -6,9 +6,9 @@
 
 #### **字体引入**
 
-这里使用了google的免费字体 , 后续再调整 , https://fonts.google.com/
+这里使用了google的免费字体 , 后续再调整 , [https://fonts.google.com/](https://fonts.google.com/)
 
-如果访问慢可以使用nginx代理 , 或者使用国内网站替换 , 例如[https://www.font.im/](https://www.font.im/)
+如果访问慢可以使用nginx代理 , 或者使用国内网站替换 , 例如 , [https://www.font.im/](https://www.font.im/)
 
 **使用方式**
 
