@@ -25,6 +25,19 @@ CSS selector {
 }
 ```
 
+**样式框架引入**
+
+```
+// Font Awesome
+@import "~font-awesome/scss/font-awesome";
+
+// Bulma
+@import "~bulma/bulma";
+
+// Buefy
+@import "~buefy/src/scss/buefy";
+```
+
 **修改app.scss文件**
 
 引入bulma和font-awesome , 以及自己创建的一些打包的样式 . 引入都是用 :
