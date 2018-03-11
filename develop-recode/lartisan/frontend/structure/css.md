@@ -4,18 +4,20 @@
 
 **添加引导文件bootstrap.scss**
 
-**字体引入**
+#### **字体引入**
 
-这里使用了google的免费字体 , 后续再调整 , 如果访问慢可以使用nginx代理 , 或者使用国内网站替换 , 例如https://www.font.im/
+这里使用了google的免费字体 , 后续再调整 , https://fonts.google.com/
 
-使用方式
+如果访问慢可以使用nginx代理 , 或者使用国内网站替换 , 例如[https://www.font.im/](https://www.font.im/)
+
+**使用方式**
 
 ```
 // Google Fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 ```
 
-CSS样式
+**CSS样式**
 
 ```
 CSS selector {
