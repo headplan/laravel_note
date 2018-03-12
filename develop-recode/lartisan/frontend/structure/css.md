@@ -2,7 +2,7 @@
 
 > 前面在webpack.mix.js中配置了脚本构建文件的路径 : resources/assets/sass/ , sass目录中包含了所有需要构建的样式模板 .
 
-**添加引导文件bootstrap.scss**
+### **引导文件bootstrap.scss**
 
 #### **字体引入**
 
@@ -25,13 +25,13 @@ CSS selector {
 }
 ```
 
-**定义变量**
+#### **定义变量**
 
 ```
 @import "variables";
 ```
 
-**样式框架引入**
+#### **样式框架引入**
 
 ```
 // Font Awesome
@@ -42,6 +42,15 @@ CSS selector {
 
 // Buefy
 @import "~buefy/src/scss/buefy";
+```
+
+#### **公共样式文件**
+
+```
+// Custom SASS Pages
+@import "overrides"; // 重写样式
+@import "helpers"; // 函数助手样式
+@import "styles"; // 风格样式
 ```
 
 **修改app.scss文件**
