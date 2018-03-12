@@ -25,6 +25,12 @@ CSS selector {
 }
 ```
 
+**定义变量**
+
+```
+@import "variables";
+```
+
 **样式框架引入**
 
 ```
