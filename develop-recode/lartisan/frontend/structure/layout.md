@@ -2,21 +2,41 @@
 
 > **视图布局与引入目录规则已在前面的开篇更新**
 
-我们已经有了layouts通用模板 , 现在需要提取公共部分 , 让视图部分更容易维护 .
+添加布局通用模板和公共部分引入模板文件夹
 
-#### 新建目录及文件
+* \_includes/
+* \_layouts/
 
 ```
 _includes/nav/main.blade.php
 ```
 
-**引入layout模板**
+**引入模板**
+
+使用下面的标签定义
 
 ```
-@include('_includes.nav.main')
+@yield('content')
+@stack('include')
 ```
 
-提取公共部分之后就可以添加更多的文件了 , 这里整理一下视图文件的目录结构 , 视图内容暂时Copy复制Bulma文档中的代码 .
+**具体模板**
+
+```
+// 继承模板
+@extends('_layouts.backend.backend')
+// 继承部分
+@section('content')
+@stop
+
+// 插入模板
+@push('include')
+    @include('_includes.backend.navbar')
+    @include('_includes.backend.sidebar')
+@endpush
+```
+
+提取公共部分之后就可以添加更多的文件了 . 
 
 ---
 
