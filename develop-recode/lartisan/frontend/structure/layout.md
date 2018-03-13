@@ -36,7 +36,7 @@ _includes/nav/main.blade.php
 @endpush
 ```
 
-提取公共部分之后就可以添加更多的文件了 . 
+提取公共部分之后就可以添加更多的文件了 .
 
 ---
 
@@ -45,7 +45,7 @@ _includes/nav/main.blade.php
 * route\(\) 生成指定**路由名称**的 URL , 这里需要在路由中使用name\(\)方法指定路由名称 . 
 * asset\(\) 生成资源路径的完整 URL . 
 * secure\_url \(\) 使用**HTTPS 协议**生成指定**路径**的完整 URL . 
-* url \(\) 生成指定**路径**的完整 URL . 
+* url\(\) 生成指定**路径**的完整 URL . 
 
 ---
 
