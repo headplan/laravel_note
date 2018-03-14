@@ -4,7 +4,7 @@
 
 在创建auth之前 , 新建一个迁移表`php artisan make:migration create_admins_table --create=admins`
 
-```
+```php
 Schema::create('admins', function (Blueprint $table) {
     $table->increments('id');
     $table->string('name');
