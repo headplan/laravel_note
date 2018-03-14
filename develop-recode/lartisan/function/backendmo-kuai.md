@@ -26,7 +26,7 @@ Schema::create('admins', function (Blueprint $table) {
 
 **然后创建一个Model**
 
-新建Models文件夹 , 复制User.php的内容`php artisan make:model Admin`
+新建Models文件夹 , 创建`php artisan make:model Admin`模型 , 复制User.php的内容 :
 
 ```php
 <?php
@@ -34,20 +34,23 @@ Schema::create('admins', function (Blueprint $table) {
 namespace App;
 # 这里用到了消息通知,下面有use Notifiable,关于消息通知查看下面的内容
 use Illuminate\Notifications\Notifiable;
+# 添加消息邮件模板
+# php artisan make:notification AdminResetPasswordNotification
+use App\Notifications\AdminResetPasswordNotification;
 # 这个是User的Base Model,它也是继承Model的,也叫User.只是起了别名Authenticatable,其继承了3个接口,然后分3个trait完成了接口的功能
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
     use Notifiable;
 
     /**
      * The attributes that are mass assignable.
-     * 表示可以被复制的字段,Eloquent中有解释
+     * 表示可以批量写的字段,Eloquent中有解释
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'title', 'password',
     ];
 
     /**
@@ -58,6 +61,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    /**这里重写这个方法,让通知加载前面自定义的内容
+     * Send the password reset notification.
+     * 发送密码重置通知
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        # 通知模板需要接收一个token,相应的修改即可,具体查看代码
+        $this->notify(new AdminResetPasswordNotification($token));
+    }
 }
 ```
 
