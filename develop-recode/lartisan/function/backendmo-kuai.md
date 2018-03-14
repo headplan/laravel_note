@@ -61,8 +61,9 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
-    /**这里重写这个方法,让通知加载前面自定义的内容
+
+    /**
+     * 这里重写这个方法,让通知加载前面自定义的内容
      * Send the password reset notification.
      * 发送密码重置通知
      * @param  string  $token
