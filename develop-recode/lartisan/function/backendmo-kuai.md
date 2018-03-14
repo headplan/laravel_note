@@ -28,7 +28,7 @@ Schema::create('admins', function (Blueprint $table) {
 
 新建Models文件夹 , 复制User.php的内容`php artisan make:model Admin`
 
-```
+```php
 <?php
 # 命名空间
 namespace App;
