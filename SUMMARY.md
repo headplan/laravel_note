@@ -92,6 +92,7 @@
     * [当前状态](develop-recode/lartisan/status.md)
     * [服务器状态](develop-recode/lartisan/server.md)
     * [配置初始化](develop-recode/lartisan/config.md)
+      * [Artisan命令](develop-recode/lartisan/config/artisanming-ling.md)
     * [前端](develop-recode/lartisan/frontend.md#frontend)
       * [前端构建](develop-recode/lartisan/frontend/structure.md#structure)
         * [脚本](develop-recode/lartisan/frontend/structure/js.md)
