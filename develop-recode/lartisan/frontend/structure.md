@@ -52,6 +52,7 @@ $ git checkout -b frontends
 ```
 $ yarn install --no-bin-links
 $ yarn install xxx --dev
+$ yarn add cross-env
 ```
 
 这里更新了buefy包以及其扩展和依赖 , 需要注意的是font-awesome 5说是要收费 , 这里的图标还是使用之前4.7版本 .

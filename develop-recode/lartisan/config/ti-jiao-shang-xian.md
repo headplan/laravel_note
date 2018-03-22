@@ -14,6 +14,13 @@ $ git checkout master
 $ git merge test
 ```
 
+**新建分支**
+
+```
+$ git checkout master
+$ git checkout -b testb
+```
+
 **推送**
 
 ```
@@ -22,9 +29,5 @@ $ git push
 
 **瓦力上线**
 
-查看瓦力相关内容 . 
-
-
-
-
+查看瓦力相关内容 .
 
