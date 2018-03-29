@@ -9,11 +9,12 @@ git checkout -b database
 
 #### 数据库迁移
 
-> 迁移就像是数据库中的版本控制，它让团队成员之间能够轻松的修改跟共享应用程序的数据库结构，而不用担心并行更新数据结构而造成冲突等问题 . 
+> 迁移就像是数据库中的版本控制，它让团队成员之间能够轻松的修改跟共享应用程序的数据库结构，而不用担心并行更新数据结构而造成冲突等问题 .
 >
 > Migration 的建表方法大部分情况下能兼容 MySQL, PostgreSQL, SQLite 甚至是 Oracle 等主流数据库系统。
 >
-> 多人并行开发 : 
+> 多人并行开发 :
+>
 > * 代码版本管理；
 > * 数据库版本控制 —— 如：回滚/重置/更新等；
 > * 兼容多种数据库系统；
@@ -23,6 +24,44 @@ git checkout -b database
 
 * up\(\)方法运行迁移,创建Schema::create\(\)表
 * down\(\)方法回滚迁移,删除Schema::dropIfExists\(\)表
+
+```php
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateUsersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password', 60);
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('users');
+    }
+}
+```
 
 #### 常用迁移命令
 
