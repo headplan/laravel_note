@@ -63,9 +63,9 @@ class CreateUsersTable extends Migration
 }
 ```
 
-相关文档
+**相关文档**
 
-https://laravel-china.org/docs/laravel/5.5/migrations\#creating-tables
+[https://laravel-china.org/docs/laravel/5.5/migrations\#creating-tables](https://laravel-china.org/docs/laravel/5.5/migrations#creating-tables)
 
 #### 常用迁移命令
 
