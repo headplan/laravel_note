@@ -84,3 +84,10 @@ php artisan make:migration # 创建迁移文件
 
 配置offline.evn和online.env文件 .
 
+#### 数据库工具
+
+* SequelPro
+* Navicat
+
+
+
