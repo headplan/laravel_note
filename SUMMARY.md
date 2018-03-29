@@ -113,6 +113,7 @@
         * [忘记密码](develop-recode/lartisan/function/backendmo-kuai/wang-ji-mi-ma.md)
         * [重置密码](develop-recode/lartisan/function/backendmo-kuai/zhong-zhi-mi-ma.md)
     * [例子](develop-recode/lartisan/example.md)
+      * [静态页面](develop-recode/lartisan/example/jing-tai-ye-mian.md)
     * [Project Plan](develop-recode/lartisan/project-plan.md)
     * [Scope of Work](develop-recode/lartisan/scope-of-work.md)
   * [Lartisan API](/develop-recode/lartisan-api.md#lartisan-api)

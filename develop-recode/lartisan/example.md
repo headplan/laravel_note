@@ -42,7 +42,7 @@ $ git commit -m "Initial commit"
 **.env 文件**
 
 ```
-APP_NAME=Lartisan example
+APP_NAME='Lartisan example' // 空格的value值必须使用引号
 APP_URL=http://lartisan.example
 
 DB_DATABASE=lartisan_example
