@@ -31,5 +31,23 @@ Route::get('/about', 'StaticPagesController@about');
 $ php artisan make:controller StaticPagesController
 ```
 
+**添加控制器方法**
+
+```
+...
+public function about()
+{
+    return view('static_pages/about');
+}
+```
+
+**添加视图文件**
+
+```
+touch home.blade.php
+touch help.blade.php
+touch about.blade.php
+```
+
 
 
