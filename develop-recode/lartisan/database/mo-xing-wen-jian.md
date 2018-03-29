@@ -46,6 +46,15 @@ class Article extends Model
 
 #### 创建模型
 
+这里自定义了模型文件的文件夹Models : 
+
+```
+$ mkdir app/Models
+$ mv app/User.php app/Models/User.php
+```
+
+注意别忘记修改已有文件的命名空间 , 可以使用编辑器快速搜索出相关文件修改命名空间 . 
+
 ```
 php artisan make:model Models/Article
 # -m或--migration表示同时创建迁移文件
