@@ -9,7 +9,17 @@ git checkout -b database
 
 #### 数据库迁移
 
-在database/migrations中 , 已经准备了两个默认迁移文件 . 迁移文件中有两个方法 :
+> 迁移就像是数据库中的版本控制，它让团队成员之间能够轻松的修改跟共享应用程序的数据库结构，而不用担心并行更新数据结构而造成冲突等问题 . 
+>
+> Migration 的建表方法大部分情况下能兼容 MySQL, PostgreSQL, SQLite 甚至是 Oracle 等主流数据库系统。
+>
+> 多人并行开发 : 
+> * 代码版本管理；
+> * 数据库版本控制 —— 如：回滚/重置/更新等；
+> * 兼容多种数据库系统；
+> * 部署方便。
+
+在`database/migrations`中 , 已经准备了两个默认迁移文件 . 迁移文件中有两个方法 :
 
 * up\(\)方法运行迁移,创建Schema::create\(\)表
 * down\(\)方法回滚迁移,删除Schema::dropIfExists\(\)表
