@@ -49,5 +49,30 @@ touch help.blade.php
 touch about.blade.php
 ```
 
+**添加layouts模板**
+
+_resources/views/layouts/default.blade.php_
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@yield('title', 'Lartisan Example') - Lartisan例子</title>
+</head>
+<body>
+@yield('content')
+</body>
+</html>
+```
+
+**合并分支**
+
+```
+$ git add -A
+$ git commit -m "Finish static pages"
+$ git checkout master
+$ git merge static-pages
+```
+
 
 
