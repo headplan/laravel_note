@@ -8,6 +8,8 @@ commit一下 .
 
 #### Eloquent约定
 
+> Eloquent 提供了简洁优雅的 ActiveRecord 实现来跟数据库进行交互。Active Record 是一种领域模型模式，该模式由 Martin Fowler 在 2003 年出版的《企业应用架构模式》一书中进行了详细叙述并命名。其特点是一个模型类对应关系型数据库中的一个表，模型类的一个实例对应表中的一行记录。Active Record 最大优点是允许我们简单, 直观地操作数据层。
+
 Eloquent模型默认情况下会使用类的「下划线命名法」与「复数形式名称」来作为数据表的名称生成规则 , 例如 :
 
 * Article 数据模型类对应`articles`表；
