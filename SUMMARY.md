@@ -103,6 +103,7 @@
       * [前端完善](develop-recode/lartisan/frontend/qian-duan-wan-shan.md)
     * [数据](develop-recode/lartisan/database.md#database)
       * [模型文件](develop-recode/lartisan/database/mo-xing-wen-jian.md)
+      * [对象操作](develop-recode/lartisan/database/dui-xiang-cao-zuo.md)
     * [功能](develop-recode/lartisan/function.md#function)
       * [Blog模块](develop-recode/lartisan/function/blogmo-kuai.md)
       * [User模块](develop-recode/lartisan/function/usermo-kuai.md)
