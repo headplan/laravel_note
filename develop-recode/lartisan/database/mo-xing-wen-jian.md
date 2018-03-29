@@ -35,6 +35,13 @@ class Article extends Model
 
 约定优于配置\(convention over configuration\) , 也称作按约定编程 , 这是一种软件设计范式 , 旨在减少软件开发人员需做决定的数量，获得简单的好处 , 而又不失灵活性 . 如果所用工具的约定与你的期待相符 , 便可省去配置 ; 反之 , 你可以配置来达到你所期待的方式 . Eloquent 数据表命名约定机制即属于约定优于配置 .
 
+**常用属性**
+
+* `protected $table = 'users';` - 指明要进行数据库交互的数据库表名称
+* `protected $fillable = ['name', 'email', 'password'];` - 过滤用户提交的字段 , 只有包含在该属性中的字段才能够被正常更新
+  * 这里的保护举个例子 , 用户在进行表单提交时 , 提交猜测字段 , 例如is\_admin , 以获取管理员权限 . 
+* `protected $hidden = ['password', 'remember_token'];` - 需要对用户密码或其它敏感信息在用户实例通过数组或 JSON 显示时进行隐藏
+
 ---
 
 #### 创建模型
