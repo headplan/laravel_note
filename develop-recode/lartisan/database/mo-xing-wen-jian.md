@@ -46,14 +46,14 @@ class Article extends Model
 
 #### 创建模型
 
-这里自定义了模型文件的文件夹Models : 
+这里自定义了模型文件的文件夹Models :
 
 ```
 $ mkdir app/Models
 $ mv app/User.php app/Models/User.php
 ```
 
-注意别忘记修改已有文件的命名空间 , 可以使用编辑器快速搜索出相关文件修改命名空间 . 
+注意别忘记修改已有文件的命名空间 , 可以使用编辑器快速搜索出相关文件修改命名空间 .
 
 ```
 php artisan make:model Models/Article
@@ -91,46 +91,7 @@ public function setTitleAttribute($value)
 }
 ```
 
-#### 添加测试数据
-
-**创建模型工厂**
-
-```
-php artisan make:factory BlogPostFactory
-```
-
-```
-return [
-    'title' => $faker->sentence(mt_rand(3, 10)),
-    'content' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
-    'published_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
-];
-```
-
-**创建播种机**
-
-```
-php artisan make:seeder PostTableSeeder
-```
-
-```
-public function run()
-{
-    # 清空表中数据
-    App\Models\BlogPost::truncate();
-    factory(App\Models\BlogPost::class, 100)->create();
-}
-```
-
-```
-public function run()
-{
-    # 新版本中已经自动禁用了对批量创建数据的保护(fillable等)
-    // Model::unguard();
-    $this->call('PostTableSeeder');
-    // Model::reguard();
-}
-```
+#### 
 
 
 
