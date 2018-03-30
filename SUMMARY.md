@@ -147,6 +147,7 @@
   * [组件化开发与Composer使用](laravel-extend/modularization-composer.md)
   * [认证授权代码解析](laravel-extend/ren-zheng-shou-quan-dai-ma-jie-xi.md)
   * [OAuth整理](laravel-extend/oauthzheng-li.md)
+  * [提示cross-env not found的原因及解决办法](laravel-extend/ti-shi-cross-env-not-found-de-yuan-yin-ji-jie-jue-ban-fa.md)
 * [出版书籍](laravel-books.md#laravel-books)
   * [From Apprentice To Artisan](laravel-books/from-apprentice-to-artisan.md)
   * [Implementing Laravel](laravel-books/implementing-laravel.md)
