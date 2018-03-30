@@ -1,16 +1,16 @@
 # 使用 laravel-mix 问题汇总 {#articleTitle}
 
-在Mac上发生问题的主要原因是安装时多添加了一个属性 , 导致不断报错 , Mac系统上直接安装即可 : 
+在Mac上发生问题的主要原因是安装时多添加了一个属性 , 导致不断报错 , Mac系统上直接安装即可 :
 
 ```
 yarn install
 ```
 
-> 不用添加`--no-bin-links`属性
+> 不用添加`--no-bin-links`属性 , 否则下面提到的错误都会出现 .
 
 #### Windows系统
 
-在Windows系统上安装的流程是 : 
+在Windows系统上安装的流程是 :
 
 ```
 npm install --no-bin-links
