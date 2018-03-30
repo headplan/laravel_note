@@ -23,7 +23,37 @@ sh: cross-env: command not found
 
 其实问题仅是`cross-env`组件更新后路径问题 , 在本地测试的环境中 , 直接修改使用`"cross-env": "^3.2.3"`版本 , 也可以避免类似错误 .
 
+> 后面发现不是报错问题不在这里
+
 详解解释查看先关文章
 
 [https://segmentfault.com/a/1190000013203967](https://segmentfault.com/a/1190000013203967)
+
+---
+
+问题后续更新 , 删除了cross-env命令之后依然报错 : 
+
+```
+sh: 1: node_modules/webpack/bin/webpack.js: Permission denied
+```
+
+修改了权限 , 依然报错
+
+```
+chmod 777 node_modules/webpack/bin/webpack.js
+```
+
+后来搜索 , 得到答案 , 或许是应为之前更新了node和npm的版本 : 
+
+```
+npm rebuild node-sass
+```
+
+重建了一下 , 然后整个删除了node\_modules文件夹 , 重新yarn install : 
+
+```
+yarn install
+```
+
+运行正常 . 
 
