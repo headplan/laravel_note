@@ -1,6 +1,6 @@
 # 提示cross-env not found的原因及解决办法
 
-新建了项目 , 完成了前端扩展包的安装 , 运行命令npm run dev命令报错 . 
+新建了项目 , 完成了前端扩展包的安装 , 运行命令npm run dev命令报错 .
 
 ```
 > @ development Project/Lartisan_example
@@ -15,15 +15,15 @@ sh: cross-env: command not found
 
 **解决**
 
-在Mac和Linux系统中直接删除package.json中命令里的cross-env即可 . 
+在Mac和Linux系统中直接删除package.json中命令里的cross-env即可 .
 
-如果是Windows系统 , 安装后在命令里写完整的加载路径就可以了 , 或者全局安装 . 
+如果是Windows系统 , 安装后在命令里写完整的加载路径就可以了 , 或者全局安装 .
 
 ---
 
-其实问题仅是`cross-env`组件更新后路径问题 , 在本地测试的环境中 , 直接修改使用`"cross-env": "^5.0.1"`版本 , 也可以避免类似错误 . 
+其实问题仅是`cross-env`组件更新后路径问题 , 在本地测试的环境中 , 直接修改使用`"cross-env": "^3.2.3"`版本 , 也可以避免类似错误 .
 
 详解解释查看先关文章
 
-https://segmentfault.com/a/1190000013203967
+[https://segmentfault.com/a/1190000013203967](https://segmentfault.com/a/1190000013203967)
 
