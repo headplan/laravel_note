@@ -1,6 +1,22 @@
-# 提示cross-env not found的原因及解决办法
+# 使用 laravel-mix 问题汇总 {#articleTitle}
 
-新建了项目 , 完成了前端扩展包的安装 , 运行命令npm run dev命令报错 .
+在Mac上发生问题的主要原因是安装时多添加了一个属性 , 导致不断报错 , Mac系统上直接安装即可 : 
+
+```
+yarn install
+```
+
+> 不用添加`--no-bin-links`属性
+
+#### Windows系统
+
+在Windows系统上安装的流程是 : 
+
+```
+npm install --no-bin-links
+```
+
+提示`cross-env:not found`错误
 
 ```
 > @ development Project/Lartisan_example
@@ -19,41 +35,35 @@ sh: cross-env: command not found
 
 如果是Windows系统 , 安装后在命令里写完整的加载路径就可以了 , 或者全局安装 .
 
----
+在package.json中替换cross-env
 
-其实问题仅是`cross-env`组件更新后路径问题 , 在本地测试的环境中 , 直接修改使用`"cross-env": "^3.2.3"`版本 , 也可以避免类似错误 .
+```
+"development": "node node_modules/cross-env/dist/bin/cross-env.js
+```
 
-> 后面发现不是报错问题不在这里
+如果报错
 
-详解解释查看先关文章
+```
+no such file or directory , scandir ‘…/node_modules/node-sass/vendor
+```
 
-[https://segmentfault.com/a/1190000013203967](https://segmentfault.com/a/1190000013203967)
-
----
-
-问题后续更新 , 删除了cross-env命令之后依然报错 : 
+或者
 
 ```
 sh: 1: node_modules/webpack/bin/webpack.js: Permission denied
 ```
 
-修改了权限 , 依然报错
+重建节点即可\(Windows系统\)
 
 ```
-chmod 777 node_modules/webpack/bin/webpack.js
+npm rebuild node-sass --no-bin-links
 ```
 
-后来搜索 , 得到答案 , 或许是应为之前更新了node和npm的版本 : 
-
-```
-npm rebuild node-sass
-```
-
-重建了一下 , 然后整个删除了node\_modules文件夹 , 重新yarn install : 
+重建了一下 , 然后整个删除了node\_modules文件夹 , 重新yarn install :
 
 ```
 yarn install
 ```
 
-运行正常 . 
+运行正常 .
 
