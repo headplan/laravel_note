@@ -50,7 +50,7 @@
 #### 测试代码
 
 ```
-$git checkout master
+$ git checkout master
 $ git checkout -b static-pages
 ```
 
