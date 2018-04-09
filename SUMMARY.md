@@ -115,6 +115,7 @@
     * [例子](develop-recode/lartisan/example.md)
       * [静态页面](develop-recode/lartisan/example/jing-tai-ye-mian.md)
       * [前端工作流](develop-recode/lartisan/example/qian-duan-gong-zuo-liu.md)
+      * [数据模型](develop-recode/lartisan/example/shu-ju-mo-xing.md)
     * [Project Plan](develop-recode/lartisan/project-plan.md)
     * [Scope of Work](develop-recode/lartisan/scope-of-work.md)
   * [Lartisan API](/develop-recode/lartisan-api.md#lartisan-api)
