@@ -31,5 +31,11 @@ Route::resource('users', 'UsersController');
 php artisan route:list
 ```
 
+添加路由方法 : 
+
+```
+
+```
+
 
 
