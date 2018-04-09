@@ -2,7 +2,7 @@
 
 前面已经创建了用户表 , 现在创建一个用户 :
 
-```
+```php
 php artisan tinker
 >>> use App\Models\User
 >>> User::create([
@@ -12,7 +12,7 @@ php artisan tinker
 
 一些查找方法 :
 
-```
+```php
 >>> User::findOrFail(1)
 >>> User::first(1)
 >>> User::all(1)
@@ -20,13 +20,13 @@ php artisan tinker
 
 定义用户资源路由\(routes/web.php\) :
 
-```
+```php
 Route::resource('users', 'UsersController');
 ```
 
 查看路由
 
-```
+```php
 php artisan route:list
 ```
 
@@ -36,13 +36,13 @@ php artisan route:list
 
 实际的路由是这样写的 :
 
-```
+```php
 Route::get('/users/{user}', 'UsersController@show')->name('users.show');
 ```
 
 前面的资源路由已经包含了 . 控制器方法传参中必须包含对应的 Eloquent 模型类型声明 , 并且是有序的 :
 
-```
+```php
 public function show(User $user)
 {
     return view('users.show', compact('user'));
@@ -67,6 +67,16 @@ public function gravatar($size = 100)
     return "http://www.gravatar.com/avatar/$hash?s=$size";
 }
 ```
+
+获取头像就可以使用用户对象中的方法了
+
+```php
+$user->gravatar();
+```
+
+视图部分 , 创建includes视图userinfo , 引入到用户的show模板中 . 这里查看源码 . 
+
+
 
 
 
