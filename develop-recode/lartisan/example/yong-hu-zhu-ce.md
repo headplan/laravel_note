@@ -74,9 +74,15 @@ public function gravatar($size = 100)
 $user->gravatar();
 ```
 
-视图部分 , 创建includes视图userinfo , 引入到用户的show模板中 . 这里查看源码 . 
+视图部分 , 创建includes视图userinfo , 引入到用户的show模板中 . 这里查看源码 .
 
+#### 注册表单
 
+删除之前tinker添加的数据 , 重置数据库并重新运行所有迁移 . 
+
+```
+$ php artisan migrate:refresh
+```
 
 
 
