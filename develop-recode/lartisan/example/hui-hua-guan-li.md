@@ -57,7 +57,7 @@ Route::get('logout', 'SessionController@destroy')->name('logout');
 
 这里需要些一下store方法
 
-对用户post提交来的数据进行认证 , 这里的验证相对简单 , 只验证了不为空和基本格式的正确与否 :  
+对用户post提交来的数据进行认证 , 这里的验证相对简单 , 只验证了不为空和基本格式的正确与否 :
 
 ```php
 $data = $this->validate($request, [
@@ -68,15 +68,24 @@ $data = $this->validate($request, [
 
 用户身份认证
 
-借助Laravel中`Auth`的`attempt`方法 , 可以很方便的认证用户数据 : 
+借助Laravel中`Auth`的`attempt`方法 , 可以很方便的认证用户数据 , 消息提示和页面重定向和前面的一样 , 其中
 
-```
+`Auth::user()`可以获取用户信息 . 
+
+```php
 if (Auth::attempt($data)) {
-    # 登录成功
+    $user = Auth::user();
+    session()->flash('success', "欢迎回来,{$user->name}!");
+    return redirect()->route('users.show', [$user]);
 } else {
-    # 登录失败
+    session()->flash('danger', '很抱歉,您的邮箱和密码不匹配');
+    return redirect()->back();
 }
 ```
+
+
+
+
 
 
 
