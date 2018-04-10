@@ -184,6 +184,24 @@ HTTP 协议是无状态的 , Laravel 提供了自定义的用于临时保存用�
 
 其他会话操作方法还有get\(键\) , 获取缓存数据 , has\(键\) , 判断缓存数据是否存在等 .
 
+这里消息提示模板 , 默认选择一些样式特有的属性 , 规定这些session键对应的就是这些特殊的消息提示 : 
+
+danger, warning, success, info
+
+```php
+@foreach (['danger', 'warning', 'success', 'info'] as $msg)
+  @if(session()->has($msg))
+    <div class="flash-message">
+      <p class="alert alert-{{ $msg }}">
+        {{ session()->get($msg) }}
+      </p>
+    </div>
+  @endif
+@endforeach
+```
+
+---
+
 下面更新一下store方法的代码 :
 
 ```php
