@@ -117,6 +117,7 @@
       * [前端工作流](develop-recode/lartisan/example/qian-duan-gong-zuo-liu.md)
       * [数据模型](develop-recode/lartisan/example/shu-ju-mo-xing.md)
       * [用户注册](develop-recode/lartisan/example/yong-hu-zhu-ce.md)
+      * [会话管理](develop-recode/lartisan/example/hui-hua-guan-li.md)
     * [Project Plan](develop-recode/lartisan/project-plan.md)
     * [Scope of Work](develop-recode/lartisan/scope-of-work.md)
   * [Lartisan API](/develop-recode/lartisan-api.md#lartisan-api)
