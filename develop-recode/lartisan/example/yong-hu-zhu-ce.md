@@ -84,10 +84,13 @@ $user->gravatar();
 $ php artisan migrate:refresh
 ```
 
-构建表单页面 , 也就是uesr/create/blade.php页面 . 
+构建表单页面 , 也就是uesr/create/blade.php页面 .
+
+这里一行是提交连接 , 一行是全局辅助函数`old`帮助我们在 Blade 模板中显示旧输入数据
 
 ```
-
+{{ route('users.store') }}
+{{ old('name') }}
 ```
 
 
