@@ -95,19 +95,19 @@ $ php artisan migrate:refresh
 
 **表单数据验证**
 
-前面提交表单使用了store方法 . 
+前面提交表单使用了store方法 .
 
-表单提交来的数据都需要验证再入库 , Laravel提供了很多种验证方式 , 最近常见的是validator方法 , 接收两个参数 , 第一个参数是用户输入数据 , 第二个是验证规则 . validator方法是`App\Http\Controllers\Controller`类中的`ValidatesRequests`进行定义的 . 
+表单提交来的数据都需要验证再入库 , Laravel提供了很多种验证方式 , 最近常见的是validator方法 , 接收两个参数 , 第一个参数是用户输入数据 , 第二个是验证规则 . validator方法是`App\Http\Controllers\Controller`类中的`ValidatesRequests`进行定义的 .
 
-几种验证规则 : 
+几种验证规则 :
 
-**存在性验证** - `required`来验证用户名是否为空 , 也就是必填的表单 . 
+**存在性验证** - `required`来验证用户名是否为空 , 也就是必填的表单 .
 
-**长度验证** - 使用`min`和`max`来限制用户名所填写的最小长度和最大长度 . 
+**长度验证** - 使用`min`和`max`来限制用户名所填写的最小长度和最大长度 .
 
-**格式验证** - 特殊格式 , 例如email , 不用写正则去验证了 . 
+**格式验证** - 特殊格式 , 例如email , 不用写正则去验证了 .
 
-**唯一性验证** - 验证用户使用的注册邮箱是否已被它人使用 , 这里是针对于数据表`users`做验证 . 更严谨一些 , 还可以在前端和**用户数据表中**设置唯一性 . 
+**唯一性验证** - 验证用户使用的注册邮箱是否已被它人使用 , 这里是针对于数据表`users`做验证 . 更严谨一些 , 还可以在前端和**用户数据表中**设置唯一性 .
 
 **密码匹配验证** - 使用`confirmed`来进行密码匹配验证
 
@@ -121,6 +121,16 @@ public function store(Request $request)
     ]);
     return;
 }
+```
+
+**防跨站请求**
+
+防止CSRF请求 , 为了安全考虑 , 要提供一个令牌 , 这里Laravel已经为我们准备好了 : 
+
+```php
+{{ csrf_field() }}
+# 生成html
+<input type="hidden" name="_token" value="fhcxqT67dNowMoWsAHGGPJOAWJn8x5R5ctSwZrAq">
 ```
 
 
