@@ -78,10 +78,16 @@ $user->gravatar();
 
 #### 注册表单
 
-删除之前tinker添加的数据 , 重置数据库并重新运行所有迁移 . 
+删除之前tinker添加的数据 , 重置数据库并重新运行所有迁移 .
 
 ```
 $ php artisan migrate:refresh
+```
+
+构建表单页面 , 也就是uesr/create/blade.php页面 . 
+
+```
+
 ```
 
 
