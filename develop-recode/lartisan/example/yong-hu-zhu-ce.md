@@ -80,7 +80,7 @@ $user->gravatar();
 
 删除之前tinker添加的数据 , 重置数据库并重新运行所有迁移 .
 
-```
+```php
 $ php artisan migrate:refresh
 ```
 
@@ -88,7 +88,7 @@ $ php artisan migrate:refresh
 
 这里一行是提交连接 , 一行是全局辅助函数`old`帮助我们在 Blade 模板中显示旧输入数据
 
-```
+```php
 {{ route('users.store') }}
 {{ old('name') }}
 ```
@@ -161,7 +161,7 @@ composer require "overtrue/laravel-lang:~3.0"
 
 这里用到了request请求数据
 
-```
+```php
 $request->name; # 表单字段数据
 $request->all(); # 用户输入的所有请求数据
 ```
