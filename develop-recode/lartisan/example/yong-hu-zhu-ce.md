@@ -125,12 +125,12 @@ public function store(Request $request)
 
 **防跨站请求**
 
-防止CSRF请求 , 为了安全考虑 , 要提供一个令牌 , 这里Laravel已经为我们准备好了 : 
+防止CSRF请求 , 为了安全考虑 , 要提供一个令牌 , 这里Laravel已经为我们准备好了 :
 
 ```php
 {{ csrf_field() }}
 # 生成html
-<input type="hidden" name="_token" value="fhcxqT67dNowMoWsAHGGPJOAWJn8x5R5ctSwZrAq">
+<input type="hidden" name="_token" value="X2ULh8Gqgn5kFyxbCc9JLPx5QhfPs8GEUXQdUVIx">
 ```
 
 
