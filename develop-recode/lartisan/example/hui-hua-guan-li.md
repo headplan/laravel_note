@@ -70,7 +70,7 @@ $data = $this->validate($request, [
 
 借助Laravel中`Auth`的`attempt`方法 , 可以很方便的认证用户数据 , 消息提示和页面重定向和前面的一样 , 其中
 
-`Auth::user()`可以获取用户信息 . 
+`Auth::user()`可以获取用户信息 .
 
 ```php
 if (Auth::attempt($data)) {
@@ -83,9 +83,9 @@ if (Auth::attempt($data)) {
 }
 ```
 
+**用户登录**
 
-
-
+修改登录时的页面以及页面链接等
 
 
 
