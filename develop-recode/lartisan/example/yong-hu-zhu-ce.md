@@ -219,7 +219,7 @@ public function store(Request $request)
         'password' => bcrypt($request->password)
     ]);
 
-    session()->flash('success', '欢迎{$user->name},一段新的旅程开启~');
+    session()->flash("success", "欢迎{$user->name},一段新的旅程开启~");
     return redirect()->route('users.show', [$user]);
 }
 ```
