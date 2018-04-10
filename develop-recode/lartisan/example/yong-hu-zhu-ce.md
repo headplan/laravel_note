@@ -155,7 +155,7 @@ public function store(Request $request)
 composer require "overtrue/laravel-lang:~3.0"
 ```
 
-扩展包已经自动注册了 , 不用在服务提供者中引入了 . 修改配置为zh-CN即可 . 
+扩展包已经自动注册了 , 不用在服务提供者中引入了 . 修改配置为zh-CN即可 .
 
 **用户数据入库并重定向**
 
@@ -176,17 +176,35 @@ redirect()->route('users.show', [$user->id]);
 
 **消息提示**
 
-前面的逻辑已经进行到了 , 验证注册用户并创建成功后跳转到指定的用户页面 , 这里还可以添加一条成功的消息提示 . 
+前面的逻辑已经进行到了 , 验证注册用户并创建成功后跳转到指定的用户页面 , 这里还可以添加一条成功的消息提示 .
 
-HTTP 协议是无状态的 , Laravel 提供了自定义的用于临时保存用户数据的方法 , 会话 , 和原生PHP中的session类似 , 但它对后端驱动支持的更好 , api统一 . 
+HTTP 协议是无状态的 , Laravel 提供了自定义的用于临时保存用户数据的方法 , 会话 , 和原生PHP中的session类似 , 但它对后端驱动支持的更好 , api统一 .
 
-这里用到了闪存的会话数据`session()->flash()` , 也就是它只在下一次的请求内有效 , 参数是键值对 . 
+这里用到了闪存的会话数据`session()->flash()` , 也就是它只在下一次的请求内有效 , 参数是键值对 .
 
-其他会话操作方法还有get\(键\) , 获取缓存数据 , has\('键'\) , 判断缓存数据是否存在等 . 
+其他会话操作方法还有get\(键\) , 获取缓存数据 , has\('键'\) , 判断缓存数据是否存在等 .
 
-下面更新一下store方法的代码 : 
+下面更新一下store方法的代码 :
 
+```php
+public function store(Request $request)
+{
+    $this->validate($request, [
+        'name' => 'required|min:3|max:50',
+        'email' => 'required|email|unique:users|max:255',
+        'password' => 'required|min:6|max:50'
+    ]);
+
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password)
+    ]);
+
+    session()->flash('success', '欢迎{$user->name},一段新的旅程开启~');
+    return redirect()->route('users.show', [$user]);
+}
 ```
 
-```
+
 
