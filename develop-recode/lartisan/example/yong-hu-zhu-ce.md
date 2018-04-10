@@ -133,5 +133,21 @@ public function store(Request $request)
 <input type="hidden" name="_token" value="X2ULh8Gqgn5kFyxbCc9JLPx5QhfPs8GEUXQdUVIx">
 ```
 
+**表单提交错误信息**
+
+这里用到了blade模板提供的一些条件以及循环标签 . 
+
+```php
+@if (count($errors) > 0)
+  <div class="alert alert-danger">
+      <ul>
+          @foreach($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
+```
+
 
 
