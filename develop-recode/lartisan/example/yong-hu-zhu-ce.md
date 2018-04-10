@@ -135,7 +135,7 @@ public function store(Request $request)
 
 **表单提交错误信息**
 
-这里用到了blade模板提供的一些条件以及循环标签 . 
+这里用到了blade模板提供的一些条件以及循环标签 .
 
 ```php
 @if (count($errors) > 0)
@@ -147,6 +147,12 @@ public function store(Request $request)
       </ul>
   </div>
 @endif
+```
+
+引入上面的模板 , 提交表单就会提示错误信息 , 但是英文的 , 这里可以直接添加一个语言包 , 或者自己修改 . 
+
+```php
+composer require "overtrue/laravel-lang:~3.0"
 ```
 
 
