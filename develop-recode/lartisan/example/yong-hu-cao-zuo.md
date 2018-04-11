@@ -160,12 +160,12 @@ $this->middleware('guest', [
 ]);
 ```
 
-现在已经调用了`guest`中间件 , 但是其默认跳转`/home`页面 , 这里可以简单的修改一下 , `RedirectIfAuthenticated`中间件类 : 
+现在已经调用了`guest`中间件 , 但是其默认跳转`/home`页面 , 这里可以简单的修改一下 , `RedirectIfAuthenticated`中间件类 :
 
 ```php
 session()->flash('info', '您已登录,无需再次操作.');
 return redirect('/');
 ```
 
-
+#### 列出所有用户
 
