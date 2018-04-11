@@ -222,13 +222,13 @@ Faker的简单使用
 => "11:32:14"
 ```
 
-借助 Faker 和 Eloquent 模型工厂来为指定模型的每个字段设置随机值 , 定义一下模型工厂 , 可以使用命令行创建 : 
+借助 Faker 和 Eloquent 模型工厂来为指定模型的每个字段设置随机值 , 定义一下模型工厂 , 可以使用命令行创建 :
 
 ```
 php artisan make:factory UserFactory
 ```
 
-默认Laravel为我们准备好了一个模型工厂 , 这里稍作修改 , 让创建时间随机生成 , 配合Faker使用 : 
+默认Laravel为我们准备好了一个模型工厂 , 这里稍作修改 , 让创建时间随机生成 , 配合Faker使用 :
 
 ```php
 <?php
@@ -243,9 +243,10 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('123456'),
         'remember_token' => str_random(10),
+        'created_at' => $date_time,
+        'updated_at' => $date_time,
     ];
 });
-
 ```
 
 
