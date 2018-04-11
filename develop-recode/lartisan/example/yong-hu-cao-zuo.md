@@ -183,5 +183,9 @@ public function index()
 
 > 更新样式时总会缓存 , 这里在webpack.mix.js结尾加上.version\(\) , blade模板引入函数换成mix\(\)即可 .
 
+#### 数据填充
+
+在添加分页前 , 还需要添加一些演示数据 , 可以使用Laravel提供的数据填充来批量生成假用户 . 
+
 
 
