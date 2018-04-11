@@ -125,9 +125,9 @@ $this->authorize('update', $user);
 
 > 这里`update`是指授权类里的`update`授权方法 , `$user`对应传参`update`授权方法的第二个参数 . 正如上面定义`update`授权方法时候提起的 , 调用时 , 默认情况下 , **不需要**传递第一个参数 , 也就是当前登录用户至该方法内 , 因为框架会自动加载当前登录用户 .
 
-接下来将上面的代码添加到需要授权的位置 , 也就是UserController的edit和update方法中 . 
+接下来将上面的代码添加到需要授权的位置 , 也就是UserController的edit和update方法中 .
 
-```
+```php
 public function edit(User $user)
 {
     $this->authorize('update', $user);
