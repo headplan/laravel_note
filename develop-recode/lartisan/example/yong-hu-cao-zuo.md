@@ -80,11 +80,26 @@ public function __construct()
 
 **授权策略Policy**
 
-使用授权策略 \(Policy\)来对用户的操作权限进行验证 , 在用户未经授权进行操作时将返回 403 禁止访问的异常 , 让用户只能编辑自己的资料 . 创建策略 : 
+使用授权策略 \(Policy\)来对用户的操作权限进行验证 , 在用户未经授权进行操作时将返回 403 禁止访问的异常 , 让用户只能编辑自己的资料 . 创建策略 :
 
 ```
 php artisan make:policy UserPolicy
 ```
 
-生成的策略文件在`app/Policies`文件夹下 , 
+生成的策略文件在`app/Policies`文件夹下 , 为其添加方法用于用户更新时的权限验证 : 
+
+```php
+/**
+ * id相同表示为相同用户,用户通过授权,可以接着进行下一个操作.
+ * @param \App\Models\User $currentUser 当前登录用户实例
+ * @param \App\Models\User $user 要进行授权的用户实例
+ * @return bool
+ */
+public function update(User $currentUser, User $user)
+{
+    return $currentUser->id === $user->id;
+}
+```
+
+
 
