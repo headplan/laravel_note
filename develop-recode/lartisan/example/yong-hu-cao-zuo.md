@@ -185,18 +185,42 @@ public function index()
 
 #### 数据填充
 
-在添加分页前 , 还需要添加一些演示数据 , 可以使用Laravel提供的数据填充来批量生成假用户 . 
+在添加分页前 , 还需要添加一些演示数据 , 可以使用Laravel提供的数据填充来批量生成假用户 .
 
-假数据的生成为分为两个阶段 : 
+假数据的生成为分为两个阶段 :
 
 * 模型工厂 - 对要生成假数据的模型指定字段进行赋值
 * 数据填充 - 批量生成假数据模型
 
 **模型工厂**
 
-Laravel 默认为我们集成了Faker扩展包 , 使用该扩展包可以让我们很方便的生成一些假数据 . 
+Laravel 默认为我们集成了Faker扩展包 , 使用该扩展包可以让我们很方便的生成一些假数据 .
 
-> https://github.com/fzaninotto/Faker
+> [https://github.com/fzaninotto/Faker](https://github.com/fzaninotto/Faker)
+
+Faker的简单使用
+
+```php
+// 使用 factory 来创建一个 Faker\Generator 实例
+>>> $faker = Faker\Factory::create();
+=> Faker\Generator {#748}
+
+// 生成用户名
+>>> $faker->name;
+=> "Donavon Harber I"
+
+// 生成安全邮箱
+>>> $faker->safeEmail;
+=> "gibson.ardith@example.org"
+
+// 生成随机日期
+>>> $faker->date;
+=> "1992-09-19"
+
+// 生成随机时间
+>>> $faker->time
+=> "11:32:14"
+```
 
 
 
