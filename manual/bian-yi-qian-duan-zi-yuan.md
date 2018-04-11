@@ -218,7 +218,7 @@ cp node_modules/laravel-mix/setup/webpack.config.js ./
 mix.copy('node_modules/foo/bar.css', 'public/css/bar.css');
 ```
 
-#### 版本与缓存清楚
+#### 版本与缓存清除
 
 许多的开发者会在它们编译后的资源文件中加上时间戳或是唯一的 token , 强迫浏览器加载全新的资源文件以取代提供的旧版本代码副本 . 可以使用 version 方法让 Mix 处理它们 .
 
