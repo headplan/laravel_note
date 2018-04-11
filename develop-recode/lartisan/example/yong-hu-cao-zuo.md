@@ -86,7 +86,7 @@ public function __construct()
 php artisan make:policy UserPolicy
 ```
 
-生成的策略文件在`app/Policies`文件夹下 , 为其添加方法用于用户更新时的权限验证 : 
+生成的策略文件在`app/Policies`文件夹下 , 为其添加方法用于用户更新时的权限验证 :
 
 ```php
 /**
@@ -99,6 +99,28 @@ public function update(User $currentUser, User $user)
 {
     return $currentUser->id === $user->id;
 }
+```
+
+使用授权策略需要注意 : 
+
+* 并不需要检查`$currentUser`是不是 NULL . 未登录用户 , 框架会自动为其**所有权限**返回 . 
+* 调用时也**不需要**传递当前登录用户至该方法内 , 框架会自动加载当前登录用户 . 
+
+接下来 , 还需要在`AuthServiceProvider`类中对授权策略进行设置 , 其中包含了`policies`属性 , 用于将各种模型对应到管理它们的授权策略上 . 现在我们要做的就是为用户模型`User`指定授权策略`UserPolicy`.
+
+```php
+protected $policies = [
+    'App\Model' => 'App\Policies\ModelPolicy',
+    \App\Models\User::class => \App\Policies\UserPolicy::class,
+];
+```
+
+定义了授权策略之后 , 就可以在用户控制器中使用`authorize`方法来验证用户授权策略 . `authorize`方法接收两个参数 , 第一个为授权策略的名称 , 第二个为进行授权验证的数据 . 
+
+> 默认的`App\Http\Controllers\Controller`类包含了 Laravel 的`AuthorizesRequests`trait . 此 trait 提供了`authorize`方法 , 它可以被用于快速授权一个指定的行为 , 当无权限运行该行为时会抛出 HttpException .
+
+```php
+$this->authorize('update', $user);
 ```
 
 
