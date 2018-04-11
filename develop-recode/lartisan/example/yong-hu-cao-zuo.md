@@ -169,3 +169,15 @@ return redirect('/');
 
 #### 列出所有用户
 
+用户列表对应的控制器是index , 并允许游客访问 : 
+
+```php
+public function index()
+{
+    $users = User::all();
+    return view('users.index', compact('users'));
+}
+```
+
+这里一次性查出全部数据 , 可能会有点问题 , 这里一会再说 , 先添加页面 , 样式 , 头部的入口连接 . 
+
