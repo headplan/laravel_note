@@ -101,7 +101,7 @@ public function update(User $currentUser, User $user)
 }
 ```
 
-使用授权策略需要注意 : 
+使用授权策略需要注意 :
 
 * 并不需要检查`$currentUser`是不是 NULL . 未登录用户 , 框架会自动为其**所有权限**返回 . 
 * 调用时也**不需要**传递当前登录用户至该方法内 , 框架会自动加载当前登录用户 . 
@@ -115,13 +115,15 @@ protected $policies = [
 ];
 ```
 
-定义了授权策略之后 , 就可以在用户控制器中使用`authorize`方法来验证用户授权策略 . `authorize`方法接收两个参数 , 第一个为授权策略的名称 , 第二个为进行授权验证的数据 . 
+定义了授权策略之后 , 就可以在用户控制器中使用`authorize`方法来验证用户授权策略 . `authorize`方法接收两个参数 , 第一个为授权策略的名称 , 第二个为进行授权验证的数据 .
 
 > 默认的`App\Http\Controllers\Controller`类包含了 Laravel 的`AuthorizesRequests`trait . 此 trait 提供了`authorize`方法 , 它可以被用于快速授权一个指定的行为 , 当无权限运行该行为时会抛出 HttpException .
 
 ```php
 $this->authorize('update', $user);
 ```
+
+> 这里`update`是指授权类里的`update`授权方法 , `$user`对应传参`update`授权方法的第二个参数 . 正如上面定义`update`授权方法时候提起的 , 调用时 , 默认情况下 , **不需要**传递第一个参数 , 也就是当前登录用户至该方法内 , 因为框架会自动加载当前登录用户 .
 
 
 
