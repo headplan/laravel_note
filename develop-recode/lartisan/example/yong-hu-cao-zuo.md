@@ -136,5 +136,17 @@ public function edit(User $user)
 ...
 ```
 
+现在去编辑其他用户的页面 , 就会报错403 . 
+
+**更好的跳转**
+
+将用户重定向到他之前尝试访问的页面 , 也就是那些需要登录才能访问的页面 . 
+
+`redirect()`实例提供了一个`intended`方法 , 该方法可将页面重定向到上一次请求尝试访问的页面上 , 并接收一个默认跳转地址参数 , 当上一次请求记录为空时 , 跳转到默认地址上 . 
+
+```php
+return redirect()->intended(route('users.show', [Auth::user()]));
+```
+
 
 
