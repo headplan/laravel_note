@@ -327,15 +327,15 @@ $ php artisan migrate:refresh --seed
 $users = User::paginate(10);
 ```
 
-然后在页面上渲染 : 
+然后在页面上渲染 :
 
 ```php
 {!! $users->links() !!}
 ```
 
-这里是`{!! !!}`而不是`{{ }}`是为了防止URL被转义 . 
+这里是`{!! !!}`而不是`{{ }}`是为了防止URL被转义 .
 
-重新调整一下列表页布局 , 把每个用户的样式抽取出来 , include调用 . 
+重新调整一下列表页布局 , 把每个用户的样式抽取出来 , include调用 .
 
 ```php
 @foreach($users as $user)
@@ -343,13 +343,15 @@ $users = User::paginate(10);
 @endforeach
 ```
 
-> 分页视图可以自定义 , 使用命令生成默认的模板 , 就可以自定义了 , 具体可以查看手册 . 
+> 分页视图可以自定义 , 使用命令生成默认的模板 , 就可以自定义了 , 具体可以查看手册 .
 >
-> ```
+> ```php
 > php artisan vendor:publish --tag=laravel-pagination
 > ```
-
-
+>
+> ```php
+> {!! $users->links('vendor.pagination.simple-default') !!}
+> ```
 
 
 
