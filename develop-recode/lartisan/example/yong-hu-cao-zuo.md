@@ -251,22 +251,22 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
 
 **数据填充**
 
-在 Laravel 中使用`Seeder`类来给数据库填充测试数据 . 所有的 Seeder 类文件都放在`database/seeds`目录下 , 文件名需要按照『驼峰式』来命名 , 且严格遵守大小写规范 . 
+在 Laravel 中使用`Seeder`类来给数据库填充测试数据 . 所有的 Seeder 类文件都放在`database/seeds`目录下 , 文件名需要按照『驼峰式』来命名 , 且严格遵守大小写规范 .
 
-默认会有一个DatabaseSeeder类 , 用来统一控制数据填充的顺序 . 
+默认会有一个DatabaseSeeder类 , 用来统一控制数据填充的顺序 .
 
-创建一个Seeder : 
+创建一个Seeder :
 
 ```
 php artisan make:seeder UsersTableSeeder
 ```
 
-编辑类总的run方法 : 
+编辑类总的run方法 :
 
 ```php
 public function run()
 {
-    $fakeusers = factory(\User::class)->times(100)->make();
+    $fakeusers = factory(User::class)->times(100)->make();
     User::insert($fakeusers->makeVisible(['password', 'remember_token'])->toArray());
 
     $user = User::find(1);
@@ -277,5 +277,18 @@ public function run()
 }
 ```
 
+先看一下这行代码
 
+```php
+factory(User::class)->times(100)->make();
+```
+
+factory\(\)是一个helper函数 , 加载了Factory类 , 通过of\(\)方法实例化FactoryBuilder类 , 调用了其api , times和make . 
+
+* `times`接受一个参数用于指定要创建的模型数量
+* `make`方法调用后将为模型创建一个集合
+
+接着使用了模型的`insert`方法来将生成假用户列表数据批量插入到数据库中 , 这里用到了makeVisible方法 , 用来临时显示User模型里指定的隐藏属性`$hidden`.
+
+后面的内容就是为了id1的用户保持不变 , 更新了一下数据 . 
 
