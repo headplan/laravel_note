@@ -249,5 +249,33 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
 });
 ```
 
+**数据填充**
+
+在 Laravel 中使用`Seeder`类来给数据库填充测试数据 . 所有的 Seeder 类文件都放在`database/seeds`目录下 , 文件名需要按照『驼峰式』来命名 , 且严格遵守大小写规范 . 
+
+默认会有一个DatabaseSeeder类 , 用来统一控制数据填充的顺序 . 
+
+创建一个Seeder : 
+
+```
+php artisan make:seeder UsersTableSeeder
+```
+
+编辑类总的run方法 : 
+
+```php
+public function run()
+{
+    $fakeusers = factory(\User::class)->times(100)->make();
+    User::insert($fakeusers->makeVisible(['password', 'remember_token'])->toArray());
+
+    $user = User::find(1);
+    $user->name = 'headplan';
+    $user->email = 'headplan@163.com';
+    $user->password = bcrypt('123123');
+    $user->save();
+}
+```
+
 
 
