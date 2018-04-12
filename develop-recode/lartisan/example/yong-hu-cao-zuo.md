@@ -292,7 +292,7 @@ factory\(\)是一个helper函数 , 加载了Factory类 , 通过of\(\)方法实�
 
 后面的内容就是为了id1的用户保持不变 , 更新了一下数据 .
 
-配置DatabaseSeeder类 : 
+配置DatabaseSeeder类 :
 
 ```php
 public function run()
@@ -303,5 +303,53 @@ public function run()
 }
 ```
 
-这里的Model::unguard\(\)和Model::reguard\(\)是一对 , 解除和恢复自动填充操作限制的方法 . 
+这里的Model::unguard\(\)和Model::reguard\(\)是一对 , 解除和恢复自动填充操作限制的方法 .
+
+命令行生成假数据
+
+```
+$ php artisan migrate:refresh
+$ php artisan db:seed
+
+# 指定UsersTableSeeder生成
+$ php artisan migrate:refresh
+$ php artisan db:seed --class=UsersTableSeeder
+
+# 一条命令完成重置和填充
+$ php artisan migrate:refresh --seed
+```
+
+#### 分页
+
+修改控制器 , 添加分页方法 :
+
+```php
+$users = User::paginate(10);
+```
+
+然后在页面上渲染 : 
+
+```php
+{!! $users->links() !!}
+```
+
+这里是`{!! !!}`而不是`{{ }}`是为了防止URL被转义 . 
+
+重新调整一下列表页布局 , 把每个用户的样式抽取出来 , include调用 . 
+
+```php
+@foreach($users as $user)
+    @include('includes.user')
+@endforeach
+```
+
+> 分页视图可以自定义 , 使用命令生成默认的模板 , 就可以自定义了 , 具体可以查看手册 . 
+>
+> ```
+> php artisan vendor:publish --tag=laravel-pagination
+> ```
+
+
+
+
 
