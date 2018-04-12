@@ -283,12 +283,25 @@ public function run()
 factory(User::class)->times(100)->make();
 ```
 
-factory\(\)是一个helper函数 , 加载了Factory类 , 通过of\(\)方法实例化FactoryBuilder类 , 调用了其api , times和make . 
+factory\(\)是一个helper函数 , 加载了Factory类 , 通过of\(\)方法实例化FactoryBuilder类 , 调用了其api , times和make .
 
 * `times`接受一个参数用于指定要创建的模型数量
 * `make`方法调用后将为模型创建一个集合
 
 接着使用了模型的`insert`方法来将生成假用户列表数据批量插入到数据库中 , 这里用到了makeVisible方法 , 用来临时显示User模型里指定的隐藏属性`$hidden`.
 
-后面的内容就是为了id1的用户保持不变 , 更新了一下数据 . 
+后面的内容就是为了id1的用户保持不变 , 更新了一下数据 .
+
+配置DatabaseSeeder类 : 
+
+```php
+public function run()
+{
+    Model::unguard();
+    $this->call(UsersTableSeeder::class);
+    Model::reguard();
+}
+```
+
+这里的Model::unguard\(\)和Model::reguard\(\)是一对 , 解除和恢复自动填充操作限制的方法 . 
 
