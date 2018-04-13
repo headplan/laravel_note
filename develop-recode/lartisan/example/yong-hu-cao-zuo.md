@@ -381,19 +381,28 @@ public function down()
 }
 ```
 
-运行数据库迁移 : 
+运行数据库迁移 :
 
 ```
 php artisan migrate
 ```
 
-对应的 , 修改数据填充文件和模型工厂 . 然后运行命令 , 重置并生成数据 : 
+对应的 , 修改数据填充文件和模型工厂 . 然后运行命令 , 重置并生成数据 :
 
 ```
 php artisan migrate:refresh --seed
 ```
 
+**destory动作**
 
+添加管理员授权 , 有当前用户拥有管理员权限且删除的用户不是自己时才显示链接 : 
+
+```php
+public function destroy(User $currentUser, User $user)
+{
+    return $currentUser->is_admin && $currentUser->id !== $user->id;
+}
+```
 
 
 
