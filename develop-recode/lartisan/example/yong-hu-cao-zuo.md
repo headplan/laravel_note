@@ -353,5 +353,33 @@ $users = User::paginate(10);
 > {!! $users->links('vendor.pagination.simple-default') !!}
 > ```
 
+#### 删除用户
+
+将管理员身份授权给某个指定用户 . 
+
+生成迁移文件为用户表新增管理员字段 , 使用`--table`选项可以为指定数据表生成迁移文件 : 
+
+```
+php artisan make:migration add_is_admin_to_users_table --table=users
+```
+
+修改迁移文件 : 
+
+```php
+public function up()
+{
+    Schema::table('users', function (Blueprint $table) {
+        $table->boolean('is_admin')->default(false);
+    });
+}
+
+public function down()
+{
+    Schema::table('users', function (Blueprint $table) {
+        $table->dropColumn('is_admin');
+    });
+}
+```
+
 
 
