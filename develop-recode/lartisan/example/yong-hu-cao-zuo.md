@@ -355,15 +355,15 @@ $users = User::paginate(10);
 
 #### 删除用户
 
-将管理员身份授权给某个指定用户 . 
+将管理员身份授权给某个指定用户 .
 
-生成迁移文件为用户表新增管理员字段 , 使用`--table`选项可以为指定数据表生成迁移文件 : 
+生成迁移文件为用户表新增管理员字段 , 使用`--table`选项可以为指定数据表生成迁移文件 :
 
 ```
 php artisan make:migration add_is_admin_to_users_table --table=users
 ```
 
-修改迁移文件 : 
+修改迁移文件 :
 
 ```php
 public function up()
@@ -380,6 +380,20 @@ public function down()
     });
 }
 ```
+
+运行数据库迁移 : 
+
+```
+php artisan migrate
+```
+
+对应的 , 修改数据填充文件和模型工厂 . 然后运行命令 , 重置并生成数据 : 
+
+```
+php artisan migrate:refresh --seed
+```
+
+
 
 
 
