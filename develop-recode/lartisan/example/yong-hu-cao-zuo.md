@@ -395,12 +395,36 @@ php artisan migrate:refresh --seed
 
 **destory动作**
 
-添加管理员授权 , 有当前用户拥有管理员权限且删除的用户不是自己时才显示链接 : 
+添加管理员授权 , 有当前用户拥有管理员权限且删除的用户不是自己时才显示链接 :
 
 ```php
 public function destroy(User $currentUser, User $user)
 {
     return $currentUser->is_admin && $currentUser->id !== $user->id;
+}
+```
+
+使用@can命令在 Blade 模板中做授权判断 : 
+
+```php
+  @can('destroy', $user)
+    <form action="{{ route('users.destroy', $user->id) }}" method="post">
+      {{ csrf_field() }}
+      {{ method_field('DELETE') }}
+      <button type="submit" class="btn btn-sm btn-danger delete-btn">删除</button>
+    </form>
+  @endcan
+```
+
+稍作样式修改 , 然后添加控制方法 , 使用了 Auth 中间件黑名单 , 这里只要添加授权验证即可 : 
+
+```php
+public function destroy(User $user)
+{
+    $this->authorize('destroy', $user);
+    $user->delete();
+    session()->flash('success', '成功删除用户!');
+    return back();
 }
 ```
 
