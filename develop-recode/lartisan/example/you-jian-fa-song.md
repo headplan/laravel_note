@@ -95,7 +95,7 @@ if ($user->activated) {
 
 #### 发送邮件
 
-通过`Mail`接口的`send`方法来进行邮件发送 , 在控制器中创建邮件发送方法 : 
+通过`Mail`接口的`send`方法来进行邮件发送 , 在控制器中创建邮件发送方法 :
 
 ```php
 protected function sendEmailConfirmationTo($user)
@@ -120,5 +120,5 @@ protected function sendEmailConfirmationTo($user)
 }
 ```
 
-
+现在要修改注册成功的
 
