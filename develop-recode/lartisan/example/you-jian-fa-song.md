@@ -153,5 +153,45 @@ public function confirmEmail($token)
 }
 ```
 
+测试一下功能 , 可以追一下log
+
+```
+tail -f storage/logs/laravel.log 
+```
+
+```php
+[2018-04-15 23:35:42] local.DEBUG: Message-ID: <b034ae6096308a08ecd977f02cc714f1@lartisan.example>
+Date: Sun, 15 Apr 2018 23:35:42 +0000
+Subject: =?utf-8?Q?=E6=84=9F=E8=B0=A2=E6=B3=A8=E5=86=8C?= Lartisan
+ =?utf-8?Q?=E5=BA=94=E7=94=A8!=E8=AF=B7?=
+ =?utf-8?Q?=E7=A1=AE=E8=AE=A4=E4=BD=A0=E7=9A=84=E9=82=AE=E7=AE=B1!?=
+From: Lartisan <headplan@163.com>
+To: headplan11@163.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>注册确认链接</title>
+</head>
+<body>
+<h1>感谢您在 Sample 网站进行注册！</h1>
+
+<p>
+    请点击下面的链接完成注册：
+    <a href="http://lartisan.example/signup/confirm/n6Ebo8pYpNqXySYsi92qq4AkDGQPuz">
+        http://lartisan.example/signup/confirm/n6Ebo8pYpNqXySYsi92qq4AkDGQPuz
+    </a>
+</p>
+
+<p>
+    如果这不是您本人的操作，请忽略此邮件。
+</p>
+</body>
+</html>
+```
+
 
 
