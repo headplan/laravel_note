@@ -53,5 +53,11 @@ public static function boot()
 $user->activated = true;
 ```
 
+重置并填充数据 : 
+
+```
+$ php artisan migrate:refresh --seed
+```
+
 
 
