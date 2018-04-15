@@ -93,5 +93,32 @@ if ($user->activated) {
 }
 ```
 
+#### 发送邮件
+
+通过`Mail`接口的`send`方法来进行邮件发送 , 在控制器中创建邮件发送方法 : 
+
+```php
+protected function sendEmailConfirmationTo($user)
+{
+    # 视图文件名
+    $view = 'emails.confirm';
+    # 传入的用户数据
+    $data = compact('user');
+    # 发送的邮箱
+    $from = 'headplan@163.com';
+    # 发送者
+    $name = 'Lartisan';
+    # 接收者
+    $to = $user->email;
+    # 发送内容
+    $subject = '感谢注册 Lartisan 应用!请确认你的邮箱!';
+
+    # 发送邮件
+    Mail::send($view, $data, function ($msg) use ($from, $name, $to, $subject) {
+        $msg->from($from, $name)->to($to)->subject($subject);
+    });
+}
+```
+
 
 
