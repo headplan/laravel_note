@@ -130,10 +130,12 @@ return redirect('home');
 
 #### 激活功能
 
-邮件已经发送出去 , 接下来要完成激活的操作 , 并在中间件开启未登录用户访问权限 : 
+邮件已经发送出去 , 接下来要完成激活的操作 , 并在中间件开启未登录用户访问权限 :
 
-```
-
+```php
+$this->middleware('auth', [
+    'except' => ['show', 'create', 'store', 'index', 'confirmEmail']
+]);
 ```
 
 
