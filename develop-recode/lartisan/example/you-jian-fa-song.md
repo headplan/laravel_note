@@ -61,7 +61,7 @@ $ php artisan migrate:refresh --seed
 
 **邮件程序**
 
-这里暂时使用log邮件驱动的方式来调试邮件发送功能 , 可以在`storage/logs/laravel.log`文件中查看调试 : 
+这里暂时使用log邮件驱动的方式来调试邮件发送功能 , 可以在`storage/logs/laravel.log`文件中查看调试 :
 
 ```
 MAIL_DRIVER=log
@@ -77,6 +77,20 @@ Route::get('signup/confirm/{token}', 'UsersController@confirmEmail')->name('conf
 
 ```
 resources/views/emails/confirm.blade.php
+```
+
+**登录时检查是否已激活**
+
+```php
+$user = Auth::user();
+if ($user->activated) {
+    session()->flash('success', "欢迎回来,{$user->name}!");
+    return redirect()->intended(route('users.show', [$user]));
+} else {
+    Auth::logout();
+    session()->flash('warning', '你的账号未激活,请检查邮箱中的注册邮件进行激活.');
+    return redirect('/');
+}
 ```
 
 
