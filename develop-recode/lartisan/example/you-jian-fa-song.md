@@ -120,5 +120,13 @@ protected function sendEmailConfirmationTo($user)
 }
 ```
 
-现在要修改注册成功的
+现在要修改注册成功的登录动作改为发送激活邮件 , 修改闪存信息 , 然后重定向首页 : 
+
+```php
+$this->sendEmailConfirmationTo($user);
+session()->flash('success', '验证邮件已发送到你的注册邮箱上,请注意查收.');
+return redirect('home');
+```
+
+
 
