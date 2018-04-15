@@ -24,5 +24,23 @@ php artisan make:migration add_activation_to_users_table --table=users
 php artisan migrate
 ```
 
+**生成令牌**
+
+用户的激活令牌需要在用户创建\(注册\)之前就先生成好 , 这里用到了Eloquent模型默认提供的事件 , 这些事件可以用来监听到模型的创建,更新,删除,保存等操作 . 例如 : 
+
+* `creating`用于监听模型被创建之前的事件
+* `created`用于监听模型被创建之后的事件
+
+```php
+public static function boot()
+{
+    parent::boot();
+
+    static::creating(function ($user) {
+        $user->activation_token = str_random(30);
+    });
+}
+```
+
 
 
