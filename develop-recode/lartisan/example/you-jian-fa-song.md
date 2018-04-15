@@ -53,10 +53,30 @@ public static function boot()
 $user->activated = true;
 ```
 
-重置并填充数据 : 
+重置并填充数据 :
 
 ```
 $ php artisan migrate:refresh --seed
+```
+
+**邮件程序**
+
+这里暂时使用log邮件驱动的方式来调试邮件发送功能 , 可以在`storage/logs/laravel.log`文件中查看调试 : 
+
+```
+MAIL_DRIVER=log
+```
+
+**定义路由**
+
+```php
+Route::get('signup/confirm/{token}', 'UsersController@confirmEmail')->name('confirm_email');
+```
+
+**创建邮件模板**
+
+```
+resources/views/emails/confirm.blade.php
 ```
 
 
