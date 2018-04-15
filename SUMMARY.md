@@ -119,6 +119,7 @@
       * [用户注册](develop-recode/lartisan/example/yong-hu-zhu-ce.md)
       * [会话管理](develop-recode/lartisan/example/hui-hua-guan-li.md)
       * [用户操作](develop-recode/lartisan/example/yong-hu-cao-zuo.md)
+      * [邮件发送](develop-recode/lartisan/example/you-jian-fa-song.md)
     * [Project Plan](develop-recode/lartisan/project-plan.md)
     * [Scope of Work](develop-recode/lartisan/scope-of-work.md)
   * [Lartisan API](/develop-recode/lartisan-api.md#lartisan-api)
