@@ -172,11 +172,11 @@ tail -f storage/logs/laravel.log
 
 **数据表**
 
-默认生成的密码重置表有三个字段 email, token, created\_at , 分别用于生成用户邮箱、密码重置令牌、密码重置令牌的创建时间 , 并为邮箱和密码重置令牌加上了索引 . 
+默认生成的密码重置表有三个字段 email, token, created\_at , 分别用于生成用户邮箱、密码重置令牌、密码重置令牌的创建时间 , 并为邮箱和密码重置令牌加上了索引 .
 
 **创建路由**
 
-密码重设功能相关的逻辑代码都放在了 ForgotPasswordController 和 ResetPasswordController 了 . 
+密码重设功能相关的逻辑代码都放在了 ForgotPasswordController 和 ResetPasswordController 了 .
 
 ```php
 # 显示重置密码的邮箱发送页面
@@ -187,6 +187,12 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 # 执行密码更新操作
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+```
+
+**添加重置密码入口到页面**
+
+```php
+<a href="{{ route('password.request') }}">忘记密码?</a>
 ```
 
 
