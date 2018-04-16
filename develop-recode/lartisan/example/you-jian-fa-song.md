@@ -161,5 +161,33 @@ tail -f storage/logs/laravel.log
 
 #### 密码重设
 
+**操作流程**
+
+* 用户点击重设密码链接并跳转到重设密码页面
+* 在重设密码页面输入邮箱信息并提交
+* 控制器通过该邮箱查找到指定用户并为该用户生成一个密码令牌 , 接着将该令牌以链接的形式发送到用户提交的邮箱上
+* 用户查看自己个人邮箱 , 点击重置密码链接跳转到重置密码页
+* 用户在该页面输入自己的邮箱和密码并提交
+* 控制器对用户的邮箱和密码重置令牌进行匹配 , 匹配成功则更新用户密码
+
+**数据表**
+
+默认生成的密码重置表有三个字段 email, token, created\_at , 分别用于生成用户邮箱、密码重置令牌、密码重置令牌的创建时间 , 并为邮箱和密码重置令牌加上了索引 . 
+
+**创建路由**
+
+密码重设功能相关的逻辑代码都放在了 ForgotPasswordController 和 ResetPasswordController 了 . 
+
+```php
+# 显示重置密码的邮箱发送页面
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+# 邮件发送重置链接
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+# 密码更新页面
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+# 执行密码更新操作
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+```
+
 
 
