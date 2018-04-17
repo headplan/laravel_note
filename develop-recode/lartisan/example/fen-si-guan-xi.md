@@ -45,7 +45,7 @@ public function followings()
 
 > 使用`attach`方法或`sync`方法在中间表上创建一个多对多记录 , 使用`detach`方法在中间表上移除一个记录 , 创建和移除操作并不会影响到两个模型各自的数据 , 所有的数据变动都在**中间表**上进行 . `attach,sync,detach`这几个方法都允许传入 id 数组参数 .
 
-可以使用tinker测试一下 : 
+可以使用tinker测试一下 :
 
 ```php
 # 这里让 id 为 1 的用户去关注 id 为 2 和 id 为 3 的用户
@@ -67,6 +67,8 @@ public function followings()
 >>> $user->followings()->detach([2,3]);
 >>> $user->followings()->allRelatedIds()->toArray();
 ```
+
+使用followings方法 , 完成关注和取消关注两个操作就很简单了 : 
 
 
 
