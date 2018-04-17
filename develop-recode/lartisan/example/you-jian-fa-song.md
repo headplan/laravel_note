@@ -304,11 +304,49 @@ public function sendPasswordResetNotification($token)
 }
 ```
 
-重置密码的Email视图 : 
+重置密码的Email视图 :
 
 ```php
 $ php artisan vendor:publish --tag=laravel-notifications
 ```
+
+测试功能 . 
+
+#### 在生产环境中发送邮件
+
+Laravel 的通知系统默认支持邮件频道的通知方式 , 开箱机用 . 
+
+Laravel 支持多种邮件驱动 , 包括 smtp、Mailgun、Maildrill、Amazon SES、mail 和 sendmail . 其他 , 如Mailgun 、 Amazon SES 、Maildrill 都是第三方邮件服务 . mail 驱动使用 PHP 提供的 mail 函数 . 
+
+> sendmail 驱动通过 Sendmail/Postfix（Linux）提供的命令发送邮件，smtp 驱动使用支持 ESMTP 的 SMTP 服务器发送邮件。mail 不安全，sendmail 需要安装配置 Sendmail/Postfix，并且信用不高，很容易被当成垃圾邮件，第三方服务的信用是最高的，商业软件推荐使用。
+
+**开启SMTP功能**
+
+QQ或者网易邮箱中 , 开启POP3/SMTP服务 . 获取客户端授权码 , 授权码将作为我们的密码使用 . 
+
+**邮箱发送配置**
+
+```
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.163.com
+MAIL_PORT=25
+MAIL_USERNAME=xxxxxxxxxxxxxx@163.com
+MAIL_PASSWORD=xxxxxxxxx
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=xxxxxxxxxxxxxx@163.com
+MAIL_FROM_NAME=Lartisan
+```
+
+* MAIL\_DRIVER=smtp —— 使用支持 ESMTP 的 SMTP 服务器发送邮件
+* MAIL\_HOST=smtp.163.com —— 邮箱的 SMTP 服务器地址 , 必须为此值
+* MAIL\_PORT=25 —— 邮箱的 SMTP 服务器端口 , 必须为此值
+* MAIL\_USERNAME=xxxxxxxxxxxxxx@163.com —— 请将此值换为你的邮箱
+* MAIL\_PASSWORD=xxxxxxxxx —— 密码是我们前面拿到的授权码
+* MAIL\_ENCRYPTION=tls —— 加密类型 , 选项 null 表示不使用任何加密 , 其他选项还有 ssl , 这里使用 tls 即可
+* MAIL\_FROM\_ADDRESS=xxxxxxxxxxxxxx@163.com —— 此值必须同 MAIL\_USERNAME 一致
+* MAIL\_FROM\_NAME=Lartisan —— 用来作为邮件的发送者名称
+
+
 
 
 
