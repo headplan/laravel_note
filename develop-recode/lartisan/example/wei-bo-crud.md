@@ -278,13 +278,13 @@ public function home()
 
 #### 删除微博
 
-首先创建授权策略 , 只有当被删除的微博作者为当前用户 , 授权才能通过 : 
+首先创建授权策略 , 只有当被删除的微博作者为当前用户 , 授权才能通过 :
 
 ```
 $ php artisan make:policy StatusPolicy
 ```
 
-我们需要在该授权策略中引入用户模型和微博模型 , 并添加`destroy`方法定义微博删除动作相关的授权 . 如果当前用户的 id 与要删除的微博作者 id 相同时 , 验证才能通过 : 
+我们需要在该授权策略中引入用户模型和微博模型 , 并添加`destroy`方法定义微博删除动作相关的授权 . 如果当前用户的 id 与要删除的微博作者 id 相同时 , 验证才能通过 :
 
 ```php
 public function destroy(User $user, Status $status)
@@ -293,7 +293,7 @@ public function destroy(User $user, Status $status)
 }
 ```
 
-然后在Auth服务提供者中添加配置 : 
+然后在Auth服务提供者中添加配置 :
 
 ```php
 protected $policies = [
@@ -301,6 +301,31 @@ protected $policies = [
     \App\Models\User::class => \App\Policies\UserPolicy::class,
     \App\Models\Status::class => \App\Policies\StatusPolicy::class,
 ];
+```
+
+然后使用`@can`命令在 Blade 模板中做授权判断 : 
+
+```php
+@can('destroy', $status)
+    <form action="{{ route('statuses.destroy', $status->id) }}" method="post">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+
+        <button type="submit" class="btn btn-sm btn-danger status-delete-btn">删除</button>
+    </form>
+@endcan
+```
+
+更新destroy方法 : 
+
+```php
+public function destroy(Status $status)
+{
+    $this->authorize('destroy', $status);
+    $status->delete();
+    session()->flash('success', '微博已被成功删除!');
+    return redirect()->back();
+}
 ```
 
 
