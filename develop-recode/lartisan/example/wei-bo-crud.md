@@ -225,5 +225,5 @@ public function store(Request $request)
 </form>
 ```
 
-
+修改Home页面 , 登录后展示添加微博表单和当前用户个人信息 . 
 
