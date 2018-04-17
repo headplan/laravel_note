@@ -270,15 +270,15 @@ tail -f storage/logs/laravel.log
 
 #### 邮件程序
 
-重新定制密码重置邮件功能 . 生成消息通知文件 : 
+重新定制密码重置邮件功能 . 生成消息通知文件 :
 
 ```
 $ php artisan make:notification ResetPassword
 ```
 
-生成`app/Notifications/ResetPassword.php`文件 . 
+生成`app/Notifications/ResetPassword.php`文件 .
 
-修改这个文件 : 
+修改这个文件 :
 
 ```php
 public function __construct($token)
@@ -292,6 +292,15 @@ public function toMail($notifiable)
                 ->line('这是一封密码重置邮件,如果是您本人操作,请点击以下按钮继续:')
                 ->action('重置密码', url(config('app.url').route('password.reset', $this->token, false)))
                 ->line('如果您并没有执行此操作,您可以选择忽略此邮件.');
+}
+```
+
+User模型里调用 : 
+
+```php
+public function sendPasswordResetNotification($token)
+{
+    $this->notify(new ResetPassword($token));
 }
 ```
 
