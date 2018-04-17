@@ -31,5 +31,38 @@ $ php artisan migrate
 $ php artisan make:model Models/Status
 ```
 
+**用户和微博之间的关系**
+
+Eloquent 模型让关联的管理和处理变得更加简单 , 支持 : 
+
+* 一对一
+* 一对多
+* 多对多
+* 远层一对多
+* 多态关联
+* 多态多对多关联
+
+以`一对多`为例子 , 在模型中将 Eloquent 关联定义为函数 : 
+
+_app/Models/Status.php_
+
+```php
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
+```
+
+在用户模型中 , 指明一个用户拥有多条微博 : 
+
+_app/Models/User.php_
+
+```php
+public function statuses()
+{
+    return $this->hasMany(Status::class);
+}
+```
+
 
 
