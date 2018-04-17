@@ -214,5 +214,16 @@ public function store(Request $request)
 }
 ```
 
+创建微博发布表单页面
+
+```php
+<form action="{{ route('statuses.store') }}" method="POST">
+    @include('includes.errors')
+    {{ csrf_field() }}
+    <textarea name="content" class="form-control" placeholder="聊聊新鲜事儿..." cols="30" rows="10">{{ old('content') }}</textarea>
+    <button type="submit" class="btn btn-primary pull-right">发布</button>
+</form>
+```
+
 
 
