@@ -126,7 +126,7 @@ $statuses = $user->statuses()
     ->paginate(30);
 ```
 
-视图中渲染数据 : 
+视图中渲染数据 :
 
 ```php
 <li id="status-{{ $status->id }}">
@@ -141,5 +141,16 @@ $statuses = $user->statuses()
 </li>
 ```
 
+其中 , 用到了一个diffForHumans\(\)方法 , 把时间转化为友好的显示方式 . 之后还要对Carbon类进行本地化设置 : 
 
+> [Carbon](https://github.com/briannesbitt/Carbon) 是 PHP DateTime 的一个简单扩展 , Laravel 将其默认集成到了框架中 .
+
+```
+public function boot()
+{
+    Carbon::setLocale('zh');
+}
+```
+
+在AppServiceProvider设置启动时加载 . 
 
