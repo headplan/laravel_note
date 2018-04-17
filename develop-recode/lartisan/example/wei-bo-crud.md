@@ -110,10 +110,20 @@ public function run()
 $this->call(StatusesTableSeeder::class);
 ```
 
-执行命令 : 
+执行命令 :
 
 ```
 $ php artisan migrate:refresh --seed
+```
+
+#### 展示微博
+
+在用户控制器的show方法中 , 取出改用户的所有微博 , 前面在模型上我们已经做了关联 , 所以取出数据变得非常方便 : 
+
+```php
+$statuses = $user->statuses()
+    ->orderByDesc('created_at')
+    ->paginate(30);
 ```
 
 
