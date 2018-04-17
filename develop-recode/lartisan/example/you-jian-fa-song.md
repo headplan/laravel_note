@@ -256,5 +256,19 @@ resources/views/auth/passwords/reset.blade.php
 <input type="hidden" name="token" value="{{ $token }}">
 ```
 
+修改控制器中修改密码后跳转的属性ResetPasswordController : 
+
+```php
+protected $redirectTo = '/';
+```
+
+测试可以追log查看重置密码的链接
+
+```php
+tail -f storage/logs/laravel.log
+```
+
+#### 邮件程序
+
 
 
