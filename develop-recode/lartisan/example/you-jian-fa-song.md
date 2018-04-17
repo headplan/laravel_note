@@ -195,5 +195,11 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 <a href="{{ route('password.request') }}">忘记密码?</a>
 ```
 
+**创建重置密码页面**
+
+```
+resources/views/auth/passwords/email.blade.php
+```
+
 
 
