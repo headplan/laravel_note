@@ -8,7 +8,7 @@
 php artisan make:migration create_statuses_table --create=statuses
 ```
 
-编辑迁移文件 , 添加字段 : 
+编辑迁移文件 , 添加字段 :
 
 ```php
 # 存储微博内容
@@ -17,6 +17,18 @@ $table->text('content');
 $table->integer('user_id')->index();
 # 给微博创建时间添加索引
 $table->index(['created_at']);
+```
+
+执行迁移
+
+```
+$ php artisan migrate
+```
+
+创建微博模型文件
+
+```
+$ php artisan make:model Models/Status
 ```
 
 
