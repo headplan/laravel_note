@@ -89,7 +89,7 @@ $factory->define(\App\Models\Status::class, function (Faker $faker) {
 public function run()
 {
     //$user_ids = ['1', '2', '3'];
-    $users = User::where('id', '<=', 3)->get();
+    $users = User::where('id', '<', 4)->get();
     $user_ids = $users->map(function ($user) {
         return $user->id;
     })->toArray();
@@ -102,6 +102,12 @@ public function run()
 
     Status::insert($statuses->toArray());
 }
+```
+
+别忘记最后的 : 
+
+```php
+$this->call(StatusesTableSeeder::class);
 ```
 
 
