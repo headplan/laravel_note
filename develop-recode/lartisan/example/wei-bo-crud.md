@@ -227,7 +227,7 @@ public function store(Request $request)
 
 修改Home页面 , 登录后展示添加微博表单和当前用户个人信息 .
 
-页面添加完毕 , 还需要更新模型中的fillable属性 , 填写允许更新的字段 : 
+页面添加完毕 , 还需要更新模型中的fillable属性 , 填写允许更新的字段 :
 
 ```php
 protected $fillable = ['content'];
@@ -235,9 +235,9 @@ protected $fillable = ['content'];
 
 **动态流原型**
 
-现在网站主页已经拥有微博的发布表单和当前登录用户的个人信息展示了 , 接下来让我们接着完善该页面 , 在微博发布表单下面增加一个局部视图用于展示微博列表 . 
+现在网站主页已经拥有微博的发布表单和当前登录用户的个人信息展示了 , 接下来让我们接着完善该页面 , 在微博发布表单下面增加一个局部视图用于展示微博列表 .
 
-在User模型中创建查询数据的方法 : 
+在User模型中创建查询数据的方法 :
 
 ```php
 public function feed()
@@ -247,7 +247,7 @@ public function feed()
 }
 ```
 
-在控制器中渲染数据 : 
+在控制器中渲染数据 :
 
 ```
 public function home()
@@ -274,11 +274,34 @@ public function home()
 @endif
 ```
 
-把上面的页面include到home页中 . 
+把上面的页面include到home页中 .
 
 #### 删除微博
 
+首先创建授权策略 , 只有当被删除的微博作者为当前用户 , 授权才能通过 : 
 
+```
+$ php artisan make:policy StatusPolicy
+```
+
+我们需要在该授权策略中引入用户模型和微博模型 , 并添加`destroy`方法定义微博删除动作相关的授权 . 如果当前用户的 id 与要删除的微博作者 id 相同时 , 验证才能通过 : 
+
+```php
+public function destroy(User $user, Status $status)
+{
+    return $user->id === $status->user_id;
+}
+```
+
+然后在Auth服务提供者中添加配置 : 
+
+```php
+protected $policies = [
+    'App\Model' => 'App\Policies\ModelPolicy',
+    \App\Models\User::class => \App\Policies\UserPolicy::class,
+    \App\Models\Status::class => \App\Policies\StatusPolicy::class,
+];
+```
 
 
 
