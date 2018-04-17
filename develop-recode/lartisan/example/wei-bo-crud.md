@@ -194,5 +194,25 @@ public function __controller()
 }
 ```
 
+发布微博操作
+
+```php
+public function store(Request $request)
+{
+    # 过滤数据
+    $this->validate($request, [
+        'content' => 'required|max:140'
+    ]);
+
+    # 获取用户模型并关联微博数据创建
+    Auth::user()->statuses()->create([
+        'content' => $request->content
+    ]);
+
+    # 重定向
+    return redirect()->back();
+}
+```
+
 
 
