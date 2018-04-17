@@ -225,5 +225,60 @@ public function store(Request $request)
 </form>
 ```
 
-修改Home页面 , 登录后展示添加微博表单和当前用户个人信息 . 
+修改Home页面 , 登录后展示添加微博表单和当前用户个人信息 .
+
+页面添加完毕 , 还需要更新模型中的fillable属性 , 填写允许更新的字段 : 
+
+```php
+protected $fillable = ['content'];
+```
+
+**动态流原型**
+
+现在网站主页已经拥有微博的发布表单和当前登录用户的个人信息展示了 , 接下来让我们接着完善该页面 , 在微博发布表单下面增加一个局部视图用于展示微博列表 . 
+
+在User模型中创建查询数据的方法 : 
+
+```php
+public function feed()
+{
+    return $this->statuses()
+                ->orderByDesc('created_at');
+}
+```
+
+在控制器中渲染数据 : 
+
+```
+public function home()
+{
+    $feed_items = [];
+    if (Auth::check()) {
+        $feed_items = Auth::user()->feed()->paginate(30);
+    }
+
+    return view('static_pages.home', compact('feed_items'));
+}
+```
+
+创建展示页面
+
+```php
+@if(count($feed_items))
+    <ol class="statuses">
+        @foreach($feed_items as $item)
+            @include('includes.status', ['user' => $item->user])
+        @endforeach
+        {!! $feed_items->links('vendor.pagination.simple-default') !!}
+    </ol>
+@endif
+```
+
+把上面的页面include到home页中 . 
+
+#### 删除微博
+
+
+
+
 
