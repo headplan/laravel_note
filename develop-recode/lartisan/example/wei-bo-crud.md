@@ -154,7 +154,7 @@ public function boot()
 
 在AppServiceProvider设置启动时加载 .
 
-引入微博视图 , 展示当前用户的所有微博 : 
+引入微博视图 , 展示当前用户的所有微博 :
 
 ```php
 <div class="col-md-12">
@@ -169,5 +169,15 @@ public function boot()
 </div>
 ```
 
-最后更新一下样式 . 
+最后更新一下样式 .
+
+**微博相关操作**
+
+创建路由 , 这里同样创建资源路由 , 但只使用其中的两个 , 创建和删除动作 : 
+
+```php
+Route::resource('statuses', 'StatusesController', ['only' => ['store', 'destroy']]);
+```
+
+
 
