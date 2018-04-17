@@ -244,5 +244,17 @@ resources/views/auth/passwords/email.blade.php
 </div>
 ```
 
+**创建更新密码页面**
+
+```
+resources/views/auth/passwords/reset.blade.php
+```
+
+页面中的令牌通过隐藏域提交给控制器
+
+```php
+<input type="hidden" name="token" value="{{ $token }}">
+```
+
 
 
