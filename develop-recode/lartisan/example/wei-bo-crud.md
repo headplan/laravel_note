@@ -173,10 +173,25 @@ public function boot()
 
 **微博相关操作**
 
-创建路由 , 这里同样创建资源路由 , 但只使用其中的两个 , 创建和删除动作 : 
+创建路由 , 这里同样创建资源路由 , 但只使用其中的两个 , 创建和删除动作 :
 
 ```php
 Route::resource('statuses', 'StatusesController', ['only' => ['store', 'destroy']]);
+```
+
+创建控制器
+
+```
+php artisan make:controller StatusesController
+```
+
+添加auth中间件
+
+```php
+public function __controller()
+{
+    $this->middleware('auth');
+}
 ```
 
 
