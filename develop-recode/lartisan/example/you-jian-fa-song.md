@@ -346,5 +346,5 @@ MAIL_FROM_NAME=Lartisan
 * MAIL\_FROM\_ADDRESS=xxxxxxxxxxxxxx@163.com —— 此值必须同 MAIL\_USERNAME 一致
 * MAIL\_FROM\_NAME=Lartisan —— 用来作为邮件的发送者名称
 
-
+测试功能 . 
 
