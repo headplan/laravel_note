@@ -104,10 +104,16 @@ public function run()
 }
 ```
 
-别忘记最后的 : 
+别忘记最后的 :
 
 ```php
 $this->call(StatusesTableSeeder::class);
+```
+
+执行命令 : 
+
+```
+$ php artisan migrate:refresh --seed
 ```
 
 
