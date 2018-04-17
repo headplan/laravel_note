@@ -295,13 +295,19 @@ public function toMail($notifiable)
 }
 ```
 
-User模型里调用 : 
+User模型里调用 :
 
 ```php
 public function sendPasswordResetNotification($token)
 {
     $this->notify(new ResetPassword($token));
 }
+```
+
+重置密码的Email视图 : 
+
+```php
+$ php artisan vendor:publish --tag=laravel-notifications
 ```
 
 
