@@ -66,11 +66,42 @@ public function statuses()
 
 #### 显示微博
 
-为了后面方便测试 , 先生成假数据 : 
+为了后面方便测试 , 先生成假数据 :
 
 ```
 php artisan make:factory StatusFactory
 php artisan make:seeder StatusesTableSeeder
+```
+
+```php
+$factory->define(\App\Models\Status::class, function (Faker $faker) {
+    $date_time = $faker->date . ' ' . $faker->time;
+
+    return [
+        'content' => $faker->text(),
+        'created_at' => $date_time,
+        'updated_at' => $date_time,
+    ];
+});
+```
+
+```php
+public function run()
+{
+    //$user_ids = ['1', '2', '3'];
+    $users = User::where('id', '<=', 3)->get();
+    $user_ids = $users->map(function ($user) {
+        return $user->id;
+    })->toArray();
+
+    $faker = app(Faker\Generator::class);
+
+    $statuses = factory(Status::class)->times(100)->make()->each(function ($status) use ($faker, $user_ids) {
+        $status->user_id = $faker->randomElement($user_ids);
+    });
+
+    Status::insert($statuses->toArray());
+}
 ```
 
 
