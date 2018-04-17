@@ -118,12 +118,27 @@ $ php artisan migrate:refresh --seed
 
 #### 展示微博
 
-在用户控制器的show方法中 , 取出改用户的所有微博 , 前面在模型上我们已经做了关联 , 所以取出数据变得非常方便 : 
+在用户控制器的show方法中 , 取出改用户的所有微博 , 前面在模型上我们已经做了关联 , 所以取出数据变得非常方便 :
 
 ```php
 $statuses = $user->statuses()
     ->orderByDesc('created_at')
     ->paginate(30);
+```
+
+视图中渲染数据 : 
+
+```php
+<li id="status-{{ $status->id }}">
+    <a href="{{ route('users.show', $user->id) }}">
+        <img src="{{ $user-gravatar() }}" alt="{{ $user->name }}" class="gravatar">
+    </a>
+    <span class="user">
+        <a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a>
+    </span>
+    <span class="timestamp">{{ $status->created_at->diffForhumans() }}</span>
+    <span class="content">{{ $status->content }}</span>
+</li>
 ```
 
 
