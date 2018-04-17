@@ -70,5 +70,31 @@ public function followings()
 
 使用followings方法 , 完成关注和取消关注两个操作就很简单了 : 
 
+```php
+/**
+ * 关注
+ * @param $user_ids
+ */
+public function follow($user_ids)
+{
+    if (!is_array($user_ids)) {
+        $user_ids = compact('user_ids');
+    }
+    $this->followings()->sync($user_ids, false);
+}
+
+/**
+ * 取消关注
+ * @param $user_ids
+ */
+public function unfollow($user_ids)
+{
+    if (!is_array($user_ids)) {
+        $user_ids = compact('user_ids');
+    }
+    $this->followings()->detach($user_ids);
+}
+```
+
 
 
