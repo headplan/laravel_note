@@ -141,7 +141,7 @@ $statuses = $user->statuses()
 </li>
 ```
 
-其中 , 用到了一个diffForHumans\(\)方法 , 把时间转化为友好的显示方式 . 之后还要对Carbon类进行本地化设置 : 
+其中 , 用到了一个diffForHumans\(\)方法 , 把时间转化为友好的显示方式 . 之后还要对Carbon类进行本地化设置 :
 
 > [Carbon](https://github.com/briannesbitt/Carbon) 是 PHP DateTime 的一个简单扩展 , Laravel 将其默认集成到了框架中 .
 
@@ -152,5 +152,22 @@ public function boot()
 }
 ```
 
-在AppServiceProvider设置启动时加载 . 
+在AppServiceProvider设置启动时加载 .
+
+引入微博视图 , 展示当前用户的所有微博 : 
+
+```php
+<div class="col-md-12">
+    @if(count($statuses) > 0)
+        <ol class="statuses">
+            @foreach($statuses as $status)
+                @include('includes.status')
+            @endforeach
+        </ol>
+        {!! $statuses->links('vendor.pagination.simple-default') !!}
+    @endif
+</div>
+```
+
+最后更新一下样式 . 
 
