@@ -168,7 +168,7 @@ Route::get('/users/{user}/followers','UsersController@followers')->name('users.f
 
 **添加方法**
 
-这里默认已经被中间件拦截为登录用户才能访问 . 直接添加方法就可以了 : 
+这里默认已经被中间件拦截为登录用户才能访问 . 直接添加方法就可以了 :
 
 ```php
 /**
@@ -196,5 +196,55 @@ public function followers(User $user)
 }
 ```
 
+**创建视图**
 
+视图是前面两个列表公用的 , 前面的变量名也是相同的 : 
+
+```php
+@extends('layouts.default')
+@section('title', $title)
+
+@section('content')
+    <div class="col-md-offset-2 col-md-8">
+        <h1>{{ $title }}</h1>
+        <ul class="users">
+            @foreach($users as $user)
+                <li>
+                    <img src="{{ $user->gravatar() }}" alt="{{ $user->name }}" class="gravatar">
+                    <a href="{{ route('users.show', $user->id) }}" class="username">{{ $user->name }}</a>
+                </li>
+            @endforeach
+        </ul>
+
+        {!! $users->links('vendor.pagination.simple-default') !!}
+    </div>
+@stop
+```
+
+再添加一个include视图 , 用来展示用户的关注人数、粉丝数、微博发布数等 , 这里直接使用count方法计算人数 , 没有使用计数器冗余字段 . 
+
+```php
+<div class="stats">
+    <a href="{{ route('users.followings', $user->id) }}">
+        <strong id="followings" class="stats">
+            {{ count($user->followings) }}
+        </strong>
+        关注
+    </a>
+    <a href="{{ route('users.followers', $user->id) }}">
+        <strong id="followers" class="stats">
+            {{ count($user->followers) }}
+        </strong>
+        粉丝
+    </a>
+    <a href="{{ route('users.statuses', $user->id) }}">
+        <strong id="statuses" class="stats">
+            {{ count($user->statuses()->count()) }}
+        </strong>
+        微博
+    </a>
+</div>
+```
+
+然后引入到home页中 . 调整样式 . 
 
