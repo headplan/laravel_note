@@ -198,7 +198,7 @@ public function followers(User $user)
 
 **创建视图**
 
-视图是前面两个列表公用的 , 前面的变量名也是相同的 : 
+视图是前面两个列表公用的 , 前面的变量名也是相同的 :
 
 ```php
 @extends('layouts.default')
@@ -221,7 +221,7 @@ public function followers(User $user)
 @stop
 ```
 
-再添加一个include视图 , 用来展示用户的关注人数、粉丝数、微博发布数等 , 这里直接使用count方法计算人数 , 没有使用计数器冗余字段 . 
+再添加一个include视图 , 用来展示用户的关注人数、粉丝数、微博发布数等 , 这里直接使用count方法计算人数 , 没有使用计数器冗余字段 .
 
 ```php
 <div class="stats">
@@ -246,5 +246,45 @@ public function followers(User $user)
 </div>
 ```
 
-然后引入到home页中 . 调整样式 . 
+然后引入到home页中 . 调整样式 .
+
+#### 关注与取消关注功能
+
+**创建路由**
+
+```php
+# 关注用户
+Route::post('/users/followers/{user}', 'FollowersController@store')->name('followers.store');
+# 取消关注
+Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');
+```
+
+**创建控制器**
+
+```
+php artisan make:controller FollowersController
+```
+
+**添加视图**
+
+```php
+@if($user->id !== Auth::user()->id)
+    <div id="follow_form">
+        @if(Auth::user()->isFollowing($user->id))
+            <form action="{{ route('followers.destroy', $user->id) }}" method="post">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <button type="submit" class="btn btn-sm">取消关注</button>
+            </form>
+        @else
+            <form action="{{ route('followers.store', $user->id) }}" method="post">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-sm btn-primary">关注</button>
+            </form>
+        @endif
+    </div>
+@endif
+```
+
+
 
