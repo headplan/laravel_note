@@ -286,19 +286,19 @@ php artisan make:controller FollowersController
 @endif
 ```
 
-这里判断了当用户访问自己的个人页面时 , 不显示关注按钮 : 
+这里判断了当用户访问自己的个人页面时 , 不显示关注按钮 :
 
 ```php
 $user->id !== Auth::user()->id
 ```
 
-后面还判断了用户对访问用户的关注状态 : 
+后面还判断了用户对访问用户的关注状态 :
 
 ```php
 Auth::user()->isFollowing($user->id)
 ```
 
-现在将关注数等信息和按钮添加到个人页面 : 
+现在将关注数等信息和按钮添加到个人页面 :
 
 ```php
 @if(Auth::check())
@@ -306,7 +306,7 @@ Auth::user()->isFollowing($user->id)
 @endif
 ```
 
-这里还判断了用户是否登录 . 然后更新关注和取关控制器方法 : 
+这里还判断了用户是否登录 . 然后更新关注和取关控制器方法 :
 
 ```php
 /**
@@ -343,6 +343,21 @@ public function destroy(User $user)
     }
 
     return redirect()->route('users.show', $user->id);
+}
+```
+
+#### 动态流
+
+在主页上显示所有关注用户的微博动态 . 修改User模型中 , 原来的feed方法 , 查找所有关注的人和自己的微博 : 
+
+```php
+public function feed()
+{
+    $user_ids = Auth::user()->followings->pluck('id')->toArray();
+    array_push($user_ids, Auth::user()->id);
+    return Status::whereIn('user_id', $user_ids)
+                ->with('user')
+                ->orderBy('created_at', 'desc');
 }
 ```
 
