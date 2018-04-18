@@ -96,7 +96,7 @@ public function unfollow($user_ids)
 }
 ```
 
-还需要一个方法用于判断当前登录的用户 A 是否关注了用户 B , 代码实现逻辑很简单 , 只需要判断用户 B 是否包含在用户 A 的关注人列表上即可 : 
+还需要一个方法用于判断当前登录的用户 A 是否关注了用户 B , 代码实现逻辑很简单 , 只需要判断用户 B 是否包含在用户 A 的关注人列表上即可 :
 
 ```php
 /**
@@ -110,12 +110,49 @@ public function isFollowing($user_id)
 }
 ```
 
-这里需要注意的是 ,`$this->followings`与`$this->followings()`调用时返回的数据是不一样的 . 前者返回的是Eloquent集合 , 后者返回的是数据库请求构建器 . 
+这里需要注意的是 ,`$this->followings`与`$this->followings()`调用时返回的数据是不一样的 . 前者返回的是Eloquent集合 , 后者返回的是数据库请求构建器 .
 
 在模型里定义了关联方法`followings()`关联关系定义好后 , 可以通过访问`followings`属性直接获取到关注用户的**集合 . **这是 Laravel Eloquent 提供的「动态属性」属性功能 , 可以像在访问模型中定义的属性一样 , 来访问所有的关联方法 , 重点返回的是集合 , 而上面代码中contains\(\)即是操作集合的方法 . 所以 , 可以理解为
 
 ```php
 $user->followings == $user->followings()->get() // 等于 true
+```
+
+#### 演示数据
+
+```
+$ php artisan make:seeder FollowersTableSeeder
+```
+
+> 这里没有要生成的随机内容 , 所以不用创建Factory了 .
+
+```php
+public function run()
+{
+    $users = User::all();
+    $user = $users->first();
+    $user_id = $user->id;
+
+    # 获取去除掉 ID 为 1 的所有用户 ID 数组
+    $followers = $users->slice(1);
+    $follower_ids = $followers->pluck('id')->toArray();
+
+    # 关注除了ID为1以外的所有用户
+    $user->follow($follower_ids);
+
+    # 除了ID为1的用户以外,所有用户都关注ID为1的用户
+    foreach ($followers as $follower) {
+        $follower->follow($user_id);
+    }
+}
+```
+
+> 别忘记添加到DatabaseSeeder中 .
+
+重置并填充数据 : 
+
+```
+$ php artisan migrate:refresh --seed
 ```
 
 
