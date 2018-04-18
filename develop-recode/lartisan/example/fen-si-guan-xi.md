@@ -68,7 +68,7 @@ public function followings()
 >>> $user->followings()->allRelatedIds()->toArray();
 ```
 
-使用followings方法 , 完成关注和取消关注两个操作就很简单了 : 
+使用followings方法 , 完成关注和取消关注两个操作就很简单了 :
 
 ```php
 /**
@@ -94,6 +94,28 @@ public function unfollow($user_ids)
     }
     $this->followings()->detach($user_ids);
 }
+```
+
+还需要一个方法用于判断当前登录的用户 A 是否关注了用户 B , 代码实现逻辑很简单 , 只需要判断用户 B 是否包含在用户 A 的关注人列表上即可 : 
+
+```php
+/**
+ * 判断登录用户是否关注
+ * @param $user_id
+ * @return mixed
+ */
+public function isFollowing($user_id)
+{
+    return $this->followings->contains($user_id);
+}
+```
+
+这里需要注意的是 ,`$this->followings`与`$this->followings()`调用时返回的数据是不一样的 . 前者返回的是Eloquent集合 , 后者返回的是数据库请求构建器 . 
+
+在模型里定义了关联方法`followings()`关联关系定义好后 , 可以通过访问`followings`属性直接获取到关注用户的**集合 . **这是 Laravel Eloquent 提供的「动态属性」属性功能 , 可以像在访问模型中定义的属性一样 , 来访问所有的关联方法 , 重点返回的是集合 , 而上面代码中contains\(\)即是操作集合的方法 . 所以 , 可以理解为
+
+```php
+$user->followings == $user->followings()->get() // 等于 true
 ```
 
 
