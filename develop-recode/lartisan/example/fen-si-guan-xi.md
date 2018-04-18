@@ -149,10 +149,51 @@ public function run()
 
 > 别忘记添加到DatabaseSeeder中 .
 
-重置并填充数据 : 
+重置并填充数据 :
 
 ```
 $ php artisan migrate:refresh --seed
+```
+
+#### 关注的人列表和粉丝列表
+
+**定义路由**
+
+```php
+# 显示用户的关注人列表
+Route::get('/users/{user}/followings','UsersController@followings')->name('users.followings');
+# 显示用户的粉丝列表
+Route::get('/users/{user}/followers','UsersController@followers')->name('users.followers');
+```
+
+**添加方法**
+
+这里默认已经被中间件拦截为登录用户才能访问 . 直接添加方法就可以了 : 
+
+```php
+/**
+ * 关注的人列表
+ * @param \App\Models\User $user
+ * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+ */
+public function followings(User $user)
+{
+    $users = $user->followings()->paginate(30);
+    $title = '关注的人';
+    return view('users.show_follow', compact('users', 'title'));
+}
+
+/**
+ * 粉丝列表
+ * @param \App\Models\User $user
+ * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+ */
+public function followers(User $user)
+{
+    $users = $user->followers()->paginate(30);
+    $title = '粉丝';
+    return view('users.show_follow', compact('users', 'title'));
+}
 ```
 
 
