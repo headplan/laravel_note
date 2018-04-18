@@ -286,5 +286,65 @@ php artisan make:controller FollowersController
 @endif
 ```
 
+这里判断了当用户访问自己的个人页面时 , 不显示关注按钮 : 
+
+```php
+$user->id !== Auth::user()->id
+```
+
+后面还判断了用户对访问用户的关注状态 : 
+
+```php
+Auth::user()->isFollowing($user->id)
+```
+
+现在将关注数等信息和按钮添加到个人页面 : 
+
+```php
+@if(Auth::check())
+    @include('users.follow')
+@endif
+```
+
+这里还判断了用户是否登录 . 然后更新关注和取关控制器方法 : 
+
+```php
+/**
+ * 关注
+ * @param \App\Models\User $user
+ * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+ */
+public function store(User $user)
+{
+    if (Auth::user()->id === $user->id) {
+        return redirect('/');
+    }
+
+    if (!Auth::user()->isFollowing($user->id)) {
+        Auth::user()->follow($user->id);
+    }
+
+    return redirect()->route('users.show', $user->id);
+}
+
+/**
+ * 取消关注
+ * @param \App\Models\User $user
+ * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+ */
+public function destroy(User $user)
+{
+    if (Auth::user()->id === $user->id) {
+        return redirect('/');
+    }
+
+    if (Auth::user()->isFollowing($user->id)) {
+        Auth::user()->unfollow($user->id);
+    }
+
+    return redirect()->route('users.show', $user->id);
+}
+```
+
 
 
