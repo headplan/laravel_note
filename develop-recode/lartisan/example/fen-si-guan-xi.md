@@ -348,7 +348,7 @@ public function destroy(User $user)
 
 #### 动态流
 
-在主页上显示所有关注用户的微博动态 . 修改User模型中 , 原来的feed方法 , 查找所有关注的人和自己的微博 : 
+在主页上显示所有关注用户的微博动态 . 修改User模型中 , 原来的feed方法 , 查找所有关注的人和自己的微博 :
 
 ```php
 public function feed()
@@ -356,8 +356,8 @@ public function feed()
     $user_ids = Auth::user()->followings->pluck('id')->toArray();
     array_push($user_ids, Auth::user()->id);
     return Status::whereIn('user_id', $user_ids)
-                ->with('user')
-                ->orderBy('created_at', 'desc');
+        ->with('user')
+        ->orderBy('created_at', 'desc');
 }
 ```
 
