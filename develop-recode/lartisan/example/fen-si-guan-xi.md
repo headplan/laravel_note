@@ -361,5 +361,12 @@ public function feed()
 }
 ```
 
+**操作流程**
 
+* 通过`followings`方法取出所有关注用户的信息 , 再借助`pluck`方法将`id`进行分离并赋值给`user_ids`,它现在是一个id数组 . 
+* 将当前登录用户的id加入到数组中 . 
+* 使用 Laravel 提供的查询构造器`whereIn`方法取出`user_ids`用户的微博动态并进行倒序排序 . 
+* 最后 , 使用了 Eloquent 关联的预加载`with`方法 , 预加载避免了`N+1 查找的问题`, 大大提高了查询效率 . 
+
+完.
 
