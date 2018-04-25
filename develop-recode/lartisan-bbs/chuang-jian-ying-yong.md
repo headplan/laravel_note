@@ -57,3 +57,105 @@ MAIL_ENCRYPTION=null
 
 调用`getenv('APP_ENV')`将返回`local`
 
+生成新的key和.env文件
+
+```
+php artisan key:generate
+```
+
+**引入版本控制**
+
+```
+$ git init
+$ git add -A
+$ git commit -m "Initial commit"
+```
+
+**添加代码统一风格文件**
+
+.editorconfig
+
+```
+# coding styles between different editors and IDEs
+# editorconfig.org
+
+root = true
+
+[*]
+
+# Change these settings to your own preference
+indent_style = space
+indent_size = 4
+
+# We recommend you to keep these unchanged
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = false
+
+[*.{js,html,blade.php,css,scss}]
+indent_style = space
+indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false
+```
+
+#### 配置信息
+
+配置文件都保存在保存在`config`目录中 . 
+
+**配置文件说明**
+
+| 文件名称 | 配置类型 |
+| :--- | :--- |
+| app.php | 应用相关，如项目名称、时区、语言等 |
+| auth.php | 用户授权，如用户登录、密码重置等 |
+| broadcasting.php | 事件广播系统相关配置 |
+| cache.php | 缓存相关配置 |
+| database.php | 数据库相关配置，包括 MySQL、Redis 等 |
+| filesystems.php | 文件存储相关配置 |
+| mail.php | 邮箱发送相关的配置 |
+| queue.php | 队列系统相关配置 |
+| services.php | 放置第三方服务配置 |
+| session.php | 用户会话相关配置 |
+| view.php | 视图存储路径相关配置 |
+
+**配置信息函数**
+
+```
+# 使用点语法访问,文件名和选项
+$value = config('app.timezone');
+# 运行时设置配置值,传递数组
+config(['app.timezone' => 'America/Chicago']);
+```
+
+**调整配置信息**
+
+使用`env()`函数 , 优先读取`.env`文件中的`APP_NAME`选项 , 也即是Lartisan BBS , 如果没有则用默认的第二个参数 . 
+
+```
+# 时区
+'timezone' => 'Asia/Shanghai',
+# 默认语言
+'locale' => 'zh-CN',
+```
+
+提交git . 
+
+**自定义辅助函数**
+
+存放在bootstrap目录中 : 
+
+```
+$ touch bootstrap/helpers.php
+```
+
+并在bootstrap/app.php文件顶部引入 : 
+
+```
+require_once __DIR__ . '/helpers.php';
+```
+
+
+
