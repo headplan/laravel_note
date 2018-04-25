@@ -161,7 +161,11 @@ require_once __DIR__ . '/helpers.php';
 
 #### 基本布局
 
+布局文件统一存放在`resources/views/layouts`文件夹中 , 主要有 : 
 
+* app.blade.php —— 主要布局文件 , 项目的所有页面都将继承于此页面 ; 
+* header.blade.php —— 布局的头部区域文件，负责顶部导航栏区块 ; 
+* footer.blade.php —— 布局的尾部区域文件，负责底部导航区块 ; 
 
 
 
