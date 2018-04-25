@@ -44,6 +44,26 @@ $ rm resources/views/home.blade.php
     .
     .
 @endguest
+
+# 还要注意下退出登录时候的CSRF令牌
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
+```
+
+**测试注册功能**
+
+```
+# 执行迁移文件
+php artisan migrate
+```
+
+修改注册成功后跳转路径 : 
+
+全局搜索"/home"修改 , 例如 , RegisterController.php
+
+```
+protected $redirectTo = '/';
 ```
 
 
