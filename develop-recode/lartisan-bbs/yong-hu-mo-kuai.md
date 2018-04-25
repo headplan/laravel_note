@@ -71,8 +71,29 @@ modified:   app/Http/Controllers/Auth/LoginController.php
 modified:   app/Http/Controllers/Auth/RegisterController.php
 modified:   app/Http/Controllers/Auth/ResetPasswordController.php
 modified:   app/Http/Middleware/RedirectIfAuthenticated.php
-
 ```
 
+测试登录 . 提交git . 
 
+#### 注册验证码
+
+防止机器注册 . 
+
+**安装扩展包**
+
+```
+composer require "mews/captcha:~2.0"
+```
+
+**生成配置文件**
+
+```
+php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider' 
+```
+
+查看配置文件`config/captcha.php`
+
+`characters`选项是用来显示给用户的所有字符串 ; 
+
+`default`,`flat`,`mini`,`inverse`分别是定义的四种验证码类型 , 可以在此修改对应选项自定义验证码的长度、背景颜色、文字颜色等属性 . 
 
