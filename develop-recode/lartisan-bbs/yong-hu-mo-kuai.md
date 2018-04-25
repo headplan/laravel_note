@@ -91,7 +91,7 @@ composer require "mews/captcha:~2.0"
 php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
 ```
 
-**查看配置文件`config/captcha.php`**
+**查看配置文件**`config/captcha.php`
 
 `characters`选项是用来显示给用户的所有字符串 ;
 
@@ -102,7 +102,7 @@ php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
 * 前端展示 —— 生成验证码给用户展示 , 并收集用户输入的答案 ;
 * 后端验证 —— 接收答案 , 检测用户输入的验证码是否正确 .
 
-修改4个视图页面 , 添加前端展示 : 
+修改4个视图页面为中文 , 并添加验证码前端展示 :
 
 | register.blade.php | 注册页面视图 |
 | :--- | :--- |
