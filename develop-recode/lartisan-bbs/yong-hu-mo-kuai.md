@@ -102,7 +102,7 @@ php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
 * 前端展示 —— 生成验证码给用户展示 , 并收集用户输入的答案 ;
 * 后端验证 —— 接收答案 , 检测用户输入的验证码是否正确 .
 
-修改4个视图页面为中文 , 并添加验证码前端展示 :
+修改4个视图页面为中文 , 并添加验证码到注册页面前端展示 :
 
 | register.blade.php | 注册页面视图 |
 | :--- | :--- |
@@ -127,6 +127,19 @@ php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
         @endif
     </div>
 </div>
+```
+
+调整一下样式 : 
+
+```
+/* User register page */
+.register-page {
+    img.captcha {
+        margin-bottom: 0px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+}
 ```
 
 
