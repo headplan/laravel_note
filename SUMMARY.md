@@ -124,6 +124,7 @@
       * [粉丝关系](develop-recode/lartisan/example/fen-si-guan-xi.md)
     * [Project Plan](develop-recode/lartisan/project-plan.md)
     * [Scope of Work](develop-recode/lartisan/scope-of-work.md)
+  * [Lartisan BBS](develop-recode/lartisan-bbs.md)
   * [Lartisan API](/develop-recode/lartisan-api.md#lartisan-api)
     * [API文档及开发规范](develop-recode/lartisan-api/api-specification.md)
     * [自定义基础规则](develop-recode/lartisan-api/custom.md)
