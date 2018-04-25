@@ -276,7 +276,7 @@ function route_class()
 php -n artisan make:controller PagesController
 ```
 
-创建home\(\)方法展示视图 , 视图存放在`pages/home.blade.php` . 绑定路由 , 删除原来的welcome模板 . 
+创建home\(\)方法展示视图 , 视图存放在`pages/home.blade.php` . 绑定路由 , 删除原来的welcome模板 .
 
 #### 调整样式
 
@@ -287,6 +287,10 @@ $ yarn install
 # 生成CSS和JS文件
 $ npm run watch-poll
 ```
+
+**调整头尾样式**
+
+略.
 
 
 
