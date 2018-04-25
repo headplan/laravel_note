@@ -73,11 +73,11 @@ modified:   app/Http/Controllers/Auth/ResetPasswordController.php
 modified:   app/Http/Middleware/RedirectIfAuthenticated.php
 ```
 
-测试登录 . 提交git . 
+测试登录 . 提交git .
 
 #### 注册验证码
 
-防止机器注册 . 
+防止机器注册 .
 
 **安装扩展包**
 
@@ -88,12 +88,45 @@ composer require "mews/captcha:~2.0"
 **生成配置文件**
 
 ```
-php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider' 
+php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
 ```
 
-查看配置文件`config/captcha.php`
+**查看配置文件`config/captcha.php`**
 
-`characters`选项是用来显示给用户的所有字符串 ; 
+`characters`选项是用来显示给用户的所有字符串 ;
 
-`default`,`flat`,`mini`,`inverse`分别是定义的四种验证码类型 , 可以在此修改对应选项自定义验证码的长度、背景颜色、文字颜色等属性 . 
+`default`,`flat`,`mini`,`inverse`分别是定义的四种验证码类型 , 可以在此修改对应选项自定义验证码的长度、背景颜色、文字颜色等属性 .
+
+**嵌入页面**
+
+* 前端展示 —— 生成验证码给用户展示 , 并收集用户输入的答案 ;
+* 后端验证 —— 接收答案 , 检测用户输入的验证码是否正确 .
+
+修改4个视图页面 , 添加前端展示 : 
+
+| register.blade.php | 注册页面视图 |
+| :--- | :--- |
+| login.blade.php | 登录页面视图 |
+| passwords/email.blade.php | 提交邮箱发送邮件的视图 |
+| passwords/reset.blade.php | 重置密码的页面视图 |
+
+```html
+<div class="form-group {{ $errors->has('captcha') ? ' has-error' : '' }}">
+    <label for="captcha" class="col-md-4 control-label">验证码</label>
+
+    <div class="col-md-6">
+        <input id="captcha" class="form-control" name="captcha" >
+
+        <img class="thumbnail captcha" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+
+        @if ($errors->has('captcha'))
+            <span class="help-block">
+                <strong>{{ $errors->first('captcha') }}</strong>
+            </span>
+        @endif
+    </div>
+</div>
+```
+
+
 
