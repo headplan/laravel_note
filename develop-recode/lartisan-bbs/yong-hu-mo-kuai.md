@@ -199,17 +199,17 @@ public function show(User $user)
 
 #### 编辑个人资料
 
-用户可以编辑自己的资料 , 并查看结果 . 
+用户可以编辑自己的资料 , 并查看结果 .
 
-新增头像和个人简介字段 : 
+新增头像和个人简介字段 :
 
 ```
 php artisan make:migration add_avatar_and_introduction_to_users_table --table=users
 ```
 
-将头像的图片以文件形式放置于服务器上 , 然后将路径子串存储于数据库中 , 也就是string类型 . 用户注册并未提供头像上传功能 , 所以还需要将字段设置为`nullable` , 意为允许空子串 . 
+将头像的图片以文件形式放置于服务器上 , 然后将路径子串存储于数据库中 , 也就是string类型 . 用户注册并未提供头像上传功能 , 所以还需要将字段设置为`nullable` , 意为允许空子串 .
 
-个人简介也是短字符串 , 也设置可为空 . 
+个人简介也是短字符串 , 也设置可为空 .
 
 ```php
 public function up()
@@ -227,6 +227,20 @@ public function down()
         $table->dropColumn('introduction');
     });
 }
+```
+
+执行迁移命令 : 
+
+```
+php artisan migrate
+```
+
+在header头中增加入口链接 . 
+
+添加edit方法
+
+```
+
 ```
 
 
