@@ -116,7 +116,8 @@ php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
 
     <div class="col-md-6">
         <input id="captcha" class="form-control" name="captcha" >
-
+        # captcha_src()方法是mews/captcha提供的辅助方法,用于生成验证码图片链接
+        # js实现了点击图片重新获取验证码的功能
         <img class="thumbnail captcha" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
 
         @if ($errors->has('captcha'))
