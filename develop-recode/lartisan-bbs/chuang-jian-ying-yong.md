@@ -267,5 +267,26 @@ function route_class()
 </footer>
 ```
 
+#### 首页展示
+
+生成控制器
+
+```
+# -n 排除冲突扩展,例如XDebug
+php -n artisan make:controller PagesController
+```
+
+创建home\(\)方法展示视图 , 视图存放在`pages/home.blade.php` . 绑定路由 , 删除原来的welcome模板 . 
+
+#### 调整样式
+
+```
+# 可以更换国内镜像
+$ yarn config set registry https://registry.npm.taobao.org
+$ yarn install
+# 生成CSS和JS文件
+$ npm run watch-poll
+```
+
 
 
