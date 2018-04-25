@@ -103,7 +103,7 @@ trim_trailing_whitespace = false
 
 #### 配置信息
 
-配置文件都保存在保存在`config`目录中 . 
+配置文件都保存在保存在`config`目录中 .
 
 **配置文件说明**
 
@@ -132,7 +132,7 @@ config(['app.timezone' => 'America/Chicago']);
 
 **调整配置信息**
 
-使用`env()`函数 , 优先读取`.env`文件中的`APP_NAME`选项 , 也即是Lartisan BBS , 如果没有则用默认的第二个参数 . 
+使用`env()`函数 , 优先读取`.env`文件中的`APP_NAME`选项 , 也即是Lartisan BBS , 如果没有则用默认的第二个参数 .
 
 ```
 # 时区
@@ -141,21 +141,27 @@ config(['app.timezone' => 'America/Chicago']);
 'locale' => 'zh-CN',
 ```
 
-提交git . 
+提交git .
 
 **自定义辅助函数**
 
-存放在bootstrap目录中 : 
+存放在bootstrap目录中 :
 
 ```
 $ touch bootstrap/helpers.php
 ```
 
-并在bootstrap/app.php文件顶部引入 : 
+并在bootstrap/app.php文件顶部引入 :
 
 ```
 require_once __DIR__ . '/helpers.php';
 ```
+
+提交git.
+
+#### 基本布局
+
+
 
 
 
