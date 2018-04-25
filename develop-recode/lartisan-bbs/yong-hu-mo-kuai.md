@@ -18,7 +18,7 @@ php artisan make:auth
 php artisan route:list
 ```
 
-删除生成的多余内容 : 
+删除生成的多余内容 :
 
 ```
 # 多余的路由绑定
@@ -26,6 +26,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 # 多余的控制器和模板
 $ rm app/Http/Controllers/HomeController.php
 $ rm resources/views/home.blade.php
+```
+
+**修改顶部模板**
+
+```
+# 两处路由别名修改
+<li><a href="{{ route('login') }}">登录</a></li>
+<li><a href="{{ route('register') }}">注册</a></li>
+
+# 然后是添加判断,这里直接判断未登录用户和登录用户展示的页面内容
+@guest
+    <li><a href="{{ route('login') }}">登录</a></li>
+    <li><a href="{{ route('register') }}">注册</a></li>
+@else
+    .
+    .
+    .
+@endguest
 ```
 
 
