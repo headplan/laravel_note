@@ -129,7 +129,7 @@ php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
 </div>
 ```
 
-调整一下样式 : 
+调整一下样式 :
 
 ```
 /* User register page */
@@ -141,6 +141,63 @@ php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'
     }
 }
 ```
+
+**后端验证**
+
+修改app/Http/Controllers/Auth/RegisterController.php中的validator方法 :
+
+```
+# 添加自定义表单验证规则
+'captcha' => 'required|captcha',
+# 第三个参数是验证规则的错误提示
+'captcha.required' => '验证码不能为空',
+'captcha.captcha' => '请输入正确的验证码',
+```
+
+提交git.
+
+#### 个人页面
+
+用户的个人信息展示页面 , 可以看到该用户发过的帖子,发表的评论 . 
+
+**修改模型文件存放位置**
+
+```
+$ mkdir app/Models
+$ mv app/User.php app/Models/User.php
+```
+
+修改文件命名空间 , 全局搜索修改`App\User` . 提交git . 
+
+设置资源路由 , 只包含三个方法 : 
+
+```
+Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+```
+
+* show -&gt; 显示个人信息
+* edit -&gt; 编辑个人信息
+* update -&gt; 处理edit提交的数据
+
+**创建控制器**
+
+```
+$ php artisan make:controller UsersController
+```
+
+show方法
+
+```
+# 使用了隐性路由模型绑定,直接访问单个用户
+public function show(User $user)
+{
+    return view('users.show', compact('user'));
+}
+```
+
+创建show视图 , 提交git.
+
+
 
 
 
