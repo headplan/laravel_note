@@ -161,11 +161,50 @@ require_once __DIR__ . '/helpers.php';
 
 #### 基本布局
 
-布局文件统一存放在`resources/views/layouts`文件夹中 , 主要有 : 
+布局文件统一存放在`resources/views/layouts`文件夹中 , 主要有 :
 
 * app.blade.php —— 主要布局文件 , 项目的所有页面都将继承于此页面 ; 
-* header.blade.php —— 布局的头部区域文件，负责顶部导航栏区块 ; 
-* footer.blade.php —— 布局的尾部区域文件，负责底部导航区块 ; 
+* header.blade.php —— 布局的头部区域文件 , 负责顶部导航栏区块 ; 
+* footer.blade.php —— 布局的尾部区域文件 , 负责底部导航区块 ; 
+
+**app.blade.php**
+
+```php
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>@yield('title', 'LaraBBS') - Laravel 进阶教程</title>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" class="{{ route_class() }}-page">
+
+        @include('layouts._header')
+
+        <div class="container">
+
+            @yield('content')
+
+        </div>
+
+        @include('layouts._footer')
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+</body>
+</html>
+```
 
 
 
