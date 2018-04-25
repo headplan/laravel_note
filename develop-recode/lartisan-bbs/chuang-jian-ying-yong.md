@@ -171,6 +171,7 @@ require_once __DIR__ . '/helpers.php';
 
 ```php
 <!DOCTYPE html>
+# 获取的是config/app.php中的locale选项,也就是zh-CN
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -178,32 +179,49 @@ require_once __DIR__ . '/helpers.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
+    # 为了方便前端的 JavaScript 脚本获取 CSRF 令牌
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    # 继承此模板的title以及默认值
     <title>@yield('title', 'LaraBBS') - Laravel 进阶教程</title>
 
     <!-- Styles -->
+    # URL连接到的CSS文件
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
+    # 辅助函数,将当前访问路由转为CSS类名
     <div id="app" class="{{ route_class() }}-page">
-
+        # 引入头部
         @include('layouts._header')
 
         <div class="container">
-
+            # 继承模板
             @yield('content')
 
         </div>
-
+        # 引入页脚
         @include('layouts._footer')
     </div>
 
     <!-- Scripts -->
+    # URL连接到的JS文件
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
+```
+
+**route\_class\(\)函数**
+
+```php
+/**
+ * 将当前访问路由转为CSS类名
+ * @return mixed
+ */
+function route_class()
+{
+    return str_replace('.', '-', Route::currentRouteName());
+}
 ```
 
 
