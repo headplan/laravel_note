@@ -58,12 +58,20 @@ $ rm resources/views/home.blade.php
 php artisan migrate
 ```
 
-修改注册成功后跳转路径 : 
+修改注册成功后跳转路径 :
 
-全局搜索"/home"修改 , 例如 , RegisterController.php
+搜索"/home"修改 ,
 
 ```
 protected $redirectTo = '/';
+```
+
+```
+modified:   app/Http/Controllers/Auth/LoginController.php
+modified:   app/Http/Controllers/Auth/RegisterController.php
+modified:   app/Http/Controllers/Auth/ResetPasswordController.php
+modified:   app/Http/Middleware/RedirectIfAuthenticated.php
+
 ```
 
 
