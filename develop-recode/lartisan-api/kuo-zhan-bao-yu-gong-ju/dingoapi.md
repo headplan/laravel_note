@@ -27,7 +27,15 @@ composer update
 php artisan vendor:publish
 ```
 
-生成了config/api.php文件 , 下面是需要用到的配置选项 : 
+生成了config/api.php文件 , 下面是需要用到的配置选项 :
+
+```
+API_STANDARDS_TREE=prs
+API_SUBTYPE=lartisan
+API_PREFIX=api
+API_VERSION=v1
+API_DEBUG=true
+```
 
 
 
