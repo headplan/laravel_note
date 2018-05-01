@@ -131,6 +131,7 @@
     * [RESTful设计原则](develop-recode/lartisan-api/api-specification.md)
     * [扩展包与工具](develop-recode/lartisan-api/kuo-zhan-bao-yu-gong-ju.md)
       * [DingoAPI](develop-recode/lartisan-api/kuo-zhan-bao-yu-gong-ju/dingoapi.md)
+      * [PostMan](develop-recode/lartisan-api/kuo-zhan-bao-yu-gong-ju/postman.md)
     * [Dingo API](/develop-recode/lartisan-api/dingo-api.md#dingo-api)
       * [安装与配置](develop-recode/lartisan-api/dingo-api/an-zhuang.md)
       * [创建 API Endpoint路由](develop-recode/lartisan-api/dingo-api/chuang-jian-api-endpoint-lu-you.md)
