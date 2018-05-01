@@ -132,6 +132,16 @@
     * [扩展包与工具](develop-recode/lartisan-api/kuo-zhan-bao-yu-gong-ju.md)
       * [DingoAPI](develop-recode/lartisan-api/kuo-zhan-bao-yu-gong-ju/dingoapi.md)
       * [PostMan](develop-recode/lartisan-api/kuo-zhan-bao-yu-gong-ju/postman.md)
+    * [手机注册](develop-recode/lartisan-api/shou-ji-zhu-ce.md)
+    * 第三方登录
+    * 用户数据
+    * 帖子数据
+    * 回复数据
+    * 权限控制
+    * 其他功能
+    * API测试和文档
+    * OAuth认证 - Passport
+    * 扩展阅读
     * [Dingo API](/develop-recode/lartisan-api/dingo-api.md#dingo-api)
       * [安装与配置](develop-recode/lartisan-api/dingo-api/an-zhuang.md)
       * [创建 API Endpoint路由](develop-recode/lartisan-api/dingo-api/chuang-jian-api-endpoint-lu-you.md)
@@ -141,7 +151,6 @@
     * [自定义基础规则](develop-recode/lartisan-api/custom.md)
       * [基本认证](develop-recode/lartisan-api/custom/ji-ben-ren-zheng.md)
       * [Token认证](develop-recode/lartisan-api/custom/tokenren-zheng.md)
-    * 扩展阅读
 * [部署上线](deploy-the-line.md#deploy-the-line)
   * [Heroku](deploy-the-line/heroku.md)
   * [Deployer](deploy-the-line/deployer.md)
