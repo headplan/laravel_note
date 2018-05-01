@@ -1,9 +1,25 @@
 # DingoAPI
 
-Dingo是Larave和Lumen都可用的 RestFul 工具包 . 文档地址 : 
+Dingo是Larave和Lumen都可用的 RestFul 工具包 . 文档地址 :
 
-* https://github.com/dingo/api/wiki - 文档
-* https://github.com/liyu001989/dingo-api-wiki-zh - 中英对照文档
+* [https://github.com/dingo/api/wiki](https://github.com/dingo/api/wiki) - 文档
+* [https://github.com/liyu001989/dingo-api-wiki-zh](https://github.com/liyu001989/dingo-api-wiki-zh) - 中英对照文档
 
-Github - https://github.com/dingo/api
+Github - [https://github.com/dingo/api](https://github.com/dingo/api)
+
+#### 安装
+
+```
+composer require dingo/api:2.0.0-alpha1
+```
+
+#### 配置
+
+选择对应的配置 : 
+
+```
+php artisan vendor:publish
+```
+
+
 
