@@ -52,5 +52,30 @@ return [
 ];
 ```
 
+创建一个 ServiceProvider : 
+
+```
+php artisan make:provider EasySmsServiceProvider
+```
+
+修改文件 , 注册服务
+
+```php
+public function register()
+{
+    $this->app->singleton(EasySms::class, function ($app) {
+        return new EasySms(config('easysms'));
+    });
+
+    $this->app->alias(EasySms::class, 'easysms');
+}
+```
+
+然后在config/app.php中增加provider : 
+
+```
+App\Providers\EasySmsServiceProvider::class,
+```
+
 
 
