@@ -73,5 +73,11 @@ Accept: application/prs.lartisan.v2+json
 
 application/prs.lartisan.v2+json信息 . 使用变量用`{{name}}`
 
+这里先恢复一下routes/api.php文件 . 提交
 
+```
+git checkout routes/api.php
+```
+
+提交.
 
