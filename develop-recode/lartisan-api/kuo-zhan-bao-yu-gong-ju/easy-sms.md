@@ -1,6 +1,6 @@
 # Easy-sms
 
-easy-sms是一个短信发送组件 , 利用这个组件 , 可以快速的实现短信发送功能 . 
+easy-sms是一个短信发送组件 , 利用这个组件 , 可以快速的实现短信发送功能 .
 
 ```
 composer require "overtrue/easy-sms"
@@ -17,6 +17,7 @@ composer require "overtrue/easy-sms"
 
 ```php
 <?php
+
 return [
     // HTTP 请求的超时时间（秒）
     'timeout' => 5.0,
@@ -28,7 +29,7 @@ return [
 
         // 默认可用的发送网关
         'gateways' => [
-            'yunpian',
+            'yunpian', 'aliyun', 'alidayu',
         ],
     ],
     // 可用的网关配置
@@ -38,6 +39,14 @@ return [
         ],
         'yunpian' => [
             'api_key' => env('YUNPIAN_API_KEY'),
+        ],
+        'aliyun' => [
+            'access_key_id' => '',
+            'access_key_secret' => '',
+            'sign_name' => '',
+        ],
+        'alidayu' => [
+            //...
         ],
     ],
 ];
