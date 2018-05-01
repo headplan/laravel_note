@@ -65,5 +65,9 @@ DEBUGER_ENABLE=true
 Accept: application/prs.lartisan.v2+json
 ```
 
-这就是同一个URL API , 访问不同的版本的内容 . 
+这就是同一个URL API , 访问不同的版本的内容 .
+
+#### PostMan 的环境变量功能
+
+
 
