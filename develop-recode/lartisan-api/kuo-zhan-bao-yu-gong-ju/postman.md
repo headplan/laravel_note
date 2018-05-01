@@ -69,5 +69,9 @@ Accept: application/prs.lartisan.v2+json
 
 #### PostMan 的环境变量功能
 
+设置添加环境变量 , 可以方便的切换线上线下的接口 , 还可以添加全局变量 , 用在不同版本等 , 比如前面的
+
+application/prs.lartisan.v2+json信息 . 使用变量用`{{name}}`
+
 
 
