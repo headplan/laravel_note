@@ -27,5 +27,7 @@ composer update
 php artisan vendor:publish
 ```
 
+生成了config/api.php文件 , 下面是需要用到的配置选项 : 
+
 
 
