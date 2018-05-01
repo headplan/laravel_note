@@ -9,13 +9,19 @@ Github - [https://github.com/dingo/api](https://github.com/dingo/api)
 
 #### 安装
 
+编辑配置文件 , composer.json , 添加
+
 ```
-composer require dingo/api:2.0.0-alpha1
+"dingo/api": "2.0.0-alpha1"
+```
+
+```
+composer update
 ```
 
 #### 配置
 
-选择对应的配置 : 
+选择对应的配置 :
 
 ```
 php artisan vendor:publish
