@@ -106,7 +106,7 @@ DELETE https://api.test.com/topics/1/comments/100
 
 #### 资源过滤
 
-提供合理的参数供客户端过滤资源 : 
+提供合理的参数供客户端过滤资源 :
 
 ```
 ?state=closed : 不同状态的资源
@@ -116,7 +116,7 @@ DELETE https://api.test.com/topics/1/comments/100
 
 #### 正确使用状态码
 
-正确的使用HTTP提供的丰富的状态码 , 可以让响应数据更具可读性 . 
+正确的使用HTTP提供的丰富的状态码 , 可以让响应数据更具可读性 .
 
 * 200 OK - 对成功的 GET、PUT、PATCH 或 DELETE 操作进行响应。也可以被用在不创建新资源的 POST 操作上
 * 201 Created - 对创建新资源的 POST 操作进行响应。应该带着指向新资源地址的 Location 头
@@ -135,7 +135,7 @@ DELETE https://api.test.com/topics/1/comments/100
 
 #### 数据响应格式
 
-根据可用性和可读性 , 默认使用 JSON 作为数据响应格式 . 其他响应格式需要在Accept头中指定 , 例如xml : 
+根据可用性和可读性 , 默认使用 JSON 作为数据响应格式 . 其他响应格式需要在Accept头中指定 , 例如xml :
 
 ```
 https://api.test.com/
@@ -143,7 +143,7 @@ https://api.test.com/
     Accept: application/prs.test.v1+xml
 ```
 
-对于**错误数据** , 默认使用如下结构 : 
+对于**错误数据** , 默认使用如下结构 :
 
 ```
 'message' => ':message',          // 错误的具体描述
@@ -153,7 +153,7 @@ https://api.test.com/
 'debug' => ':debug',              // debug 信息，非生产环境提供
 ```
 
-例如 : 
+例如 :
 
 ```
 {
@@ -172,5 +172,13 @@ https://api.test.com/
 }
 ```
 
+#### 调用频率限制
 
+为了防止攻击和减轻服务器压力 , 可以在响应头信息中加入合适的信息 , 告知客户端当前的限流情况 : 
+
+* X-RateLimit-Limit : 100 最大访问次数
+* X-RateLimit-Remaining : 93 剩余的访问次数
+* X-RateLimit-Reset : 1513784506 到该时间点 , 访问次数会重置为`X-RateLimit-Limit`
+
+超过限流次数后 , 需要返回`429 Too Many Requests`错误
 
