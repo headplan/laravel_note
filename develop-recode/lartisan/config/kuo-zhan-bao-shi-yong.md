@@ -54,7 +54,7 @@ composer require "overtrue/pinyin:~3.0"
 composer require "predis/predis:~1.0"
 ```
 
-#### 队列管理
+**队列管理**
 
 ```
 # 安装
@@ -63,7 +63,34 @@ composer require "laravel/horizon:~1.0"
 php artisan vendor:publish --provider="Laravel\Horizon\HorizonServiceProvider"
 ```
 
-#### dev
+**权限管理**
+
+```
+# 安装
+composer require "spatie/laravel-permission:~2.7"
+# 配置
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
+```
+
+**用户切换工具 sudo-su**
+
+```
+# 安装
+composer require "viacreative/sudo-su:~1.1"
+# 配置
+php artisan vendor:publish --provider="VIACreative\SudoSu\ServiceProvider"
+```
+
+**后台模板包**
+
+```
+# 安装
+composer require "summerblue/administrator:~1.1"
+# 配置
+php artisan vendor:publish --provider="Frozennode\Administrator\AdministratorServiceProvider"
+```
+
+---
 
 **Debugbar工具栏**
 
@@ -85,31 +112,10 @@ composer require "summerblue/generator:~0.5" --dev
 php artisan make:scaffold Projects --schema="name:string:index,description:text:nullable,subscriber_count:integer:unsigned:default(0)"
 ```
 
-**权限管理**
+**Laravel-ide-helper**
 
 ```
-# 安装
-composer require "spatie/laravel-permission:~2.7"
-# 配置
-php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
-```
-
-**用户切换工具 sudo-su**
-
-```
-# 安装
-composer require "viacreative/sudo-su:~1.1"
-# 配置
-php artisan vendor:publish --provider="VIACreative\SudoSu\ServiceProvider"
-```
-
-#### 后台模板包
-
-```
-# 安装
-composer require "summerblue/administrator:~1.1"
-# 配置
-php artisan vendor:publish --provider="Frozennode\Administrator\AdministratorServiceProvider"
+composer require barryvdh/laravel-ide-helper --dev
 ```
 
 #### 前端
