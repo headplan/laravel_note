@@ -59,9 +59,9 @@ return [
 ];
 ```
 
-`characters`选项是用来显示给用户的所有字符串 . 
+`characters`选项是用来显示给用户的所有字符串 .
 
-`default`,`flat`,`mini`,`inverse`分别是定义的四种验证码类型 . 
+`default`,`flat`,`mini`,`inverse`分别是定义的四种验证码类型 .
 
 #### 辅助函数
 
@@ -81,6 +81,19 @@ Captcha::img();
 # 不同类型
 captcha_img('flat');
 Captcha::img('inverse');
+```
+
+#### 引入HTML
+
+```
+<img class="thumbnail captcha" src="{{ captcha_src('flat') }}" 
+     onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+```
+
+#### Laravel验证规则
+
+```
+'captcha' => 'required|captcha',
 ```
 
 
