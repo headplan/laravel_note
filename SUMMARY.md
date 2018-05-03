@@ -92,6 +92,8 @@
     * [当前状态](develop-recode/lartisan/status.md)
     * [服务器状态](develop-recode/lartisan/server.md)
     * [配置流程](develop-recode/lartisan/config.md)
+      * [配置文件](develop-recode/lartisan/config/pei-zhi-wen-jian.md)
+      * [扩展包使用](develop-recode/lartisan/config/kuo-zhan-bao-shi-yong.md)
       * [Artisan命令](develop-recode/lartisan/config/artisanming-ling.md)
       * [提交上线](develop-recode/lartisan/config/ti-jiao-shang-xian.md)
     * [前端](develop-recode/lartisan/frontend.md#frontend)
