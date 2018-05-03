@@ -57,7 +57,30 @@ return [
     ]
 
 ];
+```
 
+`characters`选项是用来显示给用户的所有字符串 . 
+
+`default`,`flat`,`mini`,`inverse`分别是定义的四种验证码类型 . 
+
+#### 辅助函数
+
+```
+# Return Image
+captcha();
+Captcha::create();
+
+# Return URL
+captcha_src();
+Captcha::src();
+
+# Return HTML
+captcha_img();
+Captcha::img();
+
+# 不同类型
+captcha_img('flat');
+Captcha::img('inverse');
 ```
 
 
