@@ -55,6 +55,8 @@
   * [Predis](awesome-laravel/predis.md)
   * [Dingo API](awesome-laravel/dingo-api.md)
   * [Laravel-lang](awesome-laravel/laravel-lang.md)
+  * [验证码](awesome-laravel/yan-zheng-ma.md)
+    * [mews captcha](awesome-laravel/yan-zheng-ma/mews-captcha.md)
 * [源码分析](laravel-code.md#laravel-code)
   * [执行流程](laravel-code/zhi-xing-liu-cheng.md#zhi-xing-liu-cheng)
     * [执行流程\(二\)](laravel-code/zhi-xing-liu-cheng/zhi-xing-liu-7a0b28-4e8c29.md)
