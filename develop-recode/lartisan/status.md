@@ -4,11 +4,13 @@
 >
 > 各个环境之间访问的密钥对都以配置完 .
 
-### 配置好了本地环境
+### Laravel初始化
 
-如需修改可参考环境搭建Homestead中的相关资料 .
+```
+composer create-project laravel/laravel larabbs --prefer-dist "5.5.*"
+```
 
-### 使用Git版本控制 , 初始化第一个版本Initial commit .
+### 使用Git版本控制
 
 > 这里指Homestead中的git
 
@@ -46,6 +48,13 @@ git add -A
 git status
 git commit -m "Initial commit"
 git log
+```
+
+推送
+
+```
+git remote add origin git@github.com:<username>/larabbs.git
+git push -u origin master
 ```
 
 > 如果有误删 , 可以`git checkout -f`恢复 , 更多可以参考Git相关Note
