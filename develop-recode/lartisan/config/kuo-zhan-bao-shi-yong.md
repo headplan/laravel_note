@@ -20,6 +20,49 @@ composer require intervention/image
 php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravel5"
 ```
 
+**选中样式扩展包**
+
+```
+# 安装
+composer require "hieu-le/active:~3.5"
+```
+
+**HTMLPurifier过滤工具**
+
+```
+# 安装
+composer require "mews/purifier:~2.0"
+# 配置
+php artisan vendor:publish --provider="Mews\Purifier\PurifierServiceProvider"
+```
+
+**Guzzle HTTP请求库**
+
+```
+composer require "guzzlehttp/guzzle:~6.3"
+```
+
+**中文拼音转换**
+
+```
+composer require "overtrue/pinyin:~3.0"
+```
+
+#### Redis库
+
+```
+composer require "predis/predis:~1.0"
+```
+
+#### 队列管理
+
+```
+# 安装
+composer require "laravel/horizon:~1.0"
+# 配置
+php artisan vendor:publish --provider="Laravel\Horizon\HorizonServiceProvider"
+```
+
 #### dev
 
 **Debugbar工具栏**
@@ -43,6 +86,8 @@ php artisan make:scaffold Projects --schema="name:string:index,description:text:
 ```
 
 #### 前端
+
+Simditor编辑器
 
 
 
