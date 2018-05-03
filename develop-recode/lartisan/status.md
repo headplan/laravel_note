@@ -50,7 +50,7 @@ git log
 
 > 如果有误删 , 可以`git checkout -f`恢复 , 更多可以参考Git相关Note
 
-### 同步到远程\(本地宿主机\)中的Gogs统一管理 . \(宿主:192.168.10.1\)
+### 同步到远程\(本地宿主机\)中的Gogs统一管理 . \(宿主:192.168.66.1\)
 
 #### Gogs配置
 
@@ -102,5 +102,5 @@ php artisan key:generate
 
 #### 共享目录
 
-package目录修改 , 仅存放env文件 . 配置远程服务器MySQL配置 . 
+package目录修改 , 仅存放env文件 . 配置远程服务器MySQL配置 .
 
