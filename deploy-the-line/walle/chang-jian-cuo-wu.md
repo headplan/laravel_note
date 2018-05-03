@@ -1,5 +1,19 @@
 # 常见错误
 
+#### 检出错误
+
+##### MAC OS下错误提示xcrun: error: invalid active developer path
+
+```
+tail -f /tmp/walle/xxx.log # 发现错误
+```
+
+**安装相关插件解决**
+
+```
+xcode-select --install
+```
+
 #### 检测、上线出错
 
 检测、上线出错，想知道到底发生了什么事情？我能告诉你的就是，有些错误walle捕捉不到，默认操作日志在`/tmp/walle/`下，具体可在`config/local.php`里`log.dir`配置路径，`tail -f /tmp/walle/walle-YYYYmmdd.log`着日志，部署看日志。
@@ -14,5 +28,5 @@
 
 #### 更多帮助查看
 
-http://www.walle-web.io/docs/troubleshooting.html
+[http://www.walle-web.io/docs/troubleshooting.html](http://www.walle-web.io/docs/troubleshooting.html)
 
