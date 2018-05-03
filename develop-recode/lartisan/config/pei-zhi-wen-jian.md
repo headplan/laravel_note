@@ -74,6 +74,20 @@ PUSHER_APP_CLUSTER=mt1
 
 ---
 
+| 文件名称 | 配置类型 |
+| :--- | :--- |
+| app.php | 应用相关，如项目名称、时区、语言等 |
+| auth.php | 用户授权，如用户登录、密码重置等 |
+| broadcasting.php | 事件广播系统相关配置 |
+| cache.php | 缓存相关配置 |
+| database.php | 数据库相关配置，包括 MySQL、Redis 等 |
+| filesystems.php | 文件存储相关配置 |
+| mail.php | 邮箱发送相关的配置 |
+| queue.php | 队列系统相关配置 |
+| services.php | 放置第三方服务配置 |
+| session.php | 用户会话相关配置 |
+| view.php | 视图存储路径相关配置 |
+
 #### 配置config/app.php
 
 基本配置都在env文件中 , 这里暂时只修改UTC时区和本地语言 .
