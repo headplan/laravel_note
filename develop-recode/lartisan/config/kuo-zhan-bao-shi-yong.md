@@ -85,9 +85,34 @@ composer require "summerblue/generator:~0.5" --dev
 php artisan make:scaffold Projects --schema="name:string:index,description:text:nullable,subscriber_count:integer:unsigned:default(0)"
 ```
 
+**权限管理**
+
+```
+# 安装
+composer require "spatie/laravel-permission:~2.7"
+# 配置
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
+```
+
+**用户切换工具 sudo-su**
+
+```
+# 安装
+composer require "viacreative/sudo-su:~1.1"
+# 配置
+php artisan vendor:publish --provider="VIACreative\SudoSu\ServiceProvider"
+```
+
+#### 后台模板包
+
+```
+# 安装
+composer require "summerblue/administrator:~1.1"
+# 配置
+php artisan vendor:publish --provider="Frozennode\Administrator\AdministratorServiceProvider"
+```
+
 #### 前端
 
 Simditor编辑器
-
-
 
