@@ -93,8 +93,12 @@ PUSHER_APP_CLUSTER=mt1
 基本配置都在env文件中 , 这里暂时只修改UTC时区和本地语言 .
 
 ```
-'timezone' => 'PRC',
-'locale' => 'zh',
+'name' => env('APP_NAME', 'Laravel'),
+'env' => env('APP_ENV', 'production'),
+'debug' => env('APP_DEBUG', false),
+'url' => env('APP_URL', 'http://localhost'),
+'timezone' => 'Asia/Shanghai',
+'locale' => 'zh-CN',
 ```
 
 
