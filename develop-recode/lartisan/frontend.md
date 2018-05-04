@@ -50,6 +50,38 @@ window.axios = require('axios');
 # 也已经在bootstrap.js中引入
 ```
 
+**bootstrap**
+
+已确认暂不使用
+
+```
+"bootstrap-sass": "^3.3.7",
+```
+
+**cross-env**
+
+cross-env能跨平台地设置及使用环境变量 . 在Laravel中的package.json中就能看到
+
+```
+"scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+},
+```
+
+**jQuery**
+
+js库.
+
+**laravel-mix**
+
+为Laravel定制的Webpack为基础的构建工具.
+
 **lodash**
 
 lodash 一个一致性、模块化、高性能的 JavaScript 实用工具库
@@ -64,7 +96,13 @@ _.chunk(['a', 'b', 'c', 'd'], 2);
 window._ = require('lodash');
 ```
 
+**Vue**
+
+渐进式JavaScript框架.
+
 **Simditor编辑器**
+
+编辑器
 
 **目录说明**
 
