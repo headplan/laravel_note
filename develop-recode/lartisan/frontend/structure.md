@@ -114,15 +114,6 @@ $sides: (top, bottom, left, right); // Leave this variable alone
 }
 ```
 
-**前端构建流程**
-
-所有前端的文件 , js或css , 都是通过laravel-mix , 也就是改装后的webpack构建而成的 , 这里查看webpack.mix.js配置文件可以看到素有前端文件的入口是app文件 , 最后生成到public目录 :
-
-```
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
-```
-
 **构建命令**
 
 ```
@@ -133,7 +124,7 @@ $ npm run watch-poll
 npm run production
 ```
 
-> 构建编译时报错 , 是因为已经删除了bootstrap框架 , 在js文件中依然引入了 ,删除即可 .
+> 构建编译时报错 , 是因为已经删除了bootstrap框架 , 在js文件中依然引入了 , 删除即可 .
 
 
 
