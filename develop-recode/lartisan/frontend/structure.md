@@ -45,6 +45,23 @@ try {
 } catch (e) {}
 ```
 
+resources/assets/js/app.js - 应用脚本文件 , 引入自定义脚本
+
+```js
+require('./bootstrap');
+
+window.Vue = require('vue');
+
+import Buefy from 'buefy'
+Vue.use(Buefy);
+
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
+
+// const app = new Vue({
+//     el: '#app'
+// });
+```
+
 **前端构建流程**
 
 所有前端的文件 , js或css , 都是通过laravel-mix , 也就是改装后的webpack构建而成的 , 这里查看webpack.mix.js配置文件可以看到素有前端文件的入口是app文件 , 最后生成到public目录 :
