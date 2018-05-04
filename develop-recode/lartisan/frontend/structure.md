@@ -1,36 +1,32 @@
 # 前端构建
 
+#### 前端构建流程
+
+编辑package.json文件
+
+```
+"devDependencies": {
+    "axios": "^0.17",
+    "cross-env": "^5.1",
+    "jquery": "^3.2",
+    "font-awesome": "^4.7.0"
+    "laravel-mix": "^1.0",
+    "lodash": "^4.17.4",
+    "vue": "^2.5.7"
+}
+
+# yarn install --no-bin-links
+```
+
 前面已经创建了简单的路由和基本的页面 . 这里进一步完善前端相关构建 .
 
-**创建分支**
+```
+# Bulma
+yarn add bulma or npm install bulma
+# buefy
+yarn add buefy or npm install buefy
 
-```
-$ git checkout master
-$ git checkout -b frontends
-```
 
-```
-{
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-    },
-    "devDependencies": {
-        "axios": "^0.16.2",
-        "bootstrap-sass": "^3.3.7",
-        "cross-env": "^5.0.1",
-        "jquery": "^3.1.1",
-        "laravel-mix": "^1.0",
-        "lodash": "^4.17.4",
-        "vue": "^2.1.10"
-    }
-}
 ```
 
 这里我们不使用bootstrap , 改成bulma以及其vue的包buefy , 图标字体使用font-awesome .
