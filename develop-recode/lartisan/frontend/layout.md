@@ -1,11 +1,9 @@
 # 布局
 
-> **视图布局与引入目录规则已在前面的开篇更新**
-
 添加布局通用模板和公共部分引入模板文件夹
 
-* \_includes/
-* \_layouts/
+* common/
+* layouts/
 
 ```
 _includes/nav/main.blade.php
