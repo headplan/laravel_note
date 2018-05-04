@@ -76,17 +76,19 @@ resources/assets/sass/app.scss - 应用样式引入文件
 // Variables 自定义变量
 @import "variables";
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
-
 // Font Awesome
-@import "node_modules/font-awesome/scss/font-awesome";
+@import "~font-awesome/scss/font-awesome";
 
 // Bulma
-@import "node_modules/bulma/bulma";
+@import "~bulma/bulma";
 
-// Bulma Vue Modules
-@import "node_modules/buefy/src/scss/buefy";
+// Buefy - Bulma Vue Modules
+@import "~buefy/src/scss/buefy";
+
+// Other SCSS Files
+@import "overrides";    // 重写样式
+@import "helpers";      // 函数助手样式
+@import "styles";       // 风格样式
 ```
 
 **前端构建流程**
