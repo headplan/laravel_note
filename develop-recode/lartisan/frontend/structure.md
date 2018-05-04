@@ -9,7 +9,10 @@
     "axios": "^0.17",
     "cross-env": "^5.1",
     "jquery": "^3.2",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "buefy": "^0.6.5",
+    "bulma": "^0.7.1",
+    "wysiwyg.css": "^0.0.3",
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
     "vue": "^2.5.7"
@@ -18,42 +21,10 @@
 # yarn install --no-bin-links
 ```
 
-前面已经创建了简单的路由和基本的页面 . 这里进一步完善前端相关构建 .
+后需添加包
 
 ```
-# Bulma
-yarn add bulma or npm install bulma
-# buefy
-yarn add buefy or npm install buefy
-
-
-```
-
-这里我们不使用bootstrap , 改成bulma以及其vue的包buefy , 图标字体使用font-awesome .
-
-```
-"buefy": "^0.6.1",
-"bulma": "^0.6.1",
-"font-awesome": "^4.7.0"
-```
-
-**安装包**
-
-```
-$ yarn install --no-bin-links
-$ yarn install xxx --dev
-$ yarn add cross-env
-```
-
-这里更新了buefy包以及其扩展和依赖 , 需要注意的是font-awesome 5说是要收费 , 这里的图标还是使用之前4.7版本 .
-
-当前版本
-
-```
-npm ls bulma
-├─┬ buefy@0.6.3
-│ └── bulma@0.6.2  deduped
-└── bulma@0.6.2
+$ yarn install xxx --dev --no-bin-links
 ```
 
 > 更新时出现的warning , 解决放在在这`https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5`
