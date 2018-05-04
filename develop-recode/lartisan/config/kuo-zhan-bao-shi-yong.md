@@ -48,7 +48,7 @@ composer require "guzzlehttp/guzzle:~6.3"
 composer require "overtrue/pinyin:~3.0"
 ```
 
-#### Redis库
+**Redis库**
 
 ```
 composer require "predis/predis:~1.0"
