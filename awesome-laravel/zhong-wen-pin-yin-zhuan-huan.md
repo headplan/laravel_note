@@ -1,6 +1,6 @@
 # 中文拼音转换
 
-https://github.com/overtrue/pinyin
+[https://github.com/overtrue/pinyin](https://github.com/overtrue/pinyin)
 
 ```
 composer require "overtrue/pinyin:~3.0"
@@ -38,4 +38,25 @@ $pinyin->convert('带着希望去旅行，比到达终点更美好', PINYIN_ASCI
 * 默认不带音调 , PINYIN\_NONE
 * 带UNICODE音调 , PINYIN\_UNICODE
 * 带数字音调 , PINYIN\_ASCII
+
+函数
+
+```
+$pinyin->permalink('带着希望去旅行'); // dai-zhe-xi-wang-qu-lv-xing
+$pinyin->permalink('带着希望去旅行', '.'); // dai.zhe.xi.wang.qu.lv.xing
+
+$pinyin->abbr('带着希望去旅行'); // dzxwqlx
+$pinyin->abbr('带着希望去旅行', '-'); // d-z-x-w-q-l-x
+
+$pinyin->sentence('带着希望去旅行，比到达终点更美好！');
+// dai zhe xi wang qu lv xing, bi dao da zhong dian geng mei hao!
+
+$pinyin->sentence('带着希望去旅行，比到达终点更美好！', true);
+// dài zhe xī wàng qù lǚ xíng, bǐ dào dá zhōng diǎn gèng měi hǎo!
+
+$pinyin->name('单某某'); // ['shan', 'mou', 'mou']
+$pinyin->name('单某某', PINYIN_UNICODE); // ["shàn","mǒu","mǒu"]
+```
+
+
 
