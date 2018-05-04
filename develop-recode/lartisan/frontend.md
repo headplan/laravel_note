@@ -16,15 +16,55 @@
 
 当前版本 : v0.6.5
 
-https://buefy.github.io/\#/
+[https://buefy.github.io/\#/](https://buefy.github.io/#/)
 
 **基本常用样式库**
 
-http://basscss.com/
+[http://basscss.com/](http://basscss.com/)
 
-http://clrs.cc/
+[http://clrs.cc/](http://clrs.cc/)
 
-Simditor编辑器
+**Laravel默认包及扩展**
+
+```
+"devDependencies": {
+    "axios": "^0.17",
+    "bootstrap-sass": "^3.3.7",
+    "cross-env": "^5.1",
+    "jquery": "^3.2",
+    "laravel-mix": "^1.0",
+    "lodash": "^4.17.4",
+    "vue": "^2.5.7"
+}
+```
+
+> NPM 是 Node.js（一个基于 Google V8 引擎的 JavaScript 运行环境）的包管理和分发工具
+
+**axios**
+
+axios 一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中
+
+```js
+# https://www.kancloud.cn/yunye/axios/234845
+window.axios = require('axios');
+# 也已经在bootstrap.js中引入
+```
+
+**lodash**
+
+lodash 一个一致性、模块化、高性能的 JavaScript 实用工具库
+
+使用举例
+
+```
+_.chunk(['a', 'b', 'c', 'd'], 2);
+# => [['a', 'b'], ['c', 'd']]
+# https://www.lodashjs.com/
+# 使用_是因为已经在bootstray.js中定义引入
+window._ = require('lodash');
+```
+
+**Simditor编辑器**
 
 **目录说明**
 

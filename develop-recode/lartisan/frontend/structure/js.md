@@ -7,21 +7,14 @@
 bootstrap.js - 引导文件 , 通过自定义变量引入了常用的组件 .
 
 ```js
-# lodash:一个一致性、模块化、高性能的 JavaScript 实用工具库
-# 这样是我们在package.json中配置安装的
-# 例如:_.chunk(['a', 'b', 'c', 'd'], 2);
-# => [['a', 'b'], ['c', 'd']]
-# https://www.lodashjs.com/
-window._ = require('lodash');
+
 
 # 引入jQuery
 try {
     window.$ = window.jQuery = require('jquery');
 } catch (e) {}
 
-# axios:一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中
-# https://www.kancloud.cn/yunye/axios/234845
-window.axios = require('axios');
+
 
 # 定义了csrf-token
 let token = document.head.querySelector('meta[name="csrf-token"]');

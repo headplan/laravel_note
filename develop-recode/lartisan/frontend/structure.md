@@ -9,11 +9,7 @@ $ git checkout master
 $ git checkout -b frontends
 ```
 
-**配置NPM**
 
-看一下package.json文件 , 这是NPM的配置文件 .
-
-> NPM 是 Node.js（一个基于 Google V8 引擎的 JavaScript 运行环境）的包管理和分发工具
 
 ```
 {
