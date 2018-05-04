@@ -18,13 +18,13 @@
     "vue": "^2.5.7"
 }
 
-# yarn install --no-bin-links
+# yarn install
 ```
 
 后需添加包
 
 ```
-$ yarn install xxx --dev --no-bin-links
+$ yarn install xxx --dev
 ```
 
 > 更新时出现的warning , 解决放在在这`https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5`
