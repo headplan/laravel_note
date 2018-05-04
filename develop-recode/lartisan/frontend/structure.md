@@ -91,6 +91,29 @@ resources/assets/sass/app.scss - 应用样式引入文件
 @import "styles";       // 风格样式
 ```
 
+resources/assets/sass/\_helpers.scss - 可用的class
+
+```js
+// wysiwyg
+@import "~wysiwyg.css";
+
+// m-t-5 = margin-top: 5px
+$spaceamounts: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+```
+
 **前端构建流程**
 
 所有前端的文件 , js或css , 都是通过laravel-mix , 也就是改装后的webpack构建而成的 , 这里查看webpack.mix.js配置文件可以看到素有前端文件的入口是app文件 , 最后生成到public目录 :
