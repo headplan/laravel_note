@@ -9,6 +9,8 @@ composer require "guzzlehttp/guzzle:~6.3"
 **基本用法**
 
 ```php
+<?php
+
 $client = new GuzzleHttp\Client();
 $res = $client->request('GET', 'https://api.github.com/user', [
     'auth' => ['user', 'pass']
@@ -27,6 +29,8 @@ $promise = $client->sendAsync($request)->then(function ($response) {
 });
 $promise->wait();
 ```
+
+
 
 
 
