@@ -62,6 +62,7 @@
   * [HTMLPurifier](awesome-laravel/htmlpurifier.md)
   * [Guzzle HTTP请求库](awesome-laravel/guzzle-httpqing-qiu-ku.md)
   * [中文拼音转换](awesome-laravel/zhong-wen-pin-yin-zhuan-huan.md)
+  * [Laravel Horizon](awesome-laravel/laravel-horizon.md)
 * [源码分析](laravel-code.md#laravel-code)
   * [执行流程](laravel-code/zhi-xing-liu-cheng.md#zhi-xing-liu-cheng)
     * [执行流程\(二\)](laravel-code/zhi-xing-liu-cheng/zhi-xing-liu-7a0b28-4e8c29.md)
