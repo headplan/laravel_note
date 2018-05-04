@@ -9,8 +9,6 @@ $ git checkout master
 $ git checkout -b frontends
 ```
 
-
-
 ```
 {
     "private": true,

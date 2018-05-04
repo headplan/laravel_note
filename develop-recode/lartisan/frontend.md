@@ -24,6 +24,37 @@
 
 [http://clrs.cc/](http://clrs.cc/)
 
+**font-awesome**
+
+字体图标
+
+[http://fontawesome.dashgame.com/](http://fontawesome.dashgame.com/)
+
+```
+"font-awesome": "^4.7.0"
+```
+
+**Google Fonts**
+
+特殊在字体需求可以引入 .
+
+[https://fonts.google.com/](https://fonts.google.com/)
+
+如果访问慢可以使用nginx代理 , 或者使用国内网站替换 , 例如 , [https://www.font.im/](https://www.font.im/)
+
+```
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+```
+
+引入后即可使用
+
+```
+CSS selector {
+  font-family: 'Roboto', sans-serif;
+}
+```
+
 **Laravel默认包及扩展**
 
 ```
