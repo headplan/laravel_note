@@ -31,6 +31,10 @@ $ yarn install xxx --dev --no-bin-links
 >
 > 更新时总是失败 , 原因都是网络问题 , 这里重新安装了所有 , 打开全局的VPN安装成功了 .
 
+**js和css的引入**
+
+
+
 **前端构建流程**
 
 所有前端的文件 , js或css , 都是通过laravel-mix , 也就是改装后的webpack构建而成的 , 这里查看webpack.mix.js配置文件可以看到素有前端文件的入口是app文件 , 最后生成到public目录 :
