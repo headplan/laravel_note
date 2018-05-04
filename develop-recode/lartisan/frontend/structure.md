@@ -60,6 +60,33 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 // const app = new Vue({
 //     el: '#app'
 // });
+
+// 其他的引入
+// require('./manage')
+```
+
+**CSS**
+
+resources/assets/sass/app.scss - 应用样式引入文件
+
+```js
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables 自定义变量
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Font Awesome
+@import "node_modules/font-awesome/scss/font-awesome";
+
+// Bulma
+@import "node_modules/bulma/bulma";
+
+// Bulma Vue Modules
+@import "node_modules/buefy/src/scss/buefy";
 ```
 
 **前端构建流程**
