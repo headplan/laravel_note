@@ -124,6 +124,14 @@ $ npm run watch-poll
 npm run production
 ```
 
+**前端引入版本**
+
+```
+# webpack.mix.js后面添加.version();
+# 模板中使用mix()函数引入
+{{ mix('js/app.js') }}
+```
+
 > 构建编译时报错 , 是因为已经删除了bootstrap框架 , 在js文件中依然引入了 , 删除即可 .
 
 

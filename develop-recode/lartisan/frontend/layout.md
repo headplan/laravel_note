@@ -2,8 +2,20 @@
 
 添加布局通用模板和公共部分引入模板文件夹
 
-* common/
-* layouts/
+* common/ - 公共模板
+  * error.blade.php - 公共错误提示
+* layouts/ - 布局模板
+  * 
+
+error.blade.php - 暂未布局
+
+```
+@if(count($errors) > 0)
+    @foreach($errors as $error)
+        {{ $error }}
+    @endforeach
+@endif
+```
 
 ```
 _includes/nav/main.blade.php
