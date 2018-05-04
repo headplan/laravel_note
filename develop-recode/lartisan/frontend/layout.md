@@ -87,38 +87,6 @@ git branch -d static-pages
 
 ---
 
-**\resources - 资源目录说明**
-
-* \assets - 前端模板资源 , 包括js文件和css文件的模板
-  * \js
-    * \components - vue组件模板
-    * app.js - 前台vue入口文件
-    * backend - 后台vue入口文件
-    * bootstrap.js - Webpack引导文件
-  * \sass
-    * \app - 前端CSS模板
-      * 其他功能样式文件
-    * \backend - 后端CSS模板
-      * 其他功能样式文件
-    * app.scss - 引导加载
-    * backend.scss - 引导加载
-    * =====
-    * \_variables.scss - 定义样式变量 , 例如颜色
-    * helper.scss - 函数助手 , 一些公共的函数 , 比如批量生成的margin和padding
-    * overides.scss - 覆盖样式 , 比如覆盖框架原有样式
-    * style.scss - 自定义样式
-* \lang - 语言包 , 目前只安装了中文扩展翻译的自带语言包 , 其余可自定义添加
-* \views - 模板文件目录 , 和前面的样式目录一样 , 也分为主题和前后台 . 包含三类目录 : 
-  * 布局类型 : 其中分别是前后台或其他的目录 , 不在目录中的为公共模板
-    * \\_includes - 引入包含的模板
-    * \\_layouts - 页面布局的模板
-* * 功能类型
-    * \app - 前台应用模板
-    * \backend - 后台应用模板
-    * \others - 其他的模板 , 静态模板
-  * 扩展模板 : 第三方或者vendor组件生成的模板
-    * \vendor - 例如翻页模板
-
 **添加通用视图**
 
 ```html

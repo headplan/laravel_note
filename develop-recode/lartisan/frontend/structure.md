@@ -95,7 +95,7 @@ resources/assets/sass/\_helpers.scss - 可用的class
 
 ```js
 // wysiwyg
-@import "~wysiwyg.css";
+@import "~wysiwyg.css/wysiwyg";
 
 // m-t-5 = margin-top: 5px
 $spaceamounts: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100); // Adjust this to include the pixel amounts you need.
