@@ -118,7 +118,5 @@ php artisan make:scaffold Projects --schema="name:string:index,description:text:
 composer require barryvdh/laravel-ide-helper --dev
 ```
 
-#### 前端
 
-Simditor编辑器
 
