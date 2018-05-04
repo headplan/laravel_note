@@ -31,9 +31,19 @@ $ yarn install xxx --dev --no-bin-links
 >
 > 更新时总是失败 , 原因都是网络问题 , 这里重新安装了所有 , 打开全局的VPN安装成功了 .
 
-**js和css的引入**
+**JS和CSS的引入**
 
+**JS**
 
+resources/assets/js/bootstrap.js - 引导文件 , 通过自定义变量引入了常用的组件 . 去掉bootstrap-sass
+
+```js
+try {
+    window.$ = window.jQuery = require('jquery');
+
+    # require('bootstrap-sass');
+} catch (e) {}
+```
 
 **前端构建流程**
 
