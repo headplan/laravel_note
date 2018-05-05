@@ -229,13 +229,13 @@ public function down()
 }
 ```
 
-执行迁移命令 : 
+执行迁移命令 :
 
 ```
 php artisan migrate
 ```
 
-在header头中增加入口链接 . 
+在header头中增加入口链接 .
 
 添加edit方法
 
