@@ -52,7 +52,20 @@ footer {
     width: 100%;
     height: 60px;
 }
+
+# html中清空footer自带的padding : is-paddingless
+# 再给content一些mg : m-t-20
 ```
+
+**创建Home控制器**
+
+```
+php artisan make:controller HomeController
+```
+
+删除welcome页面 , 创建home/index.blade.php
+
+创建路由 , 控制器方法 . 
 
 
 
