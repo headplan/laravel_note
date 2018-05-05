@@ -37,47 +37,20 @@ $navbar-height: 5.25rem
 
 ```
 # 解决footer保持在页面底部问题
-方法一：footer高度固定+绝对定位
-<div id="container">
-    <header>HEADER</header>
-    <section class="main">MAIN</section >
-    <footer>FOOTER</footer>
-</div>
+html {
+    position: relative;
+    min-height: 100%;
+}
 
-# css
-*{
-    margin: 0;
-    padding: 0;
+body {
+    margin-bottom: 60px;
 }
-html,body{
-    height: 100%;
-}
-#container{
-    /*保证footer是相对于container位置绝对定位*/
-    position:relative;  
-    width:100%;
-    min-height:100%; 
-    /*设置padding-bottom值大于等于footer的height值，以保证main的内容能够全部显示出来而不被footer遮盖；*/  
-    padding-bottom: 100px;  
-    box-sizing: border-box;
-}
-header{
+# 相对应为到底部
+footer {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 200px;
-    background: #999;
-}
-.main{
-    width: 100%;
-    height: 200px;
-    background: orange;
-}
-footer{
-    width: 100%;
-    height:100px;   /* footer的高度一定要是固定值*/ 
-    position:absolute;
-    bottom:0px;
-    left:0px;
-    background: #333;
+    height: 60px;
 }
 ```
 
