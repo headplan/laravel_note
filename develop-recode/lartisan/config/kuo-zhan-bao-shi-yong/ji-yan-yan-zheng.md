@@ -12,7 +12,7 @@
 git clone https://github.com/GeeTeam/gt3-php-sdk.git
 ```
 
-把class.geetestlib.php添加到app/Handlers/GeetestHandler.php中 , 添加命名空间 : 
+把class.geetestlib.php添加到app/Handlers/GeetestHandler.php中 , 添加命名空间 :
 
 ```
 namespace App\Handlers;
@@ -37,12 +37,12 @@ return [
 ];
 ```
 
-添加到.env文件中 , 并且在.env.example文件中备份 . 
+添加到.env文件中 , 并且在.env.example文件中备份 .
 
-创建控制器 : 
+创建控制器 :
 
 ```
-php artisan make:controller GeetestController 
+php artisan make:controller GeetestController
 ```
 
 添加方法和路由
@@ -60,6 +60,8 @@ public function getVerify()
     session(['geetest'=>$data]);
     return $handler->get_response_str();
 }
+
+Route::get('/getVerify', 'GeetestController@getVerify')->name('getVerify');
 ```
 
 
