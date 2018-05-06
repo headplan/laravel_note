@@ -55,5 +55,31 @@ onclick="event.preventDefault();document.getElementById('form-logout').submit()
 </form>
 ```
 
+**执行迁移**
+
+```
+php artisan migrate
+```
+
+现在基本的注册登录已经可以使用 , 修改登录注册中的跳转地址 : 
+
+```
+protected $redirectTo = '/';
+modified:   app/Http/Controllers/Auth/LoginController.php
+modified:   app/Http/Controllers/Auth/RegisterController.php
+modified:   app/Http/Controllers/Auth/ResetPasswordController.php
+modified:   app/Http/Middleware/RedirectIfAuthenticated.php
+```
+
+#### **整体模板修改**
+
+```
+# 基本上是注册登录逻辑的四个模板
+login.blade.php
+register.blade.php
+email.blade.php
+reset.blade.php
+```
+
 
 
