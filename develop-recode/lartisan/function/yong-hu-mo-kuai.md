@@ -61,7 +61,7 @@ onclick="event.preventDefault();document.getElementById('form-logout').submit()
 php artisan migrate
 ```
 
-现在基本的注册登录已经可以使用 , 修改登录注册中的跳转地址 : 
+现在基本的注册登录已经可以使用 , 修改登录注册中的跳转地址 :
 
 ```
 protected $redirectTo = '/';
@@ -79,6 +79,17 @@ login.blade.php
 register.blade.php
 email.blade.php
 reset.blade.php
+```
+
+**login.blade.php**
+
+```
+# 修改模板页面
+# 主要是路由连接地址和错误提示
+{{ route('password.request') }}
+{{ $errors->has('password') ? ' is-danger' : '' }}
+# 登录状态使用了组件b-checkbox
+# 简单引入极验验证,流程查看扩展包使用下属文章
 ```
 
 
