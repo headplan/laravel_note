@@ -105,6 +105,7 @@
       * [配置文件](develop-recode/lartisan/config/pei-zhi-wen-jian.md)
       * [扩展文件](develop-recode/lartisan/config/kuo-zhan-wen-jian.md)
       * [扩展包使用](develop-recode/lartisan/config/kuo-zhan-bao-shi-yong.md)
+        * [极验验证](develop-recode/lartisan/config/kuo-zhan-bao-shi-yong/ji-yan-yan-zheng.md)
     * [前端](develop-recode/lartisan/frontend.md#frontend)
       * [前端构建](develop-recode/lartisan/frontend/structure.md#structure)
         * [SASS语法简介](develop-recode/lartisan/frontend/structure/sass.md)
