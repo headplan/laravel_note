@@ -89,7 +89,23 @@ reset.blade.php
 {{ route('password.request') }}
 {{ $errors->has('password') ? ' is-danger' : '' }}
 # 登录状态使用了组件b-checkbox
-# 简单引入极验验证,流程查看扩展包使用下属文章
+# 简单引入极验验证,流程查看扩展包使用下属文章,暂时未引入
+```
+
+**register.blade.php**
+
+```
+# 添加了注册验证码,直接调用开发包,后边JS随机个数切换验证码
+<img class="captcha" src="{{ captcha_src('flat') }}" 
+    onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+```
+
+重写控制器中对注册的验证规则 : 
+
+修改_app/Http/Controllers/Auth/RegisterController.php中的_validator方法 : 
+
+```
+
 ```
 
 

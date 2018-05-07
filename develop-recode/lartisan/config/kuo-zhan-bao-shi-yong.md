@@ -2,6 +2,12 @@
 
 #### 后端
 
+**Laravel-lang中文语言包**
+
+```
+composer require "overtrue/laravel-lang:~3.0"
+```
+
 **验证码包**
 
 ```
