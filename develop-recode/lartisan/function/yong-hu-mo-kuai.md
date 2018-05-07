@@ -114,5 +114,17 @@ reset.blade.php
 
 > 安装Laravel-lang , 之前忘记安装了 .
 
+#### User表相关整理
+
+移动user模型文件 , 修改相关依赖 . User相关控制器 . 以及个人页面相关页面等 . 
+
+```
+# 模型移动修改的文件
+app/Models/User.php
+config/auth.php
+config/services.php
+database/factories/UserFactory.php
+```
+
 
 
