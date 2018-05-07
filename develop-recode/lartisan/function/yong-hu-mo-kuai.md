@@ -100,13 +100,19 @@ reset.blade.php
     onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
 ```
 
-重写控制器中对注册的验证规则 : 
+重写控制器中对注册的验证规则 :
 
-修改_app/Http/Controllers/Auth/RegisterController.php中的_validator方法 : 
-
-```
+修改\_app/Http/Controllers/Auth/RegisterController.php中的\_validator方法 , 并添加验证信息 :
 
 ```
+    'captcha' => 'required|captcha',
+], [
+    'captcha.required' => '验证码不能为空',
+    'captcha.captcha' => '请输入正确的验证码',
+]);
+```
+
+> 安装Laravel-lang , 之前忘记安装了 .
 
 
 
