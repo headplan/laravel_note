@@ -116,7 +116,7 @@ reset.blade.php
 
 #### User表相关整理
 
-移动user模型文件 , 修改相关依赖 . User相关控制器 . 以及个人页面相关页面等 . 
+移动user模型文件 , 修改相关依赖 . User相关控制器 . 以及个人页面相关页面等 .
 
 ```
 # 模型移动修改的文件
@@ -124,6 +124,12 @@ app/Models/User.php
 config/auth.php
 config/services.php
 database/factories/UserFactory.php
+# 添加资源路由,only限制
+Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+# 创建控制器,添加上面的三个方法
+php artisan make:controller UsersController
+# 创建视图页面
+resources/views/users/show.blade.php
 ```
 
 
