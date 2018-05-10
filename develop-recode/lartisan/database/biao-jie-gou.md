@@ -11,10 +11,11 @@ Schema::create('users', function (Blueprint $table) {
     $table->rememberToken();
     $table->timestamps();
 });
-# 添加了两个字段
+# 添加了三个个字段
 Schema::table('users', function (Blueprint $table) {
     $table->string('avatar')->nullable();
     $table->string('introduction')->nullable();
+    $table->enum('gender', ['male', 'female', 'unselected'])->default('unselected');
 });
 ```
 
