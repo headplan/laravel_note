@@ -130,6 +130,12 @@ Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit'
 php artisan make:controller UsersController
 # 创建视图页面
 resources/views/users/show.blade.php
+# 创建用户编辑页面
+resources/views/users/show.edit.php
+# 创建用户添加字段的数据迁移,这里暂时先添加avatar头像和introduction描述两个字段
+php artisan make:migration add_avatar_and_introduction_to_users_table --table=users
+$table->string('avatar')->nullable(); # 表示字符串,可以为空
+$table->dropColumn('avatar'); # 表示删除列
 ```
 
 
