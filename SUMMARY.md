@@ -114,6 +114,7 @@
       * [模型文件](develop-recode/lartisan/database/mo-xing-wen-jian.md)
       * [对象操作](develop-recode/lartisan/database/dui-xiang-cao-zuo.md)
       * [测试数据](develop-recode/lartisan/database/ce-shi-shu-ju.md)
+      * [表结构](develop-recode/lartisan/database/biao-jie-gou.md)
     * [功能](develop-recode/lartisan/function.md#function)
       * [基本布局](develop-recode/lartisan/function/ji-ben-bu-ju.md)
       * [用户模块](develop-recode/lartisan/function/yong-hu-mo-kuai.md)
