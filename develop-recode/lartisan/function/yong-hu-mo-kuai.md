@@ -136,6 +136,7 @@ resources/views/users/show.edit.php
 php artisan make:migration add_avatar_and_introduction_to_users_table --table=users
 $table->string('avatar')->nullable(); # 表示字符串,可以为空
 $table->dropColumn('avatar'); # 表示删除列
+php artisan migrate # 执行迁移
 ```
 
 
