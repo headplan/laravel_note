@@ -162,5 +162,14 @@ return [
 # commit一下
 ```
 
+```
+# 文件存储系统接入
+创建App/Handlers/ImageUploadHandler.php文件
+编辑逻辑.
+创建local驱动时,文件保存路径的连接php artisan storage:link
+public/storage => storage/app/public
+# 接入七牛驱动
+```
+
 
 
