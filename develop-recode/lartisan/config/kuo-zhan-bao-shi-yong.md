@@ -96,6 +96,13 @@ composer require "summerblue/administrator:~1.1"
 php artisan vendor:publish --provider="Frozennode\Administrator\AdministratorServiceProvider"
 ```
 
+**阿里云OOS存储**
+
+```
+composer require jacobcyl/ali-oss-storage:dev-master
+# 包含所有Laravel文件存储接口
+```
+
 ---
 
 **Debugbar工具栏**
