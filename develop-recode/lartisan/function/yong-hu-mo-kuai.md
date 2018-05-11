@@ -141,6 +141,24 @@ $table->enum('gender', ['male', 'female', 'unselected'])->default('unselected');
 # 给所有字段添加上描述,以免遗忘
 ->comment('');
 php artisan migrate # 执行迁移
+# 编辑页面基本配置完成,引入update()方法,这里用Laravel的表单请求验证也就是Request
+php artisan make:request UserRequest
+会生成一个UserRequest文件.
+暂时把权限验证设置为ture.
+然后添加规则
+return [
+    'name' => 'required|between:3,25|regex:/^[A-Za-z0-9\-\_]+$/|unique:users,name,' . Auth::id(),
+    'email' => 'required|email',
+    'introduction' => 'max:80',
+];
+再复写一个messages方法,用来自定义一些错误信息.
+错误信息提示的模板整理为公共的模板.
+然后更新控制器的update方法,跳转到show页面,with跟随一个提交后状态的session闪存信息.Session::exists('danger')
+定义闪存信息公共模板lang/zh-CN/message.blade.php管理信息.
+访问文本在模板中使用@lang().
+# 提交信息别忘了新添加的字段,要添加到fillable中
+# show页面的展示修改一下,时间显示用友好的方式diffForHumans()
+# 在服务提供者boot时,把管理时间的类Carbon改为中文:Carbon::setLocale('zh');
 ```
 
 
