@@ -96,10 +96,17 @@ composer require "summerblue/administrator:~1.1"
 php artisan vendor:publish --provider="Frozennode\Administrator\AdministratorServiceProvider"
 ```
 
-**阿里云OOS存储**
+**阿里云OOS存储\(暂未使用\)**
 
 ```
 composer require jacobcyl/ali-oss-storage:dev-master
+# 包含所有Laravel文件存储接口
+```
+
+**七牛云存储\(暂用测试版\)**
+
+```
+composer require "overtrue/laravel-filesystem-qiniu" -vvv
 # 包含所有Laravel文件存储接口
 ```
 
