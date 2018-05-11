@@ -159,6 +159,7 @@ return [
 # 提交信息别忘了新添加的字段,要添加到fillable中
 # show页面的展示修改一下,时间显示用友好的方式diffForHumans()
 # 在服务提供者boot时,把管理时间的类Carbon改为中文:Carbon::setLocale('zh');
+# commit一下
 ```
 
 
