@@ -168,7 +168,10 @@ return [
 编辑逻辑.
 创建local驱动时,文件保存路径的连接php artisan storage:link
 public/storage => storage/app/public
-# 接入七牛驱动
+这里本地有问题,暂时使用$file->move移动文件到public下
+# 接入七牛驱动,这里部署时暂时使用镜像回源,所有文件依然上传本地
+# 请求验证创建了UserSubjectRequest
+# 对图片进行裁剪,使用intervention/image扩展,
 ```
 
 
