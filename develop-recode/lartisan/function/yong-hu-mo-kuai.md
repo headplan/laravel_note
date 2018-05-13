@@ -163,15 +163,20 @@ return [
 ```
 
 ```
+# 个人页面的头像等部分使用新路由
 # 文件存储系统接入
 创建App/Handlers/ImageUploadHandler.php文件
-编辑逻辑.
+编辑逻辑.添加helper方法排除in_array使用
 创建local驱动时,文件保存路径的连接php artisan storage:link
 public/storage => storage/app/public
 这里本地有问题,暂时使用$file->move移动文件到public下
-# 接入七牛驱动,这里部署时暂时使用镜像回源,所有文件依然上传本地
+# 接入七牛驱动,这里部署时暂时使用镜像回源,所有文件依然上传本地 --------------->todo
 # 请求验证创建了UserSubjectRequest
-# 对图片进行裁剪,使用intervention/image扩展,
+# 对图片进行裁剪,使用intervention/image扩展,缓存部分还未实施----------------->todo
+# 图片裁剪驱动转换为imagick改用fit以中心裁剪图片
+# 添加jq_function.js文件,保存jQ函数,引入app主文件
+# 添加头像预览jq函数,调整原来改变文件名函数到pre_img中
+# 注意jquery函数调用以及写法,常规function定义函数无法调用
 ```
 
 
