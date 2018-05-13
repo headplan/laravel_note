@@ -179,5 +179,20 @@ public/storage => storage/app/public
 # 注意jquery函数调用以及写法,常规function定义函数无法调用
 ```
 
+```
+# User控制器添加中间件限制游客访问
+# $this->middleware('auth', ['except' => ['show']]);
+# 添加授权认证UserPolicy
+php artisan make:policy UserPolicy
+判断当前和授权的用户id是否相等
+return $currentUser->id === $user->id;
+# 注册在认证服务中AuthServiceProvider
+# 在控制器中添加拦截
+$this->authorize('update', $user);
+# 修改更新后跳转back()地址
+# 修改编辑资料左侧链接
+# 更新jq_function格式验证---------------------->todo:没有提示,只是不加载不是图片的文件
+```
+
 
 
