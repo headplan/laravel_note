@@ -192,7 +192,16 @@ $this->authorize('update', $user);
 # 修改更新后跳转back()地址
 # 修改编辑资料左侧链接
 # 更新jq_function格式验证---------------------->todo:没有提示,只是不加载不是图片的文件
+
+# 生成假数据,编辑database/factories/UserFactory.php,填充各个字段生成数据,头像暂用gravatar默认头像
+# 生成php artisan make:seed UsersTableSeeder
+# 编辑database/seeds/UsersTableSeeder.php,index[0]默认分配给管理员用户
+# 然后在DatabaseSeeder中call一下.
+# php artisan migrate:refresh --seed 生成数据
+
 ```
+
+
 
 
 
