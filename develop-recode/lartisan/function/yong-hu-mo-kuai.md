@@ -187,7 +187,7 @@ php artisan make:policy UserPolicy
 判断当前和授权的用户id是否相等
 return $currentUser->id === $user->id;
 # 注册在认证服务中AuthServiceProvider
-# 在控制器中添加拦截
+# 在控制器中添加拦截,目前直接拒绝访问,之后改为跳转------------------------------------->todo
 $this->authorize('update', $user);
 # 修改更新后跳转back()地址
 # 修改编辑资料左侧链接
@@ -199,9 +199,10 @@ $this->authorize('update', $user);
 # 然后在DatabaseSeeder中call一下.
 # php artisan migrate:refresh --seed 生成数据
 
+# 配置默认头像,增加Observers,注册用户时,自动添加默认头像,注册到boot中,和时间按个一样
+# 这里头像前端展示去掉asset()的包裹,后期配置使用配置url,现在在imageHandler中设置url地址----------------->todo
+# 添加sudo库切换用户,注册为只在本地显示.
 ```
-
-
 
 
 
