@@ -118,6 +118,7 @@
     * [功能](develop-recode/lartisan/function.md#function)
       * [基本布局](develop-recode/lartisan/function/ji-ben-bu-ju.md)
       * [用户模块](develop-recode/lartisan/function/yong-hu-mo-kuai.md)
+      * [分类模块](develop-recode/lartisan/function/fen-lei-mo-kuai.md)
       * [Blog模块](develop-recode/lartisan/function/blogmo-kuai.md)
       * [User模块](develop-recode/lartisan/function/usermo-kuai.md)
       * [Backend模块](develop-recode/lartisan/function/backendmo-kuai.md)
