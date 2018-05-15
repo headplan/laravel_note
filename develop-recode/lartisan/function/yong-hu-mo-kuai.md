@@ -187,7 +187,7 @@ php artisan make:policy UserPolicy
 判断当前和授权的用户id是否相等
 return $currentUser->id === $user->id;
 # 注册在认证服务中AuthServiceProvider
-# 在控制器中添加拦截,目前直接拒绝访问,之后改为跳转------------------------------------->todo
+# 在控制器中添加拦截,目前直接拒绝访问419,之后改为跳转或者403------------------------------------->todo
 $this->authorize('update', $user);
 # 修改更新后跳转back()地址
 # 修改编辑资料左侧链接
