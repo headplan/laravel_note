@@ -5,6 +5,12 @@
 # 填充话题假数据
 编辑数据工厂TopicFactory
 编辑数据填充TopicsTableSeeder
+填充数据
+编辑Model模型,定义关联关系
+关联分类
+关联用户
+
+php artisan vendor:publish --tag=laravel-pagination
 ```
 
 
