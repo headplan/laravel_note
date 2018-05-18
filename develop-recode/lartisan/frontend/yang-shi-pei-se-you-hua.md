@@ -24,5 +24,11 @@
 # 修改_variables.scss文件,此文件在bulma文件之前引入,细节查看文件
 ```
 
+**修改布局**
+
+```
+最有分类大小调整:is-one-quarter-desktop
+```
+
 
 
