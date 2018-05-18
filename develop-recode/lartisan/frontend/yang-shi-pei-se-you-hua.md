@@ -1,6 +1,6 @@
 #### 配色方案
 
-https://coolors.co/
+[https://coolors.co/](https://coolors.co/)
 
 ```
 #ffffff 背景色
@@ -17,6 +17,12 @@ https://coolors.co/
 #9574EA 紫色
 #3DD94A 绿色
 #FF7D00 橙色
+```
+
+**定义配色**
+
+```
+# 修改_variables.scss文件,此文件在bulma文件之前引入
 ```
 
 
