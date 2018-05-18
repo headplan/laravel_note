@@ -23,10 +23,16 @@
 ```
 # 修改_variables.scss文件,此文件在bulma文件之前引入
 引入初始变量
-设置自定义初始变量(Initial variables):颜色,字体
-设置派生变量(Derived variables):主题颜色,主题反转色,派生字体,派生边框,派生文字色,派生链接色
+# 设置自定义初始变量(Initial variables):颜色,字体.
+# 设置派生变量(Derived variables):主题颜色,主题反转色,派生字体,派生边框,派生文字色,派生链接色.
+# 设置泛型变量(Generic variables):body背景色,body文字大小.
 
 # 创建logo.
+
+# 头部导航(navbar)
+菜单添加图标
+高度调整:$navbar-height:4.25rem;
+
 ```
 
 **修改布局**
