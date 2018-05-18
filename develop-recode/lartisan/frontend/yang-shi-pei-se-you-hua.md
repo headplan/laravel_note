@@ -22,7 +22,7 @@
 **定义配色**
 
 ```
-# 修改_variables.scss文件,此文件在bulma文件之前引入
+# 修改_variables.scss文件,此文件在bulma文件之前引入,细节查看文件
 ```
 
 
