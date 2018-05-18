@@ -32,8 +32,15 @@
 # 图标整理,查看阿里图标下项目.调整完之后,删除原来的fontawesome图标.
 
 # 头部导航(navbar)
+顶部添加横向样式.底部添加阴影.
 菜单添加图标,写死分类.
-高度调整:$navbar-height:5.25rem;
+高度调整:$navbar-height:4.25rem;
+调整字体颜色,选中和划过背景颜色:
+$navbar-item-color:$grey;
+$navbar-item-hover-background-color:#f5f5f5;
+$navbar-item-active-background-color:#fafafa;
+覆盖部分调整字体和图标大小,添加选中底部边框.
+登录后下拉菜单添加选中.
 ```
 
 **修改布局**
