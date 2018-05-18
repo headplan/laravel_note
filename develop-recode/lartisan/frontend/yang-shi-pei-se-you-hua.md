@@ -21,8 +21,12 @@
 **样式配色**
 
 ```
-# 修改_variables.scss文件,此文件在bulma文件之前引入,细节查看文件
-# 
+# 修改_variables.scss文件,此文件在bulma文件之前引入
+引入初始变量
+设置自定义初始变量(Initial variables):颜色,字体
+设置派生变量(Derived variables):主题颜色,主题反转色,派生字体,派生边框,派生文字色,派生链接色
+
+# 创建logo.
 ```
 
 **修改布局**
