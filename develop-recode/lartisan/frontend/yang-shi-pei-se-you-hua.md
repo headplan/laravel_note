@@ -41,6 +41,10 @@ $navbar-item-hover-background-color:#f5f5f5;
 $navbar-item-active-background-color:#fafafa;
 覆盖部分调整字体和图标大小,添加选中底部边框.
 登录后下拉菜单添加选中.
+添加helper:is-radius,显示圆形头像.
+
+# hero
+异步加载:添加
 ```
 
 **修改布局**
