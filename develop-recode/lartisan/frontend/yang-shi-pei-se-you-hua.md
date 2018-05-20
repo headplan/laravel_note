@@ -51,7 +51,6 @@ $navbar-item-active-background-color:#fafafa;
 **修改布局**
 
 ```
-# 首页添加hero模板,引入hitokoto一言,异步刷新,添加跨域中间件.
 # 最有分类大小调整:is-one-quarter-desktop
 ```
 
