@@ -17,6 +17,9 @@ php artisan vendor:publish --tag=laravel-pagination
 创建本地作用域,展示不同排序数据
 页面展示.
 添加用户个人中心数据展示.关联topic模型.hasMany(),一对多关系.
+
+# 话题的CURD
+新增添加话题入口,导航一个,右侧边栏一个.
 ```
 
 

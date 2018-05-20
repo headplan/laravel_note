@@ -42,7 +42,7 @@ $navbar-item-active-background-color:#fafafa;
 覆盖部分调整字体和图标大小,添加选中底部边框.
 登录后下拉菜单添加选中.
 添加helper:is-radius,显示圆形头像.
-添加helper:is-shadow,按钮加入按钮阴影.
+添加helper:is-shadow,按钮加入按钮阴影.改:用is-focused当做阴影
 
 # hero
 添加一言,右侧暂时留空,添加二维码等.
