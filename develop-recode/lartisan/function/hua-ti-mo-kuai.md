@@ -20,6 +20,13 @@ php artisan vendor:publish --tag=laravel-pagination
 
 # 话题的CURD
 新增添加话题入口,导航一个,右侧边栏一个.
+编辑fillable字段.
+控制器,传topic.
+编辑页面,页面中判断是create还是edit.
+填充各个字段fill();
+保存之前切一部分内容作为excerpt,放在observer中.
+然后注册到App服务中.
+在TopicRequest卡一下输入权限
 ```
 
 
