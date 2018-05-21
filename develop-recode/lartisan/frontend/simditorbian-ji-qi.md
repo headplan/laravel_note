@@ -65,6 +65,45 @@ var editor = new Simditor({
 * [simditor-dropzone](https://github.com/ichord/simditor-dropzone) : 拖拽上传插入图片
 * [simditor-fullscreen](https://github.com/heroicyang/simditor-fullscreen) : 编辑器全屏支持
 
-[  
-](mailto:tower+simditor@mycolorway.com?subject=%E6%8A%95%E9%80%92Simditor%E6%89%A9%E5%B1%95)
+#### 初始化配置
+
+    var editor = new Simditor({
+        textarea: $('#editor'),
+        placeholder: '请使用 Markdown 格式书写(′▽`〃),代码片段黏贴时请注意使用高亮语法.',
+        toolbar: true,
+        //optional options
+    });  
+
+textarea : 在id上创建编辑器 . 默认null
+
+placeholder : 占位符 , textarea为空时显示的文字. 默认 , ''
+
+toolbar : 工具栏显示按钮 . 默认 true
+
+```
+[
+  'title'
+  'bold'
+  'italic'
+  'underline'
+  'strikethrough'
+  'fontScale'
+  'color'
+  'ol'             # ordered list
+  'ul'             # unordered list
+  'blockquote'
+  'code'           # code block
+  'table'
+  'link'
+  'image'
+  'hr'             # horizontal ruler
+  'indent'
+  'outdent'
+  'alignment'
+]
+```
+
+[toolbarFloat](http://simditor.tower.im//docs/doc-config.html#anchor-toolbarFloat) - 修复滚动浏览器时工具栏在其顶部的问题 , 默认true . 
+
+
 
