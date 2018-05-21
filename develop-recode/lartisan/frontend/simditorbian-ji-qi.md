@@ -103,7 +103,101 @@ toolbar : 工具栏显示按钮 . 默认 true
 ]
 ```
 
-[toolbarFloat](http://simditor.tower.im//docs/doc-config.html#anchor-toolbarFloat) - 修复滚动浏览器时工具栏在其顶部的问题 , 默认true . 
+toolbarFloat - 修复滚动浏览器时工具栏在其顶部的问题 , 默认true .
+
+toolbarFloatOffset - 固定工具栏的顶部偏移量 , 默认0.
+
+toolbarHidden - 隐藏工具栏 . 无法和`toolbarFloat`一起使用 . 默认false
+
+defaultImage - 默认图像占位符 . 在 Simditor 中插入图片时使用 . 默认images/image.png
+
+tabIndent - 使用tab缩进 , 默认true
+
+params - 添加隐藏域 , 写key:value , 默认{}
+
+upload - 上传图片的额外选项 , 默认false
+
+```
+url - 处理上传图片的URL.
+params - 表单提交的参数,Laravel的POST请求必须带防止CSRF跨站请求伪造的_token参数,例如{ _token: '{{ csrf_token() }}' }
+fileKey - 是服务器端获取图片的键值,设置upload_file
+connectionCount - 最多同时上传图片限制,设置3
+leaveConfirm - 上传过程中,用户关闭页面时的提醒.比如'图片上传中,关闭此页面将取消上传.'
+```
+
+上传完成后的json响应 :
+
+```
+{
+  "success": true/false,
+  "msg": "error message", # optional
+  "file_path": "[real file path]"
+}
+```
+
+pasteImage - 设定是否支持图片黏贴上传,可以设置true开启 .
+
+cleanPaste - 自动删除粘贴内容中的所有样式 .
+
+imageButton - 开启从本地或者外部链接插入图片 , 默认两者都开启 , 图像按钮显示下拉菜单 . 默认值:\['upload', 'external'\]
+
+allowedTags - 标签白名单 , 自定义的也是追加合并的 , 所以默认null . 默认的标签有 :
+
+```
+['br', 'span', 'a', 'img', 'b', 'strong', 'i', 'strike', 'u', 'font', 'p', 'ul', 'ol', 'li', 'blockquote', 'pre', 'code', 'h1', 'h2', 'h3', 'h4', 'hr']
+```
+
+allowedAttributes - 属性白名单 , 自定义的也是追加合并的 , 所有默认null . 默认的属性有 :
+
+```
+img: ['src', 'alt', 'width', 'height', 'data-non-image']
+a: ['href', 'target']
+font: ['color']
+code: ['class']
+```
+
+allowedStyles - 内嵌样式白名单 , 同上 :
+
+```
+span: ['color', 'font-size']
+b: ['color']
+i: ['color']
+strong: ['color']
+strike: ['color']
+u: ['color']
+p: ['margin-left', 'text-align']
+h1: ['margin-left', 'text-align']
+h2: ['margin-left', 'text-align']
+h3: ['margin-left', 'text-align']
+h4: ['margin-left', 'text-align']
+```
+
+codeLanguages - 代码块支持的编程语言列表 :
+
+```
+[
+  { name: 'Bash', value: 'bash' }
+  { name: 'C++', value: 'c++' }
+  { name: 'C#', value: 'cs' }
+  { name: 'CSS', value: 'css' }
+  { name: 'Erlang', value: 'erlang' }
+  { name: 'Less', value: 'less' }
+  { name: 'Sass', value: 'sass' }
+  { name: 'Diff', value: 'diff' }
+  { name: 'CoffeeScript', value: 'coffeescript' }
+  { name: 'HTML,XML', value: 'html' }
+  { name: 'JSON', value: 'json' }
+  { name: 'Java', value: 'java' }
+  { name: 'JavaScript', value: 'js' }
+  { name: 'Markdown', value: 'markdown' }
+  { name: 'Objective C', value: 'oc' }
+  { name: 'PHP', value: 'php' }
+  { name: 'Perl', value: 'parl' }
+  { name: 'Python', value: 'python' }
+  { name: 'Ruby', value: 'ruby' }
+  { name: 'SQL', value: 'sql'}
+]
+```
 
 
 

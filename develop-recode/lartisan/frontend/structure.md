@@ -19,6 +19,10 @@
 }
 
 # yarn install
+# 如果install卡在
+mozjpeg: ℹ compiling from source
+# 需要看装sudo apt-get install libpng16-dev
+# 出处https://github.com/imagemin/imagemin-mozjpeg/issues/26
 ```
 
 后需添加包
