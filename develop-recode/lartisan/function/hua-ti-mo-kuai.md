@@ -26,7 +26,10 @@ php artisan vendor:publish --tag=laravel-pagination
 填充各个字段fill();
 保存之前切一部分内容作为excerpt,放在observer中.
 然后注册到App服务中.
-在TopicRequest卡一下输入权限
+在TopicRequest卡一下输入权限.
+中间件登录限制,show除外.
+
+# 引入编辑器Simditor 
 ```
 
 

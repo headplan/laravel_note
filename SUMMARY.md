@@ -111,6 +111,7 @@
         * [SASS语法简介](develop-recode/lartisan/frontend/structure/sass.md)
       * [布局结构](develop-recode/lartisan/frontend/layout.md)
       * [样式配色优化](develop-recode/lartisan/frontend/yang-shi-pei-se-you-hua.md)
+      * [Simditor编辑器](develop-recode/lartisan/frontend/simditorbian-ji-qi.md)
     * [数据](develop-recode/lartisan/database.md#database)
       * [模型文件](develop-recode/lartisan/database/mo-xing-wen-jian.md)
       * [对象操作](develop-recode/lartisan/database/dui-xiang-cao-zuo.md)
