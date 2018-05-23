@@ -41,6 +41,11 @@ toolbar后两个自定义图标改为淘宝图标.自定义跳转链接和click�
 编辑器拖拽复制上传图片,参考github:
 https://github.com/sparksuite/simplemde-markdown-editor/issues/328
 https://github.com/Laravel-Backpack/CRUD/issues/535
+emoji图标解析暂未添加--------------------------------------------->todo
+
+# 创建内容优化
+添加body_markdown字段,存储默认的markdown内容.
+修改Model的fillable,修改seed数据生成相关内容.
 ```
 
 
