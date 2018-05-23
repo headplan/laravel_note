@@ -34,10 +34,10 @@ php artisan vendor:publish --tag=laravel-pagination
 修改全屏样式,提到最前z-index:99999.
 markdown样式未修改---------------------------------------------->todo
 开启js本地缓存,缓存key为路由+更新时间
-添加title标题的缓存.
+添加title标题的缓存.localForage.
 预览代码高亮使用highlight.js,样式Atom One Dark
 预览追加wysiwyg类.
-toolbar样式图标改为淘宝图标.
+toolbar后两个自定义图标改为淘宝图标.自定义跳转链接和click提交按钮
 编辑器拖拽复制上传图片,参考github:
 https://github.com/sparksuite/simplemde-markdown-editor/issues/328
 https://github.com/Laravel-Backpack/CRUD/issues/535
