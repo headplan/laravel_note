@@ -29,7 +29,17 @@ php artisan vendor:publish --tag=laravel-pagination
 在TopicRequest卡一下输入权限.
 中间件登录限制,show除外.
 
-# 引入编辑器Simditor 
+# 引入编辑器SimpleMDE编辑器
+生成editor独立文件管理样式与js
+修改全屏样式,提到最前z-index:99999.
+markdown样式未修改---------------------------------------------->todo
+开启js本地缓存,缓存key为路由+更新时间
+预览代码高亮使用highlight.js,样式Atom One Dark
+预览追加bulma的content属性.
+toolbar样式图标改为淘宝图标.
+编辑器拖拽复制上传图片,参考github:
+https://github.com/sparksuite/simplemde-markdown-editor/issues/328
+https://github.com/Laravel-Backpack/CRUD/issues/535
 ```
 
 
