@@ -42,7 +42,6 @@ toolbar后两个自定义图标改为淘宝图标.自定义跳转链接和click�
 https://github.com/sparksuite/simplemde-markdown-editor/issues/328
 https://github.com/Laravel-Backpack/CRUD/issues/535
 emoji图标解析暂未添加--------------------------------------------->todo
-
 # 创建内容优化
 title简单过滤e();
 添加body_markdown字段,存储默认的markdown内容.
@@ -62,6 +61,10 @@ slug别名添加翻译,创建Handler类,管理.
 在Model中创建新的方法,调整新的路由格式.拼接id和slug.
 修改控制器中的调用为to($topic->link())
 修正show中的url地址,判断slug别名部位空并且请求的别名和实际别名不等则301从定向到前面的方法.
+添加百度翻译key--------------------------------------------->todo
+
+# 展示,编辑,删除
+# 展示,列表链接,show页面整理.
 ```
 
 
