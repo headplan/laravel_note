@@ -44,8 +44,23 @@ https://github.com/Laravel-Backpack/CRUD/issues/535
 emoji图标解析暂未添加--------------------------------------------->todo
 
 # 创建内容优化
+title简单过滤e();
 添加body_markdown字段,存储默认的markdown内容.
 修改Model的fillable,修改seed数据生成相关内容.
+添加markdown与html互转的插件,添加过滤html插件.创建Handler类,管理.
+composer require league/html-to-markdown -> html to markdown
+composer require erusev/parsedown -> markdown to html
+其他描述查看Handler类.
+添加client_platform字段,存储客户端平台信息手机IOS,安卓.
+创建helper获取Request::header('X-Client-Platform');
+内容图片在非定义格式内容上传默认图片,记录日志中--------------------------------->todo
+slug别名添加翻译,创建Handler类,管理.
+安装Guzzle HTTP套件.
+安装PinYin翻译扩展.
+如果没有则翻译slug别名.
+创建新的路由,添加别名字段.
+在Model中创建新的方法,调整新的路由格式.拼接id和slug.
+修改控制器中的调用为to($topic->link())
 ```
 
 
