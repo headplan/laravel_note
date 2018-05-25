@@ -19,7 +19,7 @@ Schema::table('users', function (Blueprint $table) {
 });
 ```
 
-#### categories
+#### categories - 主要记录主分类,暂无二级分类,预留.
 
 ```
 Schema::create('categories', function (Blueprint $table) {
@@ -35,7 +35,7 @@ Schema::create('categories', function (Blueprint $table) {
 });
 ```
 
-#### topics
+#### topics - 记录内容 , 包括帖子和专栏文章等.
 
 ```
 Schema::create('topics', function (Blueprint $table) {
@@ -57,6 +57,23 @@ Schema::create('topics', function (Blueprint $table) {
 });
 
 php artisan make:scaffold Topic --schema="title:string:index,body:text,user_id:integer:unsigned:index,category_id:integer:unsigned:index,reply_count:integer:unsigned:default(0),view_count:integer:unsigned:default(0),last_reply_user_id:integer:unsigned:default(0),order:integer:unsigned:default(0),excerpt:text,slug:string:nullable"
+```
+
+#### articles - 主要记录专栏分类
+
+```
+Schema::create('articles', function (Blueprint $table) {
+    $table->increments('id');
+    $table->string('name')->index()->comment('名称');
+    $table->string('slug')->index()->comment('别名');
+    $table->string('description')->comment('描述');
+    $table->string('cover')->comment('封面');
+    $table->integer('user_id')->unsigned()->index()->comment('用户ID');
+    $table->integer('article_count')->unsigned()->index()->default(0)->comment('文章数总数');
+    $table->integer('article_status')->default(0)->comment('0:默认私有专栏;1:公共专栏;2:推荐专栏;3:锁定专栏无法访问');
+    $table->timestamps();
+    $table->softDeletes();
+});
 ```
 
 
