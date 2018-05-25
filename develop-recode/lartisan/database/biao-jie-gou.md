@@ -59,7 +59,7 @@ Schema::create('topics', function (Blueprint $table) {
 php artisan make:scaffold Topic --schema="title:string:index,body:text,user_id:integer:unsigned:index,category_id:integer:unsigned:index,reply_count:integer:unsigned:default(0),view_count:integer:unsigned:default(0),last_reply_user_id:integer:unsigned:default(0),order:integer:unsigned:default(0),excerpt:text,slug:string:nullable"
 ```
 
-#### articles - 主要记录专栏分类
+#### articles - 记录专栏分类
 
 ```
 Schema::create('articles', function (Blueprint $table) {
@@ -73,6 +73,17 @@ Schema::create('articles', function (Blueprint $table) {
     $table->integer('article_status')->default(0)->comment('0:默认私有专栏;1:公共专栏;2:推荐专栏;3:锁定专栏无法访问');
     $table->timestamps();
     $table->softDeletes();
+});
+```
+
+#### article\_topics - 专栏分类ID与帖子\(即内容\)ID
+
+```
+Schema::create('article_topics', function (Blueprint $table) {
+    $table->integer('article_id')->unsigned()->index()->comment('文章ID');
+    $table->integer('topic_id')->unsigned()->index()->comment('帖子,即内容ID');
+    $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
+    $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
 });
 ```
 
