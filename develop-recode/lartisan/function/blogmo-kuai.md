@@ -15,6 +15,7 @@ php artisan make:controller ArticlesController --resource
 
 # 修改头部入口链接,没有专栏默认进入创建专栏页,有则进入添加内容页.
 专栏路由:articles/columns
+# 基本的完成,暂时备份,整理list完善流程.
 ```
 
 ---
