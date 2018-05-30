@@ -3,7 +3,7 @@
 生成数据迁移以及基本内容
 
 ```
-php artisan make:migration create_articles_table
+php artisan make:migration create_article_categories_table
 php artisan make:migration create_article_topics_table
 ```
 

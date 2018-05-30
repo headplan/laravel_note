@@ -62,7 +62,7 @@ php artisan make:scaffold Topic --schema="title:string:index,body:text,user_id:i
 #### articles - 记录专栏分类
 
 ```
-Schema::create('articles', function (Blueprint $table) {
+Schema::create('article_categories', function (Blueprint $table) {
     $table->increments('id');
     $table->string('name')->index()->comment('名称');
     $table->string('slug')->index()->comment('别名');
@@ -82,7 +82,7 @@ Schema::create('articles', function (Blueprint $table) {
 Schema::create('article_topics', function (Blueprint $table) {
     $table->integer('article_id')->unsigned()->index()->comment('文章ID');
     $table->integer('topic_id')->unsigned()->index()->comment('帖子,即内容ID');
-    $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
+    $table->foreign('article_id')->references('id')->on('article_categories')->onDelete('cascade');
     $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
 });
 ```

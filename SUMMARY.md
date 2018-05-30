@@ -123,7 +123,7 @@
       * [用户模块](develop-recode/lartisan/function/yong-hu-mo-kuai.md)
       * [分类模块](develop-recode/lartisan/function/fen-lei-mo-kuai.md)
       * [话题模块](develop-recode/lartisan/function/hua-ti-mo-kuai.md)
-      * [专题模块](develop-recode/lartisan/function/blogmo-kuai.md)
+      * [专栏模块](develop-recode/lartisan/function/blogmo-kuai.md)
       * [User模块](develop-recode/lartisan/function/usermo-kuai.md)
       * [Backend模块](develop-recode/lartisan/function/backendmo-kuai.md)
         * [登录](develop-recode/lartisan/function/backendmo-kuai/deng-lu.md)
