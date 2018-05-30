@@ -71,6 +71,7 @@ Schema::create('article_categories', function (Blueprint $table) {
     $table->integer('user_id')->unsigned()->index()->comment('用户ID');
     $table->integer('article_count')->unsigned()->index()->default(0)->comment('文章数总数');
     $table->integer('article_status')->default(0)->comment('0:默认私有专栏;1:公共专栏;2:推荐专栏;3:锁定专栏无法访问');
+    $table->integer('article_order')->default(1)->comment('排序字段');
     $table->timestamps();
     $table->softDeletes();
 });
