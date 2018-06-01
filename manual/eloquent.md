@@ -62,11 +62,11 @@ public function belongsTo($related, $foreignKey = null, $ownerKey = null, $relat
 
 **默认模型**
 
-belongsTo允许使用默认模型 , 这种设计模式通常称为空对象 , 默认返回null , 也可以定义没有找到对应父类内容时的默认值 . 
+belongsTo允许使用默认模型 , 这种设计模式通常称为空对象 , 默认返回null , 也可以定义没有找到对应父类内容时的默认值 .
 
-免去了判断的部分 . 
+免去了判断的部分 .
 
-使用withDefault\(\)方法 , 其接受数组和闭包的方式 . 
+使用withDefault\(\)方法 , 其接受数组和闭包的方式 .
 
 ```php
 public function user()
@@ -84,6 +84,10 @@ public function user()
     });
 }
 ```
+
+---
+
+**一对多**
 
 
 
