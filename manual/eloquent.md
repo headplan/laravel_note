@@ -89,5 +89,16 @@ public function user()
 
 **一对多**
 
+关联用于定义单个模型拥有任意数量的其它关联模型 , 例如一篇文章有无限多条评论 . 
+
+例如在文章Article模型中定义评论Comment关联 . 
+
+```php
+public function comments()
+{
+    return $this->hasMany('App\Comment');
+}
+```
+
 
 
