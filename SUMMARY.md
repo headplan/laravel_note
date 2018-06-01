@@ -30,6 +30,7 @@
 * [官方手册](manual.md#manual)
   * [基本功能](manual/ji-ben-gong-neng.md)
   * [编译前端资源](manual/bian-yi-qian-duan-zi-yuan.md)
+  * [Eloquent](manual/eloquent.md)
 * [精选资源](awesome-laravel.md#awesome-laravel)
   * [Laravel-debugbar](awesome-laravel/laravel-debugbar.md)
   * [Laravel-ide-helper](awesome-laravel/laravel-ide-helper.md#laravel-ide-helper)
