@@ -219,7 +219,7 @@ class UserRole extends Pivot
 
 #### 远层一对多
 
-通过一个例子来看一下 , 远层是什么意思 . 例如，一个`Country`模型可以通过中间的`User`模型获得多个`Post`模型 . 
+通过一个例子来看一下 , 远层是什么意思 . 例如，一个`Country`模型可以通过中间的`User`模型获得多个`Post`模型 .
 
 ```
 countries
@@ -238,4 +238,20 @@ posts
 ```
 
 这里 , 我们要做的是 , 获取指定国家的所有博客文章 . 
+
+虽然 posts 表中不包含 country\_id 字段，但 hasManyThrough 关联能让我们通过 $country-&gt;posts 访问到一个国家下所有的用户文章。为了完成这个查询，Eloquent 会先检查中间表 users 的 country\_id 字段，找到所有匹配的用户 ID 后，使用这些 ID，在 posts 表中完成查找。
+
+在Country模型中定义关联 : 
+
+```php
+/**
+ * 获得某个国家下所有的用户文章。
+ */
+public function posts()
+{
+    return $this->hasManyThrough('App\Post', 'App\User');
+}
+```
+
+
 
