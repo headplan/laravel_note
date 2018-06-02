@@ -160,9 +160,28 @@ return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
 
 **定义反向关联**
 
-反向关联同上 , 使用方式都一样 . 
+反向关联同上 , 使用方式都一样 .
 
+**获取中间表字段**
 
+使用pivot属性访问中间表的数据 , 就像一个模型一样使用 . 
+
+```php
+$user = App\User::find(1);
+
+foreach ($user->roles as $role) {
+    echo $role->pivot->created_at;
+}
+```
+
+关联表一般只有俩个字段 , 就是前面的user\_id和role\_id , 如果还有其他字段 , 需要在定义关联时候指定一下 . 
+
+```php
+return $this->belongsToMany('App\Role')->withPivot('column1', 'column2');
+return $this->belongsToMany('App\Role')->withTimestamps(); # 表示指定了时间戳
+```
 
 ---
+
+
 
