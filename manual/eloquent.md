@@ -237,11 +237,11 @@ posts
     title - string
 ```
 
-这里 , 我们要做的是 , 获取指定国家的所有博客文章 . 
+这里 , 我们要做的是 , 获取指定国家的所有博客文章 .
 
 虽然 posts 表中不包含 country\_id 字段，但 hasManyThrough 关联能让我们通过 $country-&gt;posts 访问到一个国家下所有的用户文章。为了完成这个查询，Eloquent 会先检查中间表 users 的 country\_id 字段，找到所有匹配的用户 ID 后，使用这些 ID，在 posts 表中完成查找。
 
-在Country模型中定义关联 : 
+在Country模型中定义关联 :
 
 ```php
 /**
@@ -250,6 +250,27 @@ posts
 public function posts()
 {
     return $this->hasManyThrough('App\Post', 'App\User');
+}
+```
+
+hasManyThroughf方法的第一个参数 , 为最终要访问的模型 , 第二个参数是中间经过的模型 . 
+
+通常就不用其他参数了 , 因为外键按照格式约定好了, 如果需要自定义 , 也是可以的 : 
+
+```php
+class Country extends Model
+{
+    public function posts()
+    {
+        return $this->hasManyThrough(
+            'App\Post',
+            'App\User',
+            'country_id', // 用户表外键...
+            'user_id', // 文章表外键...
+            'id', // 国家表本地键...
+            'id' // 用户表本地键...
+        );
+    }
 }
 ```
 
