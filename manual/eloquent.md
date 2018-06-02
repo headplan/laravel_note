@@ -164,7 +164,7 @@ return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
 
 **获取中间表字段**
 
-使用pivot属性访问中间表的数据 , 就像一个模型一样使用 . 
+使用pivot属性访问中间表的数据 , 就像一个模型一样使用 .
 
 ```php
 $user = App\User::find(1);
@@ -174,11 +174,21 @@ foreach ($user->roles as $role) {
 }
 ```
 
-关联表一般只有俩个字段 , 就是前面的user\_id和role\_id , 如果还有其他字段 , 需要在定义关联时候指定一下 . 
+关联表一般只有俩个字段 , 就是前面的user\_id和role\_id , 如果还有其他字段 , 需要在定义关联时候指定一下 .
 
 ```php
 return $this->belongsToMany('App\Role')->withPivot('column1', 'column2');
 return $this->belongsToMany('App\Role')->withTimestamps(); # 表示指定了时间戳
+```
+
+**通过中间表过滤关联数据**
+
+定义时时候wherePivot和wherePivotIn方法 . 
+
+```php
+return $this->belongsToMany('App\Role')->wherePivot('approved', 1);
+
+return $this->belongsToMany('App\Role')->wherePivotIn('priority', [1, 2]);
 ```
 
 ---
