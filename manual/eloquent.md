@@ -4,6 +4,15 @@
 
 #### 定义关联
 
+```
+一对一:hasOne(),belongsTo()
+一对多:hasMany(),belongsTo()
+多对多:belongsToMany(),belongsToMany()
+远层一对多:hasManyThrough()
+多态关联:
+多对多多态关联:
+```
+
 #### **一对一**
 
 ```php
@@ -253,9 +262,9 @@ public function posts()
 }
 ```
 
-hasManyThroughf方法的第一个参数 , 为最终要访问的模型 , 第二个参数是中间经过的模型 . 
+hasManyThroughf方法的第一个参数 , 为最终要访问的模型 , 第二个参数是中间经过的模型 .
 
-通常就不用其他参数了 , 因为外键按照格式约定好了, 如果需要自定义 , 也是可以的 : 
+通常就不用其他参数了 , 因为外键按照格式约定好了, 如果需要自定义 , 也是可以的 :
 
 ```php
 class Country extends Model
@@ -273,6 +282,12 @@ class Country extends Model
     }
 }
 ```
+
+---
+
+#### 多态关联
+
+允许一个模型在单个关联上属于多个其他模型 . 举个简单的例子就是 , 用户既可以评论文章 , 又可以评论视频 . 就是使用一个comments评论表 , 同时满足两个使用场景 . 
 
 
 
