@@ -193,7 +193,7 @@ return $this->belongsToMany('App\Role')->wherePivotIn('priority', [1, 2]);
 
 **定义自定义中间表模型**
 
-前面都是在关联模型时 , 使用pivot等方法对关联表进行操作 , 还可以继承Pivot类 , 直接定义个关联表模型 , 在belongsToMany后面使用using表示使用 : 
+前面都是在关联模型时 , 使用pivot等方法对关联表进行操作 , 还可以继承Pivot类 , 直接定义个关联表模型 , 在belongsToMany后面使用using表示使用 :
 
 ```php
 public function users()
@@ -217,5 +217,25 @@ class UserRole extends Pivot
 
 ---
 
+#### 远层一对多
 
+通过一个例子来看一下 , 远层是什么意思 . 例如，一个`Country`模型可以通过中间的`User`模型获得多个`Post`模型 . 
+
+```
+countries
+    id - integer
+    name - string
+
+users
+    id - integer
+    country_id - integer
+    name - string
+
+posts
+    id - integer
+    user_id - integer
+    title - string
+```
+
+这里 , 我们要做的是 , 获取指定国家的所有博客文章 . 
 
