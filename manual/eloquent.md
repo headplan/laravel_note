@@ -183,12 +183,36 @@ return $this->belongsToMany('App\Role')->withTimestamps(); # 表示指定了时�
 
 **通过中间表过滤关联数据**
 
-定义时时候wherePivot和wherePivotIn方法 . 
+定义时时候wherePivot和wherePivotIn方法 .
 
 ```php
 return $this->belongsToMany('App\Role')->wherePivot('approved', 1);
 
 return $this->belongsToMany('App\Role')->wherePivotIn('priority', [1, 2]);
+```
+
+**定义自定义中间表模型**
+
+前面都是在关联模型时 , 使用pivot等方法对关联表进行操作 , 还可以继承Pivot类 , 直接定义个关联表模型 , 在belongsToMany后面使用using表示使用 : 
+
+```php
+public function users()
+{
+    return $this->belongsToMany('App\User')->using('App\UserRole');
+}
+```
+
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
+class UserRole extends Pivot
+{
+    //
+}
 ```
 
 ---
