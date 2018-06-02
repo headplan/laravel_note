@@ -9,7 +9,7 @@
 一对多:hasMany(),belongsTo()
 多对多:belongsToMany(),belongsToMany()
 远层一对多:hasManyThrough()
-多态关联:
+多态关联:morphMany(),morphMany(),morphTo()
 多对多多态关联:
 ```
 
@@ -350,5 +350,15 @@ class Video extends Model
 }
 ```
 
+再来看一下具体参数 : 
 
+```php
+public function morphMany($related, $name, $type = null, $id = null, $localKey = null)
+```
+
+第一个参数 , 看英文是相关的 , 这里也就是comment模型 . 
+
+第二个参数 , 名字即访问评论模型时的属性名 , 也就是函数名 . 
+
+后面三个参数 , 即是指定comments表中自定义的commentable\_id和commentable\_type字段 , 最后一个就是本地key , 就是Post或者Video的id . 
 
