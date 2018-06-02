@@ -287,7 +287,7 @@ class Country extends Model
 
 #### 多态关联
 
-允许一个模型在单个关联上属于多个其他模型 . 举个简单的例子就是 , 用户既可以评论文章 , 又可以评论视频 . 就是使用一个comments评论表 , 同时满足两个使用场景 . 看一个简单的表结构 : 
+允许一个模型在单个关联上属于多个其他模型 . 举个简单的例子就是 , 用户既可以评论文章 , 又可以评论视频 . 就是使用一个comments评论表 , 同时满足两个使用场景 . 看一个简单的表结构 :
 
 ```
 posts
@@ -307,9 +307,9 @@ comments
     commentable_type - string
 ```
 
-文章 , 视频 , 评论 , 这里要注意的是评论表中的commentable\_id和commentable\_type . `commentable_id`用来保存视频和文章的ID值 . `commentable_type`用来保存所属模型的类名 . 这样就达到了多态的效果 . 接下来直接看一下这种多态的方式 , 模型中应该怎样定义 : 
+文章 , 视频 , 评论 , 这里要注意的是评论表中的commentable\_id和commentable\_type . `commentable_id`用来保存视频和文章的ID值 . `commentable_type`用来保存所属模型的类名 . 这样就达到了多态的效果 . 接下来直接看一下这种多态的方式 , 模型中应该怎样定义 :
 
-```
+```php
 <?php
 
 namespace App;
