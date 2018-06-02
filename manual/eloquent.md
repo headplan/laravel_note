@@ -4,7 +4,7 @@
 
 #### 定义关联
 
-**一对一**
+#### **一对一**
 
 ```php
 public function phone()
@@ -87,7 +87,7 @@ public function user()
 
 ---
 
-**一对多**
+#### **一对多**
 
 关联用于定义单个模型拥有任意数量的其它关联模型 , 例如一篇文章有无限多条评论 .
 
@@ -100,13 +100,32 @@ public function comments()
 }
 ```
 
-调用方法和参数和hasOne方法一样 , 都是默认以snake+\_id的方式关联父级模型的id主键 . 
+调用方法和参数和hasOne方法一样 , 都是默认以snake+\_id的方式关联父级模型的id主键 .
 
 访问也可以链式操作 .
 
 ```php
 return $this->hasMany('App\Comment', 'foreign_key', 'local_key');
 ```
+
+**一对多反向关联**
+
+使用方式和一对一中的一样 , 在子级模型中使用`belongsTo`方法定义它 . 
+
+```php
+public function post()
+{
+    return $this->belongsTo('App\Post');
+}
+```
+
+默认的withDefault\(\)等其他都一样 . 
+
+---
+
+#### 多对多
+
+常见的关联关系 , 就是用户与角色的关联 . N个用户可以是管理员 . 这里需要约定 , user表 , role表 , role\_user表 , 其中role\_user是以相关联的两个模型数据表、依照字母顺序排列命名的，并且包含`user_id`和`role_id`字段 . 
 
 
 
