@@ -110,7 +110,7 @@ return $this->hasMany('App\Comment', 'foreign_key', 'local_key');
 
 **一对多反向关联**
 
-使用方式和一对一中的一样 , 在子级模型中使用`belongsTo`方法定义它 . 
+使用方式和一对一中的一样 , 在子级模型中使用`belongsTo`方法定义它 .
 
 ```php
 public function post()
@@ -119,13 +119,44 @@ public function post()
 }
 ```
 
-默认的withDefault\(\)等其他都一样 . 
+默认的withDefault\(\)等其他都一样 .
 
 ---
 
 #### 多对多
 
-常见的关联关系 , 就是用户与角色的关联 . N个用户可以是管理员 . 这里需要约定 , user表 , role表 , role\_user表 , 其中role\_user是以相关联的两个模型数据表、依照字母顺序排列命名的，并且包含`user_id`和`role_id`字段 . 
+常见的关联关系 , 就是用户与角色的关联 . N个用户可以是管理员 . 这里需要约定 , user表 , role表 , role\_user表 , 其中role\_user是以相关联的两个模型数据表、依照字母顺序排列命名的，并且包含`user_id`和`role_id`字段 .
+
+例如获取用户的所有角色 : 
+
+```php
+public function roles()
+{
+    return $this->belongsToMany('App\Role');
+}
+```
+
+这里获取用户的角色 , 需要使用的是roles\(\)方法 : 
+
+```php
+$user = App\User::find(1);
+
+foreach ($user->roles as $role) {
+    //
+}
+```
+
+依然可以使用链式操作 , 进行条件约束 : 
+
+```php
+$roles = App\User::find(1)->roles()->orderBy('name')->get();
+```
+
+belongsToMany方法中有4个参数 , 第一个就是要关联的模型 , 后三个参数分别自定义中间表名 , 已经两个关联的键名 : 
+
+```php
+return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
+```
 
 
 
