@@ -482,11 +482,31 @@ class Tag extends Model
 }
 ```
 
-morphedByMany方法的参数 : 
+morphedByMany方法的参数 :
 
 ```php
 public function morphedByMany($related, $name, $table = null, $foreignPivotKey = null,
                                   $relatedPivotKey = null, $parentKey = null, $relatedKey = null)
+```
+
+**获取关联**
+
+获取数据也很简单 , 配置好关联关系之后 , 就可以直接获取了 . 
+
+```php
+$post = App\Post::find(1);
+
+foreach ($post->tags as $tag) {
+    //
+}
+```
+
+```php
+$tag = App\Tag::find(1);
+
+foreach ($tag->videos as $video) {
+    //
+}
 ```
 
 
