@@ -14,7 +14,7 @@ $users = DB::table('users')
 
 #### Left Join 语句
 
-如果想用「左连接」来代替「内连接」, 使用`leftJoin`方法 . `leftJoin`方法的用法和`join`方法一样 : 
+如果想用「左连接」来代替「内连接」, 使用`leftJoin`方法 . `leftJoin`方法的用法和`join`方法一样 :
 
 ```php
 $users = DB::table('users')
@@ -24,13 +24,17 @@ $users = DB::table('users')
 
 #### Cross Join 语句
 
-使用`crossJoin`方法和想要交叉连接的表名来做「交叉连接」. 交叉连接在第一个表和连接之间生成笛卡尔积 : 
+使用`crossJoin`方法和想要交叉连接的表名来做「交叉连接」. 交叉连接在第一个表和连接之间生成笛卡尔积 :
 
 ```php
 $users = DB::table('sizes')
             ->crossJoin('colours')
             ->get();
 ```
+
+#### 高级 Join 语句
+
+传递一个`闭包`作为`join`方法的第二个参数 . 此`闭包`接收一个`JoinCluase`对象 , 也就是Join子句对象 . 
 
 
 
