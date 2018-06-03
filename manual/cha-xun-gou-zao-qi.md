@@ -54,7 +54,7 @@ foreach ($roles as $name => $title) {
 }
 ```
 
-分块处理 , 也就是一次从表中取出一块 , 来处理 , 直到完成 , 可以返回false阻止 : 
+分块处理 , 也就是一次从表中取出一块 , 来处理 , 直到完成 , 可以返回false阻止 :
 
 ```php
 DB::table('users')->orderBy('id')->chunk(100, function ($users) {
@@ -64,5 +64,7 @@ DB::table('users')->orderBy('id')->chunk(100, function ($users) {
 });
 ```
 
+常见的聚合函数
 
+`count`、`max`、`min`、`avg`和`sum`
 
