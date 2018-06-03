@@ -68,3 +68,9 @@ DB::table('users')->orderBy('id')->chunk(100, function ($users) {
 
 `count`、`max`、`min`、`avg`和`sum`
 
+```php
+$price = DB::table('orders')->max('price');
+```
+
+
+
