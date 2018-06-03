@@ -350,15 +350,29 @@ class Video extends Model
 }
 ```
 
-再来看一下具体参数 : 
+再来看一下具体参数 :
 
 ```php
 public function morphMany($related, $name, $type = null, $id = null, $localKey = null)
 ```
 
-第一个参数 , 看英文是相关的 , 这里也就是comment模型 . 
+第一个参数 , 看英文是相关的 , 这里也就是comment模型 .
 
-第二个参数 , 名字即访问评论模型时的属性名 , 也就是函数名 . 
+第二个参数 , 名字即访问评论模型时的属性名 , 也就是函数名 .
 
-后面三个参数 , 即是指定comments表中自定义的commentable\_id和commentable\_type字段 , 最后一个就是本地key , 就是Post或者Video的id . 
+后面三个参数 , 即是指定comments表中自定义的commentable\_id和commentable\_type字段 , 最后一个就是本地key , 就是Post或者Video的id .
+
+**获取多态关联**
+
+数据库表准备好、模型定义完成后 , 就可以直接访问获取关联数据 . 
+
+```php
+$post = App\Post::find(1);
+
+foreach ($post->comments as $comment) {
+    //
+}
+```
+
+
 
