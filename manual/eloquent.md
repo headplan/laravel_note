@@ -401,5 +401,49 @@ Relation::morphMap([
 
 ---
 
+#### 多对多多态关联
+
+这里最好的理解方式 , 就是Tag标签的概念 . 例如 , Post 模型和 Video 模型可以共享一个多态关联至 Tag 模型 . 使用多对多多态关联可以让您在文章和视频中共享唯一的标签列表 . 先来看看数据表结构 : 
+
+```
+posts
+    id - integer
+    name - string
+
+videos
+    id - integer
+    name - string
+
+tags
+    id - integer
+    name - string
+
+taggables
+    tag_id - integer
+    taggable_id - integer
+    taggable_type - string
+```
+
+然后在模型上定义关联关系 : 
+
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    /**
+     * 获得此文章的所有标签。
+     */
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggable');
+    }
+}
+```
+
 
 
