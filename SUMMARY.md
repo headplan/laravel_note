@@ -32,6 +32,7 @@
   * [编译前端资源](manual/bian-yi-qian-duan-zi-yuan.md)
   * [查询构造器](manual/cha-xun-gou-zao-qi.md)
     * [获取结果](manual/cha-xun-gou-zao-qi/huo-qu-jie-guo.md)
+    * [Select](manual/cha-xun-gou-zao-qi/select.md)
   * [Eloquent](manual/eloquent.md)
     * [关联关系](manual/eloquent/guan-lian-guan-xi.md)
     * [关联操作](manual/eloquent/guan-lian-cao-zuo.md)
