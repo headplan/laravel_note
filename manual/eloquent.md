@@ -364,7 +364,7 @@ public function morphMany($related, $name, $type = null, $id = null, $localKey =
 
 **获取多态关联**
 
-数据库表准备好、模型定义完成后 , 就可以直接访问获取关联数据 . 
+数据库表准备好、模型定义完成后 , 就可以直接访问获取关联数据 .
 
 ```php
 $post = App\Post::find(1);
@@ -372,6 +372,29 @@ $post = App\Post::find(1);
 foreach ($post->comments as $comment) {
     //
 }
+```
+
+还可以通过访问调用了`morphTo`的关联方法获得多态关联的拥有者 . 
+
+```php
+$comment = App\Comment::find(1);
+
+$commentable = $comment->commentable;
+```
+
+这里会根据类型返回会返回`Post`或者`Video`实例 . 
+
+**自定义多态关联的类型字段**
+
+默认 , Laravel 会使用完全限定类名作为关联模型保存在多态模型上的类型字段值 . 根据前面的例子 , 其意思就是Comment 属于 Post 或者 Video , 那么 commentable\_type 的默认值对应地就是 App\Post 和 App\Video . 这是完全限定的 . 为了解耦 , 可以在AppServiceProvider中 , 初始化时候添加一个自定义的多态映射表 . 
+
+```php
+use Illuminate\Database\Eloquent\Relations\Relation;
+
+Relation::morphMap([
+    'posts' => 'App\Post',
+    'videos' => 'App\Video',
+]);
 ```
 
 
