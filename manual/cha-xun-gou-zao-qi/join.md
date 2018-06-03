@@ -44,5 +44,16 @@ DB::table('users')
         ->get();
 ```
 
+其中 , 还可以使用where条件进行约束 , 比较值和对应的字段 , 依然可以使用链式操作 : 
+
+```php
+DB::table('users')
+        ->join('contacts', function ($join) {
+            $join->on('users.id', '=', 'contacts.user_id')
+                 ->where('contacts.user_id', '>', 5);
+        })
+        ->get();
+```
+
 
 
