@@ -1,5 +1,16 @@
 # Select
 
+```
+select()
+distinct()
+addSelect()
+DB:raw()
+selectRaw()
+whereRaw/orWhereRaw
+havingRaw/orHavingRaw
+orderByRaw()
+```
+
 **指定字段查询**
 
 ```php
@@ -25,7 +36,7 @@ $users = $query->addSelect('age')->get();
 ->select(DB::raw('count(*) as user_count, status'))
 ```
 
-DB::raw\(\)的参数是字符串 , 所以要注意注入的可能 . 
+DB::raw\(\)的参数是字符串 , 所以要注意注入的可能 .
 
 **原生方法**
 
@@ -39,7 +50,7 @@ DB::raw\(\)的参数是字符串 , 所以要注意注入的可能 .
 
 #### `whereRaw / orWhereRaw`
 
-这两个方法可以写原生where , 第二个参数也是绑定的参数 . 
+这两个方法可以写原生where , 第二个参数也是绑定的参数 .
 
 ```php
 ->whereRaw('price > IF(state = "TX", ?, 100)', [200])
