@@ -10,7 +10,7 @@
 多对多:belongsToMany(),belongsToMany()
 远层一对多:hasManyThrough()
 多态关联:morphMany(),morphMany(),morphTo()
-多对多多态关联:
+多对多多态关联:morphToMany(),morphedByMany()
 ```
 
 #### **一对一**
@@ -445,7 +445,15 @@ class Post extends Model
 }
 ```
 
-定义反向关联 : 
+这里的morphToMany\(\)方法也支持很多自定义参数 , 主要就是为了自定义一些关联的键 : 
+
+```php
+public function morphToMany($related, $name, $table = null, $foreignPivotKey = null,
+    $relatedPivotKey = null, $parentKey = null,
+    $relatedKey = null, $inverse = false)
+```
+
+定义反向关联 :
 
 ```php
 <?php
