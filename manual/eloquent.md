@@ -445,7 +445,7 @@ class Post extends Model
 }
 ```
 
-这里的morphToMany\(\)方法也支持很多自定义参数 , 主要就是为了自定义一些关联的键 : 
+这里的morphToMany\(\)方法也支持很多自定义参数 , 主要就是为了自定义一些关联的键 :
 
 ```php
 public function morphToMany($related, $name, $table = null, $foreignPivotKey = null,
@@ -480,6 +480,13 @@ class Tag extends Model
         return $this->morphedByMany('App\Video', 'taggable');
     }
 }
+```
+
+morphedByMany方法的参数 : 
+
+```php
+public function morphedByMany($related, $name, $table = null, $foreignPivotKey = null,
+                                  $relatedPivotKey = null, $parentKey = null, $relatedKey = null)
 ```
 
 
