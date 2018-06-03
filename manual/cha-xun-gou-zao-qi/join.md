@@ -34,7 +34,15 @@ $users = DB::table('sizes')
 
 #### 高级 Join 语句
 
-传递一个`闭包`作为`join`方法的第二个参数 . 此`闭包`接收一个`JoinCluase`对象 , 也就是Join子句对象 . 
+传递一个`闭包`作为`join`方法的第二个参数 . 此`闭包`接收一个`JoinCluase`对象 , 也就是Join子句对象 .
+
+```php
+DB::table('users')
+        ->join('contacts', function ($join) {
+            $join->on('users.id', '=', 'contacts.user_id')->orOn(...);
+        })
+        ->get();
+```
 
 
 
