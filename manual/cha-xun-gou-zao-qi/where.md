@@ -41,6 +41,15 @@ $users = DB::table('users')->where([
 
 #### Or语句
 
+这里的orWhere方法和where方法一样 , 实现也是调用where方法 , 只是把where默认的第四个参数改为了or :
+
+```php
+$users = DB::table('users')
+                    ->where('votes', '>', 100)
+                    ->orWhere('name', 'John')
+                    ->get();
+```
+
 #### 其他where语句
 
 ---
