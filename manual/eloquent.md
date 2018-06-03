@@ -397,5 +397,9 @@ Relation::morphMap([
 ]);
 ```
 
-这样 , 存在commentable\_type中的就是posts和videos , 就不是直接存的类名了 . 当然也可以使用一个独立的服务提供者注册 . 
+这样 , 存在commentable\_type中的就是posts和videos , 就不是直接存的类名了 . 当然也可以使用一个独立的服务提供者注册 .
+
+---
+
+
 
