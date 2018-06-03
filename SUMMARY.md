@@ -39,6 +39,10 @@
     * [Where](manual/cha-xun-gou-zao-qi/where.md)
     * [Order,Group,limit & Offset](manual/cha-xun-gou-zao-qi/ordergrouplimit-and-offset.md)
     * [条件语句](manual/cha-xun-gou-zao-qi/tiao-jian-yu-ju.md)
+    * Insert
+    * Update
+    * Delete
+    * 悲观锁
   * [Eloquent](manual/eloquent.md)
     * [关联关系](manual/eloquent/guan-lian-guan-xi.md)
     * [关联操作](manual/eloquent/guan-lian-cao-zuo.md)
