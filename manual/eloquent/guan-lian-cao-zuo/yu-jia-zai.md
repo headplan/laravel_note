@@ -52,13 +52,51 @@ select * from authors where id in (1, 2, 3, 4, 5, ...)
 
 ---
 
-预加载多个关联
+#### 预加载多个关联
 
-嵌套预加载
+在with中使用数组参数即可 : 
 
-为预加载添加约束条件
+```php
+$books = App\Book::with(['author', 'publisher'])->get();
+```
 
-延迟预加载
+#### 嵌套预加载
+
+和前面的查询关联一样 , 也可以使用点连接的方式 , 例如 , 预加载所有书籍作者和这些作者的联系信息 : 
+
+```php
+$books = App\Book::with('author.contacts')->get();
+```
+
+#### 为预加载添加约束条件
+
+预加载的条件约束依然可以使用闭包的方式添加 , 依然可以使用查询语句构造器的所有方法 : 
+
+```php
+$users = App\User::with(['posts' => function ($query) {
+    $query->where('title', 'like', '%first%');
+}])->get();
+```
+
+#### 延迟预加载
+
+即动态的决定是否加载关联模型 , 例如 , 获得父级模型后才去进行预加载 : 
+
+```php
+$books = App\Book::all();
+
+if ($someCondition) {
+    $books->load('author', 'publisher');
+}
+```
+
+延迟预加载也支持条件约束 , 还是使用闭包的方式 : 
+
+```php
+$books->load(['author' => function ($query) {
+    $query->orderBy('published_date', 'asc');
+}]);
+```
 
 
 
