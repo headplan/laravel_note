@@ -58,7 +58,7 @@ $post->comments()->createMany([
 
 #### 更新belongsTo关联
 
-使用`associate`方法 , 其会在子模型中设置外键 : 
+使用`associate`方法 , 其会在子模型中设置外键 :
 
 ```php
 $account = App\Account::find(10);
@@ -68,7 +68,7 @@ $user->account()->associate($account);
 $user->save();
 ```
 
-删除belongsTo关联时 , 可以使用dissociate方法 , 其将会设置关联外键为null : 
+删除belongsTo关联时 , 可以使用dissociate方法 , 其将会设置关联外键为null :
 
 ```php
 $user->account()->dissociate();
@@ -76,17 +76,7 @@ $user->account()->dissociate();
 $user->save();
 ```
 
-#### 多对多关联
-
-**附加/移除**
-
-**同步关联**
-
-**切换关联**
-
-**在中间表上保存额外数据**
-
-**更新中间表记录**
+#### 
 
 
 
