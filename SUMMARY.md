@@ -46,6 +46,10 @@
   * [Eloquent](manual/eloquent.md)
     * [关联关系](manual/eloquent/guan-lian-guan-xi.md)
     * [关联操作](manual/eloquent/guan-lian-cao-zuo.md)
+      * [查询关联](manual/eloquent/guan-lian-cao-zuo/cha-xun-guan-lian.md)
+      * 预加载
+      * 插入&更新关联模型
+      * 更新父级时间戳
 * [精选资源](awesome-laravel.md#awesome-laravel)
   * [Laravel-debugbar](awesome-laravel/laravel-debugbar.md)
   * [Laravel-ide-helper](awesome-laravel/laravel-ide-helper.md#laravel-ide-helper)
