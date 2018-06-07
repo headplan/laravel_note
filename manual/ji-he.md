@@ -55,7 +55,7 @@ $upper = $collection->toUpper();
 // ['FIRST', 'SECOND']
 ```
 
-在Eloquent中想在自己的扩展方法中使用自定义的`Collection`对象 , 可以在自己的模型中重写`newCollection`方法 , 或者在统一继承的Model中写 . 
+在Eloquent中想在自己的扩展方法中使用自定义的`Collection`对象 , 可以在自己的模型中重写`newCollection`方法 , 或者在统一继承的Model中写 .
 
 ```php
 <?php
@@ -80,5 +80,5 @@ class User extends Model
 }
 ```
 
-
+现在 , 就可以在 Eloquent 返回的模型的`Collection`实例中获取你的自定义集合实例了 . 
 
