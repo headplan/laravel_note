@@ -69,7 +69,7 @@ $user->roles()->toggle([1, 2, 3]);
 
 #### 在中间表上保存额外数据
 
-当处理多对多关联时 , `save`方法还可以使用第二个参数 , 它是一个属性数组 , 包含插入到中间表的额外字段数据 . 
+当处理多对多关联时 , `save`方法还可以使用第二个参数 , 它是一个属性数组 , 包含插入到中间表的额外字段数据 .
 
 ```php
 App\User::find(1)->roles()->save($role, ['expires' => $expires]);
@@ -77,7 +77,7 @@ App\User::find(1)->roles()->save($role, ['expires' => $expires]);
 
 #### 更新中间表记录
 
-如果需要更新中间表中已存在的记录 , 可以使用 updateExistingPivot 方法 . 此方法接收中间记录的外键和一个属性数组进行更新 : 
+如果需要更新中间表中已存在的记录 , 可以使用 updateExistingPivot 方法 . 此方法接收中间记录的外键和一个属性数组进行更新 :
 
 ```php
 $user = App\User::find(1);
