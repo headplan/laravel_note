@@ -51,7 +51,7 @@
       * [插入&更新关联模型](manual/eloquent/guan-lian-cao-zuo/cha-516526-geng-xin-guan-lian-mo-xing.md)
         * [多对多关联](manual/eloquent/guan-lian-cao-zuo/cha-516526-geng-xin-guan-lian-mo-xing/duo-dui-duo-guan-lian.md)
       * [更新父级时间戳](manual/eloquent/guan-lian-cao-zuo/geng-xin-fu-ji-shi-jian-chuo.md)
-  * 集合
+  * [集合](manual/ji-he.md)
 * [精选资源](awesome-laravel.md#awesome-laravel)
   * [Laravel-debugbar](awesome-laravel/laravel-debugbar.md)
   * [Laravel-ide-helper](awesome-laravel/laravel-ide-helper.md#laravel-ide-helper)
