@@ -78,7 +78,7 @@ $users = DB::table('users')
 
 #### 参数分组
 
-顾名思义 , 通过分组的方式约束条件参数 , 这里闭包传递了一个查询构造器 , 分组就相当于sql语句的括号 . 
+顾名思义 , 通过分组的方式约束条件参数 , 这里闭包传递了一个查询构造器 , 分组就相当于sql语句的括号 .
 
 ```php
 DB::table(''users)->where('name', '=', 'John')
@@ -91,7 +91,31 @@ DB::table(''users)->where('name', '=', 'John')
 
 #### Where Exists 语句
 
+whereExists方法 , 相当于`where exists`SQL语句 . 此方法接受一个**闭包**参数 , 此闭包要接收一个查询构造器实例 , 放在exists语句中查询 : 
+
+```php
+DB::table('users')
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                      ->from('orders')
+                      ->whereRaw('orders.user_id = users.id');
+            })
+            ->get();
+```
+
 #### JSON where 语句
+
+json类型的字段 , 仅仅在对JSON类型支持的数据库上 . 现在只支持MySQL5.7+和Postgres数据库 . 可以使用`->`运算符来查询JSON列数据 : 
+
+```php
+$users = DB::table('users')
+                ->where('options->language', 'en')
+                ->get();
+
+$users = DB::table('users')
+                ->where('preferences->dining->meal', 'salad')
+                ->get();
+```
 
 
 
