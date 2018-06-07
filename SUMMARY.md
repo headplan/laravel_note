@@ -48,7 +48,7 @@
     * [关联操作](manual/eloquent/guan-lian-cao-zuo.md)
       * [查询关联](manual/eloquent/guan-lian-cao-zuo/cha-xun-guan-lian.md)
       * [预加载](manual/eloquent/guan-lian-cao-zuo/yu-jia-zai.md)
-      * 插入&更新关联模型
+      * [插入&更新关联模型](manual/eloquent/guan-lian-cao-zuo/cha-516526-geng-xin-guan-lian-mo-xing.md)
       * 更新父级时间戳
 * [精选资源](awesome-laravel.md#awesome-laravel)
   * [Laravel-debugbar](awesome-laravel/laravel-debugbar.md)
