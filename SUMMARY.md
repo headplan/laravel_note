@@ -41,7 +41,7 @@
     * [条件语句](manual/cha-xun-gou-zao-qi/tiao-jian-yu-ju.md)
     * [Insert](manual/cha-xun-gou-zao-qi/insert.md)
     * [Update](manual/cha-xun-gou-zao-qi/update.md)
-    * Delete
+    * [Delete](manual/cha-xun-gou-zao-qi/delete.md)
     * 悲观锁
   * [Eloquent](manual/eloquent.md)
     * [关联关系](manual/eloquent/guan-lian-guan-xi.md)
