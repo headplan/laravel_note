@@ -54,17 +54,17 @@ $users = DB::table('users')
 
 #### 其他where语句
 
-其他where语句基本都是字面意思 . 
+其他where语句基本都是字面意思 .
 
 **whereBetween\(\) / whereNotBetween\(\) - **验证字段的值是否介于两个值之间 , 参数为字段名和一个数组 , 例如\[1,100\] .
 
 **whereIn\(\) / whereNotIn\(\) - **验证字段是否存在于指定数组中 . 参数为字段名和一个数组 , 例如\[1,2,3\];
 
-**whereNull\(\) / whereNotNull\(\) - **验证字段的值是否为NULL . 
+**whereNull\(\) / whereNotNull\(\) - **验证字段的值是否为NULL .
 
-**whereDate / whereMonth / whereDay / whereYear / whereTime - **比较指定字段的值和日期时间等 , 参数和where的一样 . 
+**whereDate / whereMonth / whereDay / whereYear / whereTime - **比较指定字段的值和日期时间等 , 参数和where的一样 .
 
-**whereColumn\(\) - **用于验证两个字段是否相等 . 接收参数与where方法一样 , 支持两个的默认等于 , 和三个的自定义运算符 , 参数也可以是数组 . 
+**whereColumn\(\) - **用于验证两个字段是否相等 . 接收参数与where方法一样 , 支持两个的默认等于 , 和三个的自定义运算符 , 参数也可以是数组 .
 
 ```php
 $users = DB::table('users')
@@ -77,6 +77,17 @@ $users = DB::table('users')
 ---
 
 #### 参数分组
+
+顾名思义 , 通过分组的方式约束条件参数 , 这里闭包传递了一个查询构造器 , 分组就相当于sql语句的括号 . 
+
+```php
+DB::table(''users)->where('name', '=', 'John')
+                ->orWhere(function ($query) {
+                    $query->where('votes', '>', 100)
+                          ->where('title', '<>', 'Admin')
+                })
+                ->get();
+```
 
 #### Where Exists 语句
 
