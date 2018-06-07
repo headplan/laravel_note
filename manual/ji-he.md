@@ -29,7 +29,7 @@ $collection = collect([1, 2, 3]);
 use Illuminate\Support\Collection as BaseCollection;
 ```
 
-所以 , 基类中的操作方法也都继承了 . 
+所以 , 基类中的操作方法也都继承了 .
 
 **需要注意的是 : **
 
@@ -37,7 +37,7 @@ use Illuminate\Support\Collection as BaseCollection;
 
 #### 扩展集合
 
-通过macro宏 , 添加一些自定义的集合方法 : 
+通过macro宏 , 添加一些自定义的集合方法 :
 
 ```php
 use Illuminate\Support\Str;
@@ -53,6 +53,31 @@ $collection = collect(['first', 'second']);
 $upper = $collection->toUpper();
 
 // ['FIRST', 'SECOND']
+```
+
+在Eloquent中想在自己的扩展方法中使用自定义的`Collection`对象 , 可以在自己的模型中重写`newCollection`方法 , 或者在统一继承的Model中写 . 
+
+```php
+<?php
+
+namespace App;
+
+use App\CustomCollection;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * 创建一个新的 Eloquent 集合实例对象。
+     *
+     * @param  array  $models
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function newCollection(array $models = [])
+    {
+        return new CustomCollection($models);
+    }
+}
 ```
 
 
