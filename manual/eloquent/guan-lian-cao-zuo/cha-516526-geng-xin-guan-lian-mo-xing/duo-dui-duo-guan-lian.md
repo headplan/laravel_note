@@ -41,19 +41,19 @@ $user->roles()->attach([
 
 #### 同步关联
 
-使用sync方法构造多对多关联 , 此方法可以接收ID数组 , 向中间表插入对应关联数据记录 , 所有没放在数组里的IDs都会从中间表里移除 . 所以 , 这步操作完成后 , 只有在数组里的IDs会保留在中间表中 . 
+使用sync方法构造多对多关联 , 此方法可以接收ID数组 , 向中间表插入对应关联数据记录 , 所有没放在数组里的IDs都会从中间表里移除 . 所以 , 这步操作完成后 , 只有在数组里的IDs会保留在中间表中 .
 
 ```php
 $user->roles()->sync([1, 2, 3]);
 ```
 
-可以通过 ID 传递其他额外的数据到中间表 : 
+可以通过 ID 传递其他额外的数据到中间表 :
 
 ```php
 $user->roles()->sync([1 => ['expires' => true], 2, 3]);
 ```
 
-如果不想移除现有的 IDs , 可以使用`syncWithoutDetaching`方法 : 
+如果不想移除现有的 IDs , 可以使用`syncWithoutDetaching`方法 :
 
 ```php
 $user->roles()->syncWithoutDetaching([1, 2, 3]);
@@ -61,7 +61,7 @@ $user->roles()->syncWithoutDetaching([1, 2, 3]);
 
 #### 切换关联
 
-toggle方法 , 切换给定IDs的附加状态 . 如果给定已经附加 , 就被移除 , 如果移除 , 就被附加 : 
+toggle方法 , 切换给定IDs的附加状态 . 如果给定已经附加 , 就被移除 , 如果移除 , 就被附加 :
 
 ```php
 $user->roles()->toggle([1, 2, 3]);
@@ -69,7 +69,21 @@ $user->roles()->toggle([1, 2, 3]);
 
 #### 在中间表上保存额外数据
 
+当处理多对多关联时 , `save`方法还可以使用第二个参数 , 它是一个属性数组 , 包含插入到中间表的额外字段数据 . 
+
+```php
+App\User::find(1)->roles()->save($role, ['expires' => $expires]);
+```
+
 #### 更新中间表记录
+
+如果需要更新中间表中已存在的记录 , 可以使用 updateExistingPivot 方法 . 此方法接收中间记录的外键和一个属性数组进行更新 : 
+
+```php
+$user = App\User::find(1);
+
+$user->roles()->updateExistingPivot($roleId, $attributes);
+```
 
 
 
