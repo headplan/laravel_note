@@ -53,13 +53,13 @@ $posts = Post::whereHas('comments', function ($query) {
 
 #### 基于不存在的关联查询
 
-和前面的方法相反 , 这里是基于不存在的关联结果限制 . 依然用前面的例子 , 想获得没有任何评论的所有博客文章 . 使用`doesntHave`方法传递关联名称 : 
+和前面的方法相反 , 这里是基于不存在的关联结果限制 . 依然用前面的例子 , 想获得没有任何评论的所有博客文章 . 使用`doesntHave`方法传递关联名称 :
 
 ```php
 $posts = App\Posts::doesntHave('comments')->get();
 ```
 
-这里同样可以设置`whereDoesntHave`方法 , 来增加where条件 . 
+这里同样可以设置`whereDoesntHave`方法 , 来增加where条件 .
 
 ```php
 $posts = Post::whereDoesntHave('comments', function ($query) {
@@ -69,7 +69,7 @@ $posts = Post::whereDoesntHave('comments', function ($query) {
 
 #### 关联数据计数
 
-指向统计结果数而不需要加载实际数据 , 可以使用withCount方法 . 此方法会在结果集中添加一个`{关联名}_count`字段 : 
+指向统计结果数而不需要加载实际数据 , 可以使用withCount方法 . 此方法会在结果集中添加一个`{关联名}_count`字段 :
 
 ```php
 $posts = App\Post::withCount('comments')->get();
@@ -79,7 +79,7 @@ foreach ($posts as $post) {
 }
 ```
 
-withCount方法支持为多个关联数据计数 , 并为其查询添加约束条件 : 
+withCount方法支持为多个关联数据计数 , 并为其查询添加约束条件 :
 
 ```php
 $posts = Post::withCount(['votes', 'comments' => function ($query) {
@@ -90,7 +90,7 @@ echo $posts[0]->votes_count;
 echo $posts[0]->comments_count;
 ```
 
-这里还可以起别名 , 并添加闭包来添加约束条件 : 
+这里还可以起别名 , 并添加闭包来添加约束条件 :
 
 ```php
 $posts = Post::withCount([
@@ -99,9 +99,11 @@ $posts = Post::withCount([
         $query->where('approved', false);
     }
 ])->get();
+
+echo $posts[0]->comments_count;
+
+echo $posts[0]->pending_comments_count;
 ```
-
-
 
 
 
