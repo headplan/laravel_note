@@ -43,13 +43,25 @@ $users = DB::table('users')
                 ->get();
 ```
 
-groupBy方法可以接收多个参数 , 按照多个字段进行分组 : 
+groupBy方法可以接收多个参数 , 按照多个字段进行分组 :
 
 ```php
 $users = DB::table('users')
                 ->groupBy('first_name', 'status')
                 ->having('account_id', '>', 100)
                 ->get();
+```
+
+要写一些更高级的语句 , 可以使用havingRaw . 
+
+#### skip/take
+
+使用skip和take方法 , 跟使用offset和limit方法一样 . 都可以限制查询返回的结果数量和跳过查询中给定的数量的结果 : 
+
+```php
+$users = DB::table('user')->skip(10)->take(5)->get();
+
+$users = DB::table('user')->offset(10)->limit(5)->get();
 ```
 
 
