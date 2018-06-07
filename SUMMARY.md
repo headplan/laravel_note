@@ -39,7 +39,7 @@
     * [Where](manual/cha-xun-gou-zao-qi/where.md)
     * [Order,Group,limit & Offset](manual/cha-xun-gou-zao-qi/ordergrouplimit-and-offset.md)
     * [条件语句](manual/cha-xun-gou-zao-qi/tiao-jian-yu-ju.md)
-    * Insert
+    * [Insert](manual/cha-xun-gou-zao-qi/insert.md)
     * Update
     * Delete
     * 悲观锁
