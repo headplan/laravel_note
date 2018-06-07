@@ -2,7 +2,7 @@
 
 #### 附加/移除
 
-假设一个用户可以拥有多个角色 , 每个角色都可以被多个用户共享 , 给某个用户附加一个角色是通过向中间表插入一条记录实现的 , 使用attach方法 : 
+假设一个用户可以拥有多个角色 , 每个角色都可以被多个用户共享 , 给某个用户附加一个角色是通过向中间表插入一条记录实现的 , 使用attach方法 :
 
 ```php
 $user = App\User::find(1);
@@ -10,13 +10,13 @@ $user = App\User::find(1);
 $user->roles()->attach($roleId);
 ```
 
-使用attach方法时 , 也可以通过传递一个数组参数向中间表写入额外数据 : 
+使用attach方法时 , 也可以通过传递一个数组参数向中间表写入额外数据 :
 
 ```php
 $user->roles()->attach($roleId, ['expires' => $expires]);
 ```
 
-与之对应的方法 , 也就是移除用户的角色 , 使用detach方法 , 当然 , 这时候两个模型的数据依然保存在数据库中 , 只是移除了关联的中间表 : 
+与之对应的方法 , 也就是移除用户的角色 , 使用detach方法 , 当然 , 这时候两个模型的数据依然保存在数据库中 , 只是移除了关联的中间表 :
 
 ```php
 // 移除用户的一个角色...
@@ -26,7 +26,18 @@ $user->roles()->detach($roleId);
 $user->roles()->detach();
 ```
 
-#### 
+这里的attach和detach方法都允许传入ID数组 : 
+
+```php
+$user = App\User::find(1);
+
+$user->roles()->detach([1, 2, 3]);
+
+$user->roles()->attach([
+    1 => ['expires' => $expires],
+    2 => ['expires' => $expires]
+]);
+```
 
 #### 
 
