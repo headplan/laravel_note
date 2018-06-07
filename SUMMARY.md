@@ -40,7 +40,7 @@
     * [Order,Group,limit & Offset](manual/cha-xun-gou-zao-qi/ordergrouplimit-and-offset.md)
     * [条件语句](manual/cha-xun-gou-zao-qi/tiao-jian-yu-ju.md)
     * [Insert](manual/cha-xun-gou-zao-qi/insert.md)
-    * Update
+    * [Update](manual/cha-xun-gou-zao-qi/update.md)
     * Delete
     * 悲观锁
   * [Eloquent](manual/eloquent.md)
