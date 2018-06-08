@@ -108,7 +108,7 @@ protected $casts = [
 ];
 ```
 
-设置完之后 , 再访问属性的时候 , 就会自动转换为bool型 : 
+设置完之后 , 再访问属性的时候 , 就会自动转换为bool型 :
 
 ```php
 $user = App\User::find(1);
@@ -118,5 +118,29 @@ if ($user->is_admin) {
 }
 ```
 
+**数组 & JSON 转换**
 
+如果一个字段是以json序列化存储在数据库中时 , 属性类型转换就非常有用了 , 可以将其直接转换为array数组 . 设置好之后就可以直接访问数组 , 而不用再反序列化了 : 
+
+```php
+protected $casts = [
+    'options' => 'array',
+];
+```
+
+设置好之后就可以直接访问数组 : 
+
+```php
+$user = App\User::find(1);
+
+$options = $user->options;
+
+$options['key'] = 'value';
+
+$user->options = $options;
+
+$user->save();
+```
+
+保存时候 , 也会自动序列化为json串 . 
 
