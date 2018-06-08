@@ -45,7 +45,7 @@ Route::get('/user', function () {
 
 #### 资源集合
 
-直接调用collection方法也可以创建资源集合实例 , 以返回多个资源的集合或者分页响应 : 
+直接调用collection方法也可以创建资源集合实例 , 以返回多个资源的集合或者分页响应 :
 
 ```php
 use App\User;
@@ -56,11 +56,40 @@ Route::get('/user', function () {
 });
 ```
 
-但是 , 上面这种方式 , 没办法自定义一些附加的元数据和集合一起返回 , 这里可以在前面提到的资源集合类中实现 , 使用artisan命令创建即可 : 
+但是 , 上面这种方式 , 没办法自定义一些附加的元数据和集合一起返回 , 这里可以在前面提到的资源集合类中实现 , 使用artisan命令创建即可 :
 
 ```bash
 php artisan make:resource UserCollection
 ```
 
-依然使用
+依然在toArray方法中定义 : 
+
+```php
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Resources\Json\ResourceCollection;
+
+class UserCollection extends ResourceCollection
+{
+    /**
+     * 将资源集合转换成数组。
+     *
+     * @param  \Illuminate\Http\Request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return [
+            'data' => $this->collection,
+            'links' => [
+                'self' => 'link-value',
+            ],
+        ];
+    }
+}
+```
+
+
 
