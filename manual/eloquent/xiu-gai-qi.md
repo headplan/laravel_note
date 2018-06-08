@@ -24,7 +24,7 @@ public function getFullNameAttribute()
 
 #### 定义修改器
 
-定义修改器和前面的一样 , 只是变成了set : 
+定义修改器和前面的一样 , 只是变成了set :
 
 ```php
 public function setFirstNameAttribute($value)
@@ -39,9 +39,31 @@ $user = App\User::find(1);
 $user->first_name = 'Sally';
 ```
 
-定义好修改器 , 现在设置模型的属性 , 会自动调用修改器 , 并把其设置到模型attributes属性上 . 上面的例子 , 设置的Sally值会经过小写的处理 , 在赋给attributes . 
+定义好修改器 , 现在设置模型的属性 , 会自动调用修改器 , 并把其设置到模型attributes属性上 . 上面的例子 , 设置的Sally值会经过小写的处理 , 在赋给attributes .
 
+#### 日期转换器
 
+通过重写模型的`$dates`属性 , 自行定义哪些日期类型字段会被自动转换 , 或者完全禁止所有日期类型字段的转换 . 默认是`created_at`和`updated_at`字段 . 
+
+```php
+protected $dates = [
+    'created_at',
+    'updated_at',
+    'deleted_at'
+];
+```
+
+正如上面的设置 , 现在这三个时间属性 , 都自动转换成Carbon实例 . 存取的时候 , 直接用Carbon实例就可以 , 当然也可以存其他的时间戳 , 日期 , 日期字符串 , DateTime实例等等 .  
+
+```php
+$user = App\User::find(1);
+
+$user->deleted_at = Carbon::now();
+
+$user->save();
+
+return $user->deleted_at->getTimestamp();
+```
 
 
 
