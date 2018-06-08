@@ -53,6 +53,9 @@
       * [更新父级时间戳](manual/eloquent/guan-lian-cao-zuo/geng-xin-fu-ji-shi-jian-chuo.md)
     * [修改器](manual/eloquent/xiu-gai-qi.md)
     * [API资源](manual/eloquent/apizi-yuan.md)
+      * [概念综述](manual/eloquent/apizi-yuan/gai-nian-zong-shu.md)
+      * 编写资源
+      * 资源响应
   * [集合](manual/ji-he.md)
     * [集合方法](manual/ji-he/ji-he-fang-fa.md)
 * [精选资源](awesome-laravel.md#awesome-laravel)
