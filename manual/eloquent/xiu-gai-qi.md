@@ -43,7 +43,7 @@ $user->first_name = 'Sally';
 
 #### 日期转换器
 
-通过重写模型的`$dates`属性 , 自行定义哪些日期类型字段会被自动转换 , 或者完全禁止所有日期类型字段的转换 . 默认是`created_at`和`updated_at`字段 . 
+通过重写模型的`$dates`属性 , 自行定义哪些日期类型字段会被自动转换 , 或者完全禁止所有日期类型字段的转换 . 默认是`created_at`和`updated_at`字段 .
 
 ```php
 protected $dates = [
@@ -53,7 +53,7 @@ protected $dates = [
 ];
 ```
 
-正如上面的设置 , 现在这三个时间属性 , 都自动转换成Carbon实例 . 存取的时候 , 直接用Carbon实例就可以 , 当然也可以存其他的时间戳 , 日期 , 日期字符串 , DateTime实例等等 .  
+正如上面的设置 , 现在这三个时间属性 , 都自动转换成Carbon实例 . 存取的时候 , 直接用Carbon实例就可以 , 当然也可以存其他的时间戳 , 日期 , 日期字符串 , DateTime实例等等 .
 
 ```php
 $user = App\User::find(1);
@@ -63,6 +63,22 @@ $user->deleted_at = Carbon::now();
 $user->save();
 
 return $user->deleted_at->getTimestamp();
+```
+
+**日期格式**
+
+默认情况下 , 时间戳将会以`'Y-m-d H:i:s'`的形式格式化 . 自定义的话可以在模型中设置`$dateFormat`属性 , 这个属性设置的是保存在数据表和最后序列化成数组或是JSON时候的日期格式 . 
+
+```php
+class User extends Model
+{
+    /**
+     * 模型的日期字段的保存格式。
+     *
+     * @var string
+     */
+    protected $dateFormat = 'U';
+}
 ```
 
 
