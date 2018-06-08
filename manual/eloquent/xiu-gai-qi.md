@@ -67,7 +67,7 @@ return $user->deleted_at->getTimestamp();
 
 **日期格式**
 
-默认情况下 , 时间戳将会以`'Y-m-d H:i:s'`的形式格式化 . 自定义的话可以在模型中设置`$dateFormat`属性 , 这个属性设置的是保存在数据表和最后序列化成数组或是JSON时候的日期格式 . 
+默认情况下 , 时间戳将会以`'Y-m-d H:i:s'`的形式格式化 . 自定义的话可以在模型中设置`$dateFormat`属性 , 这个属性设置的是保存在数据表和最后序列化成数组或是JSON时候的日期格式 .
 
 ```php
 class User extends Model
@@ -80,6 +80,8 @@ class User extends Model
     protected $dateFormat = 'U';
 }
 ```
+
+#### 属性类型转换
 
 
 
