@@ -83,5 +83,22 @@ class User extends Model
 
 #### 属性类型转换
 
+在模型中定义`$casts`属性 , 可以方便的将字段值的数据类型转换成定义好的数据类型 . `$casts`属性是一个数组 , 且数组的键就是字段名 , 值是数据类型 . 下面是支持转换的数据类型 : 
+
+```php
+integer
+real
+float
+double
+string
+boolean
+object
+array
+collection
+date
+datetime
+timestamp
+```
+
 
 
