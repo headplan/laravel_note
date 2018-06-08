@@ -100,12 +100,22 @@ datetime
 timestamp
 ```
 
-举个例子 , 将is\_admin字段的0,1转换成布尔型 : 
+举个例子 , 将is\_admin字段的0,1转换成布尔型 :
 
 ```php
 protected $casts = [
     'is_admin' => 'boolean',
 ];
+```
+
+设置完之后 , 再访问属性的时候 , 就会自动转换为bool型 : 
+
+```php
+$user = App\User::find(1);
+
+if ($user->is_admin) {
+    //
+}
 ```
 
 
