@@ -62,7 +62,7 @@ Route::get('/user', function () {
 php artisan make:resource UserCollection
 ```
 
-依然在toArray方法中定义 : 
+依然在toArray方法中定义 :
 
 ```php
 <?php
@@ -89,6 +89,17 @@ class UserCollection extends ResourceCollection
         ];
     }
 }
+```
+
+现在就可以使用资源集合了 , 而且还附加了links数据 : 
+
+```php
+use App\User;
+use App\Http\Resources\UserCollection;
+
+Route::get('/users', function () {
+    return new UserCollection(User::all());
+});
 ```
 
 
