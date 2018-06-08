@@ -52,6 +52,7 @@
         * [多对多关联](manual/eloquent/guan-lian-cao-zuo/cha-516526-geng-xin-guan-lian-mo-xing/duo-dui-duo-guan-lian.md)
       * [更新父级时间戳](manual/eloquent/guan-lian-cao-zuo/geng-xin-fu-ji-shi-jian-chuo.md)
     * [修改器](manual/eloquent/xiu-gai-qi.md)
+    * [API资源](manual/eloquent/apizi-yuan.md)
   * [集合](manual/ji-he.md)
     * [集合方法](manual/ji-he/ji-he-fang-fa.md)
 * [精选资源](awesome-laravel.md#awesome-laravel)
