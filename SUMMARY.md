@@ -55,6 +55,11 @@
     * [API资源](manual/eloquent/apizi-yuan.md)
       * [概念综述](manual/eloquent/apizi-yuan/gai-nian-zong-shu.md)
       * [编写资源](manual/eloquent/apizi-yuan/bian-xie-zi-yuan.md)
+        * [数据包裹](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/shu-ju-bao-guo.md)
+        * 分页
+        * 条件属性
+        * 条件关联
+        * 添加元数据
       * 资源响应
     * [序列化](manual/eloquent/xu-lie-hua.md)
   * [集合](manual/ji-he.md)
