@@ -18,3 +18,7 @@ public function toArray($request)
 
 这里的`Post::collection($this->whenLoaded('posts'))` , 在关联没被加载时 , posts键就会删除 .
 
+#### 条件中间表信息
+
+
+
