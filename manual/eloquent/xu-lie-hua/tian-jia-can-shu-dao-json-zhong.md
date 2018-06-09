@@ -17,5 +17,7 @@ public function getIsAdminAttribute()
 protected $appends = ['is_admin'];
 ```
 
+在 `appends` 数组中的属性也遵循模型中 `visible` 和 `hidden` 设置 . 
+
 
 
