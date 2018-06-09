@@ -55,7 +55,7 @@ class AppServiceProvider extends ServiceProvider
 
 #### 包裹嵌套资源
 
-对于资源包裹问题 , Larave可以将所有的资源都包裹在data键下 , 而且不用担心会被双层包裹 , 比如被包在两个data键中 . 要想将所有的资源集合都包裹在data中 , 则需要为每一个资源都创建一个对应的资源集合 , 并将返回的集合包裹在data键中 : 
+对于资源包裹问题 , Larave可以将所有的资源都包裹在data键下 , 而且不用担心会被双层包裹 , 比如被包在两个data键中 . 要想将所有的资源集合都包裹在data中 , 则需要为每一个资源都创建一个对应的资源集合 , 并将返回的集合包裹在data键中 :
 
 ```php
 <?php
@@ -80,6 +80,40 @@ class CommentsCollection extends ResourceCollection
 ```
 
 #### 数据包裹和分页
+
+对于data键 , 需要注意的是 , 在资源响应中返回分页集合时 , 即使调用了`withoutWrapping`方法 , data键依然存在 , 应为因为分页响应中总会有`meta`和`links`键包含着分页状态信息 : 
+
+```js
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Eladio Schroeder Sr.",
+            "email": "therese28@example.com",
+        },
+        {
+            "id": 2,
+            "name": "Liliana Mayert",
+            "email": "evandervort@example.com",
+        }
+    ],
+    "links":{
+        "first": "http://example.com/pagination?page=1",
+        "last": "http://example.com/pagination?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta":{
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "path": "http://example.com/pagination",
+        "per_page": 15,
+        "to": 10,
+        "total": 10
+    }
+}
+```
 
 
 
