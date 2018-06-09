@@ -1,6 +1,6 @@
 # 条件关联
 
-根据模型关联是否已加载来有条件的在你的资源响应中包含关联 . 避免了N+1的问题 , 还有就是可以有条件的加载关联 , 避免了没必要的加载 : 
+根据模型关联是否已加载来有条件的在你的资源响应中包含关联 . 避免了N+1的问题 , 还有就是可以有条件的加载关联 , 避免了没必要的加载 :
 
 ```php
 public function toArray($request)
@@ -16,9 +16,5 @@ public function toArray($request)
 }
 ```
 
-这里的Post::collection\($this-&gt;whenLoaded\('posts'\)\) , 在关联没被加载时 , posts键就会删除 . 
-
-
-
-
+这里的`Post::collection($this->whenLoaded('posts'))` , 在关联没被加载时 , posts键就会删除 .
 
