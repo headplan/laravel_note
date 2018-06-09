@@ -60,7 +60,7 @@
         * [条件属性](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/tiao-jian-shu-xing.md)
         * [条件关联](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/tiao-jian-guan-lian.md)
         * [添加元数据](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/tian-jia-yuan-shu-ju.md)
-      * 资源响应
+      * [资源响应](manual/eloquent/apizi-yuan/zi-yuan-xiang-ying.md)
     * [序列化](manual/eloquent/xu-lie-hua.md)
   * [集合](manual/ji-he.md)
     * [集合方法](manual/ji-he/ji-he-fang-fa.md)
