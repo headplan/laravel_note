@@ -54,7 +54,7 @@
     * [修改器](manual/eloquent/xiu-gai-qi.md)
     * [API资源](manual/eloquent/apizi-yuan.md)
       * [概念综述](manual/eloquent/apizi-yuan/gai-nian-zong-shu.md)
-      * 编写资源
+      * [编写资源](manual/eloquent/apizi-yuan/bian-xie-zi-yuan.md)
       * 资源响应
     * [序列化](manual/eloquent/xu-lie-hua.md)
   * [集合](manual/ji-he.md)
