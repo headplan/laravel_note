@@ -57,9 +57,9 @@
       * [编写资源](manual/eloquent/apizi-yuan/bian-xie-zi-yuan.md)
         * [数据包裹](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/shu-ju-bao-guo.md)
         * [分页](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/fen-ye.md)
-        * 条件属性
-        * 条件关联
-        * 添加元数据
+        * [条件属性](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/tiao-jian-shu-xing.md)
+        * [条件关联](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/tiao-jian-guan-lian.md)
+        * [添加元数据](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/tian-jia-yuan-shu-ju.md)
       * 资源响应
     * [序列化](manual/eloquent/xu-lie-hua.md)
   * [集合](manual/ji-he.md)
