@@ -56,7 +56,7 @@
       * [概念综述](manual/eloquent/apizi-yuan/gai-nian-zong-shu.md)
       * [编写资源](manual/eloquent/apizi-yuan/bian-xie-zi-yuan.md)
         * [数据包裹](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/shu-ju-bao-guo.md)
-        * 分页
+        * [分页](manual/eloquent/apizi-yuan/bian-xie-zi-yuan/fen-ye.md)
         * 条件属性
         * 条件关联
         * 添加元数据
