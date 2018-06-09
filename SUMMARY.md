@@ -56,6 +56,7 @@
       * [概念综述](manual/eloquent/apizi-yuan/gai-nian-zong-shu.md)
       * 编写资源
       * 资源响应
+    * [序列化](manual/eloquent/xu-lie-hua.md)
   * [集合](manual/ji-he.md)
     * [集合方法](manual/ji-he/ji-he-fang-fa.md)
 * [精选资源](awesome-laravel.md#awesome-laravel)
