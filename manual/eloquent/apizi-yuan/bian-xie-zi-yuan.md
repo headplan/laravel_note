@@ -64,15 +64,5 @@ class UserCollection extends ResourceCollection
 
 资源集合跟单个资源一样 , 也可以在路由或者控制器中直接返回 , 这里不再举例 , 前面已有 .
 
-#### 
 
-
-
-
-
-添加元数据
-
-顶层元数据
-
-构造资源时添加元数据
 
