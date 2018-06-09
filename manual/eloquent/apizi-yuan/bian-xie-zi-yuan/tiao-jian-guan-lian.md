@@ -20,5 +20,20 @@ public function toArray($request)
 
 #### 条件中间表信息
 
+对于多对多关联 , 这种有条件的添加资源需要使用whenPivotLoaded方法 , 第一个参数是中间表的名称 , 第二个参数是闭包 , 用来返回数据 : 
+
+```php
+public function toArray($request)
+{
+    return [
+        'id' => $this->id,
+        'name' => $this->name,
+        'expires_at' => $this->whenPivotLoaded('role_users', function () {
+            return $this->pivot->expires_at;
+        }),
+    ];
+}
+```
+
 
 
