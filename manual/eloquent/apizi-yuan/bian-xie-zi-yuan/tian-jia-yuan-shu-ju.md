@@ -16,7 +16,7 @@ public function toArray($request)
 
 #### 顶层元数据
 
-比如添加一些顶层的数据作为元数据 , 这时候可以使用with方法添加 , 在其中定义一个元数据数组 , 当资源被作为顶层资源渲染时 , 这个数组会包含在其中 : 
+比如添加一些顶层的数据作为元数据 , 这时候可以使用with方法添加 , 在其中定义一个元数据数组 , 当资源被作为顶层资源渲染时 , 这个数组会包含在其中 :
 
 ```php
 <?php
@@ -56,6 +56,15 @@ class UserCollection extends ResourceCollection
 ```
 
 #### 构造资源时添加元数据
+
+这个意思就是在路由或控制器中构造资源实例时添加顶层数据 , 其实所有资源都可以用additional方法在new时候添加 : 
+
+```php
+return (new UserCollection(User::all()->load('roles')))
+                ->additional(['meta' => [
+                    'key' => 'value',
+                ]]);
+```
 
 
 
