@@ -4,7 +4,7 @@
 
 #### 关联
 
-如果要在响应中包含关联资源 , 简单的在toArray方法返回的数组中添加即可 . 这里使用collection方法添加即可 : 
+如果要在响应中包含关联资源 , 简单的在toArray方法返回的数组中添加即可 . 这里使用collection方法添加即可 :
 
 ```php
 public function toArray($request)
@@ -22,7 +22,7 @@ public function toArray($request)
 
 #### 资源集合
 
-资源是将单个模型转换成数组 , 而资源集合是将多个模型的集合转换成数组 . 所有的资源都提供了collection方法来生成一个临时的资源集合 , 所以没有必要为每一个模型都编写一个资源集合类 , 就像前面关联中 , 也使用了collection方法 : 
+资源是将单个模型转换成数组 , 而资源集合是将多个模型的集合转换成数组 . 所有的资源都提供了collection方法来生成一个临时的资源集合 , 所以没有必要为每一个模型都编写一个资源集合类 , 就像前面关联中 , 也使用了collection方法 :
 
 ```php
 use App\User;
@@ -31,6 +31,35 @@ use App\Http\Resources\User as UserResource;
 Route::get('/user', function () {
     return UserResource::collection(User::all());
 });
+```
+
+一般情况下 , 在需要自定义返回的元数据时 , 则需要定义一个资源集合 , 这里在前面的概述中也提到过 : 
+
+```php
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Resources\Json\ResourceCollection;
+
+class UserCollection extends ResourceCollection
+{
+    /**
+     * 将资源集合转换成数组。
+     *
+     * @param  \Illuminate\Http\Request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return [
+            'data' => $this->collection,
+            'links' => [
+                'self' => 'link-value',
+            ],
+        ];
+    }
+}
 ```
 
 
