@@ -57,5 +57,30 @@ composer require doctrine/dbal
 php artisan migrate
 ```
 
+#### 构建短信验证码接口
+
+**创建api基类**
+
+```
+php artisan make:controller Api/Controller
+```
+
+添加Dingo提供的处理接口响应的trait
+
+```php
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use Illuminate\Http\Request;
+use Dingo\Api\Routing\Helpers;
+use App\Http\Controllers\Controller as BaseController;
+
+class Controller extends BaseController
+{
+    use Helpers;
+}
+```
+
 
 
