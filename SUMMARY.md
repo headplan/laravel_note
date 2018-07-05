@@ -189,6 +189,7 @@
       * [Easy-sms](develop-recode/lartisan-api/kuo-zhan-bao-yu-gong-ju/easy-sms.md)
     * [手机注册](develop-recode/lartisan-api/shou-ji-zhu-ce.md)
       * [短信提供商](develop-recode/lartisan-api/shou-ji-zhu-ce/duan-xin-ti-gong-shang.md)
+      * [手机注册验证码](develop-recode/lartisan-api/shou-ji-zhu-ce/shou-ji-zhu-ce-yan-zheng-ma.md)
     * 第三方登录
     * 用户数据
     * 帖子数据
