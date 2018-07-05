@@ -2,7 +2,7 @@
 
 #### 修改数据结构
 
-在users表中增加phone字段 , 然后修改email字段为nullable . 
+在users表中增加phone字段 , 然后修改email字段为nullable .
 
 ```
 php artisan make:migration add_phone_to_users_table --table=users
@@ -43,7 +43,18 @@ class AddPhoneToUsersTable extends Migration
         });
     }
 }
+```
 
+添加修改MySQL字段属性需要的扩展包
+
+```
+composer require doctrine/dbal
+```
+
+然后运行迁移命令
+
+```
+php artisan migrate
 ```
 
 
