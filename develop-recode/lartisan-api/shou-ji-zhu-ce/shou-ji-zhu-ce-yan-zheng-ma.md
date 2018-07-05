@@ -82,5 +82,42 @@ class Controller extends BaseController
 }
 ```
 
+添加接口版本目录 , v1 , v2 . 
 
+**新增路由**
+
+```php
+<?php
+
+use Illuminate\Http\Request;
+
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', [
+    'namespace' => 'App\Http\Controllers\Api\v1'
+], function($api) {
+    // 短信验证码
+    $api->post('verificationCodes', 'VerificationCodesController@store')
+        ->name('api.verificationCodes.store');
+});
+```
+
+这里的namespace指向前面新建的目录v1 . 
+
+**创建短信验证控制器**
+
+```
+php artisan make:controller Api/v1/VerificationCodesController
+```
+
+修改一下基类的继承 , 添加store方法
+
+```php
+public function store()
+{
+    return $this->response->array(['test_message' => 'store verification code']);
+}
+```
+
+利用 DingoApi 的 Helpers trait , 我们可以使用`$this->response->array`返回一个测试用的响应
 
