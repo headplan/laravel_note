@@ -82,7 +82,7 @@ class Controller extends BaseController
 }
 ```
 
-添加接口版本目录 , v1 , v2 . 
+添加接口版本目录 , v1 , v2 .
 
 **新增路由**
 
@@ -102,7 +102,7 @@ $api->version('v1', [
 });
 ```
 
-这里的namespace指向前面新建的目录v1 . 
+这里的namespace指向前面新建的目录v1 .
 
 **创建短信验证控制器**
 
@@ -119,5 +119,40 @@ public function store()
 }
 ```
 
-利用 DingoApi 的 Helpers trait , 我们可以使用`$this->response->array`返回一个测试用的响应
+利用 DingoApi 的 Helpers trait , 我们可以使用`$this->response->array`返回一个测试用的响应 . 测试一下接口 . 
+
+**创建 API 表单请求验证类**
+
+```
+php artisan make:request Api/VerificationCodeRequest
+```
+
+```php
+<?php
+
+namespace App\Http\Requests\Api;
+
+use Dingo\Api\Http\FormRequest;
+
+class VerificationCodeRequest extends FormRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+        return [
+            'phone' => [
+                'required',
+                'regex:/^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/',
+                'unique:users'
+            ]
+        ];
+    }
+}
+```
+
+
 
