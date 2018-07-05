@@ -206,8 +206,7 @@ class VerificationCodesController extends Controller
         ])->setStatusCode(201);
     }
 }
-
 ```
 
-
+现在应该会返回消息了 . 保存到Postman . 
 
