@@ -52,7 +52,7 @@ return [
 ];
 ```
 
-创建一个 ServiceProvider : 
+创建一个 ServiceProvider :
 
 ```
 php artisan make:provider EasySmsServiceProvider
@@ -71,7 +71,7 @@ public function register()
 }
 ```
 
-然后在config/app.php中增加provider : 
+然后在config/app.php中增加provider :
 
 ```
 App\Providers\EasySmsServiceProvider::class,

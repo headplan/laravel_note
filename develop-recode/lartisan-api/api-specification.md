@@ -180,11 +180,11 @@ https://api.test.com/
 * X-RateLimit-Remaining : 93 剩余的访问次数
 * X-RateLimit-Reset : 1513784506 到该时间点 , 访问次数会重置为`X-RateLimit-Limit`
 
-超过限流次数后 , 需要返回`429 Too Many Requests`错误 . 
+超过限流次数后 , 需要返回`429 Too Many Requests`错误 .
 
 #### 编写文档
 
-提供清晰的API文档 , 是必须的 , 尽可能的包括以下几点 : 
+提供清晰的API文档 , 是必须的 , 尽可能的包括以下几点 :
 
 * 包括每个接口的请求参数 , 每个参数的类型限制 , 是否必填 , 可选的值等
 * 响应结果的例子说明 , 包括响应结果中 , 每个参数的释义
