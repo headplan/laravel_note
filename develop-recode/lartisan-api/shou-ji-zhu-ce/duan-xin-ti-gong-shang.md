@@ -16,5 +16,21 @@ https://www.yunpian.com/
 
 #### 安装 easy-sms
 
-easy-sms是一个短信发送组件 , 利用这个组件 , 可以快速的实现短信发送功能 . 查看扩展包与工具中的单独文档 . 
+easy-sms是一个短信发送组件 , 利用这个组件 , 可以快速的实现短信发送功能 . 查看扩展包与工具中的单独文档 .
+
+#### 调试短信
+
+```
+$sms = app('easysms');
+try {
+    $sms->send(13812345678, [
+        'content'  => '【LARTISAN】您的验证码是1234。如非本人操作，请忽略本短信',
+    ]);
+} catch (\Overtrue\EasySms\Exceptions\NoGatewayAvailableException $exception) {
+    $message = $exception->getException('yunpian')->getMessage();
+    dd($message);
+}
+```
+
+
 
