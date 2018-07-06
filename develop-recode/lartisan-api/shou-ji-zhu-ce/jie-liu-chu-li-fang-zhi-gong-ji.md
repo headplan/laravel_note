@@ -44,7 +44,7 @@ $api->version('v1', [
         'middleware' => 'api.throttle',
         'limit' => config('api.rate_limits.sign.limit'),
         'expires' => config('api.rate_limits.sign.expires'),
-    ], function() {
+    ], function($api) {
         # 短信验证码
         $api->post('verificationCodes', 'VerificationCodesController@store')
             ->name('api.verificationCodes.store');
@@ -55,5 +55,5 @@ $api->version('v1', [
 });
 ```
 
-
+测试接口 , 这里先都改成1分钟1次.
 
