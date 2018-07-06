@@ -190,6 +190,7 @@
     * [手机注册](develop-recode/lartisan-api/shou-ji-zhu-ce.md)
       * [短信提供商](develop-recode/lartisan-api/shou-ji-zhu-ce/duan-xin-ti-gong-shang.md)
       * [手机注册验证码](develop-recode/lartisan-api/shou-ji-zhu-ce/shou-ji-zhu-ce-yan-zheng-ma.md)
+      * [构建用户注册接口](develop-recode/lartisan-api/shou-ji-zhu-ce/gou-jian-yong-hu-zhu-ce-jie-kou.md)
     * 第三方登录
     * 用户数据
     * 帖子数据
