@@ -63,8 +63,15 @@ class UserRequest extends FormRequest
         ];
     }
 }
+```
+
+**编辑控制器逻辑**
 
 ```
 
+```
 
+**测试接口**
+
+这里需要先就该模型中的fillablse字段 , 添加phone . 
 
