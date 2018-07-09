@@ -94,8 +94,9 @@ class CaptchasController extends Controller
         return $this->response->array($result)->setStatusCode(201);
     }
 }
-
 ```
 
+**测试接口**
 
+保存接口道postman . 
 
