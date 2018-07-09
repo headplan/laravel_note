@@ -14,20 +14,24 @@
 
 #### 测试 OAuth 流程
 
-因为是公众平台测试账号 , 所以首先需要下载微信web开发者工具 , 方便我们接下来的调试 . 打开工具 , 选择公众号网页项目 . 
+因为是公众平台测试账号 , 所以首先需要下载微信web开发者工具 , 方便我们接下来的调试 . 打开工具 , 选择公众号网页项目 .
 
-接下来 , 尝试一下微信网页授权的流程 . 下面这个链接为微信发起 OAuth 的跳转地址 : 
+接下来 , 尝试一下微信网页授权的流程 . 下面这个链接为微信发起 OAuth 的跳转地址 :
 
 ```
 https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
 ```
 
-替换链接中有几个变量 : 
+替换链接中有几个变量 :
 
 * APPID - 测试账号中的`appID` , 填写自己账号的appID
-* REDIRECT\_URI - 用户同意授权后的回调地址 , 填写`http://lartisan.bbs/`
+* REDIRECT\_URI - 用户同意授权后的回调地址 , 填写`lartisan.bbs`
 * SCOPE - 应用授权作用域 , 填写`snsapi_userinfo`
 * STATE - 随机参数 , 可以不填 , 保持`STATE`即可 . 
+
+```
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx07033cda1417f5ff&redirect_uri=lartisan.bbs&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+```
 
 
 
