@@ -98,5 +98,29 @@ class CaptchasController extends Controller
 
 **测试接口**
 
-保存接口道postman . 
+保存接口道postman .
+
+**集成到短信验证接口**
+
+修改验证
+
+```php
+public function rules()
+{
+    return [
+        'captcha_key' => 'required|string',
+        'captcha_code' => 'required|string',
+    ];
+}
+
+public function attributes()
+{
+    return [
+        'captcha_key' => '图片验证码 key',
+        'captcha_code' => '图片验证码',
+    ];
+}
+```
+
+
 
