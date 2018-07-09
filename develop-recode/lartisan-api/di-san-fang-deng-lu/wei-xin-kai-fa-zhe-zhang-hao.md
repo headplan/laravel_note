@@ -29,19 +29,15 @@ https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=RED
 * SCOPE - 应用授权作用域 , 填写`snsapi_userinfo`
 * STATE - 随机参数 , 可以不填 , 保持`STATE`即可 . 
 
-```
-https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx070*******5ff&redirect_uri=http://lartisan.bbs&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
-```
+在开发者工具中访问上面的链接 , 可以看到微信授权页面 . 点击确认登录就会跳转到成功的跳转回了`REDIRECT_URI`. 注意url中可以看到code参数 .
 
-在开发者工具中访问上面的链接 , 可以看到微信授权页面 . 点击确认登录就会跳转到成功的跳转回了`REDIRECT_URI`. 注意url中可以看到code参数 . 
-
-请求下面的链接获取token : 
+请求下面的链接获取token :
 
 ```
 https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
 ```
 
-需要替换的变量 : 
+需要替换的变量 :
 
 * APPID 测试账号中的`appID`, 填写自己账号的`appID`
 * SECRET 测试账号中的`secret`,填写自己账号的`secret`
@@ -49,15 +45,15 @@ https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code
 
 使用 PostMan 访问该链接 , 获取到了`access_token`
 
-微信同时返回了`open_id`, 微信`access_token`和`open_id`一起请求用户信息 . 
+微信同时返回了`open_id`, 微信`access_token`和`open_id`一起请求用户信息 .
 
-**通过`access_token`获取个人信息**
+**通过**`access_token`**获取个人信息**
 
 ```
 https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN
 ```
 
-替换链接中的`ACCESS_TOKEN`和`OPENID` , 使用 PostMan 访问 . 
+替换链接中的`ACCESS_TOKEN`和`OPENID` , 使用 PostMan 访问 .
 
 ```
 {
