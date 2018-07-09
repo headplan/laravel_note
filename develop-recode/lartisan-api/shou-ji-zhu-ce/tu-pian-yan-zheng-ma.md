@@ -10,7 +10,7 @@
 
 #### 安装 gregwar/captcha
 
-不依赖session . 
+不依赖session .
 
 ```
 composer require gregwar/captcha
@@ -24,6 +24,38 @@ composer require gregwar/captcha
 # 图片验证码
 $api->post('captchas', 'CaptchasController@store')
     ->name('api.captchas.store');
+```
+
+**新建控制器和表单验证类**
+
+```
+php artisan make:controller Api/v1/CaptchasController
+php artisan make:request Api/CaptchaRequest
+```
+
+**修改验证类**
+
+```php
+<?php
+
+namespace App\Http\Requests\Api;
+
+use Dingo\Api\Http\FormRequest;
+
+class CaptchaRequest extends FormRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+        return [
+            'phone' => 'required|regex:/^1[34578]\d{9}$/|unique:users',
+        ];
+    }
+}
 ```
 
 
