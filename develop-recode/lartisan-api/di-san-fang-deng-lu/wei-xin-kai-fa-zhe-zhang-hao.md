@@ -25,13 +25,17 @@ https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=RED
 替换链接中有几个变量 :
 
 * APPID - 测试账号中的`appID` , 填写自己账号的appID
-* REDIRECT\_URI - 用户同意授权后的回调地址 , 填写`lartisan.bbs`
+* REDIRECT\_URI - 用户同意授权后的回调地址 , 填写`http://lartisan.bbs`
 * SCOPE - 应用授权作用域 , 填写`snsapi_userinfo`
 * STATE - 随机参数 , 可以不填 , 保持`STATE`即可 . 
 
 ```
-https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx07033cda1417f5ff&redirect_uri=lartisan.bbs&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx07033cda1417f5ff&redirect_uri=http://lartisan.bbs&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
 ```
+
+在开发者工具中访问上面的链接 , 可以看到微信授权页面 . 点击确认登录就会跳转到成功的跳转回了`REDIRECT_URI`. 
+
+
 
 
 
