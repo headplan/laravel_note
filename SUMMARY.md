@@ -194,6 +194,7 @@
       * [节流处理防止攻击](develop-recode/lartisan-api/shou-ji-zhu-ce/jie-liu-chu-li-fang-zhi-gong-ji.md)
       * [图片验证码](develop-recode/lartisan-api/shou-ji-zhu-ce/tu-pian-yan-zheng-ma.md)
     * [第三方登录](develop-recode/lartisan-api/di-san-fang-deng-lu.md)
+      * [微信开发者账号](develop-recode/lartisan-api/di-san-fang-deng-lu/wei-xin-kai-fa-zhe-zhang-hao.md)
     * 用户数据
     * 帖子数据
     * 回复数据
