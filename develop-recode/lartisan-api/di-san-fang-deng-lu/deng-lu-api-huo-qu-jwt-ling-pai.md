@@ -72,13 +72,13 @@ php artisan jwt:secret
 ],
 ```
 
-user 模型需要继承`Tymon\JWTAuth\Contracts\JWTSubject`接口 , 并实现接口的两个方法 getJWTIdentifier\(\) 和 getJWTCustomClaims\(\)
+user 模型需要继承`Tymon\JWTAuth\Contracts\JWTSubject`接口 , 并实现接口的两个方法 getJWTIdentifier\(\) , getJWTCustomClaims\(\)
 
 ```php
 class User extends Authenticatable implements JWTSubject
 {
     #...
-    
+
     /**
      * 返回了 User 的 id
      * @return mixed
@@ -96,7 +96,7 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-    
+
 }
 ```
 
