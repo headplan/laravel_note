@@ -57,7 +57,7 @@ php artisan migrate
 
 #### 路由设计
 
-为了区分用户账号密码登录和第三方登录 , 将登录接口设计为2个 . 
+为了区分用户账号密码登录和第三方登录 , 将登录接口设计为2个 .
 
 **添加第三方登录接口**
 
@@ -76,5 +76,42 @@ $ php artisan make:controller Api/v1/AuthorizationsController
 $ php artisan make:request Api/SocialAuthorizationRequest
 ```
 
+修改验证规则
 
+```php
+public function rules()
+{
+    $rules = [
+        'code' => 'required_without:access_token|string',
+        'access_token' => 'required_without:code|string',
+    ];
+
+    # 微信还需要验证openid
+    if ($this->social_type == 'weixin' && !$this->code) {
+        $rules['openid']  = 'required|string';
+    }
+    
+    return $rules;
+}
+```
+
+修改模型的fillable字段
+
+```
+'weixin_openid', 'weixin_unionid'
+```
+
+编写逻辑 : 
+
+```
+
+```
+
+**使用postman调试接口**
+
+```
+http://lartisan.bbs/api/socials/:social_type/authorizations
+```
+
+这里的url中:social\_type是一个postman的变量 , 可以自定义设置 , 这里为`weixin` . 
 
