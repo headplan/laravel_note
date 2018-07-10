@@ -33,7 +33,7 @@ signature
 
 #### Token 验证
 
-有了 token 之后该如何验证 token 的有效性 , 并得到 token 对应的用户呢 ? 其实原理很简单 , DingoApi 为我们准备好了`api.auth`这个中间件 : 
+有了 token 之后该如何验证 token 的有效性 , 并得到 token 对应的用户呢 ? 其实原理很简单 , DingoApi 为我们准备好了`api.auth`这个中间件 :
 
 * 获取客户端提交的 token
 * 检测 token 中的签名 signature 是否正确
@@ -47,7 +47,7 @@ signature
 $ composer require tymon/jwt-auth:1.0.0-rc.2
 ```
 
-安装完成后需要设置一下 JWT 的 secret , 这个 secret 很重要 , 用于最后的签名 , 更换这个secret 会导致之前生成的所有 token 无效 . 
+安装完成后需要设置一下 JWT 的 secret , 这个 secret 很重要 , 用于最后的签名 , 更换这个secret 会导致之前生成的所有 token 无效 .
 
 ```
 php artisan jwt:secret
@@ -55,7 +55,7 @@ php artisan jwt:secret
 
 生成后可以查看.env文件最后一行 , `JWT_SECRET`
 
-修改 config/auth.php，将 api guard 的 driver 改为 jwt . 
+修改 config/auth.php，将 api guard 的 driver 改为 jwt .
 
 ```php
 'api' => [
@@ -70,6 +70,34 @@ php artisan jwt:secret
 'auth' => [
     'jwt' => 'Dingo\Api\Auth\Provider\JWT',
 ],
+```
+
+user 模型需要继承`Tymon\JWTAuth\Contracts\JWTSubject`接口 , 并实现接口的两个方法 getJWTIdentifier\(\) 和 getJWTCustomClaims\(\)
+
+```php
+class User extends Authenticatable implements JWTSubject
+{
+    #...
+    
+    /**
+     * 返回了 User 的 id
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * 额外在JWT载荷中增加的自定义内容
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+    
+}
 ```
 
 
