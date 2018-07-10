@@ -47,9 +47,9 @@ $oauthUser = $driver->userFromToken($accessToken);
 
 ##### 客户端只获取授权码
 
-获取到授权码后就提交给服务器 , 服务器完成换取`access_token`及换取用户信息的流程 . 
+获取到授权码后就提交给服务器 , 服务器完成换取`access_token`及换取用户信息的流程 .
 
-先添加修改一些配置文件 : 
+先添加修改一些配置文件 :
 
 _config/services.php_
 
@@ -59,6 +59,22 @@ _config/services.php_
     'client_secret' => env('WEIXIN_SECRET'),
     'redirect' => env('WEIXIN_REDIRECT_URI'),  
 ],
+```
+
+```
+# socialite weixin
+WEIXIN_KEY=wx****
+WEIXIN_SECRET=d4****
+```
+
+在使用tinker测试 : 
+
+```php
+$code = 'CODE';
+$driver = Socialite::driver('weixin');
+$response = $driver->getAccessTokenResponse($code);
+$driver->setOpenId($response['openid']);
+$oauthUser = $driver->userFromToken($response['access_token']);
 ```
 
 #### 第三方登录处理流程
