@@ -100,12 +100,14 @@ class User extends Authenticatable implements JWTSubject
 }
 ```
 
-在tinker中测试一下 , 生成一个token . 
+在tinker中测试一下 , 生成一个token .
 
 ```php
 $user = App\Models\User::first();
 Auth::guard('api')->fromUser($user);
 ```
+
+生成base64的token . 可以解码 , 就可以看到一个jwt . 
 
 
 
