@@ -31,7 +31,7 @@ protected $listen = [
 
 **客户端已经获取 access\_token**
 
-因为客户端已经获取了 access\_token , 需要将 access\_token 发给服务器 , 服务器通过 access\_token 获取用户信息 , 如果成功的换取了用户信息则说明 access\_token 正确 , 用户微信登录成功 . 
+因为客户端已经获取了 access\_token , 需要将 access\_token 发给服务器 , 服务器通过 access\_token 获取用户信息 , 如果成功的换取了用户信息则说明 access\_token 正确 , 用户微信登录成功 .
 
 使用tinker调试 . 前面已经记录了如何通过`微信开发者工具`获取一个可用的`access_token`
 
@@ -43,6 +43,22 @@ $openID = 'OPEN_ID';
 $driver = Socialite::driver('weixin');
 $driver->setOpenId($openID);
 $oauthUser = $driver->userFromToken($accessToken);
+```
+
+##### 客户端只获取授权码
+
+获取到授权码后就提交给服务器 , 服务器完成换取`access_token`及换取用户信息的流程 . 
+
+先添加修改一些配置文件 : 
+
+_config/services.php_
+
+```php
+'weixin' => [
+    'client_id' => env('WEIXIN_KEY'),
+    'client_secret' => env('WEIXIN_SECRET'),
+    'redirect' => env('WEIXIN_REDIRECT_URI'),  
+],
 ```
 
 #### 第三方登录处理流程
