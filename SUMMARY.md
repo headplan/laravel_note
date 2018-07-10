@@ -196,6 +196,7 @@
     * [第三方登录](develop-recode/lartisan-api/di-san-fang-deng-lu.md)
       * [微信开发者账号](develop-recode/lartisan-api/di-san-fang-deng-lu/wei-xin-kai-fa-zhe-zhang-hao.md)
       * [微信登录](develop-recode/lartisan-api/di-san-fang-deng-lu/wei-xin-deng-lu.md)
+      * [微信登录功能开发](develop-recode/lartisan-api/di-san-fang-deng-lu/wei-xin-deng-lu-gong-neng-kai-fa.md)
     * 用户数据
     * 帖子数据
     * 回复数据
