@@ -197,5 +197,34 @@ return $this->respondWithToken($token)->setStatusCode(201);
 
 #### 刷新/删除 token
 
-任何一个永久有效的 token 都是相当危险的 , 通过任意方式泄露了 token 之后 , 用户的相关信息都有可能被利用 . 所以为了安全考虑 , 任何一种令牌的机制 , 都会有过期时间 , 过期时间一般也不会太长 . 那么 token 过期以后 , 难道要用户重新登录吗 ? 像 OAuth 2.0 有`refresh_token`可以用来刷新一个过期的`access_token`, jwt-auth 同样也为我们提供了刷新的机制 , 只要在可刷新的时间范围内 , 即使 token 过期了 , 依然可以调用接口 , 换取一个新的token . 这对于 APP 长期保持用户登录状态是十分重要的 . 
+任何一个永久有效的 token 都是相当危险的 , 通过任意方式泄露了 token 之后 , 用户的相关信息都有可能被利用 . 所以为了安全考虑 , 任何一种令牌的机制 , 都会有过期时间 , 过期时间一般也不会太长 . 那么 token 过期以后 , 难道要用户重新登录吗 ? 像 OAuth 2.0 有`refresh_token`可以用来刷新一个过期的`access_token`, jwt-auth 同样也为我们提供了刷新的机制 , 只要在可刷新的时间范围内 , 即使 token 过期了 , 依然可以调用接口 , 换取一个新的token . 这对于 APP 长期保持用户登录状态是十分重要的 .
+
+**添加路由**
+
+```php
+# 刷新token
+$api->put('authorizations/current', 'AuthorizationsController@update')
+    ->name('api.authorizations.update');
+# 删除token
+$api->delete('authorizations/current', 'AuthorizationsController@destroy')
+    ->name('api.authorizations.destroy');
+```
+
+**编辑控制器**
+
+```php
+public function update()
+{
+    $token = Auth::guard('api')->refresh();
+    return $this->respondWithToken($token);
+}
+
+public function delete()
+{
+    Auth::guard('api')->logout();
+    return $this->response->noContent();
+}
+```
+
+
 
