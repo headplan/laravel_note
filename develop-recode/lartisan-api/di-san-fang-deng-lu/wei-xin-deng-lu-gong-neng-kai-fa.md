@@ -8,7 +8,7 @@
 php artisan make:migration add_weixin_openid_to_users_table --table=users
 ```
 
-编辑迁移文件 : 
+编辑迁移文件 :
 
 ```php
 <?php
@@ -47,7 +47,33 @@ class AddWeixinOpenidToUsersTable extends Migration
         });
     }
 }
+```
 
+运行迁移
+
+```
+php artisan migrate
+```
+
+#### 路由设计
+
+为了区分用户账号密码登录和第三方登录 , 将登录接口设计为2个 . 
+
+**添加第三方登录接口**
+
+```php
+# 第三方登录
+$api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
+    ->name('api.socials.authorizations.store');
+```
+
+**第三方登录逻辑**
+
+创建 controller 和 request
+
+```
+$ php artisan make:controller Api/v1/AuthorizationsController
+$ php artisan make:request Api/SocialAuthorizationRequest
 ```
 
 
