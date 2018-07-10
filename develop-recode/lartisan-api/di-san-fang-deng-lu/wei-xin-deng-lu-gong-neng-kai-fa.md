@@ -90,7 +90,7 @@ public function rules()
     if ($this->social_type == 'weixin' && !$this->code) {
         $rules['openid']  = 'required|string';
     }
-    
+
     return $rules;
 }
 ```
@@ -101,9 +101,74 @@ public function rules()
 'weixin_openid', 'weixin_unionid'
 ```
 
-编写逻辑 : 
+编写逻辑 :
 
-```
+```php
+<?php
+
+namespace App\Http\Controllers\Api\v1;
+
+use App\Http\Requests\Api\SocialAuthorizationRequest;
+use App\Http\Controllers\Api\Controller;
+use App\Models\User;
+
+class AuthorizationsController extends Controller
+{
+    public function socialStore($type, SocialAuthorizationRequest $request)
+    {
+        # 判断是否支持第三方登录类型
+        if (!in_array($type, ['weixin'])) {
+            return $this->response->errorBadRequest();
+        }
+        # 设置驱动
+        $driver = \Socialite::driver($type);
+
+        try {
+            # 如果客户端提交了授权码,就用授权码,要么用access_token
+            if ($code = $request->code) {
+                $response = $driver->getAccessTokenResponse($code);
+                $token = array_get($response, 'access_token');
+            } else {
+                $token = $request->access_token;
+                # 微信还需要openid
+                if ($type == 'weixin') {
+                    $driver->setOpenId($request->openid);
+                }
+            }
+            # 获取用户数据
+            $oauthUser = $driver->userFromToken($token);
+        } catch (\Exception $exception) {
+            return $this->response->errorUnauthorized('参数错误，未获取用户信息');
+        }
+
+        switch ($type) {
+            case 'weixin':
+                # 判断有没有unionid,只有在用户将公众号绑定到微信开放平台帐号后,才会出现 unionid 字段
+                # 微信开放平台只有通过认证才能绑定公众号,这里做了简单的兼容
+                $unionid = $oauthUser->offsetExists('unionid') ? $oauthUser->offsetGet('unionid') : null;
+                if ($unionid) {
+                    $user = User::where('weixin_unionid', $unionid)->first();
+                } else {
+                    $user = User::where('weixin_openid', $oauthUser->getId())->first();
+                }
+
+                # 没有用户,默认创建
+                if (!$user) {
+                    $user = User::create([
+                        'name' => $oauthUser->getNickname(),
+                        'avatar' => $oauthUser->getAvatar(),
+                        'weixin_openid' => $oauthUser->getId(),
+                        'weixin_unionid' => $unionid,
+                    ]);
+                }
+
+                break;
+        }
+
+        # 暂用
+        return $this->response->array(['token' => $user->id]);
+    }
+}
 
 ```
 
@@ -113,5 +178,5 @@ public function rules()
 http://lartisan.bbs/api/socials/:social_type/authorizations
 ```
 
-这里的url中:social\_type是一个postman的变量 , 可以自定义设置 , 这里为`weixin` . 
+这里的url中:social\_type是一个postman的变量 , 可以自定义设置 , 这里为`weixin` .
 
