@@ -219,12 +219,22 @@ public function update()
     return $this->respondWithToken($token);
 }
 
-public function delete()
+public function destroy()
 {
     Auth::guard('api')->logout();
     return $this->response->noContent();
 }
 ```
+
+两个方法我们都需要提交当前的 token , 格式为
+
+```
+Authorization: Bearer {token}
+```
+
+**使用postman测试接口**
+
+删除 token 的场景就是用户退出 APP , 将当前的 token 禁用掉 . 注意删除使用的 HTTP 方法是 DELETE , 返回的状态码是 204 , 因为对于删除这类的事件 , 只需要告诉客户端成功了 , 没什么需要返回的信息 . 
 
 
 
