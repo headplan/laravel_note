@@ -107,7 +107,26 @@ $user = App\Models\User::first();
 Auth::guard('api')->fromUser($user);
 ```
 
-生成base64的token . 可以解码 , 就可以看到一个jwt . 
+生成base64的token . 可以解码 , 就可以看到一个jwt .
+
+jwt-auth 有两个重要的参数 , 可以在 .env 中进行设置
+
+* JWT\_TTL 生成的 token 在多少分钟后过期 , 默认 60 分钟
+* JWT\_REFRESH\_TTL 生成的 token , 在多少分钟内 , 可以刷新获取一个新 token , 默认 20160 分钟 , 14天 . 
+
+这里需要理解一下 JWT 的过期和刷新机制 , 过期很好理解 , 超过了这个时间 , token 就无效了 . 刷新时间一般比过期时间长 , 只要在这个刷新时间内 , 即使 token 过期了 , 依然可以换取一个新的 token , 已达到应用长期可用 , 不需要重新登录的目的 . 
+
+---
+
+#### 用户登录
+
+**添加路由**
+
+```php
+# 登录
+$api->post('authorizations', 'AuthorizationsController@store')
+    ->name('api.authorizations.store');
+```
 
 
 
