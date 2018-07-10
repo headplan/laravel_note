@@ -144,7 +144,7 @@ public function rules()
 }
 ```
 
-修改控制器
+**修改控制器**
 
 ```php
 public function store(AuthorizationRequest $request)
@@ -171,5 +171,27 @@ public function store(AuthorizationRequest $request)
 
 用户可以使用邮箱或者手机号登录 , 最后返回 token 信息及过期时间`expires_in` , 单位是秒 , 这里返回的结构很像 OAuth 2.0 , 使用方法也与 OAuth 2.0 相似 .
 
-使用postman测试 . 
+使用postman测试 .
+
+**继续修改控制器**
+
+之前第三方登录只返回了userid .  提取公共部分 , 第三方登录获取 user 后 , 可以使用 fromUser 方法为某一个用户模型生成token . 
+
+```php
+protected function respondWithToken($token)
+{
+    return $this->response->array([
+        'access_token' => $token,
+        'token_type' => 'Bearer',
+        'expires_in' => \Auth::guard('api')->factory()->getTTL() * 60
+    ]);
+}
+```
+
+```php
+$token = Auth::guard('api')->fromUser($user);
+return $this->respondWithToken($token)->setStatusCode(201);
+```
+
+
 
