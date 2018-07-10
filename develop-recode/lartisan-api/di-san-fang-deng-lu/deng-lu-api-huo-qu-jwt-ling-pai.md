@@ -169,5 +169,7 @@ public function store(AuthorizationRequest $request)
 }
 ```
 
+用户可以使用邮箱或者手机号登录 , 最后返回 token 信息及过期时间`expires_in` , 单位是秒 , 这里返回的结构很像 OAuth 2.0 , 使用方法也与 OAuth 2.0 相似 . 
+
 
 
