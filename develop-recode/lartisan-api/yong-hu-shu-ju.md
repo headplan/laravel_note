@@ -142,7 +142,7 @@ _routes/api.php_
 
 DingoApi 为我们准备好了 api.auth 这个中间件 , 用来区分哪些接口需要验证 token , 哪些不需要 .
 
-编辑控制器 : 
+编辑控制器 :
 
 ```php
 public function me()
@@ -151,15 +151,15 @@ public function me()
 }
 ```
 
-这里的`$this->user()`等同于`\Auth::guard('api')->user()` , 方便获取到当前登录的用户 , 也就是 token 所对应的用户 . 
+这里的`$this->user()`等同于`\Auth::guard('api')->user()` , 方便获取到当前登录的用户 , 也就是 token 所对应的用户 .
 
-`$this->response->item`表示一个单一资源 . 
+`$this->response->item`表示一个单一资源 .
 
-POSTMAN测试一下接口 . 
+POSTMAN测试一下接口 .
 
-没有传入 token 时 , 返回 401 . 
+没有传入 token 时 , 返回 401 .
 
-传入token时就正常访问了 . 
+传入token时就正常访问了 .
 
 #### 响应结构保持统一
 
@@ -175,5 +175,22 @@ POSTMAN测试一下接口 .
 }
 ```
 
+单一资源有一层`data`Key 进行包裹 , 是因为 DingoApi 默认使用的 Fractal 的`DataArraySerializer`
 
+这里方便前端对接 , 选择少一层嵌套的`ArraySerializer`使用中间件切换两种数据结构 . 
+
+```
+composer require liyu/dingo-serializer-switch
+```
+
+**配置中间件**
+
+```php
+$api->version('v1', [
+    'namespace' => 'App\Http\Controllers\Api',
+    'middleware' => 'serializer:array'
+], function ($api) {
+```
+
+现在获取的数据就没有data包裹了 . 
 
