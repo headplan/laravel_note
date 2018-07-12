@@ -68,7 +68,7 @@ ArraySerializer
 ];
 ```
 
-对于集合来说 , 两者没有差别 , 有 data 和 meta 构成 , 对于 item 来说 , 就是少了一层 data 包裹 . 
+对于集合来说 , 两者没有差别 , 有 data 和 meta 构成 , 对于 item 来说 , 就是少了一层 data 包裹 .
 
 * DataArraySerializer 将所有结果的 data 与 meta 区分来 , 结构统一 . 
 * 当多个资源嵌套返回的时候 , 例如话题及发布话题的用户 , 多一层 data 会让结构更深一层 . 前端的同学可能会这么显示某个发布话题用户的姓名 , data.topics\[0\].user.data.name , 所以 ArraySerializer 会减少数据嵌套层级 . 
@@ -80,7 +80,7 @@ mkdir app/Transformers
 touch app/Transformers/UserTransformer.php
 ```
 
-也可以直接在编辑器中创建 . 
+也可以直接在编辑器中创建 .
 
 **编辑UserTransformer**
 
@@ -110,6 +110,34 @@ class UserTransformer extends TransformerAbstract
         ];
     }
 }
+```
+
+使用起来很简单 , 只需要给`transformer`方法传入一个模型实例 , 然后返回一个数据即可 , 这个数组就是返回给客户端的响应数据 . 
+
+UserTransformer 是可以复用的 , 当前用户信息 , 发布话题用户信息 , 话题回复用户信息都可以用这一个transformer , 这样我们所有的有关 用户 的资源都会返回相同的信息 , 客户端只需要解析一遍即可 . 因为是可复用的 , 特别需要注意一些敏感信息 , 如用户手机 , 微信的union\_id等 , 我们可以使用另外的字段返回 . 
+
+* `bound_phone`是否绑定手机
+* `bound_wechat`是否绑定微信
+
+或者可以返回phone 但是部分手机数字用 \* 替换 , 总之就是需要保护用户敏感信息 . 
+
+#### 获取用户信息
+
+登录获取了 token 之后 , 第一件事就是需要换取用户信息 , 先来实现`获取登录用户信息`接口 . 
+
+_routes/api.php_
+
+```php
+], function ($api) {
+    // 游客可以访问的接口
+
+    // 需要 token 验证的接口
+    $api->group(['middleware' => 'api.auth'], function($api) {
+        // 当前登录用户信息
+        $api->get('user', 'UsersController@me')
+            ->name('api.user.show');
+    });
+});
 ```
 
 
