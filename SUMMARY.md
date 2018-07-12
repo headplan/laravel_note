@@ -200,6 +200,7 @@
       * [登录 API 获取 JWT 令牌](develop-recode/lartisan-api/di-san-fang-deng-lu/deng-lu-api-huo-qu-jwt-ling-pai.md)
       * [快速生成JWT](develop-recode/lartisan-api/di-san-fang-deng-lu/kuai-su-sheng-cheng-jwt.md)
     * [用户数据](develop-recode/lartisan-api/yong-hu-shu-ju.md)
+      * [编辑个人资料](develop-recode/lartisan-api/yong-hu-shu-ju/bian-ji-ge-ren-zi-liao.md)
     * 帖子数据
     * 回复数据
     * 权限控制
