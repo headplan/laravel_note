@@ -318,5 +318,13 @@ class UserRequest extends FormRequest
 }
 ```
 
-修改头像时 , 我们先创建 avatar 类型的图片资源 , 然后提交`avatar_image_id`即可 . 
+修改头像时 , 我们先创建 avatar 类型的图片资源 , 然后提交`avatar_image_id`即可 .
+
+**编辑**_**app/Http/Controllers/Api/v1/UsersController.php**_
+
+```
+
+```
+
+
 
