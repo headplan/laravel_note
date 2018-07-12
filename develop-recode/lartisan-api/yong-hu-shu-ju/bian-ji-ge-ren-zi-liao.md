@@ -9,7 +9,7 @@ HTTP 提交数据有两种方式
 
 form 表单提交文件的时候 , 需要增加`enctype="multipart/form-data"` , 才能正确传输文件 , 因为默认的`enctype`是`enctype="application/x-www-form-urlencoded"`
 
-所以 , 只有当 POST 配合`multipart/form-data`时才能正确传输文件 . 
+所以 , 只有当 POST 配合`multipart/form-data`时才能正确传输文件 .
 
 #### 图片资源
 
@@ -61,6 +61,28 @@ class CreateImagesTable extends Migration
         Schema::dropIfExists('images');
     }
 }
+```
+
+images 表记录了用户 id , 图片路径 , 以及图片类型 . 图片类型有两种 'avatar' 和 'topic' , 分别用于用户头像以及话题中的图片 . 记录图片类型是因为不同类型的图片有不同的尺寸 , 以及不同的文件目录 , 修改个人头像所使用的 image 必须为 avatar 类型 . 
+
+```
+php artisan migrate
+```
+
+**添加路由**
+
+routes/api.php
+
+```php
+# 需要 token 验证的接口
+$api->group(['middleware' => 'api.auth'], function($api) {
+    # 当前登录用户信息
+    $api->get('user', 'UsersController@me')
+        ->name('api.user.show');
+    # 图片资源
+    $api->post('images', 'ImagesController@store')
+        ->name('api.images.store');
+});
 ```
 
 
