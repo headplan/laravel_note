@@ -44,5 +44,29 @@ DataArraySerializer
 ];
 ```
 
+ArraySerializer
+
+```php
+# 带着 meta 信息的单条数据
+[
+    'foo' => 'bar'
+    'meta' => [
+        ...
+    ]
+];
+
+# 带着 meta 信息的数据集合
+[
+    'data' => [
+        [
+            'foo' => 'bar'
+        ]
+    ],
+    'meta' => [
+        ...
+    ]
+];
+```
+
 
 
