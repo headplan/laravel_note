@@ -199,7 +199,7 @@
       * [微信登录功能开发](develop-recode/lartisan-api/di-san-fang-deng-lu/wei-xin-deng-lu-gong-neng-kai-fa.md)
       * [登录 API 获取 JWT 令牌](develop-recode/lartisan-api/di-san-fang-deng-lu/deng-lu-api-huo-qu-jwt-ling-pai.md)
       * [快速生成JWT](develop-recode/lartisan-api/di-san-fang-deng-lu/kuai-su-sheng-cheng-jwt.md)
-    * 用户数据
+    * [用户数据](develop-recode/lartisan-api/yong-hu-shu-ju.md)
     * 帖子数据
     * 回复数据
     * 权限控制
