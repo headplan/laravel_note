@@ -68,5 +68,49 @@ ArraySerializer
 ];
 ```
 
+对于集合来说 , 两者没有差别 , 有 data 和 meta 构成 , 对于 item 来说 , 就是少了一层 data 包裹 . 
+
+* DataArraySerializer 将所有结果的 data 与 meta 区分来 , 结构统一 . 
+* 当多个资源嵌套返回的时候 , 例如话题及发布话题的用户 , 多一层 data 会让结构更深一层 . 前端的同学可能会这么显示某个发布话题用户的姓名 , data.topics\[0\].user.data.name , 所以 ArraySerializer 会减少数据嵌套层级 . 
+
+#### 创建转换层
+
+```
+mkdir app/Transformers
+touch app/Transformers/UserTransformer.php
+```
+
+也可以直接在编辑器中创建 . 
+
+**编辑UserTransformer**
+
+```php
+<?php
+
+namespace App\Transformers;
+
+use App\Models\User;
+use League\Fractal\TransformerAbstract;
+
+class UserTransformer extends TransformerAbstract
+{
+    public function transform(User $user)
+    {
+        return [
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'avatar' => $user->avatar,
+            'introduction' => $user->introduction,
+            'bound_phone' => $user->phone ? true : false,
+            'bound_wechat' => ($user->weixin_unionid || $user->weixin_openid) ? true : false,
+            'last_actived_at' => $user->last_actived_at->toDateTimeString(),
+            'created_at' => $user->created_at->toDateTimeString(),
+            'updated_at' => $user->updated_at->toDateTimeString(),
+        ];
+    }
+}
+```
+
 
 
