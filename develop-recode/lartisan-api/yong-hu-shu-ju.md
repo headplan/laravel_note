@@ -177,7 +177,7 @@ POSTMAN测试一下接口 .
 
 单一资源有一层`data`Key 进行包裹 , 是因为 DingoApi 默认使用的 Fractal 的`DataArraySerializer`
 
-这里方便前端对接 , 选择少一层嵌套的`ArraySerializer`使用中间件切换两种数据结构 . 
+这里方便前端对接 , 选择少一层嵌套的`ArraySerializer`使用中间件切换两种数据结构 .
 
 ```
 composer require liyu/dingo-serializer-switch
@@ -193,4 +193,23 @@ $api->version('v1', [
 ```
 
 现在获取的数据就没有data包裹了 . 
+
+#### 用户注册响应数据
+
+之前用户手机注册成功后 , 最后只是返回了` return $this->response->created(); `并没有返回数据 . 如果注册后直接登录该用户 , 那就需要返回一些数据 . 还有 , 别忘记了meta数据 : 
+
+```php
+# 创建完成,直接登录,返回数据,状态201
+return $this->response->item($user, new UserTransformer())
+    ->setMeta([
+        'access_token' => \Auth::guard('api')->fromUser($user),
+        'token_type' => 'Bearer',
+        'expires_in' => \Auth::guard('api')->factory()->getTTL() * 60
+    ])
+    ->setStatusCode(201);
+```
+
+
+
+
 
