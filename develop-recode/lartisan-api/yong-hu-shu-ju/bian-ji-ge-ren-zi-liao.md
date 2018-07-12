@@ -227,7 +227,19 @@ class ImagesController extends Controller
 }
 ```
 
-两种图片类型 , 头像和话题 , 会利用`ImageUploadHandler`进行存储和裁剪 . 使用 PostMan 测试一下图片接口 . 
+两种图片类型 , 头像和话题 , 会利用`ImageUploadHandler`进行存储和裁剪 . 使用 PostMan 测试一下图片接口 .
+
+#### 编辑个人资料接口
+
+添加编辑个人资料接口
+
+_routes/api.php_
+
+```php
+# 编辑登录用户信息
+$api->patch('user', 'UsersController@update')
+    ->name('api.user.update');
+```
 
 
 
