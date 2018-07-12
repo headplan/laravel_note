@@ -140,7 +140,40 @@ _routes/api.php_
 });
 ```
 
-DingoApi 为我们准备好了 api.auth 这个中间件 , 用来区分哪些接口需要验证 token , 哪些不需要 . 
+DingoApi 为我们准备好了 api.auth 这个中间件 , 用来区分哪些接口需要验证 token , 哪些不需要 .
+
+编辑控制器 : 
+
+```php
+public function me()
+{
+    return $this->response->item($this->user(), new UserTransformer());
+}
+```
+
+这里的`$this->user()`等同于`\Auth::guard('api')->user()` , 方便获取到当前登录的用户 , 也就是 token 所对应的用户 . 
+
+`$this->response->item`表示一个单一资源 . 
+
+POSTMAN测试一下接口 . 
+
+没有传入 token 时 , 返回 401 . 
+
+传入token时就正常访问了 . 
+
+#### 响应结构保持统一
+
+```php
+{
+    "data": {
+        "id": 1,
+        ...
+        ...
+        "created_at": "2018-04-30 13:43:13",
+        "updated_at": "2018-04-30 13:43:13"
+    }
+}
+```
 
 
 
