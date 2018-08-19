@@ -140,10 +140,10 @@ npm run production
 
 ---
 
-引入bulma扩展包
+**引入bulma扩展包**
 
 ```
-yarn add bulma-extensions
+yarn add bulma-extensions --dev
 ```
 
 
