@@ -227,6 +227,7 @@
     * [项目配置与上线](deploy-the-line/walle/xiang-mu-pei-zhi-yu-shang-xian.md)
     * [自定义配置](deploy-the-line/walle/zi-ding-yi-pei-zhi.md)
     * [常见错误](deploy-the-line/walle/chang-jian-cuo-wu.md)
+  * [Jenkins](deploy-the-line/jenkens.md)
 * [补充扩展](laravel-extend.md#laravel-extend)
   * [Laravel框架中的设计模式](laravel-extend/laravelkuang-jia-zhong-de-she-ji-mo-shi.md)
   * [Laravel的Auth重写](laravel-extend/laravelde-auth-zhong-xie.md)
