@@ -18,5 +18,20 @@
 
 直接下载安装按照步骤即可 . 
 
+**Redhat系列安装**
+
+使用仓库
+
+```
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+```
+
+然后直接yum安装
+
+```
+yum install jenkins
+```
+
 
 
