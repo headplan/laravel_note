@@ -16,7 +16,7 @@
 
 **MacOS安装**
 
-直接下载安装按照步骤即可 . 
+直接下载安装按照步骤即可 .
 
 **Redhat系列安装**
 
@@ -33,5 +33,22 @@ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 yum install jenkins
 ```
 
+安装完成后的文件位置
 
+```
+/var/lib/jenkins/ -- 默认的JENKINS_HOME目录
+/usr/lib/jenkins/jenkins.war -- WAR包
+/etc/sysconfig/jenkins -- 配置文件
+/var/log/jenkins/jenkins.log -- Jenkins日志文件
+```
+
+启动服务
+
+```
+sudo service jenkins start
+提示错误[FAILED],查看细节
+systemctl status jenkins.service
+```
+
+一般是因为没有配置JAVA环境
 
