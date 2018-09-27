@@ -42,7 +42,7 @@ yum install jenkins
 /var/log/jenkins/jenkins.log -- Jenkins日志文件
 ```
 
-启动服务
+**启动服务**
 
 ```
 sudo service jenkins start
@@ -56,7 +56,7 @@ systemctl status jenkins.service
 java -version
 ```
 
-安装java :
+**安装java**
 
 ```
 yum install java
@@ -71,13 +71,22 @@ yum install java
 candidates="
 ```
 
-启动服务 .
+**启动服务**
 
-Linux下jenkins默认使用jenkins用户进行脚本和文件的操作 , 如果不修改 , 在部署项目时需要调整涉及到的文件和目录的操作权限 , 可以调整jenkins配置文件 , 将用户修改为root用户 . 
+Linux下jenkins默认使用jenkins用户进行脚本和文件的操作 , 如果不修改 , 在部署项目时需要调整涉及到的文件和目录的操作权限 , 可以调整jenkins配置文件 , 将用户修改为root用户 .
 
 ```
 vi /etc/sysconfig/jenkins 配置文件
 将JENKINS_USER="jenkins"调整为JENKINS_USER="root"
+也可以修改端口,默认为8080.
+```
+
+**通过IP访问**
+
+在本地浏览器中输入"http://IP:8080"登录jenkins , 第一次登录Jenkins会要求解锁 . 查看 : 
+
+```
+cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 
