@@ -83,7 +83,7 @@ vi /etc/sysconfig/jenkins 配置文件
 
 **通过IP访问**
 
-在本地浏览器中输入"\[\[\[[http://IP:8080"登录jenkins\]\(http://IP:8080"登录jenkins\]\(http://IP:8080"登录jenkins\]\(http://IP:8080"登录jenkins\)\]\(http://IP:8080"登录jenkins\]\(http://IP:8080"登录jenkins\]\(http://IP:8080"登录jenkins\]\(http://IP:8080"登录jenkins\)\)\](http://IP:8080"登录jenkins]%28http://IP:8080"登录jenkins]%28http://IP:8080"登录jenkins]%28http://IP:8080"登录jenkins%29]%28http://IP:8080"登录jenkins]%28http://IP:8080"登录jenkins]%28http://IP:8080"登录jenkins]%28http://IP:8080"登录jenkins%29%29\)\) , 第一次登录Jenkins会要求解锁 . 查看 :
+在本地浏览器中输入ip:8080访问 . 第一次登录Jenkins会要求解锁 . 查看 :
 
 ```
 cat /var/lib/jenkins/secrets/initialAdminPassword
@@ -114,7 +114,7 @@ https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
 http://mirror.esuni.jp/jenkins/updates/update-center.json
 ```
 
-jenkins在下载插件之前会先检查网络连接 , 其会读取这个文件中的网址 . 默认是访问谷歌 , 所以还是修改成百度吧 . 
+jenkins在下载插件之前会先检查网络连接 , 其会读取这个文件中的网址 . 默认是访问谷歌 , 所以还是修改成百度吧 .
 
 ```
 /var/lib/jenkins/updates/default.json
@@ -126,5 +126,5 @@ jenkins在下载插件之前会先检查网络连接 , 其会读取这个文件�
 sudo service jenkins restart
 ```
 
-选择推荐的插件 , 最后安装完成 . 
+选择推荐的插件 , 最后安装完成 .
 
