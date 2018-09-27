@@ -62,7 +62,7 @@ java -version
 yum install java
 ```
 
-安装了java之后 , 就可以直接启动了 , 如果无法启动 , 可以修改配置文件 : 
+安装了java之后 , 就可以直接启动了 , 如果无法启动 , 可以修改配置文件 :
 
 ```
 # 配置文件
@@ -71,5 +71,5 @@ yum install java
 candidates="
 ```
 
-
+启动服务 . 
 
