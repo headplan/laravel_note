@@ -53,13 +53,22 @@ systemctl status jenkins.service
 一般是因为没有配置java , 测试一下
 
 ```
-java --version
+java -version
 ```
 
-安装java : 
+安装java :
 
 ```
+yum install java
+```
 
+安装了java之后 , 就可以直接启动了 , 如果无法启动 , 可以修改配置文件 : 
+
+```
+# 配置文件
+/etc/init.d/jenkins
+# 设置配置文件,查找
+candidates="
 ```
 
 
