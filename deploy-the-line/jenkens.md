@@ -71,5 +71,14 @@ yum install java
 candidates="
 ```
 
-启动服务 . 
+启动服务 .
+
+Linux下jenkins默认使用jenkins用户进行脚本和文件的操作 , 如果不修改 , 在部署项目时需要调整涉及到的文件和目录的操作权限 , 可以调整jenkins配置文件 , 将用户修改为root用户 . 
+
+```
+vi /etc/sysconfig/jenkins 配置文件
+将JENKINS_USER="jenkins"调整为JENKINS_USER="root"
+```
+
+
 
