@@ -50,5 +50,17 @@ sudo service jenkins start
 systemctl status jenkins.service
 ```
 
-一般是因为没有配置JAVA环境
+一般是因为没有配置java , 测试一下
+
+```
+java --version
+```
+
+安装java : 
+
+```
+
+```
+
+
 
