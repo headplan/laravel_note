@@ -83,10 +83,24 @@ vi /etc/sysconfig/jenkins 配置文件
 
 **通过IP访问**
 
-在本地浏览器中输入"http://IP:8080"登录jenkins , 第一次登录Jenkins会要求解锁 . 查看 : 
+在本地浏览器中输入"[http://IP:8080"登录jenkins](http://IP:8080"登录jenkins) , 第一次登录Jenkins会要求解锁 . 查看 :
 
 ```
 cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+解锁后安装插件 , 如果访问状态为离线 , 是因为访问默认是https请求 , 可以直接访问下面的地址修改 : 
+
+```
+pluginManager/advanced
+```
+
+修改为http请求 : 
+
+```
+https://updates.jenkins.io/update-center.json
+to
+http://updates.jenkins.io/update-center.json
 ```
 
 
