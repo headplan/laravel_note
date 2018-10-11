@@ -33,7 +33,9 @@ Jenkins最近又收到关注的原因是Devops备受关注 , 如何来做持续�
 
 #### Jenkins使用注意
 
-需要各个部门推动 比如APP自动打包 . 
+需要各个部门推动 比如APP自动打包 .
 
-确定的代码分支管理规范 . 可以参考 : Git 分支管理最佳实践 - http://www.ibm.com/developerworks/cn/java/j-lo-git-mange/
+确定的代码分支管理规范 . 可以参考 : Git 分支管理最佳实践 - [http://www.ibm.com/developerworks/cn/java/j-lo-git-mange/](http://www.ibm.com/developerworks/cn/java/j-lo-git-mange/)
+
+
 
