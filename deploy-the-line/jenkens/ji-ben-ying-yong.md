@@ -31,7 +31,9 @@ Jenkins最近又收到关注的原因是Devops备受关注 , 如何来做持续�
 
 > 有了定时构建等 , 还可以去定时的备份一些数据 , 或者同步生产环境数据库到开发环境等操作 , 都可以在Jenkins中构建 .
 
+#### Jenkins使用注意
 
+需要各个部门推动 比如APP自动打包 . 
 
-
+确定的代码分支管理规范 . 可以参考 : Git 分支管理最佳实践 - http://www.ibm.com/developerworks/cn/java/j-lo-git-mange/
 
