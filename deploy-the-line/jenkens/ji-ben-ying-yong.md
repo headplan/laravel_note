@@ -37,7 +37,9 @@ Jenkins最近又收到关注的原因是Devops备受关注 , 如何来做持续�
 
 确定的代码分支管理规范 . 可以参考 : Git 分支管理最佳实践 - [http://www.ibm.com/developerworks/cn/java/j-lo-git-mange/](http://www.ibm.com/developerworks/cn/java/j-lo-git-mange/)
 
-实现过通过shell自动部署代码 . 
+实现过通过shell自动部署代码 .
+
+持续集成最好有自动化测试 , 最好是让开发人员提供api的监控脚本 , 每次构建之后验证部署是否正常 . 
 
 
 
