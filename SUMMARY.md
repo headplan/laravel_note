@@ -230,6 +230,7 @@
   * [Jenkins](deploy-the-line/jenkens.md)
     * [Jenkins介绍](deploy-the-line/jenkens/ji-ben-ying-yong.md)
     * [Jenkins部署](deploy-the-line/jenkens/bu-shu.md)
+    * [Jenkins使用流程](deploy-the-line/jenkens/jenkinsshi-yong-liu-cheng.md)
 * [补充扩展](laravel-extend.md#laravel-extend)
   * [Laravel框架中的设计模式](laravel-extend/laravelkuang-jia-zhong-de-she-ji-mo-shi.md)
   * [Laravel的Auth重写](laravel-extend/laravelde-auth-zhong-xie.md)
