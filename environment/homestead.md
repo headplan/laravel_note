@@ -3,6 +3,10 @@
 > 作为官方推荐的本地开发环境 , 这里再次统一整理一次 . 前期和LaraDock一样 , 坑很多所以放弃 , 经历过这么多更新后 , 希望一切顺利 .
 >
 > 使用Homestead的好处不再冗述 , 直接上流程\(MacOS\) .
+>
+> Laravel中国上已有很好的总结 , 可以参考 : 
+>
+> https://laravel-china.org/docs/laravel-development-environment/5.5
 
 #### 安装 VirtualBox
 
