@@ -13,19 +13,27 @@ PHP Note中有详细的安装配置以及参数解释函数等记录 , 这里仅
 * PHP开始执行代码并让Xdebug过滤 , 然后发给9000端口 . 
 * 客户端 , 也就是编辑器展示响应结果 . 
 
-两种配置方式 : 
+两种配置方式 :
 
 xdebug.remote\_connect\_back = 0 \(默认\)
 
 需要配置`xdebug.remote_host`和`xdebug.remote_port`
 
+交互流程
+
 ![](/assets/xdebug_yuanli1.png)
 
-参考文章 : 
+remote\_host的IP是固定的 , 这种方式只适合单一客户端开发调试 . 
 
-https://my.oschina.net/atanl/blog/371424
+也可以不绑定IP , xdebug.remote\_connect\_back = 1
 
-https://laravel-china.org/articles/4090/the-first-step-to-becoming-a-senior-php-programmer-debugging-xdebug-principle
+不同的是 , php在接受http请求后 , Xdebug会将请求来源的IP绑定 . 并通知 .
 
-https://laravel-china.org/articles/4098/the-first-step-to-becoming-a-senior-php-programmer-debug-xdebug-configuration
+参考文章 :
+
+[https://my.oschina.net/atanl/blog/371424](https://my.oschina.net/atanl/blog/371424)
+
+[https://laravel-china.org/articles/4090/the-first-step-to-becoming-a-senior-php-programmer-debugging-xdebug-principle](https://laravel-china.org/articles/4090/the-first-step-to-becoming-a-senior-php-programmer-debugging-xdebug-principle)
+
+[https://laravel-china.org/articles/4098/the-first-step-to-becoming-a-senior-php-programmer-debug-xdebug-configuration](https://laravel-china.org/articles/4098/the-first-step-to-becoming-a-senior-php-programmer-debug-xdebug-configuration)
 
