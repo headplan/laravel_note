@@ -2,3 +2,30 @@
 
 PHP Note中有详细的安装配置以及参数解释函数等记录 , 这里仅记录快速安装配置Laravel相关的Xdebug .
 
+#### **原理回顾**
+
+* IDE一般都会集成了一个遵循BGDp的Xdebug插件 . 当要debug的时候 , 点击一些启动插件即可 . 插件会启动一个默认9000的端口监听远程服务器发过来的debug信息 . 
+
+> 例如在PHPSTORM中开启 , Run&gt;Listening for PHP Xdebug Connetions .
+
+* 浏览器向Http服务器发送一个带有XDEBUG\_SESSION\_START参数的请求 , 服务器收到这个请求之后交给后端的PHP\(已开启 xdebug 模块\)进行处理 . 
+* PHP接收XDEBUG\_SESSION\_START请求之后响应给Xdebug , Xdebug请求客户端9000端口 , 然后客户端响应 . 这里Xebug有两种模式通知客户端可以配置 , xdebug.remote\_connect\_back = 0 \| 1 . 
+* PHP开始执行代码并让Xdebug过滤 , 然后发给9000端口 . 
+* 客户端 , 也就是编辑器展示响应结果 . 
+
+两种配置方式 : 
+
+xdebug.remote\_connect\_back = 0 \(默认\)
+
+需要配置`xdebug.remote_host`和`xdebug.remote_port`
+
+![](/assets/xdebug_yuanli1.png)
+
+参考文章 : 
+
+https://my.oschina.net/atanl/blog/371424
+
+https://laravel-china.org/articles/4090/the-first-step-to-becoming-a-senior-php-programmer-debugging-xdebug-principle
+
+https://laravel-china.org/articles/4098/the-first-step-to-becoming-a-senior-php-programmer-debug-xdebug-configuration
+
