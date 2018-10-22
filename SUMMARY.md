@@ -27,6 +27,7 @@
     * [其他杂项](environment/laradock/qi-ta-za-xiang.md)
     * [生产环境](environment/laradock/sheng-chan-huan-jing.md)
     * [常见问题](environment/laradock/chang-jian-wen-ti.md)
+  * [Xdebug](environment/xdebug.md)
 * [官方手册](manual.md#manual)
   * [基本功能](manual/ji-ben-gong-neng.md)
   * [编译前端资源](manual/bian-yi-qian-duan-zi-yuan.md)
