@@ -23,11 +23,37 @@ xdebug.remote\_connect\_back = 0 \(默认\)
 
 ![](/assets/xdebug_yuanli1.png)
 
-remote\_host的IP是固定的 , 这种方式只适合单一客户端开发调试 . 
+remote\_host的IP是固定的 , 这种方式只适合单一客户端开发调试 .
 
 也可以不绑定IP , xdebug.remote\_connect\_back = 1
 
 不同的是 , php在接受http请求后 , Xdebug会将请求来源的IP绑定 . 并通知 .
+
+#### Xdebug配置
+
+```
+zend_extension="/usr/lib/php/20160303/xdebug.so"
+xdebug.remote_enable = 1
+xdebug.idekey = PHPSTORM
+xdebug.remote_connect_back = 1
+xdebug.remote_log = "/tmp/xdebug_php71.log"
+```
+
+PHP 有两种运行模式`FPM`和`CLI`
+
+开启模块 : 
+
+```
+sudo phpenmod -s fpm -v 7.1 xdebug
+```
+
+这样就会只开启`PHP-FPM`的Xdebug模块 , 而不会影响`CLI`
+
+开启模块后 , 重启一下服务 : 
+
+```
+sudo service php7.1-fpm restart
+```
 
 参考文章 :
 
