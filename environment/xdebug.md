@@ -41,7 +41,7 @@ xdebug.remote_log = "/tmp/xdebug_php71.log"
 
 PHP 有两种运行模式`FPM`和`CLI`
 
-开启模块 : 
+开启模块 :
 
 ```
 sudo phpenmod -s fpm -v 7.1 xdebug
@@ -49,10 +49,24 @@ sudo phpenmod -s fpm -v 7.1 xdebug
 
 这样就会只开启`PHP-FPM`的Xdebug模块 , 而不会影响`CLI`
 
-开启模块后 , 重启一下服务 : 
+开启模块后 , 重启一下服务 :
 
 ```
 sudo service php7.1-fpm restart
+```
+
+#### PHPStorm配置
+
+##### 针对单个PHP文件调试配置
+
+设置CLI Interpreter , 这里设置Homestead中的PHP解释器 , 填写配置文件 , 以SSH的方式访问即可 . 
+
+如果CLI模式没有开始 , 也可以使用命令开启
+
+```
+sudo phpenmod -s cli -v 7.1 xdebug
+# 与其相反的命令是
+phpdismod
 ```
 
 参考文章 :
