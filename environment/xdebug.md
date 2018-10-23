@@ -81,7 +81,7 @@ phpdismod
 
 现在访问原本在Homestead中设置好的web连接 , 加上?XDEBUG\_SESSION\_START=PHPSTORM就会连接上Xdebug . 也可以使用Chrome的插件设置这个Get值 .
 
-还可以添加快速启动Xdebug的方式 . Run &gt; Edit Configurations . 这样也会在浏览器自动加入Get值 , 启动并执行Xdbug . 
+还可以添加快速启动Xdebug的方式 . Run &gt; Edit Configurations . 这样也会在浏览器自动加入Get值 , 启动并执行Xdebug .
 
 参考文章 :
 
