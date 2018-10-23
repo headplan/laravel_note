@@ -77,9 +77,11 @@ phpdismod
 
 ![](/assets/xdebug_setting.png)
 
-这样基本就配置完了 , 不用配置什么了 , 唯一还要设置的就是监听状态 , Run &gt; Start/Stop Listening ...这里就是监听的9000端口 . 
+这样基本就配置完了 , 不用配置什么了 , 唯一还要设置的就是监听状态 , Run &gt; Start/Stop Listening ...这里就是监听的9000端口 .
 
 现在访问原本在Homestead中设置好的web连接 , 加上?XDEBUG\_SESSION\_START=PHPSTORM就会连接上Xdebug . 也可以使用Chrome的插件设置这个Get值 .
+
+还可以添加快速启动Xdebug的方式 . Run &gt; Edit Configurations . 这样也会在浏览器自动加入Get值 , 启动并执行Xdbug . 
 
 参考文章 :
 
