@@ -59,7 +59,7 @@ sudo service php7.1-fpm restart
 
 ##### 针对单个PHP文件调试配置
 
-设置CLI Interpreter , 这里设置Homestead中的PHP解释器 , 填写配置文件 , 以SSH的方式访问即可 . 
+设置CLI Interpreter , 这里设置Homestead中的PHP解释器 , 填写配置文件 , 以SSH的方式访问即可 .
 
 如果CLI模式没有开始 , 也可以使用命令开启
 
@@ -68,6 +68,12 @@ sudo phpenmod -s cli -v 7.1 xdebug
 # 与其相反的命令是
 phpdismod
 ```
+
+在编辑器中添加了这个CLI Interpreter之后 , 就可以选择并配置了 , 下面的Path mapping配置可以用来设置目录的映射 . 
+
+**针对整个项目的调试配置**
+
+针对整个项目的配置和前面的没有相关性 , 这里需要配置一个server , 当然目录还是要映射对 . 
 
 参考文章 :
 
