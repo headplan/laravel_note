@@ -30,7 +30,11 @@ PostMan支持导出保存的接口 , 在团队协作中 , 后端将数据接口�
 
 **导入Collection及环境**
 
-将前面导出的json文件导入到PostMan中 , 点击Import就可以了 , 环境变量的导入也一样 . 
+将前面导出的json文件导入到PostMan中 , 点击Import就可以了 , 环境变量的导入也一样 .
 
+---
 
+#### PostMan自动化测试
+
+PostMan提供了自动化测试的功能 , 类似于Laravel的接口测试 , PostMan可以请求接口 , 并且断言响应结果和响应数据 , 
 
