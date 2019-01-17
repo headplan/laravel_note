@@ -202,13 +202,14 @@
       * [快速生成JWT](develop-recode/lartisan-api/di-san-fang-deng-lu/kuai-su-sheng-cheng-jwt.md)
     * [用户数据](develop-recode/lartisan-api/yong-hu-shu-ju.md)
       * [编辑个人资料](develop-recode/lartisan-api/yong-hu-shu-ju/bian-ji-ge-ren-zi-liao.md)
-    * 帖子数据
+    * [帖子数据](develop-recode/lartisan-api/tie-zi-shu-ju.md)
     * 回复数据
     * 权限控制
     * 其他功能
-    * API测试和文档
-    * OAuth认证 - Passport
-    * 扩展阅读
+    * [API测试和文档](develop-recode/lartisan-api/apice-shi-he-wen-dang.md)
+      * [API自动化测试](develop-recode/lartisan-api/apice-shi-he-wen-dang/apizi-dong-hua-ce-shi.md)
+    * [OAuth认证 - Passport](develop-recode/lartisan-api/oauthren-zheng-passport.md)
+    * [扩展阅读](develop-recode/lartisan-api/kuo-zhan-yue-du.md)
     * [Dingo API](/develop-recode/lartisan-api/dingo-api.md#dingo-api)
       * [安装与配置](develop-recode/lartisan-api/dingo-api/an-zhuang.md)
       * [创建 API Endpoint路由](develop-recode/lartisan-api/dingo-api/chuang-jian-api-endpoint-lu-you.md)
