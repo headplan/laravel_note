@@ -208,6 +208,7 @@
     * 其他功能
     * [API测试和文档](develop-recode/lartisan-api/apice-shi-he-wen-dang.md)
       * [API自动化测试](develop-recode/lartisan-api/apice-shi-he-wen-dang/apizi-dong-hua-ce-shi.md)
+      * [Laravel API集成测试](develop-recode/lartisan-api/apice-shi-he-wen-dang/laravel-apiji-cheng-ce-shi.md)
     * [OAuth认证 - Passport](develop-recode/lartisan-api/oauthren-zheng-passport.md)
     * [扩展阅读](develop-recode/lartisan-api/kuo-zhan-yue-du.md)
     * [Dingo API](/develop-recode/lartisan-api/dingo-api.md#dingo-api)
