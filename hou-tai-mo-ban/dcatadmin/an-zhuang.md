@@ -34,5 +34,34 @@ php artisan admin:publish
 
 > 执行这一步命令可能会报以下错误`Specified key was too long ... 767 bytes`，如果出现这个报错 , 请在`app/Providers/AppServiceProvider.php`文件的boot方法中加上代码`\Schema::defaultStringLength(191);`，然后删除掉数据库中的所有数据表 , 再重新运行一遍`php artisan admin:install`命令即可 .
 
-启动服务后 , 在浏览器打开`http://localhost/admin/`, 使用用户名`admin`和密码`admin`登陆 . 
+启动服务后 , 在浏览器打开`http://localhost/admin/`, 使用用户名`admin`和密码`admin`登陆 .
+
+#### 生成的文件
+
+**配置文件**
+
+所有的配置都在`config/admin.php`文件中 . 
+
+**后台项目文件**
+
+后台的安装目录为`app/Admin`
+
+```
+app/Admin
+├── Controllers
+│   ├── ExampleController.php
+│   └── HomeController.php
+├── Metrics
+│   └── Examples
+│       ├── NewDevices.php
+│       ├── NewUsers.php
+│       ├── ProductOrders.php
+│       ├── Sessions.php
+│       ├── Tickets.php
+│       └── TotalUsers.php
+├── bootstrap.php
+└── routes.php
+```
+
+
 
