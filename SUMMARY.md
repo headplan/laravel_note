@@ -250,4 +250,5 @@
   * [Implementing Laravel](laravel-books/implementing-laravel.md)
 * [后台模板](hou-tai-mo-ban.md)
   * [DcatAdmin](hou-tai-mo-ban/dcatadmin.md)
+    * [安装](hou-tai-mo-ban/dcatadmin/an-zhuang.md)
 
