@@ -251,4 +251,5 @@
 * [后台模板](hou-tai-mo-ban.md)
   * [DcatAdmin](hou-tai-mo-ban/dcatadmin.md)
     * [安装](hou-tai-mo-ban/dcatadmin/an-zhuang.md)
+    * [版本升级](hou-tai-mo-ban/dcatadmin/ban-ben-sheng-ji.md)
 
