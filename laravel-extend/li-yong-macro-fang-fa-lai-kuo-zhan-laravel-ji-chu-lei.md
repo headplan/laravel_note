@@ -19,11 +19,11 @@ Route::yo();
 static::$macros[$method]->bindTo($this, static::class)
 ```
 
-其中`bindTo`改变了$this上下文指向的方法 . 
+其中`bindTo`改变了$this上下文指向的方法 .
 
 **服务提供者**
 
-可以创建服务提供者 , 在boot中存放 , Marcoable的扩充类 . 
+可以创建服务提供者 , 在boot中存放 , Marcoable的扩充类 .
 
 **可以使用Marcoable扩展的类**
 

@@ -248,4 +248,6 @@
 * [出版书籍](laravel-books.md#laravel-books)
   * [From Apprentice To Artisan](laravel-books/from-apprentice-to-artisan.md)
   * [Implementing Laravel](laravel-books/implementing-laravel.md)
+* [后台模板](hou-tai-mo-ban.md)
+  * [DcatAdmin](hou-tai-mo-ban/dcatadmin.md)
 
