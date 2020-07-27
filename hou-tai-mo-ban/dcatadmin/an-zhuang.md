@@ -18,17 +18,21 @@
 composer create-project --prefer-dist laravel/laravel 项目名称
 ```
 
-安装完`laravel`之后需要设置数据库连接设置正确 . 
+安装完`laravel`之后需要设置数据库连接设置正确 .
 
 ```
 composer require dcat/laravel-admin
 ```
 
-然后运行下面的命令来发布资源 : 
+然后运行下面的命令来发布资源 :
 
 ```
 php artisan admin:publish
 ```
+
+在该命令会生成配置文`config/admin.php` , 可以在里面修改安装的地址、数据库连接、以及表名 , 建议都是用默认配置不修改 . 
+
+> 执行这一步命令可能会报以下错误`Specified key was too long ... 767 bytes`，如果出现这个报错 , 请在`app/Providers/AppServiceProvider.php`文件的boot方法中加上代码`\Schema::defaultStringLength(191);`，然后删除掉数据库中的所有数据表 , 再重新运行一遍`php artisan admin:install`命令即可 .
 
 
 
