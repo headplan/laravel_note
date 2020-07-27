@@ -68,5 +68,15 @@ app/Admin
 * `app/Admin/Controllers`目录用来存放后台控制器文件 , 该目录下的`HomeController.php`文件是后台首页的显示控制器 , `ExampleController.php`为实例文件
 * `app/Admin/Metrics/Examples`里面存放的是`数据统计卡片(Metric Card)`的示例代码 . 
 
+**静态文件**
 
+后台所需的前端静态文件在`/public/vendor/dcat-admin`目录下 . 
+
+**数据表迁移文件**
+
+对应的数据表迁移文件在`/database/migrations`目录下 . 
+
+**语言包**
+
+语言包文件在`/resources/lang`目录下
 
