@@ -252,4 +252,5 @@
   * [DcatAdmin](hou-tai-mo-ban/dcatadmin.md)
     * [安装](hou-tai-mo-ban/dcatadmin/an-zhuang.md)
     * [版本升级](hou-tai-mo-ban/dcatadmin/ban-ben-sheng-ji.md)
+    * [快速开始](hou-tai-mo-ban/dcatadmin/kuai-su-kai-shi.md)
 
